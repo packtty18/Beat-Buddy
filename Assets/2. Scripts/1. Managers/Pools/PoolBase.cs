@@ -5,8 +5,8 @@ using UnityEngine;
 [Serializable]
 public class TypeObjectPair<TEnum> where TEnum : Enum
 {
-    public TEnum Type;          // Enum 키
-    public GameObject Object;   // 연결할 GameObject
+    public TEnum Type { get; private set; }   
+    public GameObject Object { get; private set; }
 
     public TypeObjectPair(TEnum type, GameObject obj)
     {
@@ -36,7 +36,7 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
     public override void InitPool()
     {
         _poolMap = new Dictionary<TEnum, Queue<GameObject>>();
-        _rootTransform = _rootTransform == null ? transform : _rootTransform; 
+        _rootTransform = _rootTransform ?? transform; 
 
         RegisterPrefabs();
         InitializePools();
@@ -65,16 +65,10 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
     }
 
     //초기 풀 생성
-    private  void InitializePools()
+    private void InitializePools()
     {
         foreach (TEnum type in _prefabMap.Keys)
         {
-            if (!IsPrefabRegistered(type))
-            {
-                Debug.LogError($"{GetType()} : Prefab not found for type: {type}");
-                continue;
-            }
-
             Queue<GameObject> queue = new Queue<GameObject>();
 
             for (int i = 0; i < _poolSize; i++)
@@ -140,6 +134,11 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
         }
 
         GameObject obj = queue.Dequeue();
+        if (obj.TryGetComponent<IPoolable>(out var poolable))
+        {
+            poolable.OnSpawn();
+        }
+
         obj.SetActive(true);
         return obj;
     }
@@ -155,8 +154,13 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
             return;
         }
 
-        Queue<GameObject> queue = _poolMap[type];
         target.SetActive(false);
+        if (target.TryGetComponent<IPoolable>(out var poolable))
+        {
+            poolable.OnDespawn();
+        }
+
+        Queue<GameObject> queue = _poolMap[type];
         queue.Enqueue(target);
     }
 

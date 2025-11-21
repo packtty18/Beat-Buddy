@@ -7,7 +7,7 @@ using UnityEngine;
 public class PoolManager : SimpleSingleton<PoolManager>
 {
     [Header("Pools")]
-    [SerializeField] private PoolBase[] _poolList;
+    private PoolBase[] _poolList;
     private Dictionary<Type, PoolBase> _poolMap;
 
 

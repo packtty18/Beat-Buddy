@@ -8,7 +8,7 @@ public class TestPool : PoolBase<ETestType>
     [SerializeField] private Vector3 _spawnPosition = Vector3.zero;
     [SerializeField] private Quaternion _spawnRotation = Quaternion.identity;
 
-    Queue<TypeObjectPair<ETestType>> last = new Queue<TypeObjectPair<ETestType>>();
+    Queue<TypeObjectPair<ETestType>> _spawnQueue = new Queue<TypeObjectPair<ETestType>>();
 
 
     public void SpawnTestObject()
@@ -16,18 +16,17 @@ public class TestPool : PoolBase<ETestType>
         GameObject obj = GetObject(_testType);
         obj.transform.position = _spawnPosition;
         obj.transform.rotation = _spawnRotation;
-        obj.GetComponent<PoolableTestObject>().OnSpawn();
-        last.Enqueue(new TypeObjectPair<ETestType>(_testType, obj));
+        _spawnQueue.Enqueue(new TypeObjectPair<ETestType>(_testType, obj));
     }
 
     public void ReturnTestObject()
     {
-        if(last.Count == 0)
+        if(_spawnQueue.Count == 0)
         {
             return;
         }
-        TypeObjectPair<ETestType> target = last.Dequeue();
-        target.Object.GetComponent<PoolableTestObject>().OnDespawn();
+        TypeObjectPair<ETestType> target = _spawnQueue.Dequeue();
+        
         ReturnObject(target.Type, target.Object );
     }
 }
