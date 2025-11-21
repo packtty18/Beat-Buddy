@@ -105,56 +105,16 @@ public class SoundManager : SimpleSingleton<SoundManager>
 
         GameObject soundObject = PoolManager.Instance.Spawn<SoundPool, ESoundObject>(ESoundObject.SoundObject);
         var so = soundObject.GetComponent<SoundObject>();
-        so.OnPlay(clip, false);
+        so.OnPlay(clip, false, playTime);
     }
 
-    #region Debug Variables
-    [SerializeField]
-    private ESoundType _debugSelectedType = ESoundType.None;
-    [SerializeField]
-    private bool _debugIsBGM = false;
-    [SerializeField]
-    private bool _debugAutoPlay = false;
-
-    [ContextMenu("Play Debug Sound")]
-    public void PlayDebugSound()
+    public SoundLibrary GetLibrary()
     {
-        if (_library == null)
-        {
-            Debug.LogWarning("[SoundManager Debug] SoundLibrary is missing!");
-            return;
-        }
-
-        if (_debugSelectedType == ESoundType.None)
-        {
-            Debug.LogWarning("[SoundManager Debug] No sound type selected!");
-            return;
-        }
-
-        AudioClip clip = _library.GetClip(_debugSelectedType);
-        if (clip == null)
-        {
-            Debug.LogWarning($"[SoundManager Debug] Clip not found for {_debugSelectedType}");
-            return;
-        }
-
-        if (_debugIsBGM)
-        {
-            // BGM용 사운드 오브젝트 생성 혹은 변경
-            if (_bgmSource == null)
-            {
-                SetBgmSource();
-            }
-            _currentBgm = _debugSelectedType;
-            _bgmSource.OnPlay(clip, true);
-        }
-        else
-        {
-            GameObject soundObject = PoolManager.Instance.Spawn<SoundPool, ESoundObject>(ESoundObject.SoundObject);
-            var so = soundObject.GetComponent<SoundObject>();
-            so.OnPlay(clip, false);
-        }
+        return _library;
     }
-    #endregion
 
+    public SoundObject GetBgmSource()
+    {
+        return _bgmSource;
+    }
 }

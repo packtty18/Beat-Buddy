@@ -1,20 +1,20 @@
 ﻿using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(SoundManager))]
+[CustomEditor(typeof(TestSound))]
 public class TestSoundManagerEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
 
-        SoundManager soundManager = (SoundManager)target;
+        TestSound testSound = (TestSound)target;
 
         GUILayout.Space(10);
 
         if (GUILayout.Button("Play Sound"))
         {
-            soundManager.PlayDebugSound();
+            testSound.PlayDebugSound();
         }
 
     }
