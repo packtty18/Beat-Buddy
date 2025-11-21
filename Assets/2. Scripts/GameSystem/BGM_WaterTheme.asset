@@ -1,0 +1,269 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f950f9babf1d6e548988362fa5b63401, type: 3}
+  m_Name: BGM_WaterTheme
+  m_EditorClassIdentifier: 
+  _bgmName: WaterTheme
+  _bpm: 90
+  _audioClip: {fileID: 8300000, guid: ae714a4f02dc4a6408d3bdfc5bf90a5c, type: 3}
+  _notes:
+  - beat: 0
+    type: 0
+  - beat: 2
+    type: 0
+  - beat: 4
+    type: 1
+  - beat: 6
+    type: 0
+  - beat: 8
+    type: 1
+  - beat: 10
+    type: 1
+  - beat: 12
+    type: 1
+  - beat: 14
+    type: 0
+  - beat: 16
+    type: 1
+  - beat: 18
+    type: 0
+  - beat: 20
+    type: 0
+  - beat: 22
+    type: 0
+  - beat: 24
+    type: 0
+  - beat: 26
+    type: 0
+  - beat: 28
+    type: 1
+  - beat: 30
+    type: 0
+  - beat: 32
+    type: 0
+  - beat: 34
+    type: 1
+  - beat: 36
+    type: 0
+  - beat: 38
+    type: 1
+  - beat: 40
+    type: 1
+  - beat: 42
+    type: 1
+  - beat: 44
+    type: 1
+  - beat: 46
+    type: 1
+  - beat: 48
+    type: 0
+  - beat: 50
+    type: 1
+  - beat: 52
+    type: 0
+  - beat: 54
+    type: 0
+  - beat: 56
+    type: 1
+  - beat: 58
+    type: 0
+  - beat: 60
+    type: 0
+  - beat: 62
+    type: 0
+  - beat: 64
+    type: 1
+  - beat: 66
+    type: 0
+  - beat: 68
+    type: 0
+  - beat: 70
+    type: 1
+  - beat: 72
+    type: 1
+  - beat: 74
+    type: 0
+  - beat: 76
+    type: 1
+  - beat: 78
+    type: 0
+  - beat: 80
+    type: 1
+  - beat: 82
+    type: 0
+  - beat: 84
+    type: 1
+  - beat: 86
+    type: 0
+  - beat: 88
+    type: 1
+  - beat: 90
+    type: 0
+  - beat: 92
+    type: 1
+  - beat: 94
+    type: 0
+  - beat: 96
+    type: 1
+  - beat: 98
+    type: 1
+  - beat: 100
+    type: 1
+  - beat: 102
+    type: 0
+  - beat: 104
+    type: 1
+  - beat: 106
+    type: 0
+  - beat: 108
+    type: 0
+  - beat: 110
+    type: 1
+  - beat: 112
+    type: 0
+  - beat: 114
+    type: 0
+  - beat: 116
+    type: 1
+  - beat: 118
+    type: 0
+  - beat: 120
+    type: 0
+  - beat: 122
+    type: 0
+  - beat: 124
+    type: 1
+  - beat: 126
+    type: 1
+  - beat: 128
+    type: 1
+  - beat: 130
+    type: 0
+  - beat: 132
+    type: 1
+  - beat: 134
+    type: 1
+  - beat: 136
+    type: 1
+  - beat: 138
+    type: 1
+  - beat: 140
+    type: 0
+  - beat: 142
+    type: 1
+  - beat: 144
+    type: 0
+  - beat: 146
+    type: 0
+  - beat: 148
+    type: 0
+  - beat: 150
+    type: 1
+  - beat: 152
+    type: 0
+  - beat: 154
+    type: 0
+  - beat: 156
+    type: 1
+  - beat: 158
+    type: 1
+  - beat: 160
+    type: 1
+  - beat: 162
+    type: 0
+  - beat: 164
+    type: 1
+  - beat: 166
+    type: 1
+  - beat: 168
+    type: 0
+  - beat: 170
+    type: 1
+  - beat: 172
+    type: 0
+  - beat: 174
+    type: 0
+  - beat: 176
+    type: 0
+  - beat: 178
+    type: 0
+  - beat: 180
+    type: 0
+  - beat: 182
+    type: 1
+  - beat: 184
+    type: 0
+  - beat: 186
+    type: 0
+  - beat: 188
+    type: 1
+  - beat: 190
+    type: 0
+  - beat: 192
+    type: 1
+  - beat: 194
+    type: 0
+  - beat: 196
+    type: 0
+  - beat: 198
+    type: 0
+  - beat: 200
+    type: 0
+  - beat: 202
+    type: 1
+  - beat: 204
+    type: 0
+  - beat: 206
+    type: 1
+  - beat: 208
+    type: 1
+  - beat: 210
+    type: 0
+  - beat: 212
+    type: 0
+  - beat: 214
+    type: 1
+  - beat: 216
+    type: 0
+  - beat: 218
+    type: 1
+  - beat: 220
+    type: 0
+  - beat: 222
+    type: 0
+  - beat: 224
+    type: 0
+  - beat: 226
+    type: 1
+  - beat: 228
+    type: 0
+  - beat: 230
+    type: 0
+  - beat: 232
+    type: 1
+  - beat: 234
+    type: 1
+  - beat: 236
+    type: 1
+  - beat: 238
+    type: 0
+  - beat: 240
+    type: 0
+  - beat: 242
+    type: 1
+  - beat: 244
+    type: 1
+  _difficulty: 3
+  _startDelay: 0
+  _startBeat: 0
+  _endBeat: 244
+  _noteInterval: 2
