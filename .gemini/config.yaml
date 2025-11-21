@@ -2,13 +2,10 @@
 
 # Code Analysis Settings
 analysis:
-  # Directories to analyze
   include:
     - "Assets/02.Scripts/**/*.cs"
     - "Assets/Editor/**/*.cs"
     - "Assets/Plugins/**/*.cs"
-  
-  # Directories to exclude
   exclude:
     - "Assets/Plugins/*/Editor/**"
     - "Library/**"
@@ -30,7 +27,6 @@ standards:
       variable: "camelCase"
       private_field: "_camelCase"
       constant: "PascalCase"
-    
     patterns:
       - "Use Unity lifecycle methods appropriately (Awake, Start, Update, etc.)"
       - "Always specify access modifiers for methods (public, private, protected)"
@@ -46,14 +42,12 @@ context:
     - "Unity UI (uGUI)"
     - "Unity Input System"
     - "TextMeshPro"
-  
   common_patterns:
     - "MonoBehaviour components"
     - "ScriptableObject data containers"
     - "Singleton pattern for managers"
     - "Object pooling for performance"
     - "Event-driven architecture"
-  
   best_practices:
     - "Avoid heavy operations in Update()"
     - "Use object pooling for frequently instantiated objects"
@@ -96,3 +90,5 @@ custom_instructions: |
   8. Use PascalCase for constants
   9. Use [SerializeField] only for uGUI components
   10. Provide Korean comments for better understanding (한국어 주석 포함)
+  11. Apply **Scout Rule (보이스카웃 법칙)** **only when modifying existing classes or files**, 
+      not for newly created classes. Clean up and improve code readability in the modified files.
