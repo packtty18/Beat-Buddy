@@ -1,0 +1,2479 @@
+fileFormatVersion: 2
+guid: 1b8b3e29a9da36a44b3f64dc5ade0e99
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: -8343564973487341596
+    second: 1179_0
+  - first:
+      213: -2183261092901786927
+    second: 1179_1
+  - first:
+      213: 6640372673089627127
+    second: 1179_2
+  - first:
+      213: 2947813464833151681
+    second: 1179_3
+  - first:
+      213: -6362760197869095794
+    second: 1179_4
+  - first:
+      213: -8506847956968521928
+    second: 1179_5
+  - first:
+      213: -20640021985229799
+    second: 1179_6
+  - first:
+      213: -511823430964838221
+    second: 1179_7
+  - first:
+      213: -602738018225622129
+    second: 1179_8
+  - first:
+      213: 1606498718989263151
+    second: 1179_9
+  - first:
+      213: -8291425860590963858
+    second: 1179_10
+  - first:
+      213: -4533554994471929843
+    second: 1179_11
+  - first:
+      213: -2629182340236753366
+    second: 1179_12
+  - first:
+      213: 4246840361675169349
+    second: 1179_13
+  - first:
+      213: -1501775480590870435
+    second: 1179_14
+  - first:
+      213: -6405090142829477086
+    second: 1179_15
+  - first:
+      213: -387890035477139921
+    second: 1179_16
+  - first:
+      213: 2794233424628031834
+    second: 1179_17
+  - first:
+      213: -1005939793779706148
+    second: 1179_18
+  - first:
+      213: -2794064639340601273
+    second: 1179_19
+  - first:
+      213: -6508652868554059929
+    second: 1179_20
+  - first:
+      213: -1449295621783754321
+    second: 1179_21
+  - first:
+      213: 1077522017283676061
+    second: 1179_22
+  - first:
+      213: -2498140911715299031
+    second: 1179_23
+  - first:
+      213: -9134963012543495493
+    second: 1179_24
+  - first:
+      213: 8726332109516824089
+    second: 1179_25
+  - first:
+      213: -7086924950648711803
+    second: 1179_26
+  - first:
+      213: -44645155434030227
+    second: 1179_27
+  - first:
+      213: -710092814977314707
+    second: 1179_28
+  - first:
+      213: -6153963680369435526
+    second: 1179_29
+  - first:
+      213: 4257363461726855671
+    second: 1179_30
+  - first:
+      213: 6383423513988619057
+    second: 1179_31
+  - first:
+      213: -6099806282838315988
+    second: 1179_32
+  - first:
+      213: 2478877459977635773
+    second: 1179_33
+  - first:
+      213: 175427740582830038
+    second: 1179_34
+  - first:
+      213: 3722253812818894391
+    second: 1179_35
+  - first:
+      213: -4058020944584958996
+    second: 1179_36
+  - first:
+      213: -3244811491025561341
+    second: 1179_37
+  - first:
+      213: -1040281088675448645
+    second: 1179_38
+  - first:
+      213: -1703819783137883853
+    second: 1179_39
+  - first:
+      213: -6812367576043808829
+    second: 1179_40
+  - first:
+      213: 1264998530411977634
+    second: 1179_41
+  - first:
+      213: -8620450979552110147
+    second: 1179_42
+  - first:
+      213: 584842901984854539
+    second: 1179_43
+  - first:
+      213: -6299197675096932717
+    second: 1179_44
+  - first:
+      213: 1917801672548012985
+    second: 1179_45
+  - first:
+      213: 2771049489357190394
+    second: 1179_46
+  - first:
+      213: 6644601136345639372
+    second: 1179_47
+  - first:
+      213: -9127110775691432796
+    second: 1179_48
+  - first:
+      213: -3941760491094893741
+    second: 1179_49
+  - first:
+      213: 4867191894609495356
+    second: 1179_50
+  - first:
+      213: -9031199329246332849
+    second: 1179_51
+  - first:
+      213: 3893737457524742237
+    second: 1179_52
+  - first:
+      213: 2912252017381673474
+    second: 1179_53
+  - first:
+      213: -219702455025592620
+    second: 1179_54
+  - first:
+      213: 6131380322544851111
+    second: 1179_55
+  - first:
+      213: 3584628462003250014
+    second: 1179_56
+  - first:
+      213: -6405139871060421678
+    second: 1179_57
+  - first:
+      213: 1718074373204390497
+    second: 1179_58
+  - first:
+      213: 4741132008464928512
+    second: 1179_59
+  - first:
+      213: 8645966349282423409
+    second: 1179_60
+  - first:
+      213: 659161440042510461
+    second: 1179_61
+  - first:
+      213: 2054266371959030523
+    second: 1179_62
+  - first:
+      213: -1122177461146024539
+    second: 1179_63
+  - first:
+      213: 6884145846226461635
+    second: 1179_64
+  - first:
+      213: 3241178220011391796
+    second: 1179_65
+  - first:
+      213: -1432427986844120623
+    second: 1179_66
+  - first:
+      213: 7821211393412521261
+    second: 1179_67
+  - first:
+      213: -7724020797934487106
+    second: 1179_68
+  - first:
+      213: 3958354970494406891
+    second: 1179_69
+  - first:
+      213: -531149519467550097
+    second: 1179_70
+  - first:
+      213: -3240869677059753230
+    second: 1179_71
+  - first:
+      213: 1592578310107949273
+    second: 1179_72
+  - first:
+      213: -695314577620326400
+    second: 1179_73
+  - first:
+      213: -4583005731954466855
+    second: 1179_74
+  - first:
+      213: 3711504226316014235
+    second: 1179_75
+  - first:
+      213: 517028508641127486
+    second: 1179_76
+  - first:
+      213: 206504731355480976
+    second: 1179_77
+  - first:
+      213: -1709733722768171116
+    second: 1179_78
+  - first:
+      213: 7810613073572460410
+    second: 1179_79
+  - first:
+      213: -5400211003015774495
+    second: 1179_80
+  - first:
+      213: 3498742568476743415
+    second: 1179_81
+  - first:
+      213: 6297221563619270607
+    second: 1179_82
+  - first:
+      213: 7125803214825437279
+    second: 1179_83
+  - first:
+      213: -733012041885932093
+    second: 1179_84
+  - first:
+      213: 965365916080287352
+    second: 1179_85
+  - first:
+      213: 8920435606999445658
+    second: 1179_86
+  - first:
+      213: -1650852650271217216
+    second: 1179_87
+  - first:
+      213: 4829855499507841783
+    second: 1179_88
+  - first:
+      213: -7275677402472042199
+    second: 1179_89
+  - first:
+      213: 3255921328710705975
+    second: 1179_90
+  - first:
+      213: 5081880941711796872
+    second: 1179_91
+  - first:
+      213: 8377837947570786354
+    second: 1179_92
+  - first:
+      213: -408151937145473448
+    second: 1179_93
+  - first:
+      213: 6059073147947413561
+    second: 1179_94
+  - first:
+      213: 2342138449553662711
+    second: 1179_95
+  - first:
+      213: -1834285633238024482
+    second: 1179_96
+  - first:
+      213: -3083141354172304778
+    second: 1179_97
+  - first:
+      213: -1759792214584436829
+    second: 1179_98
+  - first:
+      213: -3314569747399608962
+    second: 1179_99
+  - first:
+      213: 5893944748706560863
+    second: 1179_100
+  - first:
+      213: -6292789270099354011
+    second: 1179_101
+  - first:
+      213: 8503607286754637097
+    second: 1179_102
+  - first:
+      213: 514269897879683453
+    second: 1179_103
+  - first:
+      213: 8202518465482645319
+    second: 1179_104
+  - first:
+      213: 2212884029407211558
+    second: 1179_105
+  - first:
+      213: -8501657561295715355
+    second: 1179_106
+  - first:
+      213: 5335365714230070495
+    second: 1179_107
+  - first:
+      213: 2532114169385568622
+    second: 1179_108
+  - first:
+      213: 1085905682602323190
+    second: 1179_109
+  - first:
+      213: 648693753749454383
+    second: 1179_110
+  - first:
+      213: -2945508606376746589
+    second: 1179_111
+  - first:
+      213: -8631953374547853711
+    second: 1179_112
+  - first:
+      213: 6432149261166041274
+    second: 1179_113
+  - first:
+      213: 6919348732379929153
+    second: 1179_114
+  - first:
+      213: 5097867799853591295
+    second: 1179_115
+  - first:
+      213: -5420510768765236904
+    second: 1179_116
+  - first:
+      213: 8838669608235254834
+    second: 1179_117
+  - first:
+      213: 6066358523580730383
+    second: 1179_118
+  - first:
+      213: -8442505988907654118
+    second: 1179_119
+  - first:
+      213: 6630584543365757488
+    second: 1179_120
+  - first:
+      213: 2947562760885113875
+    second: 1179_121
+  - first:
+      213: 5436496248450327243
+    second: 1179_122
+  - first:
+      213: -7776193133230618285
+    second: 1179_123
+  - first:
+      213: -8935968275786260045
+    second: 1179_124
+  - first:
+      213: 8202525212097951653
+    second: 1179_125
+  - first:
+      213: 635145190622240993
+    second: 1179_126
+  - first:
+      213: -1369776595469847042
+    second: 1179_127
+  - first:
+      213: -1119038922498810287
+    second: 1179_128
+  - first:
+      213: -3069730515762933093
+    second: 1179_129
+  - first:
+      213: 8065228940867748408
+    second: 1179_130
+  - first:
+      213: -3162093118474437250
+    second: 1179_131
+  - first:
+      213: -6852813805338723118
+    second: 1179_132
+  - first:
+      213: -7325959606649880634
+    second: 1179_133
+  - first:
+      213: -7125126994256259454
+    second: 1179_134
+  - first:
+      213: 4544863565224504796
+    second: 1179_135
+  - first:
+      213: 3587872488360876955
+    second: 1179_136
+  - first:
+      213: -4387733157407793868
+    second: 1179_137
+  - first:
+      213: 1765496818358949294
+    second: 1179_138
+  - first:
+      213: 8418100871967854045
+    second: 1179_139
+  - first:
+      213: 2505581937318011041
+    second: 1179_140
+  - first:
+      213: 8295515266989024410
+    second: 1179_141
+  - first:
+      213: 9029577237488967037
+    second: 1179_142
+  - first:
+      213: -649110551765869928
+    second: 1179_143
+  - first:
+      213: -2180007656429257020
+    second: 1179_144
+  - first:
+      213: -553228133880750303
+    second: 1179_145
+  - first:
+      213: 2302205965848144108
+    second: 1179_146
+  - first:
+      213: -6526967732467776883
+    second: 1179_147
+  - first:
+      213: -3653363847656182368
+    second: 1179_148
+  - first:
+      213: 4892712417273491216
+    second: 1179_149
+  - first:
+      213: 1230275298320022510
+    second: 1179_150
+  - first:
+      213: -6049262714275469504
+    second: 1179_151
+  - first:
+      213: 8202537399854236081
+    second: 1179_152
+  - first:
+      213: -8567288890491967702
+    second: 1179_153
+  - first:
+      213: -4503178418133560529
+    second: 1179_154
+  - first:
+      213: -5133253551422331991
+    second: 1179_155
+  - first:
+      213: 944627928671422083
+    second: 1179_156
+  - first:
+      213: -5518844376036933439
+    second: 1179_157
+  - first:
+      213: -8525389174316222082
+    second: 1179_158
+  - first:
+      213: 6571431656124208286
+    second: 1179_159
+  - first:
+      213: -3044953831786529841
+    second: 1179_160
+  - first:
+      213: 1295066533437208575
+    second: 1179_161
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 8
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d46688df02457c4bbd002d6eb37420f
+      internalID: 1649228470
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d21cbc5e838d9634fb279d92c247b88b
+      internalID: -486641610
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 096889c3fa587454892b4d81268dac3c
+      internalID: -2129116915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad670f0ed944b5a4d8ac8a126271dd27
+      internalID: 1377054928
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a26101918428db940817e09f98c5a957
+      internalID: -493631757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f05264ba355ea184b8cdaac4b1ae1791
+      internalID: -88859644
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1639a25d428929643807a4b5dec0a466
+      internalID: 438233299
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0a0e018054cf2b54a91959acffa7374e
+      internalID: -469716352
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2a5f894f31bc75f4eb1fe93aab9c11a7
+      internalID: 1723619349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_9
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80ee9c9ffa50e6e4ebe777b96506306a
+      internalID: -1850919369
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_10
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8a10d2ced077ea5498a7e28b6739d9ed
+      internalID: 2123306846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_11
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3d376e6adefbe2c469f270a4b6344f5f
+      internalID: -644309025
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_12
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b8e3f378cc6b0cf43b3c27f86cc84701
+      internalID: -951156862
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_13
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9493e6f0433b29449bad5a6c12643989
+      internalID: 2008034949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_14
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67c8b967c6e616040aec4fda8d8f73c4
+      internalID: 1921360282
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_15
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe1d768a517cd344a9b2cee0297fb693
+      internalID: -1411341114
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_16
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 28b44de87e32fc944ab777e4edf39f00
+      internalID: 2103213831
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_17
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7e60650fd6baba4c935c2d9968903c7
+      internalID: -172298874
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_18
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 24e993510bf9eeb4588566808b3fc18f
+      internalID: -1851549949
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_19
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4df37a13ab2f5a47989408d6797fb9a
+      internalID: 1388958503
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_20
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c473fc9aa6836904a857ee59c1d3ce96
+      internalID: -1625911496
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_21
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aea9e3682e3dc104ca416897310e178c
+      internalID: -1147718225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_22
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ff225e02db52e0540b4543598d684669
+      internalID: 784073942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_23
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 075b78744e16c13428c2486b06b568eb
+      internalID: 721134446
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_24
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f05dec0cca4201e4fac5fb660c718b19
+      internalID: -506729636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_25
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3756ce12948314442b219c99d7bf3b27
+      internalID: -189699879
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_26
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e70abed7d4c8484db019b14a73acca2
+      internalID: -430251519
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_27
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4d2cfa18cb7238a429c244b36d898a55
+      internalID: -429041196
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_28
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 91ba3531fc144854dbefc9d7d07129e6
+      internalID: -450822722
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_29
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1568c71faa7992640ab981b0297eba65
+      internalID: -1014736387
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_30
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cffa21fac0e9ada45ba6a7fe9bf22dd9
+      internalID: -833760056
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_31
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1468c444d17aaf34b9c3b7ef68008e10
+      internalID: 28128393
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_32
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 16065098642e6f348a7ffd645c9c0d2e
+      internalID: -1248932322
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_33
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94e8871906392804eaf079e5ab23fe80
+      internalID: -1814430135
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_34
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a6f9208d562b781419301cdaa4f68081
+      internalID: 2008118664
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_35
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5a89a01bc39b7e943a3f87d111bf1088
+      internalID: 1156472899
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 658a45fde16e41946a28c116a5204422
+      internalID: -2111408396
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_37
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e842c1baf08167b46b32721975b44ca6
+      internalID: 895542624
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_38
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 55ab57d371f06774ea86d37bf67a1119
+      internalID: 1935935055
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_39
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82e63b981222f2f439caffa5a2da6684
+      internalID: 1752222564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_40
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: bc675191fc68a0844a296f3058fc275d
+      internalID: 1155689937
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_41
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6d78f12aa477b3c4192d4b1eaaf711b0
+      internalID: -605761733
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_42
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f9e10d0ca882ec74f8e9862b4d08efbe
+      internalID: -2095360490
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_43
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aa3ebb3635ee39e4fa7cce0f5d9e1d56
+      internalID: 1514073151
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_44
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3b16565ae3fa99a4cbcc812e87d7e69a
+      internalID: -166014867
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_45
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc42f9569faa3ad41a6fc2b8cd23c362
+      internalID: 1613073564
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_46
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 949d5d54c84a3f5458e64bd9a61f874c
+      internalID: 1203336074
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_47
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 39903f1135ca7f24d8c00c5c90ca5ab9
+      internalID: -1231172980
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_48
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1199458864cfaa540afbd38af95cfa93
+      internalID: 2013692524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_49
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fb688a7fe44064440a2c43b65c44393e
+      internalID: -1846987680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_50
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 855297f5d7df268419ea4e4d7589c0b1
+      internalID: 126862663
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_51
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea299514f584c1341857fcf9e45b05d7
+      internalID: -2126679766
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_52
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a39e5fb4317e1ec46b2278a7bbca86d8
+      internalID: -67336028
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_53
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 19a03b4ce1454c64eb39e96ecab0f2ea
+      internalID: -1276622807
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_54
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ab1a29d2f10f79499a9e9a15521a699
+      internalID: -49176535
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_55
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0417dc1105a241d489eaa656bf744d98
+      internalID: 521917523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_56
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e2471f0ae31169348ae9cd1f862c428a
+      internalID: 1466844680
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_57
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 15a6a60c078b58d4db26fadd5bbbce3a
+      internalID: -171556079
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_58
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1bff2e2d79d15e0449f241ae25636f70
+      internalID: -2071795284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_59
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 056d3a31a9d09c84f903cdda6fb09ffd
+      internalID: 630111119
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_60
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 82c6b892096c0924c90c6161c51d3ee2
+      internalID: 503813000
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_61
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 29ff886bf0a088749a792493b4e83a3e
+      internalID: 2031135267
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_62
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a828fcc51ea6b2640bd9349d44cf2c15
+      internalID: -166788465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_63
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07614f3d2284e01459257eb4e48069af
+      internalID: -741105091
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_64
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee05e0f5cfac5754fb46685fbf63c713
+      internalID: 1256488898
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_65
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6546b2da4bb62854c90e8e27edd79cc4
+      internalID: 987921080
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_66
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 786cb97de32eab542aa5fa7078d75187
+      internalID: 314661408
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_67
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 68d7b434e58276245a674fb0fa9b38fc
+      internalID: -977426082
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_68
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: de968c97b5a28024ba6cfbed1275c4ce
+      internalID: -1937723988
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_69
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: be8b589e8e832e9488bd6b73c266f743
+      internalID: 1861530395
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_70
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 615b813d05af78c4e813d5f1250cfe33
+      internalID: 489948746
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_71
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 65f7769dce1a2e0448c439413f5c5f22
+      internalID: -2068387643
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6cf2a4c331a341f4bb02e3920f8f68a1
+      internalID: -397609302
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_73
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 84daa7ab387266f44bed6f49538d9dc1
+      internalID: -1357848342
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_74
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad29a005abba50e408c9ea22da52ed02
+      internalID: -600897851
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_75
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fabb26d78887d554f8d29f9d1558a189
+      internalID: 350679857
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_76
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 80891a0fbd696234b832323a5abf8164
+      internalID: 485780681
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_77
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1ccc3898fcd21c747868dbdb4856be56
+      internalID: 1062785149
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_78
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 40ded7da2bfc39943b77cbcd42a67c7c
+      internalID: 1512748029
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_79
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4dddc3f5ba2f8d74296e659e3896b9c1
+      internalID: 1607457534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireSmallBurnEffect_80
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc552236cae5a1c4eaee0ef3a68633cc
+      internalID: -1343611284
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 654f7514992d96c46b192125fad43b34
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FireSmallBurnEffect_0: 1649228470
+      FireSmallBurnEffect_1: -486641610
+      FireSmallBurnEffect_10: 2123306846
+      FireSmallBurnEffect_11: -644309025
+      FireSmallBurnEffect_12: -951156862
+      FireSmallBurnEffect_13: 2008034949
+      FireSmallBurnEffect_14: 1921360282
+      FireSmallBurnEffect_15: -1411341114
+      FireSmallBurnEffect_16: 2103213831
+      FireSmallBurnEffect_17: -172298874
+      FireSmallBurnEffect_18: -1851549949
+      FireSmallBurnEffect_19: 1388958503
+      FireSmallBurnEffect_2: -2129116915
+      FireSmallBurnEffect_20: -1625911496
+      FireSmallBurnEffect_21: -1147718225
+      FireSmallBurnEffect_22: 784073942
+      FireSmallBurnEffect_23: 721134446
+      FireSmallBurnEffect_24: -506729636
+      FireSmallBurnEffect_25: -189699879
+      FireSmallBurnEffect_26: -430251519
+      FireSmallBurnEffect_27: -429041196
+      FireSmallBurnEffect_28: -450822722
+      FireSmallBurnEffect_29: -1014736387
+      FireSmallBurnEffect_3: 1377054928
+      FireSmallBurnEffect_30: -833760056
+      FireSmallBurnEffect_31: 28128393
+      FireSmallBurnEffect_32: -1248932322
+      FireSmallBurnEffect_33: -1814430135
+      FireSmallBurnEffect_34: 2008118664
+      FireSmallBurnEffect_35: 1156472899
+      FireSmallBurnEffect_36: -2111408396
+      FireSmallBurnEffect_37: 895542624
+      FireSmallBurnEffect_38: 1935935055
+      FireSmallBurnEffect_39: 1752222564
+      FireSmallBurnEffect_4: -493631757
+      FireSmallBurnEffect_40: 1155689937
+      FireSmallBurnEffect_41: -605761733
+      FireSmallBurnEffect_42: -2095360490
+      FireSmallBurnEffect_43: 1514073151
+      FireSmallBurnEffect_44: -166014867
+      FireSmallBurnEffect_45: 1613073564
+      FireSmallBurnEffect_46: 1203336074
+      FireSmallBurnEffect_47: -1231172980
+      FireSmallBurnEffect_48: 2013692524
+      FireSmallBurnEffect_49: -1846987680
+      FireSmallBurnEffect_5: -88859644
+      FireSmallBurnEffect_50: 126862663
+      FireSmallBurnEffect_51: -2126679766
+      FireSmallBurnEffect_52: -67336028
+      FireSmallBurnEffect_53: -1276622807
+      FireSmallBurnEffect_54: -49176535
+      FireSmallBurnEffect_55: 521917523
+      FireSmallBurnEffect_56: 1466844680
+      FireSmallBurnEffect_57: -171556079
+      FireSmallBurnEffect_58: -2071795284
+      FireSmallBurnEffect_59: 630111119
+      FireSmallBurnEffect_6: 438233299
+      FireSmallBurnEffect_60: 503813000
+      FireSmallBurnEffect_61: 2031135267
+      FireSmallBurnEffect_62: -166788465
+      FireSmallBurnEffect_63: -741105091
+      FireSmallBurnEffect_64: 1256488898
+      FireSmallBurnEffect_65: 987921080
+      FireSmallBurnEffect_66: 314661408
+      FireSmallBurnEffect_67: -977426082
+      FireSmallBurnEffect_68: -1937723988
+      FireSmallBurnEffect_69: 1861530395
+      FireSmallBurnEffect_7: -469716352
+      FireSmallBurnEffect_70: 489948746
+      FireSmallBurnEffect_71: -2068387643
+      FireSmallBurnEffect_72: -397609302
+      FireSmallBurnEffect_73: -1357848342
+      FireSmallBurnEffect_74: -600897851
+      FireSmallBurnEffect_75: 350679857
+      FireSmallBurnEffect_76: 485780681
+      FireSmallBurnEffect_77: 1062785149
+      FireSmallBurnEffect_78: 1512748029
+      FireSmallBurnEffect_79: 1607457534
+      FireSmallBurnEffect_8: 1723619349
+      FireSmallBurnEffect_80: -1343611284
+      FireSmallBurnEffect_9: -1850919369
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
