@@ -10,6 +10,7 @@ public class PoolManager : SimpleSingleton<PoolManager>
     [SerializeField] private PoolBase[] _poolList;
     private Dictionary<Type, PoolBase> _poolMap;
 
+
     protected override void Awake()
     {
         base.Awake();
@@ -30,12 +31,13 @@ public class PoolManager : SimpleSingleton<PoolManager>
             Type type = pool.GetType();
             if (!_poolMap.ContainsKey(type))
             {
+                pool.InitPool();
                 _poolMap.Add(type, pool);
             }
         }
     }
 
-    public T GetPool<T>() where T : PoolBase
+    private T GetPool<T>() where T : PoolBase
     {
         Type key = typeof(T);
         if (_poolMap.TryGetValue(key, out PoolBase value))
@@ -47,4 +49,42 @@ public class PoolManager : SimpleSingleton<PoolManager>
         return null;
     }
 
+    public GameObject Spawn<TPool, TEnum>(TEnum type)
+        where TPool : PoolBase<TEnum>
+        where TEnum : Enum
+    {
+        // Pool 가져오기
+        TPool pool = GetPool<TPool>();
+        if (pool == null)
+        {
+            Debug.LogError($"PoolManager: {typeof(TPool).Name} not found in scene!");
+            return null;
+        }
+
+        // 풀에서 오브젝트 가져오기
+        return pool.GetObject(type);
+    }
+
+    /// <summary>
+    /// PoolManager에서 특정 Enum 타입 풀로 바로 Despawn
+    /// </summary>
+    public void Despawn<TPool, TEnum>(TEnum type, GameObject obj)
+        where TPool : PoolBase<TEnum>
+        where TEnum : Enum
+    {
+        if (obj == null)
+        {
+            Debug.LogWarning("[PoolManager] Object is null, cannot despawn.");
+            return;
+        }
+
+        TPool pool = GetPool<TPool>();
+        if (pool == null)
+        {
+            Debug.LogError($"PoolManager: {typeof(TPool).Name} not found in scene!");
+            return;
+        }
+
+        pool.ReturnObject(type, obj);
+    }
 }

@@ -49,7 +49,7 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
     }
 
     //_registPrefabList에 등록된 타입과 프리팹으로 딕셔너리에 키값 쌍으로 연결
-    protected void RegisterPrefabs()
+    private void RegisterPrefabs()
     {
         _prefabMap = new Dictionary<TEnum, GameObject>();
         foreach (var item in _registPrefabList)
@@ -71,7 +71,7 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
     }
 
     //초기 풀 생성
-    protected virtual void InitializePools()
+    private  void InitializePools()
     {
         foreach (TEnum type in _prefabMap.Keys)
         {
@@ -93,7 +93,7 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
     }
 
     //유일한 Instantiate로 인스턴스화
-    protected virtual GameObject CreateInstance(TEnum type)
+    private GameObject CreateInstance(TEnum type)
     {
         GameObject obj = Instantiate(_prefabMap[type]);
         obj.SetActive(false);
@@ -112,7 +112,7 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
     }
 
 
-    protected void ResizePool(TEnum type)
+    private void ResizePool(TEnum type)
     {
         int additionalSize = Mathf.Max(_poolSize, 1);
         Queue<GameObject> queue = _poolMap[type];
