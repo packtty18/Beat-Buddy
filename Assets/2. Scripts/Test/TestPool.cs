@@ -8,7 +8,7 @@ public class TestPool : PoolBase<ETestType>
     [SerializeField] private Vector3 _spawnPosition = Vector3.zero;
     [SerializeField] private Quaternion _spawnRotation = Quaternion.identity;
 
-    Queue<TypeObjectPair<ETestType>> last = new Queue<TypeObjectPair<ETestType>>();;
+    Queue<TypeObjectPair<ETestType>> last = new Queue<TypeObjectPair<ETestType>>();
 
 
     public void SpawnTestObject()
