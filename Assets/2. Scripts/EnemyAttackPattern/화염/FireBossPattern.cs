@@ -12,12 +12,13 @@ public enum EFirePatternType
 public class FireBossPattern : MonoBehaviour
 {
     [Header ("Pattern Prefabs")]
-    [SerializeField] private GameObject _screenObscuringPrefab;
+    [SerializeField] private GameObject[] _firePatternPrefab;
     private GameObject _currentObscuringEffect;
 
+    [Header ("CoolTime")]
     private float _currentTimer = 0f;
-    private float _cooldownTimer = 2f;
-    private float _finishTimer = 5f;
+    private float _cooldownTimer = 1f;
+    private float _finishTimer = 4f;
 
 
     void Update()
@@ -38,13 +39,14 @@ public class FireBossPattern : MonoBehaviour
 
     public void ShowScreenObscuringEffect()
     {
-        if (_screenObscuringPrefab != null && _currentObscuringEffect == null)
+        if (_firePatternPrefab != null && _currentObscuringEffect == null)
         {
-            _currentObscuringEffect = Instantiate(_screenObscuringPrefab, transform);
+            _currentObscuringEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireStart], transform);
+            _currentObscuringEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.Breath], transform);
             FadeInOutEffect fadeInOutAnimation = _currentObscuringEffect.GetComponent<FadeInOutEffect>();
             fadeInOutAnimation.PlayShowAnimation();
         }
-        else if (_screenObscuringPrefab == null)
+        else if (_firePatternPrefab == null)
         {
             Debug.LogWarning("화면을 가릴 프리팹이 할당되지 않았습니다.");
         }
