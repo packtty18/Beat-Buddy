@@ -4,8 +4,6 @@
 analysis:
   include:
     - "Assets/2. Scripts/**/*.cs"
-    - "Assets/Editor/**/*.cs"
-    - "Assets/Plugins/**/*.cs"
   exclude:
     - "Assets/Plugins/*/Editor/**"
     - "Library/**"
