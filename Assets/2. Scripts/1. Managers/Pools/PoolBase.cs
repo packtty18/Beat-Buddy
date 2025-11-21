@@ -5,6 +5,8 @@ using UnityEngine;
 [Serializable]
 public class TypeObjectPair<TEnum> where TEnum : Enum
 {
+    [SerializeField] private TEnum type;
+    [SerializeField] private GameObject obj;
     public TEnum Type { get; private set; }   
     public GameObject Object { get; private set; }
 
