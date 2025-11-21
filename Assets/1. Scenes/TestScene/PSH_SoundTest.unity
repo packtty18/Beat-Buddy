@@ -150,6 +150,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _library: {fileID: 11400000, guid: 26a7779ce26d65d4cb57c4fe5865309c, type: 2}
+  _initialBgmType: 1
+  _bgmObject: {fileID: 0}
   _bgmObjectName: BGM
 --- !u!114 &29215906
 MonoBehaviour:
@@ -438,11 +440,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 45269375eb8892241a7fd849e8913a04, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rootTransform: {fileID: 0}
   _poolSize: 10
   _registPrefabList:
   - _type: 0
-    _obj: {fileID: 4337204830834697453, guid: 2f65d446012b27f4490cd9cafeb6eb9d, type: 3}
+    _prefab: {fileID: 4337204830834697453, guid: 2f65d446012b27f4490cd9cafeb6eb9d, type: 3}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
