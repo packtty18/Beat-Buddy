@@ -1,7 +1,6 @@
 ﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 [Serializable]
 public class TypeObjectPair<TEnum> where TEnum : Enum
@@ -32,11 +31,6 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
 
     protected Dictionary<TEnum, GameObject> _prefabMap;
     protected Dictionary<TEnum, Queue<GameObject>> _poolMap;
-
-    protected virtual void Awake()
-    {
-        InitPool();
-    }
 
     //해당 풀 초기화
     public override void InitPool()
@@ -122,7 +116,7 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
             queue.Enqueue(CreateInstance(type));
         }
 
-        Debug.Log($"[FactoryBase] Pool resized for {type} in {GetType().Name}");
+        Debug.Log($"[Poolbase] Pool resized for {type} in {GetType().Name}");
     }
 
 
@@ -146,7 +140,8 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
         }
 
         GameObject obj = queue.Dequeue();
-        return obj.gameObject;
+        obj.SetActive(true);
+        return obj;
     }
 
     /// <summary>
@@ -157,9 +152,11 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
         if (!IsTypeContainedInPoolMap(type))
         {
             Debug.LogError($"Pool not found for type: {type}");
+            return;
         }
 
         Queue<GameObject> queue = _poolMap[type];
+        target.SetActive(false);
         queue.Enqueue(target);
     }
 
