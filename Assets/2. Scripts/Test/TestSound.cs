@@ -14,7 +14,7 @@ public class TestSound : MonoBehaviour
     [ContextMenu("Play Debug Sound")]
     public void PlayDebugSound()
     {
-        SoundLibrary library = SoundManager.Instance.GetLibrary();
+        SoundLibrarySO library = SoundManager.Instance.GetLibrary();
         if (library == null)
         {
             Debug.LogWarning("[SoundManager Debug] SoundLibrary is missing!");

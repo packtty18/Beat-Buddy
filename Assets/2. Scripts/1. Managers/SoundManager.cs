@@ -13,7 +13,7 @@ public enum ESoundType
 public class SoundManager : SimpleSingleton<SoundManager>
 {
     [Header("사운드 라이브러리 추가")]
-    [SerializeField] private SoundLibrary _library;
+    [SerializeField] private SoundLibrarySO _library;
 
     [Header("BGM Settings")]
     [SerializeField] private string _bgmObjectName = "BGM";
@@ -110,7 +110,7 @@ public class SoundManager : SimpleSingleton<SoundManager>
         so.OnPlay(clip, false, playTime);
     }
 
-    public SoundLibrary GetLibrary()
+    public SoundLibrarySO GetLibrary()
     {
         return _library;
     }

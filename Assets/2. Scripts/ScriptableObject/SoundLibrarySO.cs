@@ -10,7 +10,7 @@ public class SoundEntry
 }
 
 [CreateAssetMenu(fileName = "SoundLibrary", menuName = "SO/SoundLibrary")]
-public class SoundLibrary : ScriptableObject
+public class SoundLibrarySO : ScriptableObject
 {
     [SerializeField] private List<SoundEntry> _soundList = new List<SoundEntry>();
     private Dictionary<ESoundType, AudioClip> _soundMap;
