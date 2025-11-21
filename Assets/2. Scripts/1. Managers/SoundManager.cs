@@ -18,13 +18,17 @@ public class SoundManager : SimpleSingleton<SoundManager>
     [Header("BGM Settings")]
     [SerializeField] private string _bgmObjectName = "BGM";
     private SoundObject _bgmSource;
-    private ESoundType _currentBgm = ESoundType.None;
 
 
     protected override void Awake()
     {
         base.Awake();
 
+        Init();
+    }
+
+    public void Init()
+    {
         if (_library == null)
         {
             Debug.LogError("SoundManager: SoundLibrary reference is missing!");
@@ -57,7 +61,7 @@ public class SoundManager : SimpleSingleton<SoundManager>
     }
 
 
-    public void PlayBGM(ESoundType bgmType)
+    public void PlayBGM(ESoundType bgmType , float playTime = 0)
     {
         if (_library == null)
         {
@@ -76,21 +80,19 @@ public class SoundManager : SimpleSingleton<SoundManager>
             return;
         }
 
-        _currentBgm = bgmType;
         Debug.Log($"[SoundManager] PlayBGM requested: {bgmType}");
 
-        _bgmSource.OnPlay(clip, true);
+        _bgmSource.OnPlay(clip, true, playTime);
     }
 
     public void StopBGM()
     {
         _bgmSource.StopPlay();
-        _currentBgm = ESoundType.None;
     }
 
 
 
-    public void PlaySFX(ESoundType type)
+    public void PlaySFX(ESoundType type, float playTime = 0)
     {
         if (_library == null)
         {

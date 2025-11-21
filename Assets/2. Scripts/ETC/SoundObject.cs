@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
@@ -35,36 +36,51 @@ public class SoundObject : MonoBehaviour, IPoolable
         }
     }
 
-    public void OnPlay(AudioClip clip, bool isBgm, float playTime = 0)
+    public void OnPlay(AudioClip clip, bool isBgm, float playTime = 0f)
     {
+        if (clip == null)
+        {
+            Debug.LogWarning("[SoundObject] OnPlay called with null clip.");
+            return;
+        }
+
         _audio.clip = clip;
         _audio.loop = isBgm;
         _audio.Play();
-        if (!isBgm)
-        {
-            StartCoroutine(AutoDespawn(clip.length));
 
-        }
-        else if (playTime > 0)
+        float duration = GetPlayDuration(clip, isBgm, playTime);
+
+        if (duration > 0f)
         {
-            StartCoroutine(AutoDespawn(playTime));
+            StartCoroutine(Wait(duration, isBgm ? StopPlay : DespawnObject));
         }
     }
 
-    public void StopPlay(bool autoDespawn = false)
+    private float GetPlayDuration(AudioClip clip, bool isBgm, float playTime)
+    {
+        if (playTime > 0f)
+        {
+            return isBgm ? playTime : Mathf.Min(playTime, clip.length);
+        }
+
+        return isBgm ? 0f : clip.length; // BGM은 loop이므로 Wait 필요 없음
+    }
+
+    private IEnumerator Wait(float duration, Action callback)
+    {
+        yield return new WaitForSeconds(duration);
+        callback?.Invoke();
+    }
+
+
+    public void StopPlay()
     {
         _audio.Stop();
-
-        if(autoDespawn)
-        {
-            PoolManager.Instance.Despawn<SoundPool, ESoundObject>(ESoundObject.SoundObject, gameObject);
-        }
     }
 
 
-    private IEnumerator AutoDespawn(float delay)
+    private void DespawnObject()
     {
-        yield return new WaitForSeconds(Mathf.Max(0f, delay));
         PoolManager.Instance.Despawn<SoundPool, ESoundObject>(ESoundObject.SoundObject, gameObject);
     }
 }
