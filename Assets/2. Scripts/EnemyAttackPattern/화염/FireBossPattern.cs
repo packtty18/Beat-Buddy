@@ -17,31 +17,35 @@ public class FireBossPattern : MonoBehaviour
 
     [Header ("CoolTime")]
     private float _currentTimer = 0f;
-    private float _cooldownTimer = 1f;
-    private float _finishTimer = 4f;
+    private float _finishTimer = 3f;
+
+    [Header("Animator")]
+    private Animator _animator;
+
+    [Header("CoroutineOption")]
+    private bool _isCoroutineRunning = false;
 
 
     void Update()
     {
         _currentTimer += Time.deltaTime;
 
+        if (_isCoroutineRunning) return;
+
         if (_currentTimer >= _finishTimer)
         {
             HideScreenObscuringEffect();
             return;
         }
-
-        if (_currentTimer >= _cooldownTimer)
-        {
-            ShowScreenObscuringEffect();
-        }
+        StartCoroutine(StartAttackAnimation());
     }
 
     public void ShowScreenObscuringEffect()
     {
+        _isCoroutineRunning = false;
+
         if (_firePatternPrefab != null && _currentObscuringEffect == null)
         {
-            _currentObscuringEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireStart], transform);
             _currentObscuringEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.Breath], transform);
             FadeInOutEffect fadeInOutAnimation = _currentObscuringEffect.GetComponent<FadeInOutEffect>();
             fadeInOutAnimation.PlayShowAnimation();
@@ -61,5 +65,27 @@ public class FireBossPattern : MonoBehaviour
             _currentObscuringEffect = null;
             _currentTimer = 0f;
         }
+    }
+
+    private IEnumerator StartAttackAnimation()
+    {
+        _isCoroutineRunning = true;
+
+        yield return StartCoroutine(FireStartAnimation());
+
+        ShowScreenObscuringEffect();
+    }
+
+
+    private IEnumerator FireStartAnimation()
+    {
+        _currentObscuringEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireStart], transform);
+        _animator = _currentObscuringEffect.GetComponent<Animator>();
+
+        AnimatorStateInfo info = _animator.GetCurrentAnimatorStateInfo(0);
+        float length = info.length;
+        yield return new WaitForSeconds(length);
+
+        Destroy(_currentObscuringEffect);
     }
 }
