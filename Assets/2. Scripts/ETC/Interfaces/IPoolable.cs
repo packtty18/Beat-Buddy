@@ -2,7 +2,9 @@
 
 public interface IPoolable
 {
-    void OnSpawn();  //활성화 시
+    //활성화 시 호출되는 메서드
+    void OnSpawn();
 
-    void OnDespawn();//비활성화 시
+    //비활성화 시 호출하는 메서드
+    void OnDespawn();
 }
