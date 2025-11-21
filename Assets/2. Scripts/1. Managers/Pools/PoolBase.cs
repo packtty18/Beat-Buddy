@@ -3,17 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class TypeObjectPair<TEnum> where TEnum : Enum
+public class TypePrefabPair<TEnum> where TEnum : Enum
 {
     [SerializeField] private TEnum _type;
-    [SerializeField] private GameObject _obj;
+    [SerializeField] private GameObject _prefab;
     public TEnum Type => _type;
-    public GameObject Object => _obj;
+    public GameObject Prefab => _prefab;
 
-    public TypeObjectPair(TEnum type, GameObject obj)
+    public TypePrefabPair(TEnum type, GameObject prefab)
     {
         _type = type;
-        _obj = obj;
+        _prefab = prefab;
     }
 }
 
@@ -22,14 +22,14 @@ public abstract class PoolBase : MonoBehaviour
     public abstract void InitPool();
 }
 
-//팩토리의 베이스
-public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
+public abstract class PoolBase<TEnum> : PoolBase 
+    where TEnum : Enum
 {
-    [SerializeField] protected Transform _rootTransform;
+    protected Transform _rootTransform;
 
     [Header("Pooling")]
     [SerializeField] protected int _poolSize = 10;
-    [SerializeField] protected List<TypeObjectPair<TEnum>> _registPrefabList = new List<TypeObjectPair<TEnum>>();
+    [SerializeField] protected List<TypePrefabPair<TEnum>> _registPrefabList = new List<TypePrefabPair<TEnum>>();
 
     protected Dictionary<TEnum, GameObject> _prefabMap;
     protected Dictionary<TEnum, Queue<GameObject>> _poolMap;
@@ -38,8 +38,8 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
     public override void InitPool()
     {
         _poolMap = new Dictionary<TEnum, Queue<GameObject>>();
-        _rootTransform = _rootTransform == null ? transform : _rootTransform; 
-
+        //_rootTransform = _rootTransform == null ? transform : _rootTransform; 
+        _rootTransform = _rootTransform ?? transform;
         RegisterPrefabs();
         InitializePools();
     }
@@ -50,14 +50,14 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
         _prefabMap = new Dictionary<TEnum, GameObject>();
         foreach (var item in _registPrefabList)
         {
-            if (item.Object == null)
+            if (item.Prefab == null)
             {
                 continue;
             }
 
             if (!_prefabMap.ContainsKey(item.Type))
             {
-                _prefabMap.Add(item.Type, item.Object);
+                _prefabMap.Add(item.Type, item.Prefab);
             }
             else
             {

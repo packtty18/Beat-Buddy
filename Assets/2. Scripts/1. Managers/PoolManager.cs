@@ -71,7 +71,7 @@ public class PoolManager : SimpleSingleton<PoolManager>
     {
         if (obj == null)
         {
-            Debug.LogWarning("[PoolManager] Object is null, cannot despawn.");
+            Debug.LogWarning("[PoolManager] Prefab is null, cannot despawn.");
             return;
         }
 

@@ -55,7 +55,7 @@ public class SoundManager : SimpleSingleton<SoundManager>
             _bgmSource = _bgmObject.GetComponent<SoundObject>();
         }
 
-        AudioClip targetAudio = _library.GetClip(ESoundType.BGM1);
+        AudioClip targetAudio = _library.GetClip(_initialBgmType);
         if (targetAudio != null)
         {
             _bgmSource.OnPlay(targetAudio, true);
@@ -108,15 +108,20 @@ public class SoundManager : SimpleSingleton<SoundManager>
             return;
         }
 
-        GameObject soundObject = PoolManager.Instance.Spawn<SoundPool, ESoundObject>(ESoundObject.SoundObject);
-        var so = soundObject.GetComponent<SoundObject>();
-
-        so.OnPlaybackFinished = () =>
+        if(!PoolManager.IsManagerExist())
         {
-            PoolManager.Instance.Despawn<SoundPool, ESoundObject>(ESoundObject.SoundObject, soundObject);
+            return;
+        }
+        PoolManager pool = PoolManager.Instance;
+        GameObject poolObject = pool.Spawn<SoundPool, ESoundObject>(ESoundObject.SoundObject);
+        SoundObject SoundObject = poolObject.GetComponent<SoundObject>();
+
+        SoundObject.OnPlaybackFinished = () =>
+        {
+            pool.Despawn<SoundPool, ESoundObject>(ESoundObject.SoundObject, poolObject);
         };
 
-        so.OnPlay(clip, false);
+        SoundObject.OnPlay(clip, false, playTime);
 
     }
 }

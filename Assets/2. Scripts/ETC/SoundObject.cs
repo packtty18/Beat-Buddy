@@ -37,6 +37,8 @@ public class SoundObject : MonoBehaviour, IPoolable
 
     public void OnPlay(AudioClip clip, bool isBgm, float playTime = 0f)
     {
+        StopLifetimeRoutine();
+
         if (clip == null)
         {
             Debug.LogWarning("[SoundObject] OnPlay called with null clip.");

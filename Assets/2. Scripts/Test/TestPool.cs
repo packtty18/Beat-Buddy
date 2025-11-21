@@ -8,7 +8,7 @@ public class TestPool : PoolBase<ETestType>
     [SerializeField] private Vector3 _spawnPosition = Vector3.zero;
     [SerializeField] private Quaternion _spawnRotation = Quaternion.identity;
 
-    Queue<TypeObjectPair<ETestType>> _spawnQueue = new Queue<TypeObjectPair<ETestType>>();
+    Queue<TypePrefabPair<ETestType>> _spawnQueue = new Queue<TypePrefabPair<ETestType>>();
 
 
     public void SpawnTestObject()
@@ -16,7 +16,7 @@ public class TestPool : PoolBase<ETestType>
         GameObject obj = GetObject(_testType);
         obj.transform.position = _spawnPosition;
         obj.transform.rotation = _spawnRotation;
-        _spawnQueue.Enqueue(new TypeObjectPair<ETestType>(_testType, obj));
+        _spawnQueue.Enqueue(new TypePrefabPair<ETestType>(_testType, obj));
     }
 
     public void ReturnTestObject()
@@ -25,8 +25,8 @@ public class TestPool : PoolBase<ETestType>
         {
             return;
         }
-        TypeObjectPair<ETestType> target = _spawnQueue.Dequeue();
+        TypePrefabPair<ETestType> target = _spawnQueue.Dequeue();
         
-        ReturnObject(target.Type, target.Object );
+        ReturnObject(target.Type, target.Prefab );
     }
 }
