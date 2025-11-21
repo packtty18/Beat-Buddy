@@ -1,0 +1,817 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f950f9babf1d6e548988362fa5b63401, type: 3}
+  m_Name: BGM_EsperTheme
+  m_EditorClassIdentifier: 
+  _bgmName: WaterTheme
+  _bpm: 94
+  _audioClip: {fileID: 8300000, guid: 84ead80dd766f334f8929f3f53e90e6f, type: 3}
+  _notes:
+  - beat: 0
+    type: 0
+  - beat: 0.5
+    type: 0
+  - beat: 1
+    type: 0
+  - beat: 1.5
+    type: 0
+  - beat: 2
+    type: 1
+  - beat: 2.5
+    type: 1
+  - beat: 3
+    type: 0
+  - beat: 3.5
+    type: 0
+  - beat: 4
+    type: 0
+  - beat: 4.5
+    type: 1
+  - beat: 5
+    type: 0
+  - beat: 5.5
+    type: 0
+  - beat: 6
+    type: 1
+  - beat: 6.5
+    type: 1
+  - beat: 7
+    type: 0
+  - beat: 7.5
+    type: 0
+  - beat: 8
+    type: 1
+  - beat: 8.5
+    type: 1
+  - beat: 9
+    type: 1
+  - beat: 9.5
+    type: 1
+  - beat: 10
+    type: 0
+  - beat: 10.5
+    type: 0
+  - beat: 11
+    type: 0
+  - beat: 11.5
+    type: 0
+  - beat: 12
+    type: 1
+  - beat: 12.5
+    type: 0
+  - beat: 13
+    type: 1
+  - beat: 13.5
+    type: 0
+  - beat: 14
+    type: 1
+  - beat: 14.5
+    type: 0
+  - beat: 15
+    type: 1
+  - beat: 15.5
+    type: 0
+  - beat: 16
+    type: 0
+  - beat: 16.5
+    type: 0
+  - beat: 17
+    type: 1
+  - beat: 17.5
+    type: 1
+  - beat: 18
+    type: 1
+  - beat: 18.5
+    type: 0
+  - beat: 19
+    type: 0
+  - beat: 19.5
+    type: 1
+  - beat: 20
+    type: 1
+  - beat: 20.5
+    type: 1
+  - beat: 21
+    type: 1
+  - beat: 21.5
+    type: 0
+  - beat: 22
+    type: 0
+  - beat: 22.5
+    type: 0
+  - beat: 23
+    type: 0
+  - beat: 23.5
+    type: 1
+  - beat: 24
+    type: 0
+  - beat: 24.5
+    type: 0
+  - beat: 25
+    type: 1
+  - beat: 25.5
+    type: 0
+  - beat: 26
+    type: 1
+  - beat: 26.5
+    type: 0
+  - beat: 27
+    type: 0
+  - beat: 27.5
+    type: 1
+  - beat: 28
+    type: 0
+  - beat: 28.5
+    type: 1
+  - beat: 29
+    type: 0
+  - beat: 29.5
+    type: 1
+  - beat: 30
+    type: 1
+  - beat: 30.5
+    type: 0
+  - beat: 31
+    type: 0
+  - beat: 31.5
+    type: 0
+  - beat: 32
+    type: 1
+  - beat: 32.5
+    type: 1
+  - beat: 33
+    type: 0
+  - beat: 33.5
+    type: 1
+  - beat: 34
+    type: 0
+  - beat: 34.5
+    type: 1
+  - beat: 35
+    type: 1
+  - beat: 35.5
+    type: 0
+  - beat: 36
+    type: 0
+  - beat: 36.5
+    type: 1
+  - beat: 37
+    type: 0
+  - beat: 37.5
+    type: 1
+  - beat: 38
+    type: 0
+  - beat: 38.5
+    type: 1
+  - beat: 39
+    type: 1
+  - beat: 39.5
+    type: 1
+  - beat: 40
+    type: 1
+  - beat: 40.5
+    type: 0
+  - beat: 41
+    type: 0
+  - beat: 41.5
+    type: 0
+  - beat: 42
+    type: 0
+  - beat: 42.5
+    type: 1
+  - beat: 43
+    type: 1
+  - beat: 43.5
+    type: 0
+  - beat: 44
+    type: 1
+  - beat: 44.5
+    type: 1
+  - beat: 45
+    type: 1
+  - beat: 45.5
+    type: 0
+  - beat: 46
+    type: 1
+  - beat: 46.5
+    type: 1
+  - beat: 47
+    type: 1
+  - beat: 47.5
+    type: 0
+  - beat: 48
+    type: 1
+  - beat: 48.5
+    type: 0
+  - beat: 49
+    type: 1
+  - beat: 49.5
+    type: 0
+  - beat: 50
+    type: 0
+  - beat: 50.5
+    type: 1
+  - beat: 51
+    type: 0
+  - beat: 51.5
+    type: 1
+  - beat: 52
+    type: 0
+  - beat: 52.5
+    type: 1
+  - beat: 53
+    type: 1
+  - beat: 53.5
+    type: 1
+  - beat: 54
+    type: 1
+  - beat: 54.5
+    type: 1
+  - beat: 55
+    type: 0
+  - beat: 55.5
+    type: 0
+  - beat: 56
+    type: 1
+  - beat: 56.5
+    type: 1
+  - beat: 57
+    type: 1
+  - beat: 57.5
+    type: 0
+  - beat: 58
+    type: 1
+  - beat: 58.5
+    type: 0
+  - beat: 59
+    type: 0
+  - beat: 59.5
+    type: 0
+  - beat: 60
+    type: 1
+  - beat: 60.5
+    type: 1
+  - beat: 61
+    type: 1
+  - beat: 61.5
+    type: 0
+  - beat: 62
+    type: 0
+  - beat: 62.5
+    type: 0
+  - beat: 63
+    type: 1
+  - beat: 63.5
+    type: 1
+  - beat: 64
+    type: 1
+  - beat: 64.5
+    type: 0
+  - beat: 65
+    type: 0
+  - beat: 65.5
+    type: 1
+  - beat: 66
+    type: 1
+  - beat: 66.5
+    type: 1
+  - beat: 67
+    type: 1
+  - beat: 67.5
+    type: 1
+  - beat: 68
+    type: 0
+  - beat: 68.5
+    type: 0
+  - beat: 69
+    type: 0
+  - beat: 69.5
+    type: 1
+  - beat: 70
+    type: 1
+  - beat: 70.5
+    type: 1
+  - beat: 71
+    type: 1
+  - beat: 71.5
+    type: 1
+  - beat: 72
+    type: 1
+  - beat: 72.5
+    type: 1
+  - beat: 73
+    type: 1
+  - beat: 73.5
+    type: 0
+  - beat: 74
+    type: 1
+  - beat: 74.5
+    type: 1
+  - beat: 75
+    type: 0
+  - beat: 75.5
+    type: 0
+  - beat: 76
+    type: 0
+  - beat: 76.5
+    type: 1
+  - beat: 77
+    type: 0
+  - beat: 77.5
+    type: 1
+  - beat: 78
+    type: 0
+  - beat: 78.5
+    type: 0
+  - beat: 79
+    type: 1
+  - beat: 79.5
+    type: 0
+  - beat: 80
+    type: 0
+  - beat: 80.5
+    type: 1
+  - beat: 81
+    type: 0
+  - beat: 81.5
+    type: 1
+  - beat: 82
+    type: 0
+  - beat: 82.5
+    type: 0
+  - beat: 83
+    type: 1
+  - beat: 83.5
+    type: 0
+  - beat: 84
+    type: 1
+  - beat: 84.5
+    type: 0
+  - beat: 85
+    type: 0
+  - beat: 85.5
+    type: 1
+  - beat: 86
+    type: 1
+  - beat: 86.5
+    type: 0
+  - beat: 87
+    type: 0
+  - beat: 87.5
+    type: 1
+  - beat: 88
+    type: 0
+  - beat: 88.5
+    type: 1
+  - beat: 89
+    type: 0
+  - beat: 89.5
+    type: 1
+  - beat: 90
+    type: 0
+  - beat: 90.5
+    type: 1
+  - beat: 91
+    type: 0
+  - beat: 91.5
+    type: 0
+  - beat: 92
+    type: 0
+  - beat: 92.5
+    type: 1
+  - beat: 93
+    type: 1
+  - beat: 93.5
+    type: 0
+  - beat: 94
+    type: 0
+  - beat: 94.5
+    type: 0
+  - beat: 95
+    type: 1
+  - beat: 95.5
+    type: 1
+  - beat: 96
+    type: 1
+  - beat: 96.5
+    type: 1
+  - beat: 97
+    type: 1
+  - beat: 97.5
+    type: 1
+  - beat: 98
+    type: 1
+  - beat: 98.5
+    type: 0
+  - beat: 99
+    type: 1
+  - beat: 99.5
+    type: 0
+  - beat: 100
+    type: 1
+  - beat: 100.5
+    type: 1
+  - beat: 101
+    type: 0
+  - beat: 101.5
+    type: 0
+  - beat: 102
+    type: 1
+  - beat: 102.5
+    type: 1
+  - beat: 103
+    type: 0
+  - beat: 103.5
+    type: 0
+  - beat: 104
+    type: 1
+  - beat: 104.5
+    type: 1
+  - beat: 105
+    type: 1
+  - beat: 105.5
+    type: 0
+  - beat: 106
+    type: 1
+  - beat: 106.5
+    type: 1
+  - beat: 107
+    type: 0
+  - beat: 107.5
+    type: 0
+  - beat: 108
+    type: 0
+  - beat: 108.5
+    type: 1
+  - beat: 109
+    type: 0
+  - beat: 109.5
+    type: 0
+  - beat: 110
+    type: 0
+  - beat: 110.5
+    type: 0
+  - beat: 111
+    type: 0
+  - beat: 111.5
+    type: 0
+  - beat: 112
+    type: 1
+  - beat: 112.5
+    type: 1
+  - beat: 113
+    type: 1
+  - beat: 113.5
+    type: 1
+  - beat: 114
+    type: 0
+  - beat: 114.5
+    type: 1
+  - beat: 115
+    type: 1
+  - beat: 115.5
+    type: 1
+  - beat: 116
+    type: 0
+  - beat: 116.5
+    type: 0
+  - beat: 117
+    type: 1
+  - beat: 117.5
+    type: 1
+  - beat: 118
+    type: 0
+  - beat: 118.5
+    type: 0
+  - beat: 119
+    type: 1
+  - beat: 119.5
+    type: 1
+  - beat: 120
+    type: 1
+  - beat: 120.5
+    type: 0
+  - beat: 121
+    type: 1
+  - beat: 121.5
+    type: 1
+  - beat: 122
+    type: 1
+  - beat: 122.5
+    type: 1
+  - beat: 123
+    type: 1
+  - beat: 123.5
+    type: 0
+  - beat: 124
+    type: 1
+  - beat: 124.5
+    type: 1
+  - beat: 125
+    type: 0
+  - beat: 125.5
+    type: 0
+  - beat: 126
+    type: 1
+  - beat: 126.5
+    type: 0
+  - beat: 127
+    type: 0
+  - beat: 127.5
+    type: 0
+  - beat: 128
+    type: 0
+  - beat: 128.5
+    type: 0
+  - beat: 129
+    type: 1
+  - beat: 129.5
+    type: 1
+  - beat: 130
+    type: 0
+  - beat: 130.5
+    type: 1
+  - beat: 131
+    type: 1
+  - beat: 131.5
+    type: 1
+  - beat: 132
+    type: 0
+  - beat: 132.5
+    type: 1
+  - beat: 133
+    type: 0
+  - beat: 133.5
+    type: 0
+  - beat: 134
+    type: 0
+  - beat: 134.5
+    type: 1
+  - beat: 135
+    type: 0
+  - beat: 135.5
+    type: 0
+  - beat: 136
+    type: 0
+  - beat: 136.5
+    type: 1
+  - beat: 137
+    type: 0
+  - beat: 137.5
+    type: 1
+  - beat: 138
+    type: 1
+  - beat: 138.5
+    type: 0
+  - beat: 139
+    type: 0
+  - beat: 139.5
+    type: 0
+  - beat: 140
+    type: 1
+  - beat: 140.5
+    type: 1
+  - beat: 141
+    type: 1
+  - beat: 141.5
+    type: 0
+  - beat: 142
+    type: 0
+  - beat: 142.5
+    type: 1
+  - beat: 143
+    type: 1
+  - beat: 143.5
+    type: 1
+  - beat: 144
+    type: 0
+  - beat: 144.5
+    type: 1
+  - beat: 145
+    type: 1
+  - beat: 145.5
+    type: 0
+  - beat: 146
+    type: 0
+  - beat: 146.5
+    type: 1
+  - beat: 147
+    type: 1
+  - beat: 147.5
+    type: 0
+  - beat: 148
+    type: 0
+  - beat: 148.5
+    type: 1
+  - beat: 149
+    type: 0
+  - beat: 149.5
+    type: 0
+  - beat: 150
+    type: 1
+  - beat: 150.5
+    type: 1
+  - beat: 151
+    type: 0
+  - beat: 151.5
+    type: 1
+  - beat: 152
+    type: 1
+  - beat: 152.5
+    type: 1
+  - beat: 153
+    type: 1
+  - beat: 153.5
+    type: 1
+  - beat: 154
+    type: 1
+  - beat: 154.5
+    type: 1
+  - beat: 155
+    type: 0
+  - beat: 155.5
+    type: 0
+  - beat: 156
+    type: 1
+  - beat: 156.5
+    type: 1
+  - beat: 157
+    type: 0
+  - beat: 157.5
+    type: 0
+  - beat: 158
+    type: 0
+  - beat: 158.5
+    type: 1
+  - beat: 159
+    type: 1
+  - beat: 159.5
+    type: 1
+  - beat: 160
+    type: 0
+  - beat: 160.5
+    type: 0
+  - beat: 161
+    type: 0
+  - beat: 161.5
+    type: 1
+  - beat: 162
+    type: 0
+  - beat: 162.5
+    type: 0
+  - beat: 163
+    type: 1
+  - beat: 163.5
+    type: 0
+  - beat: 164
+    type: 0
+  - beat: 164.5
+    type: 1
+  - beat: 165
+    type: 0
+  - beat: 165.5
+    type: 0
+  - beat: 166
+    type: 0
+  - beat: 166.5
+    type: 0
+  - beat: 167
+    type: 0
+  - beat: 167.5
+    type: 0
+  - beat: 168
+    type: 1
+  - beat: 168.5
+    type: 1
+  - beat: 169
+    type: 1
+  - beat: 169.5
+    type: 1
+  - beat: 170
+    type: 1
+  - beat: 170.5
+    type: 1
+  - beat: 171
+    type: 1
+  - beat: 171.5
+    type: 0
+  - beat: 172
+    type: 1
+  - beat: 172.5
+    type: 0
+  - beat: 173
+    type: 1
+  - beat: 173.5
+    type: 0
+  - beat: 174
+    type: 0
+  - beat: 174.5
+    type: 0
+  - beat: 175
+    type: 1
+  - beat: 175.5
+    type: 1
+  - beat: 176
+    type: 1
+  - beat: 176.5
+    type: 1
+  - beat: 177
+    type: 1
+  - beat: 177.5
+    type: 1
+  - beat: 178
+    type: 0
+  - beat: 178.5
+    type: 1
+  - beat: 179
+    type: 0
+  - beat: 179.5
+    type: 1
+  - beat: 180
+    type: 1
+  - beat: 180.5
+    type: 1
+  - beat: 181
+    type: 1
+  - beat: 181.5
+    type: 0
+  - beat: 182
+    type: 1
+  - beat: 182.5
+    type: 0
+  - beat: 183
+    type: 1
+  - beat: 183.5
+    type: 0
+  - beat: 184
+    type: 1
+  - beat: 184.5
+    type: 0
+  - beat: 185
+    type: 1
+  - beat: 185.5
+    type: 1
+  - beat: 186
+    type: 1
+  - beat: 186.5
+    type: 0
+  - beat: 187
+    type: 0
+  - beat: 187.5
+    type: 0
+  - beat: 188
+    type: 0
+  - beat: 188.5
+    type: 0
+  - beat: 189
+    type: 1
+  - beat: 189.5
+    type: 1
+  - beat: 190
+    type: 1
+  - beat: 190.5
+    type: 0
+  - beat: 191
+    type: 1
+  - beat: 191.5
+    type: 1
+  - beat: 192
+    type: 0
+  - beat: 192.5
+    type: 1
+  - beat: 193
+    type: 0
+  - beat: 193.5
+    type: 0
+  - beat: 194
+    type: 0
+  - beat: 194.5
+    type: 0
+  - beat: 195
+    type: 1
+  - beat: 195.5
+    type: 0
+  - beat: 196
+    type: 0
+  - beat: 196.5
+    type: 0
+  - beat: 197
+    type: 0
+  - beat: 197.5
+    type: 0
+  - beat: 198
+    type: 0
+  _difficulty: 3
+  _startDelay: 0
+  _startBeat: 0
+  _endBeat: 198
+  _noteInterval: 0.5

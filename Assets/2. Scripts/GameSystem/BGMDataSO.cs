@@ -5,10 +5,10 @@ public class BGMDataSO : ScriptableObject
 {
     [Header("BGM 정보")]
     [Tooltip("곡 이름")]
-    [SerializeField] private string _bgmName = "새로운 곡";
+    [SerializeField] private string _bgmName;
 
     [Tooltip("곡의 BPM")]
-    [SerializeField] private float _bpm = 120f;
+    [SerializeField] private float _bpm;
 
     [Tooltip("오디오 클립")]
     [SerializeField] private AudioClip _audioClip;
@@ -19,20 +19,20 @@ public class BGMDataSO : ScriptableObject
 
     [Header("난이도 및 설정")]
     [Range(1, 5)]
-    [SerializeField] private int _difficulty = 3;
+    [SerializeField] private int _difficulty;
 
     [Tooltip("곡 시작 전 대기 시간 (초)")]
-    [SerializeField] private float _startDelay = 0f;
+    [SerializeField] private float _startDelay;
 
     [Header("노트 자동 생성 설정")]
     [Tooltip("시작 비트")]
-    [SerializeField] private float _startBeat = 4f;
+    [SerializeField] private float _startBeat;
 
     [Tooltip("종료 비트")]
-    [SerializeField] private float _endBeat = 100f;
+    [SerializeField] private float _endBeat;
 
     [Tooltip("노트 간격 (비트)")]
-    [SerializeField] private float _noteInterval = 1f;
+    [SerializeField] private float _noteInterval;
 
     public string BgmName => _bgmName;
     public float Bpm => _bpm;
@@ -64,6 +64,39 @@ public class BGMDataSO : ScriptableObject
         return true;
     }
 
+    [ContextMenu("EndBeat 자동 계산")]
+    public void CalculateEndBeat()
+    {
+        if (_audioClip == null)
+        {
+            Debug.LogError("AudioClip이 없습니다!");
+            return;
+        }
+
+        if (_bpm <= 0)
+        {
+            Debug.LogError("BPM이 설정되지 않았습니다!");
+            return;
+        }
+
+        // 1. 곡 길이(초)
+        float songLengthInSeconds = _audioClip.length;
+
+        // 2. 총 비트 수 계산
+        // 공식: (곡 길이(초) / 60초) × BPM = 총 비트
+        float totalBeats = (songLengthInSeconds / 60f) * _bpm;
+
+        // 3. 여유 비트 제외 (마지막 2비트)
+        _endBeat = Mathf.Floor(totalBeats) - 2f;
+
+        Debug.Log($"EndBeat 계산 완료: {_endBeat}비트 (곡 길이: {songLengthInSeconds:F2}초, 총 비트: {totalBeats:F2})");
+
+    #if UNITY_EDITOR
+            UnityEditor.EditorUtility.SetDirty(this);
+    #endif
+    }
+
+
     // 비트 간격으로 노트 자동 생성
     [ContextMenu("비트 간격으로 노트 자동 생성")]
     public void GenerateNotesByBeat()
@@ -84,29 +117,12 @@ public class BGMDataSO : ScriptableObject
         Debug.Log($"노트 자동 생성 완료: {_notes.Length}개 ({_startBeat}~{_endBeat}비트, 간격: {_noteInterval})");
     }
 
-    // 곡 길이 기반 자동 생성
-    [ContextMenu("곡 길이 기반으로 노트 자동 생성")]
-    public void GenerateNotesBySongLength()
+    [ContextMenu("BPM 계산")]
+    public void GenerateBPM()
     {
-        if (_audioClip == null)
-        {
-            Debug.LogError("AudioClip이 없습니다!");
-            return;
-        }
-
-        // 곡 길이를 비트로 변환
-        float songLengthInSeconds = _audioClip.length;
-        float totalBeats = (songLengthInSeconds / 60f) * _bpm;
-
-        // 마지막 비트 자동 설정 (여유 2비트 제외)
-        _endBeat = Mathf.Floor(totalBeats) - 2f;
-
-        Debug.Log($"곡 길이: {songLengthInSeconds:F2}초 = {totalBeats:F2}비트");
-        Debug.Log($"생성 범위: {_startBeat}~{_endBeat}비트");
-
-        GenerateNotesByBeat();
+        _bpm = UniBpmAnalyzer.AnalyzeBpm(_audioClip);
+        Debug.Log($"{_bgmName}: BPM 분석 완료 - {_bpm} BPM");
     }
-
     // 패턴별 자동 생성
     [ContextMenu("패턴: 4비트마다 (느린 템포)")]
     public void GeneratePattern_Slow()

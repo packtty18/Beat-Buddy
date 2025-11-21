@@ -163,9 +163,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a4800bea8968e7f488dad67ab5086026, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _currentBGMData: {fileID: 11400000, guid: 584f99953246a494289a1c9839b5dc57, type: 2}
+  _bgmList:
+  - {fileID: 11400000, guid: 584f99953246a494289a1c9839b5dc57, type: 2}
+  - {fileID: 11400000, guid: 53caf074079c00d4ab13339a43add08b, type: 2}
+  - {fileID: 11400000, guid: c158a94b7f5817947b6090d0c0e8b35d, type: 2}
+  - {fileID: 11400000, guid: dfb0120a7948cfc4685a5de0184585dd, type: 2}
+  - {fileID: 11400000, guid: bfc30ecab0e8cc74498675e53e975477, type: 2}
+  _currentBGMIndex: 3
   _musicSource: {fileID: 0}
-  _currentBpm: 120
+  _timingOffset: 0
 --- !u!1 &826706114
 GameObject:
   m_ObjectHideFlags: 0
