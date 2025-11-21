@@ -8,6 +8,7 @@ analysis:
     - "Assets/Plugins/**/*.cs"
   exclude:
     - "Assets/Plugins/*/Editor/**"
+    - "Assets/02.Scripts/Test/**/*.cs
     - "Library/**"
     - "Temp/**"
     - "Obj/**"
