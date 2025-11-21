@@ -65,9 +65,6 @@ public class PoolManager : SimpleSingleton<PoolManager>
         return pool.GetObject(type);
     }
 
-    /// <summary>
-    /// PoolManager에서 특정 Enum 타입 풀로 바로 Despawn
-    /// </summary>
     public void Despawn<TPool, TEnum>(TEnum type, GameObject obj)
         where TPool : PoolBase<TEnum>
         where TEnum : Enum
