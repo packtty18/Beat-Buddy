@@ -14,6 +14,8 @@ public class SoundManager : SimpleSingleton<SoundManager>
 {
     [Header("사운드 라이브러리 추가")]
     [SerializeField] private SoundLibrarySO _library;
+    [SerializeField] private ESoundType _initialBgmType = ESoundType.BGM1;
+    [SerializeField] private GameObject _bgmObject;
 
     [Header("BGM Settings")]
     [SerializeField] private string _bgmObjectName = "BGM";
@@ -41,8 +43,7 @@ public class SoundManager : SimpleSingleton<SoundManager>
 
     private void SetBgmSource()
     {
-        GameObject bgmObject = GameObject.Find(_bgmObjectName);
-        if (bgmObject == null)
+        if (_bgmObject == null)
         {
             Debug.Log("[SoundManager] Created BGM AudioSource.");
             GameObject newObject = new GameObject(_bgmObjectName);
@@ -51,7 +52,7 @@ public class SoundManager : SimpleSingleton<SoundManager>
         }
         else
         {
-            _bgmSource = bgmObject.GetComponent<SoundObject>();
+            _bgmSource = _bgmObject.GetComponent<SoundObject>();
         }
 
         AudioClip targetAudio = _library.GetClip(ESoundType.BGM1);
