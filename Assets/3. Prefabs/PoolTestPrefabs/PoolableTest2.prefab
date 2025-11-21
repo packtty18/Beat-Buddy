@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 8953365727305206178}
   - component: {fileID: -7495850386949932566}
   m_Layer: 0
-  m_Name: TestObject 1
+  m_Name: PoolableTest2
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -97,6 +97,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6700480425697166104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c75f1a14fa5544983c28112d67ea9c, type: 3}
+  m_Script: {fileID: 11500000, guid: f9742a80be8721c4494e082233434fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
