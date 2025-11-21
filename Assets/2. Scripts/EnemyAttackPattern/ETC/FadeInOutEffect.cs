@@ -85,6 +85,8 @@ public class FadeInOutEffect : MonoBehaviour
         {
             onComplete.Invoke();
         }
+
+        Destroy(gameObject);
     }
 
     private void SetAlpha(float a)

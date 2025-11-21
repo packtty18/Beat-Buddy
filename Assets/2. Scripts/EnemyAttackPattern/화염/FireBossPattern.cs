@@ -23,27 +23,54 @@ public class FireBossPattern : MonoBehaviour
     private Animator _animator;
 
     [Header("CoroutineOption")]
-    private bool _isCoroutineRunning = false;
+    private bool _isBossAttackCycleActive = false;
+    private Coroutine _coroutine;
 
 
     void Update()
     {
-        _currentTimer += Time.deltaTime;
-
-        if (_isCoroutineRunning) return;
-
-        if (_currentTimer >= _finishTimer)
+        if (_isBossAttackCycleActive)
         {
-            HideScreenObscuringEffect();
+            _currentTimer += Time.deltaTime;
+
+            if (_coroutine != null && _currentTimer >= _finishTimer)
+            {
+                HideBreathEffect();
+                _currentTimer = 0f;
+            }
             return;
         }
-        StartCoroutine(StartAttackAnimation());
+
+        _coroutine = StartCoroutine(StartAttackAnimation());
+        _isBossAttackCycleActive = true;
+        _currentTimer = 0f;
     }
 
-    public void ShowScreenObscuringEffect()
+    private IEnumerator StartAttackAnimation()
     {
-        _isCoroutineRunning = false;
+        yield return StartCoroutine(FireStartAnimation());
 
+        ShowBreathEffect();
+    }
+
+    private IEnumerator FireStartAnimation()
+    {
+        _currentObscuringEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireStart], transform);
+        _animator = _currentObscuringEffect.GetComponent<Animator>();
+
+        AnimatorStateInfo info = _animator.GetCurrentAnimatorStateInfo(0);
+        float length = info.length;
+        if (length > 0)
+        {
+            yield return new WaitForSeconds(length);
+        }
+
+        Destroy(_currentObscuringEffect);
+        _currentObscuringEffect = null;
+        _animator = null;
+    }
+    public void ShowBreathEffect()
+    {
         if (_firePatternPrefab != null && _currentObscuringEffect == null)
         {
             _currentObscuringEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.Breath], transform);
@@ -56,36 +83,37 @@ public class FireBossPattern : MonoBehaviour
         }
     }
 
-    public void HideScreenObscuringEffect()
+    public void HideBreathEffect()
     {
         if (_currentObscuringEffect != null)
         {
             FadeInOutEffect fadeInOutAnimation = _currentObscuringEffect.GetComponent<FadeInOutEffect>();
-            fadeInOutAnimation.PlayHideAnimation(() => Destroy(_currentObscuringEffect));
+            System.Action cleanupAction = () =>
+            {
+                if (_currentObscuringEffect != null)
+                {
+                    Destroy(_currentObscuringEffect);
+                    _currentObscuringEffect = null;
+                }
+                _isBossAttackCycleActive = false;
+                _currentTimer = 0f;
+            };
+            if (fadeInOutAnimation != null)
+            {
+                fadeInOutAnimation.PlayHideAnimation(cleanupAction);
+            }
+            else
+            {
+                Debug.LogWarning("HideBreathEffect: FadeInOutEffect 컴포넌트가 없으므로 즉시 정리합니다.");
+                cleanupAction.Invoke();
+            }
+        }
+        else
+        {
+            Destroy(_currentObscuringEffect);
+            _isBossAttackCycleActive = false;
             _currentObscuringEffect = null;
             _currentTimer = 0f;
         }
-    }
-
-    private IEnumerator StartAttackAnimation()
-    {
-        _isCoroutineRunning = true;
-
-        yield return StartCoroutine(FireStartAnimation());
-
-        ShowScreenObscuringEffect();
-    }
-
-
-    private IEnumerator FireStartAnimation()
-    {
-        _currentObscuringEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireStart], transform);
-        _animator = _currentObscuringEffect.GetComponent<Animator>();
-
-        AnimatorStateInfo info = _animator.GetCurrentAnimatorStateInfo(0);
-        float length = info.length;
-        yield return new WaitForSeconds(length);
-
-        Destroy(_currentObscuringEffect);
     }
 }
