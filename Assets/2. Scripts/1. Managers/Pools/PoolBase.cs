@@ -114,9 +114,8 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
     }
 
 
-    /// <summary>
-    /// 풀(큐)에서 오브젝트 가져오기
-    /// </summary>
+
+    // 풀(큐)에서 오브젝트 가져오기
     public GameObject GetObject(TEnum type)
     {
         if (!IsTypeContainedInPoolMap(type))
@@ -143,9 +142,8 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
         return obj;
     }
 
-    /// <summary>
-    /// 사용 후 객체를 다시 큐에 넣기
-    /// </summary>
+
+    //사용 후 객체를 다시 큐에 넣기
     public void ReturnObject(TEnum type, GameObject target)
     {
         if (!IsTypeContainedInPoolMap(type))
@@ -165,9 +163,7 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
     }
 
 
-    /// <summary>
-    /// 현재 풀 상태를 로그로 출력 (각 타입별 큐 크기)
-    /// </summary>
+    // 현재 풀 상태를 로그로 출력 (각 타입별 큐 크기)
     [ContextMenu("Debug Pool")]
     protected void DebugPoolQueue()
     {
