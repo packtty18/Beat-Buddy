@@ -48,6 +48,11 @@ public class SoundLibrarySO : ScriptableObject
 
     public AudioClip GetClip(ESoundType type)
     {
+        if (_soundMap == null)
+        {
+            InitSoundMap();
+        }
+
         _soundMap.TryGetValue(type, out AudioClip clip);
         return clip;
     }

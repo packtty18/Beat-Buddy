@@ -8,12 +8,15 @@ public class SoundObject : MonoBehaviour, IPoolable
     private AudioSource _audio;
     private Coroutine _lifetimeRoutine;
 
+    public Action OnPlaybackFinished;
+
+
     private void Awake()
     {
         _audio = GetComponent<AudioSource>();
     }
 
-    public void OnSpawn()
+    private void StopLifetimeRoutine()
     {
         if (_lifetimeRoutine != null)
         {
@@ -22,18 +25,14 @@ public class SoundObject : MonoBehaviour, IPoolable
         }
     }
 
+    public void OnSpawn()
+    {
+        StopLifetimeRoutine();
+    }
+
     public void OnDespawn()
     {
-        if (_lifetimeRoutine != null)
-        {
-            StopCoroutine(_lifetimeRoutine);
-            _lifetimeRoutine = null;
-        }
-
-        if (_audio.isPlaying)
-        {
-            StopPlay();
-        }
+        StopLifetimeRoutine();
     }
 
     public void OnPlay(AudioClip clip, bool isBgm, float playTime = 0f)
@@ -52,7 +51,7 @@ public class SoundObject : MonoBehaviour, IPoolable
 
         if (duration > 0f)
         {
-            StartCoroutine(Wait(duration, isBgm ? StopPlay : DespawnObject));
+            _lifetimeRoutine = StartCoroutine(Wait(duration, isBgm ? StopPlay : DespawnObject));
         }
     }
 
@@ -63,7 +62,7 @@ public class SoundObject : MonoBehaviour, IPoolable
             return isBgm ? playTime : Mathf.Min(playTime, clip.length);
         }
 
-        return isBgm ? 0f : clip.length; // BGM은 loop이므로 Wait 필요 없음
+        return isBgm ? 0f : clip.length; 
     }
 
     private IEnumerator Wait(float duration, Action callback)
@@ -78,9 +77,8 @@ public class SoundObject : MonoBehaviour, IPoolable
         _audio.Stop();
     }
 
-
     private void DespawnObject()
     {
-        PoolManager.Instance.Despawn<SoundPool, ESoundObject>(ESoundObject.SoundObject, gameObject);
+        OnPlaybackFinished?.Invoke();
     }
 }

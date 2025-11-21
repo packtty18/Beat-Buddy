@@ -42,7 +42,6 @@ public class SoundManager : SimpleSingleton<SoundManager>
     private void SetBgmSource()
     {
         GameObject bgmObject = GameObject.Find(_bgmObjectName);
-        //BGM오브젝트를 찾지 못하면 새로 하나 만들기
         if (bgmObject == null)
         {
             Debug.Log("[SoundManager] Created BGM AudioSource.");
@@ -50,20 +49,23 @@ public class SoundManager : SimpleSingleton<SoundManager>
             newObject.transform.SetParent(transform);
             _bgmSource = newObject.AddComponent<SoundObject>();
         }
-        //존재하면 해당 오브젝트 선정
         else
         {
             _bgmSource = bgmObject.GetComponent<SoundObject>();
         }
 
         AudioClip targetAudio = _library.GetClip(ESoundType.BGM1);
-        _bgmSource.OnPlay(targetAudio, true);
+        if (targetAudio != null)
+        {
+            _bgmSource.OnPlay(targetAudio, true);
+        }
+
     }
 
 
-    public void PlayBGM(ESoundType bgmType , float playTime = 0)
+    public void PlayBGM(ESoundType bgmType, float playTime = 0)
     {
-        if (_library == null)
+        if (_bgmSource == null || _library == null)
         {
             return;
         }
@@ -107,16 +109,13 @@ public class SoundManager : SimpleSingleton<SoundManager>
 
         GameObject soundObject = PoolManager.Instance.Spawn<SoundPool, ESoundObject>(ESoundObject.SoundObject);
         var so = soundObject.GetComponent<SoundObject>();
-        so.OnPlay(clip, false, playTime);
-    }
 
-    public SoundLibrarySO GetLibrary()
-    {
-        return _library;
-    }
+        so.OnPlaybackFinished = () =>
+        {
+            PoolManager.Instance.Despawn<SoundPool, ESoundObject>(ESoundObject.SoundObject, soundObject);
+        };
 
-    public SoundObject GetBgmSource()
-    {
-        return _bgmSource;
+        so.OnPlay(clip, false);
+
     }
 }
