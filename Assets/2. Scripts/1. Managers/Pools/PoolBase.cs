@@ -5,15 +5,15 @@ using UnityEngine;
 [Serializable]
 public class TypeObjectPair<TEnum> where TEnum : Enum
 {
-    [SerializeField] private TEnum type;
-    [SerializeField] private GameObject obj;
-    public TEnum Type { get; private set; }   
-    public GameObject Object { get; private set; }
+    [SerializeField] private TEnum _type;
+    [SerializeField] private GameObject _obj;
+    public TEnum Type => _type;
+    public GameObject Object => _obj;
 
     public TypeObjectPair(TEnum type, GameObject obj)
     {
-        Type = type;
-        Object = obj;
+        _type = type;
+        _obj = obj;
     }
 }
 
@@ -38,7 +38,7 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
     public override void InitPool()
     {
         _poolMap = new Dictionary<TEnum, Queue<GameObject>>();
-        _rootTransform = _rootTransform ?? transform; 
+        _rootTransform = _rootTransform == null ? transform : _rootTransform; 
 
         RegisterPrefabs();
         InitializePools();
@@ -89,11 +89,6 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
         obj.SetActive(false);
         obj.transform.SetParent(_rootTransform);
         return obj;
-    }
-
-    private bool IsPrefabRegistered(TEnum type)
-    {
-        return _prefabMap.ContainsKey(type);
     }
 
     private bool IsTypeContainedInPoolMap(TEnum type)
