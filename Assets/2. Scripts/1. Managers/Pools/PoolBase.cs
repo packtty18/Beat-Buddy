@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -116,7 +116,7 @@ public abstract class PoolBase<TEnum> : PoolBase
     {
         if (!IsTypeContainedInPoolMap(type))
         {
-            Debug.LogError($"Pool not found for type: {type}");
+            Debug.LogError($"Pool not found for Type: {type}");
             return null;
         }
 
@@ -144,7 +144,7 @@ public abstract class PoolBase<TEnum> : PoolBase
     {
         if (!IsTypeContainedInPoolMap(type))
         {
-            Debug.LogError($"Pool not found for type: {type}");
+            Debug.LogError($"Pool not found for Type: {type}");
             return;
         }
 

@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections;
 using UnityEngine;
 public enum ESoundType
@@ -13,7 +13,7 @@ public enum ESoundType
 public class SoundManager : SimpleSingleton<SoundManager>
 {
     [Header("사운드 라이브러리 추가")]
-    [SerializeField] private SoundLibrarySO _library;
+    [SerializeField] private SoundDatabaseSO _soundDatabase;
     [SerializeField] private ESoundType _initialBgmType = ESoundType.BGM1;
     [SerializeField] private GameObject _bgmObject;
 
@@ -30,13 +30,13 @@ public class SoundManager : SimpleSingleton<SoundManager>
 
     public void Init()
     {
-        if (_library == null)
+        if (_soundDatabase == null)
         {
             Debug.LogError("SoundManager: SoundLibrary reference is missing!");
             return;
         }
 
-        _library.InitSoundMap();
+        _soundDatabase.InitMap();
         SetBgmSource();
     }
 
@@ -59,7 +59,7 @@ public class SoundManager : SimpleSingleton<SoundManager>
             }
         }
 
-        AudioClip targetAudio = _library.GetClip(_initialBgmType);
+        AudioClip targetAudio = _soundDatabase.GetData(_initialBgmType);
         if (targetAudio != null)
         {
             _bgmSource.OnPlay(targetAudio, true);
@@ -69,7 +69,7 @@ public class SoundManager : SimpleSingleton<SoundManager>
 
     public void PlayBGM(ESoundType bgmType, float playTime = 0)
     {
-        if (_bgmSource == null || _library == null)
+        if (_bgmSource == null || _soundDatabase == null)
         {
             return;
         }
@@ -79,7 +79,7 @@ public class SoundManager : SimpleSingleton<SoundManager>
             return;
         }
 
-        var clip = _library.GetClip(bgmType);
+        var clip = _soundDatabase.GetData(bgmType);
         if (clip == null)
         {
             Debug.LogWarning($"SoundManager:  {bgmType} clip not found in library");
@@ -100,13 +100,13 @@ public class SoundManager : SimpleSingleton<SoundManager>
 
     public void PlaySFX(ESoundType type, float playTime = 0)
     {
-        if (_library == null)
+        if (_soundDatabase == null)
         {
             Debug.LogWarning($"SoundManager: There's no Sound library");
             return;
         }
 
-        var clip = _library.GetClip(type);
+        var clip = _soundDatabase.GetData(type);
         if (clip == null)
         {
             Debug.LogWarning($"SoundManager: Clip can't find in library");
