@@ -8,7 +8,6 @@ public enum ELightningPatternType
     Thunder
 }
 
-
 public class LightningBoss : MonoBehaviour
 {
     [Header("패턴 프리팹")]
@@ -16,6 +15,11 @@ public class LightningBoss : MonoBehaviour
     private GameObject _lightning;
     private GameObject _thunder;
     private GameObject _thunderArrow;
+
+    [Header("리듬노트 프리팹")]
+    private GameObject _leftNote;
+    private GameObject _rightNote;
+    public ENoteType NoteType;
 
     [Header("이펙트 포지션")]
     private Transform _thunderPosition;
@@ -30,12 +34,12 @@ public class LightningBoss : MonoBehaviour
     private bool _lightningSpawned3 = false;
 
     [Header("쿨타임")]
-    private float _thunderAnimationTime = 0.34f;
-    private float _lightningAnimationTime = 0.3f;
-    private float _lightningCurrentTime = 0f;
-    private float _double = 2f;
     private float _currentTime = 0f;
     private float _startLightning = 0.9f;
+    private float _thunderAnimationTime = 0.34f;
+    private float _lightningCurrentTime = 0f;
+    private float _lightningAnimationTime = 0.3f;
+    private float _double = 2f;
 
 
     private void Start()
@@ -46,6 +50,9 @@ public class LightningBoss : MonoBehaviour
         _lightningSpawned3 = false;
         _thunderSpawned = false;
         _lightningCurrentTime = 0f;
+
+        _leftNote = Resources.Load<GameObject>("LNote");
+        _rightNote = Resources.Load<GameObject>("RNote");
 
         // 플래시 효과 발동
         FlashScreen.Flash();
@@ -63,19 +70,42 @@ public class LightningBoss : MonoBehaviour
     private void StartAttackEffect()
     {
         if (_thunderSpawned == false) ThunderAttack();
-        if(_currentTime >= _startLightning) LightningEffect();
+        if (_currentTime >= _startLightning) LightningEffect();
     }
 
     // 번개 효과 메서드
     private void ThunderAttack()
     {
-        GameObject closestRhythm = GameObject.FindWithTag("Respawn");  // 테스트용 태그로 Respawn 사용
+        GameObject closestRhythm = GameObject.Find("NotePrefab");
         _thunderPosition = closestRhythm.transform;
         _thunder = Instantiate(_lightningPrefab[(int)ELightningPatternType.Thunder], _thunderPosition);
         _thunderArrow = Instantiate(_lightningPrefab[(int)ELightningPatternType.ThunderArrow], _thunderPosition);
         Destroy(_thunder, _thunderAnimationTime);
         Destroy(_thunderArrow, _thunderAnimationTime);
+        ChangeNote(closestRhythm);
         _thunderSpawned = true;
+    }
+
+    // 노트 속성 변경 메서드
+    private void ChangeNote(GameObject noteObject)
+    {
+        Note note = noteObject.GetComponent<Note>();
+        if (note == null)
+        {
+            Debug.LogWarning("Note 컴포넌트를 찾을 수 없습니다.");
+            return;
+        }
+
+        if (note.NoteType == ENoteType.LNote)
+        {
+            ENoteType newType = ENoteType.RNote;
+            note.ChangeType(newType);
+        }
+        else 
+        {
+            ENoteType newType = ENoteType.LNote;
+            note.ChangeType(newType);
+        }
     }
 
     // 흐르는 전기 효과 메서드
