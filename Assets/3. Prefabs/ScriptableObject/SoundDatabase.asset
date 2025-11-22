@@ -12,4 +12,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b13d5d4facffd5b479232cb768d54ba3, type: 3}
   m_Name: SoundDatabase
   m_EditorClassIdentifier: 
-  entries: []
+  entries:
+  - Key: 1
+    Value: {fileID: 8300000, guid: db05d6b18c440094887066eb3e090f3a, type: 3}
+  - Key: 2
+    Value: {fileID: 8300000, guid: 801faa5368a294d468c6b8a4828d0b54, type: 3}
+  - Key: 3
+    Value: {fileID: 8300000, guid: b2def061cc2f5b3429a32774e89b7bee, type: 3}
+  - Key: 4
+    Value: {fileID: 8300000, guid: 99b3e72a285b5a74d9e08b70919961fc, type: 3}
+  - Key: 5
+    Value: {fileID: 8300000, guid: 48d7718d7d6442b4db323d17b7cc3caa, type: 3}

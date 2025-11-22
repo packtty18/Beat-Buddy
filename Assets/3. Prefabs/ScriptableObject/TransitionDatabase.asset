@@ -12,4 +12,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdb360a1d7303f84999b0a1ab668eaa9, type: 3}
   m_Name: TransitionDatabase
   m_EditorClassIdentifier: 
-  entries: []
+  entries:
+  - Key: 0
+    Value: {fileID: 0}
+  - Key: 1
+    Value: {fileID: 0}
