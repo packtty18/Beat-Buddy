@@ -38,7 +38,6 @@ public abstract class PoolBase<TEnum> : PoolBase
     public override void InitPool()
     {
         _poolMap = new Dictionary<TEnum, Queue<GameObject>>();
-        //_rootTransform = _rootTransform == null ? transform : _rootTransform; 
         _rootTransform = _rootTransform ?? transform;
         RegisterPrefabs();
         InitializePools();

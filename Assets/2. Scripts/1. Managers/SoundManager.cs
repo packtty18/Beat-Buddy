@@ -21,7 +21,7 @@ public class SoundManager : SimpleSingleton<SoundManager>
     [SerializeField] private string _bgmObjectName = "BGM";
     private SoundObject _bgmSource;
 
-
+    private PoolManager _pool => PoolManager.Instance;
     protected override void Awake()
     {
         base.Awake();
@@ -112,16 +112,12 @@ public class SoundManager : SimpleSingleton<SoundManager>
             return;
         }
 
-        if(!PoolManager.IsManagerExist())
-        {
-            return;
-        }
-        PoolManager pool = PoolManager.Instance;
-        SoundObject soundObject = pool.SpawnGetComponent<SoundPool, ESoundObject, SoundObject>(ESoundObject.SoundObject);
+        
+        SoundObject soundObject = _pool.SpawnGetComponent<SoundPool, ESoundObject, SoundObject>(ESoundObject.SoundObject);
 
         soundObject.OnPlaybackFinished = () =>
         {
-            pool.Despawn<SoundPool, ESoundObject>(ESoundObject.SoundObject, soundObject.gameObject);
+            _pool.Despawn<SoundPool, ESoundObject>(ESoundObject.SoundObject, soundObject.gameObject);
         };
 
         soundObject.OnPlay(clip, false, playTime);

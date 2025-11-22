@@ -49,12 +49,13 @@ public class PoolManager : SimpleSingleton<PoolManager>
         return null;
     }
 
-    public TComponent SpawnGetComponent<Tpool,TEnum,TComponent>(TEnum type)
-        where Tpool : PoolBase<TEnum>
+    //풀 오브젝트 스폰하고 해당 객체에서 TComponent 타입 컴포넌트 반환. 없으면 null 반환하고 스폰한 오브젝트는 풀에 반납
+    public TComponent SpawnGetComponent<TPool,TEnum,TComponent>(TEnum type)
+        where TPool : PoolBase<TEnum>
         where TEnum : Enum
         where TComponent : Component
     {
-        GameObject obj = Spawn<Tpool, TEnum>(type);
+        GameObject obj = Spawn<TPool, TEnum>(type);
         if (obj == null)
         {
             Debug.LogError("[PoolManager] Spawned object is null.");
@@ -63,12 +64,14 @@ public class PoolManager : SimpleSingleton<PoolManager>
         TComponent component = obj.GetComponent<TComponent>();
         if (component == null)
         {
+            Despawn<TPool, TEnum>(type, obj);
             Debug.LogError($"[PoolManager] Component of type {typeof(TComponent).Name} not found on spawned object.");
             return null;
         }
         return component;
     }
 
+    //풀에서 오브젝트를 스폰
     public GameObject Spawn<TPool, TEnum>(TEnum type)
         where TPool : PoolBase<TEnum>
         where TEnum : Enum
@@ -85,13 +88,14 @@ public class PoolManager : SimpleSingleton<PoolManager>
         return pool.GetObject(type);
     }
 
+    //풀에 오브젝트 반납
     public void Despawn<TPool, TEnum>(TEnum type, GameObject obj)
         where TPool : PoolBase<TEnum>
         where TEnum : Enum
     {
         if (obj == null)
         {
-            Debug.LogWarning("[PoolManager] Prefab is null, cannot despawn.");
+            Debug.LogWarning("[PoolManager] Object is null, cannot despawn.");
             return;
         }
 
