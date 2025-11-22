@@ -3,15 +3,17 @@ using System.Collections.Generic;
 using UnityEngine;
 
 [Serializable]
-public class TypeObjectPair<TEnum> where TEnum : Enum
+public class TypePrefabPair<TEnum> where TEnum : Enum
 {
-    public TEnum Type { get; private set; }   
-    public GameObject Object { get; private set; }
+    [SerializeField] private TEnum _type;
+    [SerializeField] private GameObject _prefab;
+    public TEnum Type => _type;
+    public GameObject Prefab => _prefab;
 
-    public TypeObjectPair(TEnum type, GameObject obj)
+    public TypePrefabPair(TEnum type, GameObject prefab)
     {
-        Type = type;
-        Object = obj;
+        _type = type;
+        _prefab = prefab;
     }
 }
 
@@ -20,14 +22,14 @@ public abstract class PoolBase : MonoBehaviour
     public abstract void InitPool();
 }
 
-//팩토리의 베이스
-public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
+public abstract class PoolBase<TEnum> : PoolBase 
+    where TEnum : Enum
 {
-    [SerializeField] protected Transform _rootTransform;
+    protected Transform _rootTransform;
 
     [Header("Pooling")]
     [SerializeField] protected int _poolSize = 10;
-    [SerializeField] protected List<TypeObjectPair<TEnum>> _registPrefabList = new List<TypeObjectPair<TEnum>>();
+    [SerializeField] protected List<TypePrefabPair<TEnum>> _registPrefabList = new List<TypePrefabPair<TEnum>>();
 
     protected Dictionary<TEnum, GameObject> _prefabMap;
     protected Dictionary<TEnum, Queue<GameObject>> _poolMap;
@@ -36,8 +38,7 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
     public override void InitPool()
     {
         _poolMap = new Dictionary<TEnum, Queue<GameObject>>();
-        _rootTransform = _rootTransform ?? transform; 
-
+        _rootTransform = _rootTransform ?? transform;
         RegisterPrefabs();
         InitializePools();
     }
@@ -48,14 +49,14 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
         _prefabMap = new Dictionary<TEnum, GameObject>();
         foreach (var item in _registPrefabList)
         {
-            if (item.Object == null)
+            if (item.Prefab == null)
             {
                 continue;
             }
 
             if (!_prefabMap.ContainsKey(item.Type))
             {
-                _prefabMap.Add(item.Type, item.Object);
+                _prefabMap.Add(item.Type, item.Prefab);
             }
             else
             {
@@ -87,11 +88,6 @@ public abstract class PoolBase<TEnum> : PoolBase where TEnum : Enum
         obj.SetActive(false);
         obj.transform.SetParent(_rootTransform);
         return obj;
-    }
-
-    private bool IsPrefabRegistered(TEnum type)
-    {
-        return _prefabMap.ContainsKey(type);
     }
 
     private bool IsTypeContainedInPoolMap(TEnum type)

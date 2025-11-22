@@ -163,15 +163,14 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 056c7df9cdfc9ef43adcc3e246823173, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _rootTransform: {fileID: 0}
   _poolSize: 3
   _registPrefabList:
-  - Type: 0
-    Object: {fileID: 6700480425697166104, guid: 90cc14227238edd469c553c3db10c05c, type: 3}
-  - Type: 1
-    Object: {fileID: 6700480425697166104, guid: 38eeaa7b55c576a4da94086047951348, type: 3}
-  - Type: 2
-    Object: {fileID: 6700480425697166104, guid: 69b2cc3b408dc9847ae8d858f4b63cfa, type: 3}
+  - _type: 0
+    _prefab: {fileID: 6700480425697166104, guid: 90cc14227238edd469c553c3db10c05c, type: 3}
+  - _type: 1
+    _prefab: {fileID: 6700480425697166104, guid: 38eeaa7b55c576a4da94086047951348, type: 3}
+  - _type: 2
+    _prefab: {fileID: 6700480425697166104, guid: 69b2cc3b408dc9847ae8d858f4b63cfa, type: 3}
   _testType: 0
   _spawnPosition: {x: 0, y: 0, z: 0}
   _spawnRotation: {x: 0, y: 0, z: 0, w: 1}
@@ -341,8 +340,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b1a8bbbaa37b0374d8c0a1de39eb64b9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _poolList:
-  - {fileID: 63645821}
 --- !u!4 &475914793
 Transform:
   m_ObjectHideFlags: 0

@@ -2,8 +2,6 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-
-//씬에 존재하는 모든 팩토리를 관리
 public class PoolManager : SimpleSingleton<PoolManager>
 {
     [Header("Pools")]
@@ -49,11 +47,31 @@ public class PoolManager : SimpleSingleton<PoolManager>
         return null;
     }
 
+    public TComponent SpawnGetComponent<TPool,TEnum,TComponent>(TEnum type)
+        where TPool : PoolBase<TEnum>
+        where TEnum : Enum
+        where TComponent : Component
+    {
+        GameObject obj = Spawn<TPool, TEnum>(type);
+        if (obj == null)
+        {
+            Debug.LogError("[PoolManager] Spawned object is null.");
+            return null;
+        }
+        TComponent component = obj.GetComponent<TComponent>();
+        if (component == null)
+        {
+            Despawn<TPool, TEnum>(type, obj);
+            Debug.LogError($"[PoolManager] Component of type {typeof(TComponent).Name} not found on spawned object.");
+            return null;
+        }
+        return component;
+    }
+
     public GameObject Spawn<TPool, TEnum>(TEnum type)
         where TPool : PoolBase<TEnum>
         where TEnum : Enum
     {
-        // Pool 가져오기
         TPool pool = GetPool<TPool>();
         if (pool == null)
         {
@@ -61,7 +79,6 @@ public class PoolManager : SimpleSingleton<PoolManager>
             return null;
         }
 
-        // 풀에서 오브젝트 가져오기
         return pool.GetObject(type);
     }
 

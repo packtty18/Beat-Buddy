@@ -10,9 +10,9 @@ GameObject:
   m_Component:
   - component: {fileID: 3444303235582272067}
   - component: {fileID: 8953365727305206178}
-  - component: {fileID: 5490047826576315252}
+  - component: {fileID: 3636783231018233036}
   m_Layer: 0
-  m_Name: TestObject
+  m_Name: PoolableTest3
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -77,7 +77,7 @@ SpriteRenderer:
   m_SortingLayerID: 0
   m_SortingLayer: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 4955861461860883846, guid: e6b19bca0b75eb6439963af95d6f4eef, type: 3}
+  m_Sprite: {fileID: -1846453409878539286, guid: 5c73eb4fb583b1e40901370f1efaa57d, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -88,7 +88,7 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &5490047826576315252
+--- !u!114 &3636783231018233036
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -97,6 +97,6 @@ MonoBehaviour:
   m_GameObject: {fileID: 6700480425697166104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 76c75f1a14fa5544983c28112d67ea9c, type: 3}
+  m_Script: {fileID: 11500000, guid: f9742a80be8721c4494e082233434fb9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 

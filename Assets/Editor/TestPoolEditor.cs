@@ -12,12 +12,12 @@ public class TestPoolEditor : Editor
 
         GUILayout.Space(10);
 
-        if (GUILayout.Button("Spawn Test Object"))
+        if (GUILayout.Button("Spawn Test Prefab"))
         {
             pool.SpawnTestObject();
         }
 
-        if (GUILayout.Button("Return Test Object"))
+        if (GUILayout.Button("Return Test Prefab"))
         {
             pool.ReturnTestObject();
         }
