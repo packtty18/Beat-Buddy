@@ -46,13 +46,18 @@ public class SoundManager : SimpleSingleton<SoundManager>
         if (_bgmObject == null)
         {
             Debug.Log("[SoundManager] Created BGM AudioSource.");
+
             GameObject newObject = new GameObject(_bgmObjectName);
             newObject.transform.SetParent(transform);
+
             _bgmSource = newObject.AddComponent<SoundObject>();
         }
         else
         {
-            _bgmSource = _bgmObject.GetComponent<SoundObject>();
+            if (!_bgmObject.TryGetComponent<SoundObject>(out _bgmSource))
+            {
+                _bgmSource = _bgmObject.AddComponent<SoundObject>();
+            }
         }
 
         AudioClip targetAudio = _library.GetClip(_initialBgmType);
@@ -60,7 +65,6 @@ public class SoundManager : SimpleSingleton<SoundManager>
         {
             _bgmSource.OnPlay(targetAudio, true);
         }
-
     }
 
 
@@ -113,15 +117,13 @@ public class SoundManager : SimpleSingleton<SoundManager>
             return;
         }
         PoolManager pool = PoolManager.Instance;
-        GameObject poolObject = pool.Spawn<SoundPool, ESoundObject>(ESoundObject.SoundObject);
-        SoundObject SoundObject = poolObject.GetComponent<SoundObject>();
+        SoundObject soundObject = pool.SpawnGetComponent<SoundPool, ESoundObject, SoundObject>(ESoundObject.SoundObject);
 
-        SoundObject.OnPlaybackFinished = () =>
+        soundObject.OnPlaybackFinished = () =>
         {
-            pool.Despawn<SoundPool, ESoundObject>(ESoundObject.SoundObject, poolObject);
+            pool.Despawn<SoundPool, ESoundObject>(ESoundObject.SoundObject, soundObject.gameObject);
         };
 
-        SoundObject.OnPlay(clip, false, playTime);
-
+        soundObject.OnPlay(clip, false, playTime);
     }
 }

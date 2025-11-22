@@ -49,6 +49,26 @@ public class PoolManager : SimpleSingleton<PoolManager>
         return null;
     }
 
+    public TComponent SpawnGetComponent<Tpool,TEnum,TComponent>(TEnum type)
+        where Tpool : PoolBase<TEnum>
+        where TEnum : Enum
+        where TComponent : Component
+    {
+        GameObject obj = Spawn<Tpool, TEnum>(type);
+        if (obj == null)
+        {
+            Debug.LogError("[PoolManager] Spawned object is null.");
+            return null;
+        }
+        TComponent component = obj.GetComponent<TComponent>();
+        if (component == null)
+        {
+            Debug.LogError($"[PoolManager] Component of type {typeof(TComponent).Name} not found on spawned object.");
+            return null;
+        }
+        return component;
+    }
+
     public GameObject Spawn<TPool, TEnum>(TEnum type)
         where TPool : PoolBase<TEnum>
         where TEnum : Enum
