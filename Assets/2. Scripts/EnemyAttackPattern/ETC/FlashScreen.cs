@@ -5,12 +5,13 @@ public class FlashScreen : MonoBehaviour
 {
     public static FlashScreen Instance;
 
-    [Header("Flash Image")]
+    [Header("플래시 이미지")]
     [SerializeField] private Image _flashImage;
     [SerializeField] private float _flashSpeed = 1f;
     [SerializeField] private Color _flashColour = new Color(0.8f, 0.9f, 1f, 0.8f);
 
     private bool _isFlashing = false;
+
 
     private void Awake()
     {
