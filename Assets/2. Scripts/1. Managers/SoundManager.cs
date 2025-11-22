@@ -103,17 +103,24 @@ public class SoundManager : SimpleSingleton<SoundManager>
     {
         if (_library == null)
         {
+            Debug.LogWarning($"SoundManager: There's no Sound library");
             return;
         }
 
         var clip = _library.GetClip(type);
         if (clip == null)
         {
+            Debug.LogWarning($"SoundManager: Clip can't find in library");
             return;
         }
 
         
         SoundObject soundObject = _pool.SpawnGetComponent<SoundPool, ESoundObject, SoundObject>(ESoundObject.SoundObject);
+        if (soundObject == null)
+        {
+            Debug.LogWarning($"SoundManager: PoolObject does't have SoundObject Component");
+            return;
+        }
 
         soundObject.OnPlaybackFinished = () =>
         {
