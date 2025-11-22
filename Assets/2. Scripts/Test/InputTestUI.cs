@@ -22,7 +22,7 @@ public class InputTestUI : MonoBehaviour
 
     private void Update()
     {
-        if (InputManager.Instance.GetKeyDown(_handleKey) || InputManager.Instance.GetKey(_handleKey))
+        if (InputManager.Instance.GetKeyDown(_handleKey))
         {
             _imageUI.color = _pressedColor;
             _isReleased = false;

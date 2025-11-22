@@ -28,10 +28,13 @@ public class InputManager : SimpleSingleton<InputManager>
     // 키 상태 저장
     private Dictionary<EGameKeyType, bool> _currentDownStates = new Dictionary<EGameKeyType, bool>();
     private Dictionary<EGameKeyType, bool> _previousDownStates = new Dictionary<EGameKeyType, bool>();
+    private EGameKeyType[] _gameKeyTypes;
 
     protected override void Awake()
     {
         base.Awake();
+        _gameKeyTypes = (EGameKeyType[])Enum.GetValues(typeof(EGameKeyType));
+
         // 모든 키 초기화
         foreach (var key in Enum.GetValues(typeof(EGameKeyType)))
         {
@@ -43,9 +46,9 @@ public class InputManager : SimpleSingleton<InputManager>
     private void Update()
     {
         // 이전 상태 저장
-        foreach (var key in Enum.GetValues(typeof(EGameKeyType)))
+        foreach (EGameKeyType key in _gameKeyTypes)
         {
-            _previousDownStates[(EGameKeyType)key] = _currentDownStates[(EGameKeyType)key];
+            _previousDownStates[key] = _currentDownStates[key];
         }
 
         // 현재 상태 갱신
