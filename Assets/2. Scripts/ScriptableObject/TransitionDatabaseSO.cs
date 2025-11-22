@@ -2,7 +2,8 @@ using UnityEngine;
 
 public enum ETransitionType
 {
-    Fade,
+    FadeIn,
+    FadeOut,
 }
 
 [CreateAssetMenu(fileName = "TransitionDatabase", menuName = "SO/TransitionDatabase")]

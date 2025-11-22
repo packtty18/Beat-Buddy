@@ -2,6 +2,7 @@ using UnityEngine;
 
 public enum ESceneType
 {
+    None,
     Test1,
     Test2
 }
