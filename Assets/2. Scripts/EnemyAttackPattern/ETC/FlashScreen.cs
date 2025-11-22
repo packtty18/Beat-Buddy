@@ -7,9 +7,10 @@ public class FlashScreen : MonoBehaviour
 
     [Header("플래시 이미지")]
     [SerializeField] private Image _flashImage;
-    [SerializeField] private float _flashSpeed = 1f;
+    [SerializeField] private float _flashSpeed = 0.4f;
     [SerializeField] private Color _flashColour = new Color(0.8f, 0.9f, 1f, 0.8f);
 
+    [Header("플래시 트리거")]
     private bool _isFlashing = false;
 
 
@@ -31,14 +32,19 @@ public class FlashScreen : MonoBehaviour
         _isFlashing = true;
     }
 
-    private void Update()
+    private void FisnishFlash()
     {
-        if (!_isFlashing || _flashImage == null) return;
         _flashImage.color = Color.Lerp(_flashImage.color, Color.clear, _flashSpeed * Time.deltaTime);
         if (_flashImage.color.a <= 0.01f)
         {
             _flashImage.color = Color.clear;
             _isFlashing = false;
         }
+    }
+
+    private void Update()
+    {
+        if (!_isFlashing || _flashImage == null) return;
+        FisnishFlash();
     }
 }
