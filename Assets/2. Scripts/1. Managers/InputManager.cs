@@ -67,10 +67,10 @@ public class InputManager : SimpleSingleton<InputManager>
         }
     }
 
-    //단타
     public bool GetKeyDown(EGameKeyType key)
     {
         //키가 현재 눌렸지만 이전 프레임에 눌리지 않았을 경우.
+        //눌렀을때 한프레임만 true를 반환
         return _currentDownStates[key] && !_previousDownStates[key];
     }
 
@@ -78,6 +78,7 @@ public class InputManager : SimpleSingleton<InputManager>
     public bool GetKey(EGameKeyType key)
     {
         //키가 현재 눌려지는 경우.
+        //누르고 있는 동안 계속 true를 반환
         return _currentDownStates[key];
     }
 
@@ -85,6 +86,7 @@ public class InputManager : SimpleSingleton<InputManager>
     public bool GetKeyUp(EGameKeyType key)
     {
         //키가 현재 눌려지지 않았으나 이전 프레임에 눌려져 있었을 경우
+        //뗐을때 한프레임만 true를 반환
         return !_currentDownStates[key] && _previousDownStates[key];
     }
 }
