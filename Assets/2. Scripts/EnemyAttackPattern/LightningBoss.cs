@@ -17,6 +17,7 @@ public class LightningBoss : MonoBehaviour
     private GameObject _thunderArrow;
 
     [Header("리듬노트 프리팹")]
+    private GameObject[] _rhythmNotes;
     private GameObject _leftNote;
     private GameObject _rightNote;
     public ENoteType NoteType;
@@ -32,6 +33,12 @@ public class LightningBoss : MonoBehaviour
     private bool _lightningSpawned1 = false;
     private bool _lightningSpawned2 = false;
     private bool _lightningSpawned3 = false;
+
+    [Header("공격 패턴 반복")]
+    private int _minAttackCount = 2;
+    private int _maxAttackCount = 5;
+    private bool _thunderRepeat = false;
+
 
     [Header("쿨타임")]
     private float _currentTime = 0f;
@@ -49,6 +56,7 @@ public class LightningBoss : MonoBehaviour
         _lightningSpawned2 = false;
         _lightningSpawned3 = false;
         _thunderSpawned = false;
+        _thunderRepeat = false;
         _lightningCurrentTime = 0f;
 
         _leftNote = Resources.Load<GameObject>("LNote");
@@ -65,18 +73,39 @@ public class LightningBoss : MonoBehaviour
         StartAttackEffect();
     }
 
-
     // 공격 효과 메서드
     private void StartAttackEffect()
     {
-        if (_thunderSpawned == false) ThunderAttack();
+        if (_thunderRepeat == false) ThunderAttackRepeat();
         if (_currentTime >= _startLightning) LightningEffect();
     }
 
-    // 번개 효과 메서드
-    private void ThunderAttack()
+    // 번개 공격 반복 횟수 메서드
+    private void ThunderAttackRepeat()
     {
-        GameObject closestRhythm = GameObject.Find("NotePrefab");
+        _thunderRepeat = true;
+        int repeatCount = Random.Range(_minAttackCount, _maxAttackCount);
+        for (int i = 0; i <= repeatCount; i++) 
+        {
+            _thunderSpawned = false;
+            ThunderAttackRandom();
+        }
+    }
+
+    // 번개 공격 노트 랜덤 타게팅 메서드
+    private void ThunderAttackRandom()
+    {
+        GameObject[] _rhythmNotes = GameObject.FindGameObjects("NotePrefab");
+        if (_rhythmNotes.Length == 0) return;
+
+        GameObject target = _rhythmNotes[Random.Range(0, _rhythmNotes.Length)];
+        ThunderAttack(target);
+    }
+
+    // 번개 효과 메서드
+    private void ThunderAttack(GameObject note)
+    {
+        GameObject closestRhythm = note;
         _thunderPosition = closestRhythm.transform;
         _thunder = Instantiate(_lightningPrefab[(int)ELightningPatternType.Thunder], _thunderPosition);
         _thunderArrow = Instantiate(_lightningPrefab[(int)ELightningPatternType.ThunderArrow], _thunderPosition);
@@ -101,7 +130,7 @@ public class LightningBoss : MonoBehaviour
             ENoteType newType = ENoteType.RNote;
             note.ChangeType(newType);
         }
-        else 
+        else
         {
             ENoteType newType = ENoteType.LNote;
             note.ChangeType(newType);

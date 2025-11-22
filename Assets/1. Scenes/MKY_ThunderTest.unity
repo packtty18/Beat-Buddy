@@ -800,7 +800,6 @@ MonoBehaviour:
   - {fileID: 8775379151742319555, guid: 4927b6badb767cd40aac4f7f22541a4c, type: 3}
   - {fileID: 680057548782724153, guid: 0bde16644eb58c742abc969cc892011c, type: 3}
   - {fileID: 1113137361807345551, guid: 6526673bcb7fb944289f190d2e755089, type: 3}
-  NoteType: 0
   _lightningPosition1: {fileID: 1503447647}
   _lightningPosition2: {fileID: 879943614}
   _lightningPosition3: {fileID: 1477482000}
@@ -868,7 +867,8 @@ PrefabInstance:
       propertyPath: _spriteRenderer
       value: 
       objectReference: {fileID: 613048557}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: 6974598570019131397, guid: 791128430540f6b49ad22f8ae5c1c21e, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
@@ -941,7 +941,8 @@ PrefabInstance:
       propertyPath: m_TagString
       value: Respawn
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -8191896301723186842, guid: 1f9e1b9d5085ffd4e8179d4750d332a4, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents: []
