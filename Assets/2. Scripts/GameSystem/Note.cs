@@ -158,4 +158,54 @@ public class Note : MonoBehaviour
     }
 
     public bool CanBeJudged() => !_isHit;
+
+    public void SetColor(Color color, float duration = 0.3f)
+    {
+        if (_spriteRenderer != null)
+        {
+            _spriteRenderer.DOColor(color, duration);
+        }
+    }
+
+    public void SetSpeed(float multiplier)
+    {
+        //_speedMultiplier = multiplier;
+    }
+
+    public void SwapToOppositeRane(float duration = 0.5f)
+    {
+        Vector3 offset = transform.position - _spawnPosition;
+        Vector3 oppositeTarget = _judgePoint.position - (offset * 2f);
+        _judgePoint.position = oppositeTarget;
+    }
+
+    public void SetScale(float scale, float duration = 0.3f)
+    {
+        transform.DOScale(Vector3.one * scale, duration);
+    }
+
+    public void SetAlpha(float alpha, float duration = 0.3f)
+    {
+        if (_spriteRenderer != null)
+        {
+            _spriteRenderer.DOFade(alpha, duration);
+        }
+    }
+
+    public void Shake(float intensity = 0.1f, float duration = 0.3f)
+    {
+        transform.DOShakePosition(duration, intensity);
+    }
+
+    // 정보 가져오기
+    public float GetDistanceToTarget()
+    {
+        return Vector3.Distance(transform.position, _judgePoint.position);
+    }
+
+    public float GetProgressToTarget()
+    {
+        float currentBeat = Conductor.Instance.BgmPositionInBeats;
+        return Mathf.Clamp01(1f - (TargetBeat - currentBeat) / _beatsToTravel);
+    }
 }
