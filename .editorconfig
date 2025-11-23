@@ -247,3 +247,4 @@ dotnet_naming_style.begins_with_i.capitalization = pascal_case
 
 [*]
 charset = utf-8
+
