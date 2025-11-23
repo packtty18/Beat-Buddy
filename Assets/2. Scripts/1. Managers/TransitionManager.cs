@@ -3,14 +3,14 @@ using UnityEngine;
 
 public class TransitionManager : SimpleSingleton<TransitionManager>
 {
-    [SerializeField]private TransitionController _controller;
+    [SerializeField]private OverlayController _controller;
     protected override void Awake()
     {
         base.Awake();
 
         if (_controller == null)
         {
-            Debug.LogError("TransitionController is not assigned in TransitionManager!");
+            Debug.LogError("OverlayController is not assigned in TransitionManager!");
         }
     }
 

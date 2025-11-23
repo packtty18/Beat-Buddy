@@ -6,25 +6,24 @@ public class SlideTransition : TransitionBase
     public enum Direction { Left, Right, Up, Down }
     [SerializeField] private Direction _direction;
 
-    public override ITransition CreateInstance(TransitionController controller)
+    public override ITransition CreateInstance(OverlayController controller)
     {
         return new SlideInstance(controller, _duration, _direction);
     }
 
     private class SlideInstance : TransitionInstanceBase
     {
-        private readonly RectTransform _panel;
         private readonly Vector2 _outStart;
-        private readonly Vector2  _outEnd;
+        private readonly Vector2 _outEnd;
         private readonly Vector2 _inStart;
         private readonly Vector2 _inEnd;
 
-        public SlideInstance(TransitionController controller, float duration, Direction direction)
+        public SlideInstance(OverlayController controller, float duration, Direction direction)
             : base(controller, duration)
         {
-            _panel = controller.GetOverlayRect();
-            float w = _panel.rect.width;
-            float h = _panel.rect.height;
+            Vector2 size = controller.GetOverlaySize();
+            float w = size.x;
+            float h = size.y;
 
             _outStart = direction switch
             {
@@ -42,17 +41,17 @@ public class SlideTransition : TransitionBase
 
         protected override void ApplyOut(float t)
         {
-            _panel.anchoredPosition = Vector2.Lerp(_outStart, _outEnd, t);
+            _controller.SetOverlayAnchoredPosition(Vector2.Lerp(_outStart, _outEnd, t));
         }
 
         protected override void ApplyIn(float t)
         {
-            _panel.anchoredPosition = Vector2.Lerp(_inStart, _inEnd, t);
+            _controller.SetOverlayAnchoredPosition(Vector2.Lerp(_inStart, _inEnd, t));
         }
 
         public override void ReturnToStart()
         {
-            _panel.anchoredPosition = Vector2.zero;
+            _controller.SetOverlayAnchoredPosition(Vector2.zero);
         }
     }
 }

@@ -3,10 +3,10 @@ using UnityEngine;
 
 public abstract class TransitionInstanceBase : ITransition
 {
-    protected readonly TransitionController _controller;
+    protected readonly OverlayController _controller;
     protected readonly float _duration;
 
-    protected TransitionInstanceBase(TransitionController controller, float duration)
+    protected TransitionInstanceBase(OverlayController controller, float duration)
     {
         _controller = controller;
         _duration = duration;

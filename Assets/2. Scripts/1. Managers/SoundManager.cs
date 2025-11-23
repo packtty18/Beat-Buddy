@@ -36,7 +36,6 @@ public class SoundManager : SimpleSingleton<SoundManager>
             return;
         }
 
-        _soundDatabase.InitMap();
         SetBgmSource();
     }
 

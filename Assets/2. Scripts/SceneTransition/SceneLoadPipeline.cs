@@ -34,6 +34,7 @@ public class SceneLoadPipeline
 
         op.allowSceneActivation = true;
 
+        //임시 대기. 이후 로딩창 구현시 제거
         yield return new WaitForSeconds(1f);
         //3. 씬 인 연출.
         if (_inTransition != null)
