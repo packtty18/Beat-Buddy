@@ -1,20 +1,20 @@
 using UnityEditor;
 using UnityEngine;
 
-[CustomEditor(typeof(MySceneManager))]
+[CustomEditor(typeof(SceneLoadTest))]
 public class TestSceneEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
 
-        MySceneManager testSound = (MySceneManager)target;
+        SceneLoadTest _target = (SceneLoadTest)target;
 
         GUILayout.Space(10);
 
         if (GUILayout.Button("Load Scene"))
         {
-            testSound.TestSceneConvert();
+            _target.TestSceneConvert();
         }
 
     }
