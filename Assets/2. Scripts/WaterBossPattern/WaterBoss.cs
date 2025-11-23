@@ -4,6 +4,7 @@ public class WaterBoss : MonoBehaviour
 {
     [SerializeField] private Material _rippleMaterial;  // Ripple 효과를 가진 Material
     private float _rippleStrength = 1.0f;  // 효과의 세기
+    private float _rippleSpeed = 1.0f;  // 효과의 속도
     private float _rippleDuration = 3.0f;  // 효과의 지속 시간
     private float _rippleDelayCoolTime = 5.0f;  // 효과 발동 전 대기 시간
     private float _rippleStartTime;  // Ripple 효과 시작 시간
@@ -34,13 +35,15 @@ public class WaterBoss : MonoBehaviour
         if (isActive)
         {
             // Ripple 효과 활성화
-            _rippleMaterial.SetFloat("_RippleStrength", _rippleStrength);
+            _rippleMaterial.SetFloat("_rippleStrength", _rippleStrength);
+            _rippleMaterial.SetFloat("_rippleSpeed", _rippleSpeed);
             _isRippleActive = true;
         }
         else
         {
             // Ripple 효과 비활성화
-            _rippleMaterial.SetFloat("_RippleStrength", 0f);
+            _rippleMaterial.SetFloat("_rippleStrength", 0f);
+            _rippleMaterial.SetFloat("_rippleSpeed", 0f);
             _isRippleActive = false;
         }
     }
