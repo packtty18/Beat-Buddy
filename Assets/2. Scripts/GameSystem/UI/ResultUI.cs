@@ -10,9 +10,9 @@ public class ResultUI : MonoBehaviour
 
     void Start()
     {
-        if (JudgeManager.Instance != null)
+        if (GameManager.Instance != null)
         {
-            GameResult result = JudgeManager.Instance.GetGameResult();
+            GameResult result = GameManager.Instance.LastGameResult;
             _perfectText.text = $"Perfect: {result.perfectCount}";
             _goodText.text = $"Good: {result.goodCount}";
             _missText.text = $"Miss: {result.missCount}";

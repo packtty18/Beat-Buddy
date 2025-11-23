@@ -17,7 +17,3 @@ MonoBehaviour:
   _audioClip: {fileID: 8300000, guid: 55dc85bfad8a7c14b9e206b8704e9866, type: 3}
   _notes: []
   _difficulty: 1
-  _startDelay: 0
-  _startBeat: 0
-  _endBeat: 0
-  _noteInterval: 0
