@@ -9,11 +9,7 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: cdb360a1d7303f84999b0a1ab668eaa9, type: 3}
-  m_Name: TransitionDatabase
+  m_Script: {fileID: 11500000, guid: d3c55a9c2ab27f94f9a4a0dbb7c26429, type: 3}
+  m_Name: ScaleOut
   m_EditorClassIdentifier: 
-  entries:
-  - Key: 0
-    Value: {fileID: 0}
-  - Key: 1
-    Value: {fileID: 0}
+  duration: 1
