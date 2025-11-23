@@ -20,7 +20,7 @@ public class LightningBoss : MonoBehaviour
     private GameObject[] _rhythmNotes;
     private GameObject _leftNote;
     private GameObject _rightNote;
-    public ENoteType NoteType;
+    //public ENoteType NoteType; Enum에서 노트 타입 불러올때 사용. 일단 주석처리
 
     [Header("이펙트 포지션")]
     private Transform _thunderPosition;
@@ -95,7 +95,7 @@ public class LightningBoss : MonoBehaviour
     // 번개 공격 노트 랜덤 타게팅 메서드
     private void ThunderAttackRandom()
     {
-        GameObject[] _rhythmNotes = GameObject.FindGameObjects("NotePrefab");
+        GameObject[] _rhythmNotes = GameObject.FindGameObjectsWithTag("Respawn");  // 임시로 Respawn 태그 사용
         if (_rhythmNotes.Length == 0) return;
 
         GameObject target = _rhythmNotes[Random.Range(0, _rhythmNotes.Length)];
@@ -111,31 +111,32 @@ public class LightningBoss : MonoBehaviour
         _thunderArrow = Instantiate(_lightningPrefab[(int)ELightningPatternType.ThunderArrow], _thunderPosition);
         Destroy(_thunder, _thunderAnimationTime);
         Destroy(_thunderArrow, _thunderAnimationTime);
-        ChangeNote(closestRhythm);
+        //ChangeNote(closestRhythm);  // 노트 속성 변경 메서드. 아래 설명 참고
         _thunderSpawned = true;
     }
 
-    // 노트 속성 변경 메서드
-    private void ChangeNote(GameObject noteObject)
-    {
-        Note note = noteObject.GetComponent<Note>();
-        if (note == null)
-        {
-            Debug.LogWarning("Note 컴포넌트를 찾을 수 없습니다.");
-            return;
-        }
+    // 노트 속성을 반대로 변경하는 메서드
+    // 추후 NoteController의 함수를 가져다 쓸 예정. 그 이전까진 주석처리.
+    //private void ChangeNote(GameObject noteObject)
+    //{
+    //    Note note = noteObject.GetComponent<Note>();
+    //    if (note == null)
+    //    {
+    //        Debug.LogWarning("Note 컴포넌트를 찾을 수 없습니다.");
+    //        return;
+    //    }
 
-        if (note.NoteType == ENoteType.LNote)
-        {
-            ENoteType newType = ENoteType.RNote;
-            note.ChangeType(newType);
-        }
-        else
-        {
-            ENoteType newType = ENoteType.LNote;
-            note.ChangeType(newType);
-        }
-    }
+    //    if (note.NoteType == ENoteType.LNote)
+    //    {
+    //        ENoteType newType = ENoteType.RNote;
+    //        note.ChangeType(newType);
+    //    }
+    //    else
+    //    {
+    //        ENoteType newType = ENoteType.LNote;
+    //        note.ChangeType(newType);
+    //    }
+    //}
 
     // 흐르는 전기 효과 메서드
     private void LightningEffect()
