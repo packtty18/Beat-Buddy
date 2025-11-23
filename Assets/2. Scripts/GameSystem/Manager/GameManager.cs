@@ -46,7 +46,7 @@ public class GameManager : SimpleSingleton<GameManager>
         switch (_currentState)
         {
             case EGameState.GameReady:
-                // ✅ Conductor의 준비가 끝나면 GamePlay로 상태만 변경
+                // Conductor의 준비가 끝나면 GamePlay로 상태만 변경
                 if (Conductor.Instance != null && !Conductor.Instance.IsReady)
                 {
                     _currentState = EGameState.GamePlay;
@@ -55,7 +55,7 @@ public class GameManager : SimpleSingleton<GameManager>
                 break;
 
             case EGameState.GamePlay:
-                // ✅ 음악이 끝나면 GameEnd로 상태만 변경
+                // 음악이 끝나면 GameEnd로 상태만 변경
                 if (Conductor.Instance != null && !Conductor.Instance.IsPlaying())
                 {
                     _stateTimer = 3f;
@@ -88,7 +88,7 @@ public class GameManager : SimpleSingleton<GameManager>
         EGameState oldState = _currentState;
         _currentState = newState;
 
-        // ✅ Scene 전환이 필요한 경우만 로드
+        // Scene 전환이 필요한 경우만 로드
         int sceneIndex = -1;
 
         switch (newState)
@@ -106,7 +106,7 @@ public class GameManager : SimpleSingleton<GameManager>
                 break;
 
             case EGameState.GameReady:
-                // ✅ GameReady일 때만 GameScene 로드
+                // GameReady일 때만 GameScene 로드
                 sceneIndex = _gameSceneIndex;
                 break;
 
@@ -123,7 +123,7 @@ public class GameManager : SimpleSingleton<GameManager>
         }
     }
 
-    void LoadScene(int sceneIndex)
+    private void LoadScene(int sceneIndex)
     {
         Debug.Log($"Scene 로드 시작: Index {sceneIndex}");
         _isLoadingScene = true;
@@ -131,7 +131,7 @@ public class GameManager : SimpleSingleton<GameManager>
         SceneManager.LoadScene(sceneIndex);
     }
 
-    void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
     {
         Debug.Log($"Scene 로드 완료: {scene.name}");
         _isLoadingScene = false;

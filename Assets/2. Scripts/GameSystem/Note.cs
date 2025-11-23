@@ -26,7 +26,7 @@ public class Note : MonoBehaviour
     private Vector3 _initialScale = Vector3.one;
     private Quaternion _initialRotation = Quaternion.identity;
 
-    void Awake()
+    private void Awake()
     {
         // 초기 상태 저장
         _initialScale = transform.localScale;
@@ -62,7 +62,7 @@ public class Note : MonoBehaviour
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (_isHit) return;
 
@@ -126,7 +126,7 @@ public class Note : MonoBehaviour
         });
     }
 
-    void OnMiss()
+    private void OnMiss()
     {
         _isHit = true;
         if (_judgeManager != null)
@@ -136,7 +136,7 @@ public class Note : MonoBehaviour
         gameObject.SetActive(false);
     }
 
-    void OnDisable()
+    private void OnDisable()
     {
         // 비활성화 시 애니메이션 정리
         if (_hitSequence != null)

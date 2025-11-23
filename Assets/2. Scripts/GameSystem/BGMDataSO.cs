@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Linq;
 #if UNITY_EDITOR
 using UnityEditor;
 #endif
@@ -99,21 +100,11 @@ public class BGMDataSO : ScriptableObject
 
     public int GetLNoteCount()
     {
-        int count = 0;
-        foreach (var note in _notes)
-        {
-            if (note.type == ENoteType.LNote) count++;
-        }
-        return count;
+        return _notes.Count(note => note.type == ENoteType.LNote);
     }
 
     public int GetRNoteCount()
     {
-        int count = 0;
-        foreach (var note in _notes)
-        {
-            if (note.type == ENoteType.RNote) count++;
-        }
-        return count;
+        return _notes.Count(note => note.type == ENoteType.RNote);
     }
 }

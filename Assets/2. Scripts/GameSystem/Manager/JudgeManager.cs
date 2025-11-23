@@ -39,7 +39,7 @@ public class JudgeManager : SimpleSingleton<JudgeManager>
         {
             if (AudioManager.Instance != null)
             {
-                AudioManager.Instance.CreateSFX(ESFXType.HitDrum, _judgePoint.position);
+                AudioManager.Instance.CreateSFX(ESFXType.HitDrum);
             }
 
             // 입력 피드백 트리거
@@ -53,7 +53,7 @@ public class JudgeManager : SimpleSingleton<JudgeManager>
         {
             if (AudioManager.Instance != null)
             {
-                AudioManager.Instance.CreateSFX(ESFXType.HitClap, _judgePoint.position);
+                AudioManager.Instance.CreateSFX(ESFXType.HitClap);
             }
 
             // 입력 피드백 트리거

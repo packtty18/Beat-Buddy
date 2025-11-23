@@ -28,7 +28,7 @@ public class Conductor : SimpleSingleton<Conductor>
         _musicSource.playOnAwake = false;
     }
 
-    void Start()
+    private void Start()
     {
         if (_bgmList.Length > 0 && _bgmList[_currentBGMIndex] != null)
         {
@@ -36,7 +36,7 @@ public class Conductor : SimpleSingleton<Conductor>
         }
     }
 
-    void Update()
+    private void Update()
     {
         if (!_isPlaying || _musicSource == null) return;
 

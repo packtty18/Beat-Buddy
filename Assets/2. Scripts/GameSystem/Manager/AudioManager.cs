@@ -42,7 +42,7 @@ public class AudioManager : SimpleSingleton<AudioManager>
         }
     }
 
-    public void CreateSFX(ESFXType sfx, Vector3 position)
+    public void CreateSFX(ESFXType sfx)
     {
         AudioClip clipToPlay = sfx switch
         {

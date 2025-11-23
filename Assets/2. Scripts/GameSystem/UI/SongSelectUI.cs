@@ -108,16 +108,16 @@ public class SongSelectUI : MonoBehaviour
     void PlaySelectSound()
     {
         // 선택 효과음 (선택사항)
-        if (SoundManager.Instance != null)
+        if (AudioManager.Instance != null)
         {
-            // SoundManager.Instance.PlaySelectSound();
+            // AudioManager.Instance.PlaySelectSound();
         }
     }
 
     void PlayConfirmSound()
     {
         // 확인 효과음 (선택사항)
-        if (SoundManager.Instance != null)
+        if (AudioManager.Instance != null)
         {
             // SoundManager.Instance.PlayConfirmSound();
         }
@@ -126,9 +126,9 @@ public class SongSelectUI : MonoBehaviour
     void PlayCancelSound()
     {
         // 취소 효과음 (선택사항)
-        if (SoundManager.Instance != null)
+        if (AudioManager.Instance != null)
         {
-            // SoundManager.Instance.PlayCancelSound();
+            // AudioManager.Instance.PlayCancelSound();
         }
     }
 }

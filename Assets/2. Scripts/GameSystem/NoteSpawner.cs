@@ -110,7 +110,7 @@ public class NoteSpawner : MonoBehaviour
         return _activeNotes;
     }
 
-    // ✅ 즉시 제거하지 않고, 리스트에서만 제거
+    // 즉시 제거하지 않고, 리스트에서만 제거
     public void RemoveNote(Note note)
     {
         _activeNotes.Remove(note);
@@ -118,7 +118,7 @@ public class NoteSpawner : MonoBehaviour
         // Note 자체가 애니메이션 후 SetActive(false) 처리
     }
 
-    // ✅ 애니메이션 후 풀 반환용 (Note에서 호출)
+    // 애니메이션 후 풀 반환용 (Note에서 호출)
     public void ReturnNoteAfterAnimation(GameObject note)
     {
         ReturnNoteToPool(note);

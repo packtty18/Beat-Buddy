@@ -3,7 +3,7 @@ using UnityEngine;
 public class RhythmGameStarter : MonoBehaviour
 {
     private bool _hasStarted = false;  // 중복 실행 방지
-
+    [SerializeField] private NoteSpawner _spawner;
     void Start()
     {
         if (_hasStarted)
@@ -36,11 +36,10 @@ public class RhythmGameStarter : MonoBehaviour
         if (JudgeManager.Instance != null)
             JudgeManager.Instance.ResetStats();
 
-        NoteSpawner spawner = FindObjectOfType<NoteSpawner>();
-        if (spawner != null)
+        if (_spawner != null)
         {
-            spawner.ClearAllNotes();
-            spawner.ReloadBGMData();
+            _spawner.ClearAllNotes();
+            _spawner.ReloadBGMData();
         }
 
         Debug.Log("음악 재생 시작");
