@@ -16,24 +16,24 @@ public class BuddyAnimatorController : MonoBehaviour
             _animator = GetComponent<Animator>();
         }
 
-        OnAttackAnimator(false);
-        OnDefeatedAnimator(false);
+        OnAttack(false);
+        OnDefeated(false);
     }
 
     //플레이어에게 피격 당했을 경우 호출.
-    public void OnHitAnimator()
+    public void OnHit()
     {
         _animator.SetTrigger("OnHit");
     }
 
     //패턴을 시작할 때 호출.
-    public void OnAttackAnimator(bool isOn)
+    public void OnAttack(bool isOn)
     {
         _animator.SetBool("OnAttack", isOn);
     }
 
     //경계도가 0이 되었을 때 호출.
-    public void OnDefeatedAnimator(bool isOn)
+    public void OnDefeated(bool isOn)
     {
         _animator.SetBool("OnDefeated", isOn);
     }
