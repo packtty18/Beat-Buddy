@@ -1,68 +1,137 @@
-﻿using UnityEngine;
+using System;
+using System.Collections;
+using UnityEngine;
+public enum ESoundType
+{
+    None = 0,
+    BGM1,
+    BGM2,
+    BGM3,
+    BGM4,
+    SFX1,
+}
 public class SoundManager : SimpleSingleton<SoundManager>
 {
-    /*
-     * 게임 내에 생성되는 소리 관련 모든 객체를 동작 및 제어
-     */
-    private const string _bgmObjectName = "BGM";
+    [Header("사운드 라이브러리 추가")]
+    [SerializeField] private SoundDatabaseSO _soundDatabase;
+    [SerializeField] private ESoundType _initialBgmType = ESoundType.BGM1;
+    [SerializeField] private GameObject _bgmObject;
 
-    [Header("사운드 프리팹")]
-    [SerializeField] private GameObject _soundPrefab;   //사운드 오브젝트
-    [SerializeField] private Transform _soundParent;
+    [Header("BGM Settings")]
+    [SerializeField] private string _bgmObjectName = "BGM";
+    private SoundObject _bgmSource;
 
-    [Header("정적 생성된 AudioSource")]
-    [SerializeField] private AudioSource _bgmSource;
-
-    [Header("사용할 클립")]
-    [SerializeField] private AudioClip _bgmSound;
-    [SerializeField] private AudioClip _gameOverSound;
-    [SerializeField] private AudioClip _bulletSound;
-    [SerializeField] private AudioClip _expSound;
-    [SerializeField] private AudioClip _playerHitSound;
-    [SerializeField] private AudioClip _chestOpen;
-    [SerializeField] private AudioClip _explosion;
-    private void Start()
+    protected override void Awake()
     {
-        if (_bgmSource == null)
+        base.Awake();
+
+        Init();
+    }
+
+    public void Init()
+    {
+        if (_soundDatabase == null)
         {
-            CreateBGMObject();
+            Debug.LogError("SoundManager: SoundLibrary reference is missing!");
+            return;
+        }
+
+        SetBgmSource();
+    }
+
+    private void SetBgmSource()
+    {
+        if (_bgmObject == null)
+        {
+            Debug.Log("[SoundManager] Created BGM AudioSource.");
+
+            GameObject newObject = new GameObject(_bgmObjectName);
+            newObject.transform.SetParent(transform);
+
+            _bgmSource = newObject.AddComponent<SoundObject>();
+        }
+        else
+        {
+            if (!_bgmObject.TryGetComponent<SoundObject>(out _bgmSource))
+            {
+                _bgmSource = _bgmObject.AddComponent<SoundObject>();
+            }
+        }
+
+        AudioClip targetAudio = _soundDatabase.GetData(_initialBgmType);
+        if (targetAudio != null)
+        {
+            _bgmSource.OnPlay(targetAudio, true);
         }
     }
 
-    private void CreateBGMObject()
+
+    public void PlayBGM(ESoundType bgmType, float playTime = 0)
     {
-        GameObject bgmObject = InstantiateSoundObject(_bgmSound, Vector3.zero, _soundParent, false);
-        bgmObject.name = _bgmObjectName;
-    }
-
-    private GameObject InstantiateSoundObject(AudioClip clip, Vector3 position, Transform parent = null, bool autoDestory = true )
-    {
-        GameObject soundObject = Instantiate(_soundPrefab, position, Quaternion.identity);
-        soundObject.transform.SetParent(parent);
-
-        SoundObject sound = soundObject.GetComponent<SoundObject>();
-        sound.SetSound(clip, autoDestory);
-        sound.OnPlay();
-
-        return soundObject;
-    }
-    
-    public GameObject CreateSFX(ESFXType sfx, Vector3 position, Transform parent = null)
-    {
-        AudioClip clipToPlay = null;
-        bool autoDestroy = true;
-
-        switch (sfx)
+        if (_bgmSource == null || _soundDatabase == null)
         {
-           
-                
+            return;
         }
 
-        GameObject soundGameObject = InstantiateSoundObject(clipToPlay, position, parent, autoDestroy);
-        SoundObject soundObject = soundGameObject.GetComponent<SoundObject>();
-        soundObject.OnPlay();
+        if (bgmType == ESoundType.None)
+        {
+            return;
+        }
 
-        return soundGameObject;
+        var clip = _soundDatabase.GetData(bgmType);
+        if (clip == null)
+        {
+            Debug.LogWarning($"SoundManager:  {bgmType} clip not found in library");
+            return;
+        }
+
+        Debug.Log($"[SoundManager] PlayBGM requested: {bgmType}");
+
+        _bgmSource.OnPlay(clip, true, playTime);
+    }
+
+    public void StopBGM()
+    {
+        _bgmSource.StopPlay();
+    }
+
+
+
+    public void PlaySFX(ESoundType type, float playTime = 0)
+    {
+        if (_soundDatabase == null)
+        {
+            Debug.LogWarning($"SoundManager: There's no Sound library");
+            return;
+        }
+
+        var clip = _soundDatabase.GetData(type);
+        if (clip == null)
+        {
+            Debug.LogWarning($"SoundManager: Clip can't find in library");
+            return;
+        }
+
+        if(!PoolManager.IsManagerExist())
+        {
+            Debug.LogWarning($"SoundManager: PoolManager Instance is null");
+            return;
+        }
+
+        PoolManager _pool = PoolManager.Instance;
+
+        SoundObject soundObject = _pool.SpawnGetComponent<SoundPool, ESoundObject, SoundObject>(ESoundObject.SoundObject);
+        if (soundObject == null)
+        {
+            Debug.LogWarning($"SoundManager: PoolObject does't have SoundObject Component");
+            return;
+        }
+
+        soundObject.OnPlaybackFinished = () =>
+        {
+            _pool.Despawn<SoundPool, ESoundObject>(ESoundObject.SoundObject, soundObject.gameObject);
+        };
+
+        soundObject.OnPlay(clip, false, playTime);
     }
 }
-
