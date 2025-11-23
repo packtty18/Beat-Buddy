@@ -714,7 +714,7 @@ GameObject:
   - component: {fileID: 737245293}
   - component: {fileID: 737245295}
   - component: {fileID: 737245294}
-  - component: {fileID: 737245292}
+  - component: {fileID: 737245296}
   m_Layer: 0
   m_Name: TranstionController
   m_TagString: Untagged
@@ -722,20 +722,6 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 0
---- !u!114 &737245292
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 737245291}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 4b412cb94134e95478bf0c026084cc8d, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _canvas: {fileID: 586130299}
-  _overlay: {fileID: 329241742}
 --- !u!224 &737245293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -802,6 +788,20 @@ Canvas:
   m_SortingLayerID: 0
   m_SortingOrder: 9999
   m_TargetDisplay: 0
+--- !u!114 &737245296
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 737245291}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3d446bf5a4c163d47bbbbdd5936aeb35, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _canvas: {fileID: 737245295}
+  _overlay: {fileID: 329241742}
 --- !u!1 &767861992273902525
 GameObject:
   m_ObjectHideFlags: 0
@@ -832,7 +832,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1b0755a0129239c49a17fdbc39a6951b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _controller: {fileID: 737245292}
+  _controller: {fileID: 737245296}
 --- !u!4 &6148050331263087334
 Transform:
   m_ObjectHideFlags: 0
@@ -863,9 +863,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _sceneDatabase: {fileID: 11400000, guid: c709545e275b92d45a803d9fcb4bd112, type: 2}
   _transitionDatabase: {fileID: 11400000, guid: 912c5ebbe4fcbe34188745547473fa83, type: 2}
-  _targetScene: 0
-  _outTransitionType: 0
-  _inTransitionType: 0
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
