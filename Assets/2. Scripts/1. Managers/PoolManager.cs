@@ -1,4 +1,4 @@
-﻿using System;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -62,7 +62,7 @@ public class PoolManager : SimpleSingleton<PoolManager>
         if (component == null)
         {
             Despawn<TPool, TEnum>(type, obj);
-            Debug.LogError($"[PoolManager] Component of type {typeof(TComponent).Name} not found on spawned object.");
+            Debug.LogError($"[PoolManager] Component of Type {typeof(TComponent).Name} not found on spawned object.");
             return null;
         }
         return component;
