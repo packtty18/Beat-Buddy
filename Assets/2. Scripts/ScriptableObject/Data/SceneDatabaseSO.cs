@@ -8,4 +8,6 @@ public enum ESceneType
 }
 
 [CreateAssetMenu(fileName = "SceneDatabase", menuName = "SO/SceneDatabase")]
-public class SceneDatabaseSO : DatabaseSO<ESceneType, string> { }
+public class SceneDatabaseSO : DatabaseSO<ESceneType, string> 
+{ 
+}

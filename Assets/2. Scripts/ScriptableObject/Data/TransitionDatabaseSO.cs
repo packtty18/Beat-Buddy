@@ -12,4 +12,6 @@ public enum ETransitionType
 }
 
 [CreateAssetMenu(fileName = "TransitionDatabase", menuName = "SO/TransitionDatabase")]
-public class TransitionDatabaseSO : DatabaseSO<ETransitionType, TransitionBase> { }
+public class TransitionDatabaseSO : DatabaseSO<ETransitionType, TransitionBase> 
+{
+}

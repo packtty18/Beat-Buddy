@@ -13,7 +13,6 @@ public class FadeTransition : TransitionBase
 
     private class FadeInstance : TransitionInstanceBase
     {
-        private readonly Image _overlay;
         private readonly Color _baseColor;
 
         public FadeInstance(OverlayController controller, float duration, Color color)

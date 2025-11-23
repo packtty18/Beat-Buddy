@@ -3,7 +3,6 @@ using UnityEngine.UI;
 
 public class OverlayController : MonoBehaviour
 {
-    [SerializeField] private Canvas _canvas;
     [SerializeField] private Image _overlay;
 
     public void Initialize()
