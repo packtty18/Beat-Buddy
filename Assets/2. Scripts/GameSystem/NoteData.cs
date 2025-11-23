@@ -1,7 +1,11 @@
 using System;
 using UnityEngine;
+public enum ENoteType
+{
+    LNote,  // 왼쪽 노트
+    RNote   // 오른쪽 노트
+}
 
-// 개별 노트의 타이밍과 타입 정보
 [Serializable]
 public class NoteData
 {

@@ -923,7 +923,3 @@ MonoBehaviour:
   - beat: 226
     type: 0
   _difficulty: 3
-  _startDelay: 0
-  _startBeat: 0
-  _endBeat: 226
-  _noteInterval: 0.5
