@@ -72,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -150,9 +150,9 @@ TextureImporter:
       name: Punching (32 x 32)_0
       rect:
         serializedVersion: 2
-        x: 3
+        x: 0
         y: 0
-        width: 27
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -172,10 +172,10 @@ TextureImporter:
       name: Punching (32 x 32)_1
       rect:
         serializedVersion: 2
-        x: 38
+        x: 32
         y: 0
-        width: 27
-        height: 31
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +194,10 @@ TextureImporter:
       name: Punching (32 x 32)_2
       rect:
         serializedVersion: 2
-        x: 72
+        x: 64
         y: 0
-        width: 25
-        height: 31
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,9 +216,9 @@ TextureImporter:
       name: Punching (32 x 32)_3
       rect:
         serializedVersion: 2
-        x: 102
+        x: 96
         y: 0
-        width: 22
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -238,9 +238,9 @@ TextureImporter:
       name: Punching (32 x 32)_4
       rect:
         serializedVersion: 2
-        x: 131
+        x: 128
         y: 0
-        width: 27
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -260,10 +260,10 @@ TextureImporter:
       name: Punching (32 x 32)_5
       rect:
         serializedVersion: 2
-        x: 161
+        x: 160
         y: 0
         width: 32
-        height: 31
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,10 +282,10 @@ TextureImporter:
       name: Punching (32 x 32)_6
       rect:
         serializedVersion: 2
-        x: 193
+        x: 192
         y: 0
         width: 32
-        height: 31
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,9 +304,9 @@ TextureImporter:
       name: Punching (32 x 32)_7
       rect:
         serializedVersion: 2
-        x: 226
+        x: 224
         y: 0
-        width: 29
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -326,7 +326,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 4f25aa776c82ad343baa0cbb866e4a43
     internalID: 0
     vertices: []
     indices: 

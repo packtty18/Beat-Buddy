@@ -57,7 +57,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -135,10 +135,10 @@ TextureImporter:
       name: Arm_Shield_Blocking (32 x 32)_0
       rect:
         serializedVersion: 2
-        x: 4
+        x: 0
         y: 0
-        width: 28
-        height: 31
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -157,10 +157,10 @@ TextureImporter:
       name: Arm_Shield_Blocking (32 x 32)_1
       rect:
         serializedVersion: 2
-        x: 35
+        x: 32
         y: 0
-        width: 29
-        height: 31
+        width: 32
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -179,9 +179,9 @@ TextureImporter:
       name: Arm_Shield_Blocking (32 x 32)_2
       rect:
         serializedVersion: 2
-        x: 66
+        x: 64
         y: 0
-        width: 30
+        width: 32
         height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
@@ -201,7 +201,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 8313a5a9c10806b4e9b8d87eaa41cb83
     internalID: 0
     vertices: []
     indices: 
