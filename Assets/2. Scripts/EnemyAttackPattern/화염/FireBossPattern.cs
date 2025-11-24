@@ -1,6 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
-using DG.Tweening;
+﻿using System.Collections;
+using UnityEngine;
+
 public enum EFirePatternType
 {
     BigBurn,
@@ -12,12 +12,25 @@ public enum EFirePatternType
 
 public class FireBossPattern : MonoBehaviour
 {
+    [Header("화염 공격 트리거")]
+    public bool _isFireAttackActive = false;
+
     [Header("화염 프리팹")]
     [SerializeField] private GameObject[] _firePatternPrefab;
-    private GameObject _currentObscuringEffect;
+    private GameObject _currentFireEffect;
+    private GameObject _fireRise;
+    private GameObject _burningEffect;
+
+    [Header("버닝 포지션")]
+    private Transform _burningPositiion1;
+    private Transform _burningPositiion2;
+    private Transform _burningPositiion3;
+    private Transform _reversePosition;
 
     [Header("쿨타임")]
     private float _breathingTime = 1.6f;
+    private float _fireRiseAnimationTime = 0.3f;
+    private float _burningAnimationTime = 5f;
 
     [Header("스프라이트 반전")]
     private SpriteRenderer _spriteRenderer;
@@ -34,32 +47,45 @@ public class FireBossPattern : MonoBehaviour
     // 공격 루틴 시작
     private IEnumerator StartFireAttackCoroutine()
     {
+        _isFireAttackActive = true;
+
         yield return StartCoroutine(FireStartAnimation());
         ShowBreathEffect();
 
+        yield return new WaitForSeconds(_fireRiseAnimationTime);
+        SpawningBigBurningEffect(_burningPositiion1);
+        yield return new WaitForSeconds(_fireRiseAnimationTime);
+        SpawningSmallBurningEffect(_burningPositiion2);
+        yield return new WaitForSeconds(_fireRiseAnimationTime);
+        SpawningBigBurningEffect(_burningPositiion3);
+
         yield return new WaitForSeconds(_breathingTime);
         HideBreathEffect();
+
+        _isFireAttackActive = false;
     }
 
     // 브레스 시작 전 경고성 이펙트 소환 메서드
     private IEnumerator FireStartAnimation()
     {
-        if(_firePatternPrefab != null && transform.position.x >= 0)
+
+
+        if (_firePatternPrefab != null && transform.position.x >= 0)
         {
-            _currentObscuringEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireStart], transform);
+            _currentFireEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireStart], transform);
         }
         else if (_firePatternPrefab != null && transform.position.x < 0)
         {
-            _currentObscuringEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireStart], transform);
-            _spriteRenderer = _currentObscuringEffect.GetComponent<SpriteRenderer>();
-            FlippedYOn();
+            _currentFireEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireStart], transform);
+            _spriteRenderer = _currentFireEffect.GetComponent<SpriteRenderer>();
+            FlippedYOn(_currentFireEffect);
         }
         else
         {
             Debug.LogWarning("프리팹이 할당되지 않았습니다.");
         }
 
-        _animator = _currentObscuringEffect.GetComponent<Animator>();
+        _animator = _currentFireEffect.GetComponent<Animator>();
 
         AnimatorStateInfo info = _animator.GetCurrentAnimatorStateInfo(0);
         float length = info.length;
@@ -72,9 +98,9 @@ public class FireBossPattern : MonoBehaviour
             yield return null;
         }
 
-        if (transform.position.x < 0) FlippedYOff();
-        Destroy(_currentObscuringEffect);
-        _currentObscuringEffect = null;
+        if (transform.position.x < 0) FlippedYOff(_currentFireEffect);
+        Destroy(_currentFireEffect);
+        _currentFireEffect = null;
         _animator = null;
     }
 
@@ -83,15 +109,15 @@ public class FireBossPattern : MonoBehaviour
     {
         if (_firePatternPrefab != null && transform.position.x >= 0)
         {
-            _currentObscuringEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.Breath], transform);
-            FadeInOutEffect fadeInOutAnimation = _currentObscuringEffect.GetComponent<FadeInOutEffect>();  // 페이드인 호출
+            _currentFireEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.Breath], transform);
+            FadeInOutEffect fadeInOutAnimation = _currentFireEffect.GetComponent<FadeInOutEffect>();  // 페이드인 호출
             fadeInOutAnimation.PlayShowAnimation();
         }
         else if (_firePatternPrefab != null && transform.position.x < 0)
         {
-            _currentObscuringEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.Breath], transform);
-            FlippedXOn();
-            FadeInOutEffect fadeInOutAnimation = _currentObscuringEffect.GetComponent<FadeInOutEffect>();  // 페이드인 호출
+            _currentFireEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.Breath], transform);
+            FlippedXOn(_currentFireEffect);
+            FadeInOutEffect fadeInOutAnimation = _currentFireEffect.GetComponent<FadeInOutEffect>();  // 페이드인 호출
             fadeInOutAnimation.PlayShowAnimation();
         }
         else
@@ -100,20 +126,71 @@ public class FireBossPattern : MonoBehaviour
         }
     }
 
+    private void SpawningBigBurningEffect(Transform position)
+    {
+        if (_firePatternPrefab != null && transform.position.x >= 0)
+        {
+            _fireRise = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireRise], position);
+            FlippedXOff(_fireRise);
+            Destroy(_fireRise, _fireRiseAnimationTime);
+            _burningEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.BigBurn], position);
+            FlippedXOff(_burningEffect);
+            Destroy(_burningEffect, _burningAnimationTime);
+        }
+        else if (_firePatternPrefab != null && transform.position.x < 0)
+        {
+            _fireRise = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireRise], position);
+            FlippedXOn(_fireRise);
+            Destroy(_fireRise, _fireRiseAnimationTime);
+            _burningEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.BigBurn], position);
+            FlippedXOn(_burningEffect);
+            Destroy(_burningEffect, _burningAnimationTime);
+        }
+        else
+        {
+            Debug.LogWarning("프리팹이 할당되지 않았습니다.");
+        }
+    }
+    private void SpawningSmallBurningEffect(Transform position)
+    {
+        if (_firePatternPrefab != null && transform.position.x >= 0)
+        {
+            _fireRise = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireRise], position);
+            FlippedXOff(_fireRise);
+            Destroy(_fireRise, _fireRiseAnimationTime);
+            _burningEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.SmallBurn], position);
+            FlippedXOff(_burningEffect);
+            Destroy(_burningEffect, _fireRiseAnimationTime);
+        }
+        else if (_firePatternPrefab != null && transform.position.x < 0)
+        {
+            _fireRise = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireRise], position);
+            FlippedXOn(_fireRise);
+            Destroy(_fireRise, _fireRiseAnimationTime);
+            _burningEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.SmallBurn], position);
+            FlippedXOn(_burningEffect);
+            Destroy(_burningEffect, _burningAnimationTime);
+        }
+        else
+        {
+            Debug.LogWarning("프리팹이 할당되지 않았습니다.");
+        }
+    }
+
     // 브레스 이펙트 숨기는 메서드
     private void HideBreathEffect()
     {
-        if (_currentObscuringEffect != null)
+        if (_currentFireEffect != null)
         {
             // 페이드 아웃 호출
-            FadeInOutEffect fadeInOutAnimation = _currentObscuringEffect.GetComponent<FadeInOutEffect>();
+            FadeInOutEffect fadeInOutAnimation = _currentFireEffect.GetComponent<FadeInOutEffect>();
             System.Action cleanupAction = () =>
             {
-                if (_currentObscuringEffect != null)
+                if (_currentFireEffect != null)
                 {
-                    if (transform.position.x < 0) FlippedXOff();
-                    Destroy(_currentObscuringEffect);
-                    _currentObscuringEffect = null;
+                    if (transform.position.x < 0) FlippedXOff(_currentFireEffect);
+                    Destroy(_currentFireEffect);
+                    _currentFireEffect = null;
                 }
             };
             if (fadeInOutAnimation != null)
@@ -128,30 +205,29 @@ public class FireBossPattern : MonoBehaviour
         }
         else
         {
-            FlippedXOff();
-            _currentObscuringEffect = null;
+            _currentFireEffect = null;
         }
     }
 
-    private void FlippedXOn()
+    private void FlippedXOn(GameObject FireEffect)
     {
-        _spriteRenderer = _currentObscuringEffect.GetComponent<SpriteRenderer>();
+        _spriteRenderer = FireEffect.GetComponent<SpriteRenderer>();
         _spriteRenderer.flipX = true;
     }
-    private void FlippedXOff()
+    private void FlippedXOff(GameObject FireEffect)
     {
-        _spriteRenderer = _currentObscuringEffect.GetComponent<SpriteRenderer>();
-        _spriteRenderer.flipX = false;
+        _spriteRenderer = FireEffect.GetComponent<SpriteRenderer>();
+        _spriteRenderer.flipX = true;
     }
 
-    private void FlippedYOn()
+    private void FlippedYOn(GameObject FireEffect)
     {
-        _spriteRenderer = _currentObscuringEffect.GetComponent<SpriteRenderer>();
+        _spriteRenderer = FireEffect.GetComponent<SpriteRenderer>();
         _spriteRenderer.flipY = true;
     }
-    private void FlippedYOff()
+    private void FlippedYOff(GameObject FireEffect)
     {
-        _spriteRenderer = _currentObscuringEffect.GetComponent<SpriteRenderer>();
+        _spriteRenderer = FireEffect.GetComponent<SpriteRenderer>();
         _spriteRenderer.flipY = false;
     }
 }
