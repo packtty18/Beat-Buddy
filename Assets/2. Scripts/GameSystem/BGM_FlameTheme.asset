@@ -13,883 +13,311 @@ MonoBehaviour:
   m_Name: BGM_FlameTheme
   m_EditorClassIdentifier: 
   _bgmName: FlameTheme
-  _bpm: 163
-  _audioClip: {fileID: 8300000, guid: 30038cafefd73034ab8936c06c0355cb, type: 3}
+  _bpm: 106.95
+  _audioClip: {fileID: 8300000, guid: 0d6e5482bcf172741ba70941bb038524, type: 3}
   _notes:
-  - beat: 0
-    type: 0
-  - beat: 1
-    type: 0
-  - beat: 2
-    type: 0
-  - beat: 3
-    type: 1
-  - beat: 4
-    type: 0
-  - beat: 5
-    type: 0
-  - beat: 6
-    type: 1
-  - beat: 7
-    type: 0
-  - beat: 8
-    type: 1
-  - beat: 9
-    type: 1
-  - beat: 10
-    type: 1
-  - beat: 11
-    type: 1
-  - beat: 12
-    type: 1
-  - beat: 13
-    type: 0
-  - beat: 14
-    type: 0
-  - beat: 15
-    type: 0
-  - beat: 16
-    type: 0
-  - beat: 17
-    type: 1
-  - beat: 18
-    type: 0
-  - beat: 19
-    type: 0
-  - beat: 20
-    type: 1
-  - beat: 21
-    type: 0
-  - beat: 22
-    type: 1
-  - beat: 23
-    type: 1
-  - beat: 24
-    type: 0
-  - beat: 25
-    type: 0
-  - beat: 26
-    type: 0
-  - beat: 27
-    type: 0
-  - beat: 28
-    type: 1
-  - beat: 29
-    type: 1
-  - beat: 30
-    type: 0
-  - beat: 31
-    type: 0
-  - beat: 32
-    type: 1
-  - beat: 33
-    type: 1
-  - beat: 34
-    type: 0
-  - beat: 35
-    type: 1
-  - beat: 36
-    type: 0
-  - beat: 37
-    type: 1
-  - beat: 38
-    type: 0
-  - beat: 39
-    type: 0
-  - beat: 40
-    type: 0
-  - beat: 41
-    type: 0
-  - beat: 42
-    type: 1
-  - beat: 43
-    type: 0
-  - beat: 44
-    type: 1
-  - beat: 45
-    type: 1
-  - beat: 46
-    type: 1
-  - beat: 47
-    type: 1
-  - beat: 48
-    type: 1
-  - beat: 49
-    type: 1
-  - beat: 50
-    type: 1
-  - beat: 51
-    type: 1
-  - beat: 52
-    type: 0
-  - beat: 53
-    type: 0
-  - beat: 54
-    type: 1
-  - beat: 55
-    type: 1
-  - beat: 56
-    type: 1
-  - beat: 57
-    type: 0
-  - beat: 58
-    type: 1
-  - beat: 59
-    type: 0
-  - beat: 60
-    type: 0
-  - beat: 61
-    type: 0
-  - beat: 62
-    type: 1
-  - beat: 63
-    type: 0
-  - beat: 64
-    type: 1
-  - beat: 65
-    type: 1
-  - beat: 66
-    type: 0
-  - beat: 67
-    type: 0
-  - beat: 68
-    type: 0
-  - beat: 69
-    type: 0
-  - beat: 70
-    type: 1
-  - beat: 71
+  - beat: 2.01779
     type: 1
-  - beat: 72
+  - beat: 2.26734
     type: 0
-  - beat: 73
-    type: 1
-  - beat: 74
-    type: 0
-  - beat: 75
-    type: 1
-  - beat: 76
-    type: 0
-  - beat: 77
-    type: 1
-  - beat: 78
-    type: 1
-  - beat: 79
-    type: 1
-  - beat: 80
-    type: 0
-  - beat: 81
-    type: 0
-  - beat: 82
-    type: 1
-  - beat: 83
-    type: 1
-  - beat: 84
-    type: 1
-  - beat: 85
-    type: 1
-  - beat: 86
-    type: 0
-  - beat: 87
-    type: 1
-  - beat: 88
-    type: 0
-  - beat: 89
-    type: 1
-  - beat: 90
-    type: 1
-  - beat: 91
-    type: 1
-  - beat: 92
-    type: 0
-  - beat: 93
-    type: 0
-  - beat: 94
-    type: 1
-  - beat: 95
-    type: 0
-  - beat: 96
-    type: 0
-  - beat: 97
-    type: 0
-  - beat: 98
-    type: 1
-  - beat: 99
-    type: 0
-  - beat: 100
-    type: 0
-  - beat: 101
-    type: 1
-  - beat: 102
-    type: 1
-  - beat: 103
-    type: 0
-  - beat: 104
-    type: 1
-  - beat: 105
-    type: 1
-  - beat: 106
-    type: 1
-  - beat: 107
-    type: 0
-  - beat: 108
-    type: 0
-  - beat: 109
+  - beat: 2.76644
     type: 0
-  - beat: 110
-    type: 0
-  - beat: 111
-    type: 1
-  - beat: 112
-    type: 1
-  - beat: 113
-    type: 0
-  - beat: 114
-    type: 1
-  - beat: 115
-    type: 0
-  - beat: 116
-    type: 1
-  - beat: 117
-    type: 0
-  - beat: 118
-    type: 1
-  - beat: 119
-    type: 1
-  - beat: 120
-    type: 1
-  - beat: 121
-    type: 0
-  - beat: 122
-    type: 0
-  - beat: 123
-    type: 0
-  - beat: 124
-    type: 0
-  - beat: 125
-    type: 0
-  - beat: 126
-    type: 0
-  - beat: 127
-    type: 0
-  - beat: 128
+  - beat: 3.2673225
     type: 1
-  - beat: 129
-    type: 1
-  - beat: 130
-    type: 0
-  - beat: 131
-    type: 0
-  - beat: 132
-    type: 0
-  - beat: 133
-    type: 0
-  - beat: 134
-    type: 0
-  - beat: 135
-    type: 0
-  - beat: 136
-    type: 0
-  - beat: 137
-    type: 0
-  - beat: 138
-    type: 1
-  - beat: 139
-    type: 1
-  - beat: 140
-    type: 1
-  - beat: 141
+  - beat: 3.7664225
     type: 0
-  - beat: 142
+  - beat: 6.0177197
     type: 1
-  - beat: 143
-    type: 0
-  - beat: 144
+  - beat: 7.0177026
     type: 1
-  - beat: 145
-    type: 0
-  - beat: 146
-    type: 0
-  - beat: 147
-    type: 0
-  - beat: 148
-    type: 0
-  - beat: 149
-    type: 0
-  - beat: 150
+  - beat: 7.2672524
     type: 0
-  - beat: 151
-    type: 0
-  - beat: 152
-    type: 1
-  - beat: 153
+  - beat: 7.766352
     type: 1
-  - beat: 154
+  - beat: 9.017668
     type: 0
-  - beat: 155
+  - beat: 9.5167675
     type: 1
-  - beat: 156
+  - beat: 10.01765
     type: 0
-  - beat: 157
+  - beat: 11.0176325
     type: 1
-  - beat: 158
+  - beat: 11.267182
     type: 1
-  - beat: 159
+  - beat: 11.766282
     type: 0
-  - beat: 160
+  - beat: 14.01758
     type: 1
-  - beat: 161
-    type: 0
-  - beat: 162
-    type: 0
-  - beat: 163
+  - beat: 14.51668
     type: 0
-  - beat: 164
-    type: 0
-  - beat: 165
-    type: 0
-  - beat: 166
-    type: 0
-  - beat: 167
-    type: 1
-  - beat: 168
+  - beat: 15.017562
     type: 1
-  - beat: 169
-    type: 1
-  - beat: 170
+  - beat: 15.267113
     type: 0
-  - beat: 171
+  - beat: 15.767995
     type: 1
-  - beat: 172
+  - beat: 16.516645
     type: 0
-  - beat: 173
+  - beat: 17.017527
     type: 1
-  - beat: 174
+  - beat: 17.516626
     type: 1
-  - beat: 175
-    type: 0
-  - beat: 176
-    type: 0
-  - beat: 177
-    type: 0
-  - beat: 178
+  - beat: 18.01751
     type: 0
-  - beat: 179
+  - beat: 18.51661
     type: 0
-  - beat: 180
-    type: 0
-  - beat: 181
-    type: 1
-  - beat: 182
-    type: 0
-  - beat: 183
+  - beat: 19.017492
     type: 1
-  - beat: 184
-    type: 1
-  - beat: 185
-    type: 0
-  - beat: 186
+  - beat: 19.267042
     type: 0
-  - beat: 187
-    type: 0
-  - beat: 188
-    type: 1
-  - beat: 189
+  - beat: 19.767925
     type: 1
-  - beat: 190
-    type: 0
-  - beat: 191
-    type: 0
-  - beat: 192
+  - beat: 21.017458
     type: 1
-  - beat: 193
-    type: 0
-  - beat: 194
-    type: 0
-  - beat: 195
+  - beat: 22.017439
     type: 1
-  - beat: 196
+  - beat: 22.51654
     type: 0
-  - beat: 197
+  - beat: 23.017422
     type: 1
-  - beat: 198
-    type: 1
-  - beat: 199
-    type: 1
-  - beat: 200
+  - beat: 23.266972
     type: 0
-  - beat: 201
+  - beat: 23.767855
     type: 1
-  - beat: 202
+  - beat: 24.516504
     type: 1
-  - beat: 203
+  - beat: 25.017387
     type: 1
-  - beat: 204
-    type: 0
-  - beat: 205
+  - beat: 25.516487
     type: 0
-  - beat: 206
-    type: 0
-  - beat: 207
-    type: 0
-  - beat: 208
+  - beat: 26.01737
     type: 1
-  - beat: 209
+  - beat: 27.017353
     type: 0
-  - beat: 210
+  - beat: 27.266903
     type: 1
-  - beat: 211
+  - beat: 27.767784
     type: 0
-  - beat: 212
+  - beat: 29.017317
     type: 0
-  - beat: 213
+  - beat: 29.516417
     type: 0
-  - beat: 214
+  - beat: 30.0173
     type: 1
-  - beat: 215
-    type: 1
-  - beat: 216
+  - beat: 31.017282
     type: 0
-  - beat: 217
+  - beat: 31.266832
     type: 1
-  - beat: 218
+  - beat: 32.017265
     type: 1
-  - beat: 219
-    type: 0
-  - beat: 220
+  - beat: 33.017246
     type: 1
-  - beat: 221
-    type: 0
-  - beat: 222
-    type: 0
-  - beat: 223
-    type: 0
-  - beat: 224
-    type: 0
-  - beat: 225
+  - beat: 34.01723
     type: 1
-  - beat: 226
-    type: 0
-  - beat: 227
+  - beat: 34.51633
     type: 0
-  - beat: 228
+  - beat: 35.017212
     type: 1
-  - beat: 229
+  - beat: 35.26676
     type: 0
-  - beat: 230
-    type: 1
-  - beat: 231
+  - beat: 35.767643
     type: 0
-  - beat: 232
-    type: 1
-  - beat: 233
+  - beat: 37.017178
     type: 0
-  - beat: 234
-    type: 1
-  - beat: 235
-    type: 1
-  - beat: 236
+  - beat: 38.01716
     type: 1
-  - beat: 237
+  - beat: 39.017143
     type: 1
-  - beat: 238
+  - beat: 39.266693
     type: 0
-  - beat: 239
-    type: 0
-  - beat: 240
-    type: 0
-  - beat: 241
-    type: 0
-  - beat: 242
+  - beat: 39.767574
     type: 1
-  - beat: 243
+  - beat: 40.516224
     type: 0
-  - beat: 244
+  - beat: 41.01711
     type: 1
-  - beat: 245
-    type: 0
-  - beat: 246
-    type: 0
-  - beat: 247
+  - beat: 42.01709
     type: 0
-  - beat: 248
-    type: 0
-  - beat: 249
-    type: 0
-  - beat: 250
-    type: 0
-  - beat: 251
+  - beat: 43.01707
     type: 1
-  - beat: 252
-    type: 0
-  - beat: 253
+  - beat: 43.26662
     type: 1
-  - beat: 254
+  - beat: 43.767506
     type: 0
-  - beat: 255
+  - beat: 45.017036
     type: 1
-  - beat: 256
-    type: 1
-  - beat: 257
-    type: 1
-  - beat: 258
-    type: 0
-  - beat: 259
-    type: 0
-  - beat: 260
-    type: 0
-  - beat: 261
+  - beat: 45.517918
     type: 1
-  - beat: 262
+  - beat: 46.01702
     type: 0
-  - beat: 263
+  - beat: 47.517883
     type: 0
-  - beat: 264
-    type: 0
-  - beat: 265
-    type: 0
-  - beat: 266
-    type: 1
-  - beat: 267
-    type: 1
-  - beat: 268
+  - beat: 48.016983
     type: 1
-  - beat: 269
-    type: 1
-  - beat: 270
-    type: 0
-  - beat: 271
+  - beat: 48.517868
     type: 0
-  - beat: 272
+  - beat: 49.016968
     type: 1
-  - beat: 273
+  - beat: 49.266518
     type: 0
-  - beat: 274
-    type: 1
-  - beat: 275
+  - beat: 49.7674
     type: 0
-  - beat: 276
+  - beat: 50.01695
     type: 1
-  - beat: 277
+  - beat: 52.016914
     type: 1
-  - beat: 278
-    type: 0
-  - beat: 279
-    type: 0
-  - beat: 280
+  - beat: 52.517796
     type: 0
-  - beat: 281
+  - beat: 52.767345
     type: 1
-  - beat: 282
+  - beat: 53.266445
     type: 0
-  - beat: 283
+  - beat: 54.01688
     type: 1
-  - beat: 284
-    type: 0
-  - beat: 285
-    type: 0
-  - beat: 286
-    type: 0
-  - beat: 287
-    type: 0
-  - beat: 288
+  - beat: 55.01686
     type: 1
-  - beat: 289
+  - beat: 55.26641
     type: 0
-  - beat: 290
-    type: 0
-  - beat: 291
-    type: 1
-  - beat: 292
-    type: 1
-  - beat: 293
-    type: 1
-  - beat: 294
-    type: 1
-  - beat: 295
+  - beat: 55.767296
     type: 1
-  - beat: 296
-    type: 1
-  - beat: 297
-    type: 0
-  - beat: 298
+  - beat: 57.016827
     type: 0
-  - beat: 299
-    type: 1
-  - beat: 300
-    type: 1
-  - beat: 301
+  - beat: 57.517708
     type: 1
-  - beat: 302
-    type: 1
-  - beat: 303
-    type: 1
-  - beat: 304
+  - beat: 58.016808
     type: 0
-  - beat: 305
+  - beat: 59.016792
     type: 1
-  - beat: 306
-    type: 0
-  - beat: 307
+  - beat: 59.266342
     type: 1
-  - beat: 308
+  - beat: 59.767223
     type: 0
-  - beat: 309
-    type: 0
-  - beat: 310
+  - beat: 62.01674
     type: 1
-  - beat: 311
+  - beat: 62.51762
     type: 0
-  - beat: 312
+  - beat: 63.016724
     type: 1
-  - beat: 313
+  - beat: 63.266273
     type: 0
-  - beat: 314
-    type: 1
-  - beat: 315
+  - beat: 63.767155
     type: 1
-  - beat: 316
-    type: 1
-  - beat: 317
-    type: 1
-  - beat: 318
+  - beat: 64.517586
     type: 0
-  - beat: 319
+  - beat: 65.016685
     type: 1
-  - beat: 320
+  - beat: 65.51757
     type: 1
-  - beat: 321
-    type: 1
-  - beat: 322
+  - beat: 66.01667
     type: 0
-  - beat: 323
-    type: 1
-  - beat: 324
-    type: 1
-  - beat: 325
-    type: 1
-  - beat: 326
+  - beat: 66.517555
     type: 0
-  - beat: 327
+  - beat: 67.016655
     type: 1
-  - beat: 328
+  - beat: 67.26798
     type: 0
-  - beat: 329
-    type: 0
-  - beat: 330
-    type: 0
-  - beat: 331
+  - beat: 67.76708
     type: 1
-  - beat: 332
-    type: 0
-  - beat: 333
-    type: 0
-  - beat: 334
+  - beat: 69.01662
     type: 1
-  - beat: 335
-    type: 0
-  - beat: 336
-    type: 0
-  - beat: 337
-    type: 0
-  - beat: 338
-    type: 0
-  - beat: 339
+  - beat: 70.0166
     type: 1
-  - beat: 340
-    type: 0
-  - beat: 341
+  - beat: 70.51748
     type: 0
-  - beat: 342
+  - beat: 71.01658
     type: 1
-  - beat: 343
+  - beat: 71.267914
     type: 0
-  - beat: 344
-    type: 0
-  - beat: 345
-    type: 1
-  - beat: 346
-    type: 1
-  - beat: 347
+  - beat: 71.76701
     type: 1
-  - beat: 348
+  - beat: 72.51745
     type: 1
-  - beat: 349
+  - beat: 73.01655
     type: 1
-  - beat: 350
+  - beat: 73.517426
     type: 0
-  - beat: 351
+  - beat: 74.01653
     type: 1
-  - beat: 352
+  - beat: 75.01651
     type: 0
-  - beat: 353
+  - beat: 75.267845
     type: 1
-  - beat: 354
+  - beat: 75.766945
     type: 0
-  - beat: 355
+  - beat: 77.01648
     type: 0
-  - beat: 356
-    type: 1
-  - beat: 357
-    type: 1
-  - beat: 358
+  - beat: 77.51736
     type: 0
-  - beat: 359
+  - beat: 78.01646
     type: 1
-  - beat: 360
+  - beat: 79.01644
     type: 0
-  - beat: 361
+  - beat: 79.26778
     type: 1
-  - beat: 362
+  - beat: 80.016426
     type: 1
-  - beat: 363
+  - beat: 81.0164
     type: 1
-  - beat: 364
+  - beat: 82.01639
     type: 1
-  - beat: 365
+  - beat: 82.51727
     type: 0
-  - beat: 366
+  - beat: 83.01637
     type: 1
-  - beat: 367
+  - beat: 83.26771
     type: 0
-  - beat: 368
-    type: 0
-  - beat: 369
-    type: 1
-  - beat: 370
-    type: 1
-  - beat: 371
-    type: 1
-  - beat: 372
+  - beat: 83.76681
     type: 0
-  - beat: 373
+  - beat: 85.016335
     type: 0
-  - beat: 374
+  - beat: 86.01632
     type: 1
-  - beat: 375
-    type: 1
-  - beat: 376
-    type: 0
-  - beat: 377
-    type: 0
-  - beat: 378
-    type: 0
-  - beat: 379
+  - beat: 87.016304
     type: 1
-  - beat: 380
+  - beat: 87.26763
     type: 0
-  - beat: 381
-    type: 1
-  - beat: 382
+  - beat: 87.76673
     type: 1
-  - beat: 383
-    type: 1
-  - beat: 384
-    type: 0
-  - beat: 385
+  - beat: 88.517166
     type: 0
-  - beat: 386
-    type: 0
-  - beat: 387
+  - beat: 89.016266
     type: 1
-  - beat: 388
+  - beat: 90.01625
     type: 0
-  - beat: 389
+  - beat: 91.01623
     type: 1
-  - beat: 390
+  - beat: 91.26756
     type: 1
-  - beat: 391
-    type: 0
-  - beat: 392
+  - beat: 91.76666
     type: 0
-  - beat: 393
-    type: 1
-  - beat: 394
-    type: 1
-  - beat: 395
-    type: 1
-  - beat: 396
+  - beat: 93.01798
     type: 1
-  - beat: 397
-    type: 0
-  - beat: 398
+  - beat: 93.51708
     type: 1
-  - beat: 399
+  - beat: 94.01796
     type: 0
-  - beat: 400
-    type: 1
-  - beat: 401
-    type: 1
-  - beat: 402
-    type: 1
-  - beat: 403
+  - beat: 95.517044
     type: 0
-  - beat: 404
-    type: 1
-  - beat: 405
-    type: 1
-  - beat: 406
-    type: 1
-  - beat: 407
-    type: 1
-  - beat: 408
-    type: 1
-  - beat: 409
+  - beat: 96.01793
     type: 1
-  - beat: 410
+  - beat: 96.51703
     type: 0
-  - beat: 411
+  - beat: 97.01791
     type: 1
-  - beat: 412
+  - beat: 97.267456
     type: 0
-  - beat: 413
+  - beat: 97.766556
     type: 0
-  - beat: 414
-    type: 0
-  - beat: 415
-    type: 1
-  - beat: 416
-    type: 1
-  - beat: 417
-    type: 1
-  - beat: 418
-    type: 0
-  - beat: 419
-    type: 1
-  - beat: 420
-    type: 1
-  - beat: 421
-    type: 1
-  - beat: 422
-    type: 1
-  - beat: 423
+  - beat: 98.01789
     type: 1
-  - beat: 424
+  - beat: 100.01785
     type: 1
-  - beat: 425
-    type: 1
-  - beat: 426
-    type: 1
-  - beat: 427
-    type: 1
-  - beat: 428
-    type: 1
-  - beat: 429
+  - beat: 100.51695
     type: 0
-  - beat: 430
-    type: 0
-  - beat: 431
+  - beat: 100.76651
     type: 1
-  - beat: 432
-    type: 0
-  - beat: 433
+  - beat: 101.26739
     type: 0
-  - beat: 434
-    type: 0
-  - beat: 435
-    type: 1
-  - beat: 436
-    type: 1
-  - beat: 437
+  - beat: 102.01782
     type: 1
-  _difficulty: 3
+  _difficulty: 1

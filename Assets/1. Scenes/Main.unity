@@ -963,7 +963,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 3c4357699826c4541ba222a821cabb50, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _targetScene: 0
+  _targetScene: 1
   _outTransitionType: 0
   _inTransitionType: 0
   _blockLoadSameScene: 1

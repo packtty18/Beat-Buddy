@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
 public class Conductor : SimpleSingleton<Conductor>
@@ -30,6 +30,7 @@ public class Conductor : SimpleSingleton<Conductor>
 
     private void Start()
     {
+        SoundManager.Instance.StopBGM();
         if (_bgmList.Length > 0 && _bgmList[_currentBGMIndex] != null)
         {
             LoadBGM(_currentBGMIndex);

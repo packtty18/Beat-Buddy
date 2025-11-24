@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections;
 using UnityEngine;
 public enum ESoundType
@@ -9,6 +9,8 @@ public enum ESoundType
     BGM3,
     BGM4,
     SFX1,
+    SFX_HitDrum,
+    SFX_HitClap,
 }
 public class SoundManager : SimpleSingleton<SoundManager>
 {

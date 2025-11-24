@@ -1,38 +1,36 @@
+﻿using System.Collections;
 using UnityEngine;
-using UnityEngine.SceneManagement;
 
 public enum EGameState
 {
-    Lobby,
-    ModeSelect,
-    SongSelect,
+    None,
     GameReady,
     GamePlay,
     GameEnd,
-    Result
 }
 
 public class GameManager : SimpleSingleton<GameManager>
 {
-    [Header("Scene 인덱스")]
-    [SerializeField] private int _lobbySceneIndex = 0;
-    [SerializeField] private int _modeSelectSceneIndex = 1;
-    [SerializeField] private int _songSelectSceneIndex = 2;
-    [SerializeField] private int _gameSceneIndex = 3;
-    [SerializeField] private int _resultSceneIndex = 4;
+    private ETransitionType _outTransitionType = ETransitionType.None;
+    private ETransitionType _inTransitionType = ETransitionType.None;
+    private bool _blockLoadSameScene = true;
 
-    [Header("설정")]
+    [Header("곡 설정")]
     [SerializeField] private BGMDataSO[] _availableSongs;
+    [Header("시작, 끝 딜레이")]
+    [SerializeField] private float _startDelayTime = 3f;
+    [SerializeField] private float _endDelayTime = 3f;
 
-    private EGameState _currentState = EGameState.Lobby;
+    private ESceneType _currentScene = ESceneType.Lobby;
+    private Coroutine _stageFlowCoroutine;
+    private ResultUI _resultUI;
+
     private BGMDataSO _selectedSong;
     private int _selectedSongIndex = 0;
-    private float _stateTimer = 0f;
-    private bool _isLoadingScene = false;
 
     private GameResult _lastGameResult;
     public GameResult LastGameResult => _lastGameResult;
-    public EGameState CurrentState => _currentState;
+    public ESceneType CurrentScene => _currentScene;
     public BGMDataSO[] AvailableSongs => _availableSongs;
     public BGMDataSO SelectedSong => _selectedSong;
     public int SelectedSongIndex => _selectedSongIndex;
@@ -43,109 +41,36 @@ public class GameManager : SimpleSingleton<GameManager>
         DontDestroyOnLoad(gameObject);
     }
 
-    void Update()
+    public void ChangeScene(ESceneType newScene)
     {
-        switch (_currentState)
+        ESceneType oldScene = _currentScene;
+        _currentScene = newScene;
+
+        // 이전 Stage 코루틴 정리
+        if (_stageFlowCoroutine != null)
         {
-            case EGameState.GameReady:
-                // Conductor의 준비가 끝나면 GamePlay로 상태만 변경
-                if (Conductor.Instance != null && !Conductor.Instance.IsReady)
-                {
-                    _currentState = EGameState.GamePlay;
-                    Debug.Log("게임 플레이 시작!");
-                }
-                break;
-
-            case EGameState.GamePlay:
-                // 음악이 끝나면 GameEnd로 상태만 변경
-                if (Conductor.Instance != null && !Conductor.Instance.IsPlaying())
-                {
-                    _stateTimer = 3f;
-                    _currentState = EGameState.GameEnd;
-                    Debug.Log("게임 종료 대기...");
-                }
-                break;
-
-            case EGameState.GameEnd:
-                _stateTimer -= Time.deltaTime;
-                if (_stateTimer <= 0f)
-                {
-                    Debug.Log("결과 화면으로 이동");
-                    SaveGameResult();
-                    ChangeState(EGameState.Result);
-                }
-                break;
+            StopCoroutine(_stageFlowCoroutine);
+            _stageFlowCoroutine = null;
         }
+
+        LoadScene(_currentScene);
     }
 
-    public void ChangeState(EGameState newState)
+    private void LoadScene(ESceneType currentScene)
     {
-        if (_isLoadingScene)
-        {
-            Debug.LogWarning("이미 Scene 로딩 중입니다!");
-            return;
-        }
-
-        Debug.Log($"상태 변경: {_currentState} → {newState}");
-
-        EGameState oldState = _currentState;
-        _currentState = newState;
-
-        // Scene 전환이 필요한 경우만 로드
-        int sceneIndex = -1;
-
-        switch (newState)
-        {
-            case EGameState.Lobby:
-                sceneIndex = _lobbySceneIndex;
-                break;
-
-            case EGameState.ModeSelect:
-                sceneIndex = _modeSelectSceneIndex;
-                break;
-
-            case EGameState.SongSelect:
-                sceneIndex = _songSelectSceneIndex;
-                break;
-
-            case EGameState.GameReady:
-                // GameReady일 때만 GameScene 로드
-                sceneIndex = _gameSceneIndex;
-                break;
-
-            case EGameState.Result:
-                sceneIndex = _resultSceneIndex;
-                break;
-
-                // GamePlay와 GameEnd는 Scene 전환 없음
-        }
-
-        if (sceneIndex >= 0)
-        {
-            LoadScene(sceneIndex);
-        }
-    }
-    void SaveGameResult()
-    {
-        if (JudgeManager.Instance != null)
-        {
-            _lastGameResult = JudgeManager.Instance.GetGameResult();
-            Debug.Log($"게임 결과 저장: P{_lastGameResult.perfectCount} G{_lastGameResult.goodCount} M{_lastGameResult.missCount}");
-        }
-    }
-    private void LoadScene(int sceneIndex)
-    {
-        Debug.Log($"Scene 로드 시작: Index {sceneIndex}");
-        _isLoadingScene = true;
-        SceneManager.sceneLoaded += OnSceneLoaded;
-        SceneManager.LoadScene(sceneIndex);
+        Debug.Log($"Scene 로드 시작: {currentScene}");
+        MySceneManager.Instance.LoadScene(currentScene, _outTransitionType, _inTransitionType, _blockLoadSameScene);
     }
 
-    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    public void OnSceneLoadComplete()
     {
-        Debug.Log($"Scene 로드 완료: {scene.name}");
-        _isLoadingScene = false;
-        SceneManager.sceneLoaded -= OnSceneLoaded;
+        if (_currentScene == ESceneType.Stage)
+        {
+            _resultUI = FindObjectOfType<ResultUI>();
+            _resultUI.gameObject.SetActive(false);
+            _stageFlowCoroutine = StartCoroutine(StageGameFlow());
+            PoolManager.Instance.SetPoolMap();
+        }
     }
 
     public void SelectSong(int index)
@@ -158,26 +83,66 @@ public class GameManager : SimpleSingleton<GameManager>
         }
     }
 
-    public void StartGame()
+    public void ReturnToSongSelect()
     {
-        if (_selectedSong != null)
+        ChangeScene(ESceneType.SongSelect);
+    }
+
+    public void ReturnToLobby()
+    {
+        ChangeScene(ESceneType.Lobby);
+    }
+
+    private IEnumerator StageGameFlow()
+    {
+        // 1. 게임 준비 - 카운트다운
+        Debug.Log("=== 게임 준비 시작 ===");
+
+        float startDelay = _startDelayTime;
+        while (startDelay > 0)
         {
-            Debug.Log($"게임 시작: {_selectedSong.BgmName}");
-            ChangeState(EGameState.GameReady);
+            int countInt = Mathf.CeilToInt(startDelay);
+            Debug.Log($"카운트다운: {countInt}");
+
+            // UI 업데이트 (UIManager가 있다면)
+            //if (UIManager.Instance != null)
+            //{
+            //    UIManager.Instance.UpdateCountdown(countInt);
+            //}
+
+            yield return new WaitForSeconds(1f);
+            startDelay -= 1f;
+        }
+
+        Debug.Log("START!");
+        //if (UIManager.Instance != null)
+        //{
+        //    UIManager.Instance.ShowStartText();
+        //}
+
+        // 2. 게임 플레이 시작
+        Debug.Log("=== 게임 플레이 시작 ===");
+
+        // Conductor 준비 대기
+        if (Conductor.Instance != null)
+        {
+            yield return new WaitUntil(() => Conductor.Instance.IsReady);
+
+            // 음악이 끝날 때까지 대기
+            yield return new WaitUntil(() => !Conductor.Instance.IsPlaying());
         }
         else
         {
-            Debug.LogError("선택된 곡이 없습니다!");
+            Debug.LogWarning("Conductor가 없습니다!");
         }
-    }
 
-    public void ReturnToSongSelect()
-    {
-        ChangeState(EGameState.SongSelect);
-    }
+        // 3. 게임 종료 처리
+        Debug.Log("=== 게임 종료 ===");
 
-    public void ReturnToModeSelect()
-    {
-        ChangeState(EGameState.ModeSelect);
+        // 종료 후 딜레이
+        yield return new WaitForSeconds(_endDelayTime);
+
+        // 결과 저장 및 씬 전환
+        _resultUI.gameObject.SetActive(true);
     }
 }

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 
 public class SongSelectUI : MonoBehaviour
@@ -43,7 +43,7 @@ public class SongSelectUI : MonoBehaviour
         if (_songs == null || _songs.Length == 0) return;
 
         // 위 화살표: 이전 곡
-        if (Input.GetKeyDown(KeyCode.UpArrow))
+        if (InputManager.Instance.GetKeyDown(EGameKeyType.Up))
         {
             _currentIndex--;
             if (_currentIndex < 0)
@@ -54,7 +54,7 @@ public class SongSelectUI : MonoBehaviour
         }
 
         // 아래 화살표: 다음 곡
-        if (Input.GetKeyDown(KeyCode.DownArrow))
+        if (InputManager.Instance.GetKeyDown(EGameKeyType.Down))
         {
             _currentIndex++;
             if (_currentIndex >= _songs.Length)
@@ -65,22 +65,22 @@ public class SongSelectUI : MonoBehaviour
         }
 
         // Enter: 곡 선택 및 게임 시작
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (InputManager.Instance.GetKeyDown(EGameKeyType.Confirm))
         {
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.SelectSong(_currentIndex);
-                GameManager.Instance.StartGame();
+                GameManager.Instance.ChangeScene(ESceneType.Stage);
                 PlayConfirmSound();
             }
         }
 
         // ESC: 뒤로 가기
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (InputManager.Instance.GetKeyDown(EGameKeyType.Setting))
         {
             if (GameManager.Instance != null)
             {
-                GameManager.Instance.ChangeState(EGameState.ModeSelect);
+                GameManager.Instance.ChangeScene(ESceneType.ModeSelect);
                 PlayCancelSound();
             }
         }
