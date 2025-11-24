@@ -30,6 +30,8 @@ public class GameManager : SimpleSingleton<GameManager>
     private float _stateTimer = 0f;
     private bool _isLoadingScene = false;
 
+    private GameResult _lastGameResult;
+    public GameResult LastGameResult => _lastGameResult;
     public EGameState CurrentState => _currentState;
     public BGMDataSO[] AvailableSongs => _availableSongs;
     public BGMDataSO SelectedSong => _selectedSong;
@@ -69,6 +71,7 @@ public class GameManager : SimpleSingleton<GameManager>
                 if (_stateTimer <= 0f)
                 {
                     Debug.Log("결과 화면으로 이동");
+                    SaveGameResult();
                     ChangeState(EGameState.Result);
                 }
                 break;
@@ -122,7 +125,14 @@ public class GameManager : SimpleSingleton<GameManager>
             LoadScene(sceneIndex);
         }
     }
-
+    void SaveGameResult()
+    {
+        if (JudgeManager.Instance != null)
+        {
+            _lastGameResult = JudgeManager.Instance.GetGameResult();
+            Debug.Log($"게임 결과 저장: P{_lastGameResult.perfectCount} G{_lastGameResult.goodCount} M{_lastGameResult.missCount}");
+        }
+    }
     private void LoadScene(int sceneIndex)
     {
         Debug.Log($"Scene 로드 시작: Index {sceneIndex}");
