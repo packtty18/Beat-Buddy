@@ -1,11 +1,11 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEngine.UI;
 
 public class InputTestUI : MonoBehaviour
 {
     [SerializeField] private EGameKeyType _handleKey;
     [SerializeField] private float _releaseLerpDuration = 1f;
-    private Image _imageUI;
+    [SerializeField] private Image _imageUI;
 
     private Color _normalColor = Color.white;
     private Color _pressedColor = Color.red;

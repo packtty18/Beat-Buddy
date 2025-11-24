@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public class SceneLoadTest : MonoBehaviour
 {
@@ -9,7 +9,7 @@ public class SceneLoadTest : MonoBehaviour
 
     private void Awake()
     {
-        DontDestroyOnLoad(this.gameObject);
+        DontDestroyOnLoad(gameObject);
     }
     public void TestSceneConvert()
     {

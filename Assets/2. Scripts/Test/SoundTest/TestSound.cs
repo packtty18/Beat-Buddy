@@ -1,6 +1,6 @@
 ﻿using UnityEngine;
 
-public class TestSound : MonoBehaviour
+public class TestSound : TestBase
 {
     [Header("Debug Zone")]
     [SerializeField]
