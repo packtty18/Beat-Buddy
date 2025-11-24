@@ -1,4 +1,5 @@
-using UnityEngine;
+﻿using UnityEngine;
+using UnityEngine.SceneManagement;
 
 
 public class MySceneManager : SimpleSingleton<MySceneManager>
@@ -14,7 +15,27 @@ public class MySceneManager : SimpleSingleton<MySceneManager>
         base.Awake();
     }
 
-    
+    private void OnEnable()
+    {
+        // 씬 로드 완료 이벤트 등록
+        SceneManager.sceneLoaded += OnSceneLoaded;
+    }
+
+    private void OnDisable()
+    {
+        // 씬 로드 완료 이벤트 해제 (메모리 누수 방지)
+        SceneManager.sceneLoaded -= OnSceneLoaded;
+    }
+
+    // 씬이 로드되면 자동으로 호출되는 콜백
+    private void OnSceneLoaded(Scene scene, LoadSceneMode mode)
+    {
+        // GameManager에 씬 로드 완료 알림
+        if (GameManager.Instance != null)
+        {
+            GameManager.Instance.OnSceneLoadComplete();
+        }
+    }
 
     public void LoadScene(ESceneType type, ETransitionType outTransitionType = ETransitionType.None, ETransitionType inTransitionType = ETransitionType.None,bool blockSameScene = true)
     {

@@ -1,4 +1,4 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
 using UnityEngine;
 
 public class RhythmGameStarter : MonoBehaviour
@@ -70,18 +70,6 @@ public class RhythmGameStarter : MonoBehaviour
         {
             note.SetSpeed(0.5f);
             note.SetColor(Color.cyan, 0.3f);
-        }
-    }
-
-    // 왼쪽 노트만 반대편으로
-    void SwapLeftNotes()
-    {
-        List<Note> notes = _noteController.GetNotesByType(ENoteType.LNote);
-
-        foreach (Note note in notes)
-        {
-            note.SwapToOppositeRane(0.5f);
-            note.SetColor(Color.yellow, 0.3f);
         }
     }
 

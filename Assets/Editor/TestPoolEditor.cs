@@ -1,14 +1,15 @@
-using UnityEngine;
+﻿using UnityEngine;
 using UnityEditor;
+using System;
 
-[CustomEditor(typeof(TestPool))]
+[CustomEditor(typeof(NotePool))]
 public class TestPoolEditor : Editor
 {
     public override void OnInspectorGUI()
     {
         base.OnInspectorGUI();
 
-        TestPool pool = (TestPool)target;
+        NotePool pool = (NotePool)target;
 
         GUILayout.Space(10);
 

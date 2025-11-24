@@ -1,10 +1,12 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public enum ESceneType
 {
     None,
-    Test1,
-    Test2
+    Lobby,
+    ModeSelect,
+    SongSelect,
+    Stage
 }
 
 [CreateAssetMenu(fileName = "SceneDatabase", menuName = "SO/SceneDatabase")]

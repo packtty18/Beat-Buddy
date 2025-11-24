@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 
 public class LobbyUI : MonoBehaviour
@@ -8,15 +8,15 @@ public class LobbyUI : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (InputManager.Instance.GetKeyDown(EGameKeyType.Confirm))
         {
             if (GameManager.Instance != null)
             {
-                GameManager.Instance.ChangeState(EGameState.ModeSelect);
+                GameManager.Instance.ChangeScene(ESceneType.ModeSelect);
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (InputManager.Instance.GetKeyDown(EGameKeyType.Setting))
         {
             Application.Quit();
         }
