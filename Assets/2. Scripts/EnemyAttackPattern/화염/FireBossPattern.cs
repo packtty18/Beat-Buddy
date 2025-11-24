@@ -16,52 +16,25 @@ public class FireBossPattern : MonoBehaviour
     private GameObject _currentObscuringEffect;
 
     [Header ("쿨타임")]
-    private float _currentTimer = 0f;
-    private float _finishTimer = 2f;
+    private float _finishBreathTime = 1.6f;
 
     [Header("애니메이터")]
     private Animator _animator;
 
-    [Header("코루틴 관련")]
-    private bool _isBossAttackCycleActive = false;
-    private Coroutine _coroutine;
 
-
-    private void Update()
+    private void Start()
     {
-        // 공격이 이미 작동 중일 시
-        if (_isBossAttackCycleActive)
-        {
-            _currentTimer += Time.deltaTime;
-
-            // 브레스가 끝나기 전까지 대기
-            if (_coroutine != null && _currentTimer >= _finishTimer)
-            {
-                HideBreathEffect();
-                _currentTimer = 0f;
-            }
-            return;
-        }
-
-        StartFireAttack();
+        StartCoroutine(StartFireAttack());
     }
 
     // 공격 루틴 시작
-    private void StartFireAttack()
+    private IEnumerator StartFireAttack()
     {
-        _coroutine = StartCoroutine(StartAttackAnimation());
-        _isBossAttackCycleActive = true;
-        _currentTimer = 0f;
-    }
-
-    // 방해 애니메이션 시작
-    private IEnumerator StartAttackAnimation()
-    {
-        if (_coroutine != null) _coroutine = null;
-        _coroutine = StartCoroutine(FireStartAnimation());
-        yield return _coroutine;
-
+        yield return StartCoroutine(FireStartAnimation());
         ShowBreathEffect();
+
+        yield return new WaitForSeconds(_finishBreathTime);
+        HideBreathEffect();
     }
 
     // 브레스 시작 전 경고성 이펙트 소환 메서드
@@ -76,7 +49,11 @@ public class FireBossPattern : MonoBehaviour
         {
             yield return new WaitForSeconds(length);
         }
-
+        else
+        {
+            yield return null;
+        }
+        
         Destroy(_currentObscuringEffect);
         _currentObscuringEffect = null;
         _animator = null;
@@ -111,8 +88,6 @@ public class FireBossPattern : MonoBehaviour
                     Destroy(_currentObscuringEffect);
                     _currentObscuringEffect = null;
                 }
-                _isBossAttackCycleActive = false;
-                _currentTimer = 0f;
             };
             if (fadeInOutAnimation != null)
             {
@@ -126,11 +101,7 @@ public class FireBossPattern : MonoBehaviour
         }
         else
         {
-            Destroy(_currentObscuringEffect);
-            _isBossAttackCycleActive = false;
             _currentObscuringEffect = null;
-            _currentTimer = 0f;
         }
     }
-
 }

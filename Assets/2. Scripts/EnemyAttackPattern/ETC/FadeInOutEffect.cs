@@ -13,22 +13,12 @@ public class FadeInOutEffect : MonoBehaviour
 
     [Header("스프라이트 컬러 관련 옵션")]
     private SpriteRenderer _spriteRenderer;
-    private Color _startColor;
     [SerializeField] private float _maxAlpha = 0.5f;  // 최대 알파값
 
 
     private void Awake()
     {
         _spriteRenderer = GetComponent<SpriteRenderer>();
-
-        if (_spriteRenderer != null)
-        {
-            _startColor = _spriteRenderer.color;
-        }
-        else
-        {
-            Debug.Log("출력할 스프라이트가 없습니다.");
-        }
 
         _endPosition = transform.localPosition;
         _startPosition = _endPosition + new Vector3(_slideDistance, 0, 0);
@@ -52,7 +42,7 @@ public class FadeInOutEffect : MonoBehaviour
         {
             float t = time / _animationDuration;
 
-            transform.localPosition = Vector2.Lerp(_startPosition, _endPosition, EaseOutCubic(t));
+            transform.localPosition = Vector3.Lerp(_startPosition, _endPosition, EaseOutCubic(t));
             SetAlpha(t * _maxAlpha);
      
             time += Time.deltaTime;

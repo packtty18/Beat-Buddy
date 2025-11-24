@@ -1,4 +1,4 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 
 public enum ELightningPatternType
@@ -10,37 +10,37 @@ public enum ELightningPatternType
 
 public class LightningBoss : MonoBehaviour
 {
-    [Header("ÆĞÅÏ ÇÁ¸®ÆÕ")]
+    [Header("íŒ¨í„´ í”„ë¦¬íŒ¹")]
     [SerializeField] private GameObject[] _lightningPrefab;
     private GameObject _lightning;
     private GameObject _thunder;
     private GameObject _thunderArrow;
 
-    [Header("¸®µë³ëÆ® ÇÁ¸®ÆÕ")]
+    [Header("ë¦¬ë“¬ë…¸íŠ¸ í”„ë¦¬íŒ¹")]
     private GameObject[] _rhythmNotes;
     private GameObject _leftNote;
     private GameObject _rightNote;
-    //public ENoteType NoteType; Enum¿¡¼­ ³ëÆ® Å¸ÀÔ ºÒ·¯¿Ã¶§ »ç¿ë. ÀÏ´Ü ÁÖ¼®Ã³¸®
+    //public ENoteType NoteType; Enumì—ì„œ ë…¸íŠ¸ íƒ€ì… ë¶ˆëŸ¬ì˜¬ë•Œ ì‚¬ìš©. ì¼ë‹¨ ì£¼ì„ì²˜ë¦¬
 
-    [Header("ÀÌÆåÆ® Æ÷Áö¼Ç")]
+    [Header("ì´í™íŠ¸ í¬ì§€ì…˜")]
     private Transform _thunderPosition;
     [SerializeField] private Transform _lightningPosition1;
     [SerializeField] private Transform _lightningPosition2;
     [SerializeField] private Transform _lightningPosition3;
 
-    [Header("¶óÀÌÆ®´× ½ºÆù")]
+    [Header("ë¼ì´íŠ¸ë‹ ìŠ¤í°")]
     private bool _thunderSpawned = false;
     private bool _lightningSpawned1 = false;
     private bool _lightningSpawned2 = false;
     private bool _lightningSpawned3 = false;
 
-    [Header("°ø°İ ÆĞÅÏ ¹İº¹")]
+    [Header("ê³µê²© íŒ¨í„´ ë°˜ë³µ")]
     private int _minAttackCount = 2;
     private int _maxAttackCount = 5;
     private bool _thunderRepeat = false;
 
 
-    [Header("ÄğÅ¸ÀÓ")]
+    [Header("ì¿¨íƒ€ì„")]
     private float _currentTime = 0f;
     private float _startLightning = 0.9f;
     private float _thunderAnimationTime = 0.34f;
@@ -51,7 +51,7 @@ public class LightningBoss : MonoBehaviour
 
     private void Start()
     {
-        // ÃÊ±âÈ­
+        // ì´ˆê¸°í™”
         _lightningSpawned1 = false;
         _lightningSpawned2 = false;
         _lightningSpawned3 = false;
@@ -62,25 +62,31 @@ public class LightningBoss : MonoBehaviour
         _leftNote = Resources.Load<GameObject>("LNote");
         _rightNote = Resources.Load<GameObject>("RNote");
 
-        // ÇÃ·¡½Ã È¿°ú ¹ßµ¿
+        // í”Œë˜ì‹œ íš¨ê³¼ ë°œë™
         FlashScreen.Flash();
     }
 
     private void Update()
     {
+        StartLightningAttack();
+    }
+
+    // ê³µê²© ì‹œì‘ ë©”ì„œë“œ
+    private void StartLightningAttack()
+    {
         _currentTime += Time.deltaTime;
-        if (_currentTime >= _startLightning) _lightningCurrentTime += Time.deltaTime; // ¹ø°³ Ä£ ÀÌÈÄ Àü±âÈ¿°ú
+        if (_currentTime >= _startLightning) _lightningCurrentTime += Time.deltaTime; // ë²ˆê°œ ì¹œ ì´í›„ ì „ê¸°íš¨ê³¼
         StartAttackEffect();
     }
 
-    // °ø°İ È¿°ú ¸Ş¼­µå
+    // ê³µê²© íš¨ê³¼ ë©”ì„œë“œ
     private void StartAttackEffect()
     {
         if (_thunderRepeat == false) ThunderAttackRepeat();
         if (_currentTime >= _startLightning) LightningEffect();
     }
 
-    // ¹ø°³ °ø°İ ¹İº¹ È½¼ö ¸Ş¼­µå
+    // ë²ˆê°œ ê³µê²© ë°˜ë³µ íšŸìˆ˜ ë©”ì„œë“œ
     private void ThunderAttackRepeat()
     {
         _thunderRepeat = true;
@@ -92,17 +98,17 @@ public class LightningBoss : MonoBehaviour
         }
     }
 
-    // ¹ø°³ °ø°İ ³ëÆ® ·£´ı Å¸°ÔÆÃ ¸Ş¼­µå
+    // ë²ˆê°œ ê³µê²© ë…¸íŠ¸ ëœë¤ íƒ€ê²ŒíŒ… ë©”ì„œë“œ
     private void ThunderAttackRandom()
     {
-        GameObject[] _rhythmNotes = GameObject.FindGameObjectsWithTag("Respawn");  // ÀÓ½Ã·Î Respawn ÅÂ±× »ç¿ë
+        GameObject[] _rhythmNotes = GameObject.FindGameObjectsWithTag("Respawn");  // ì„ì‹œë¡œ Respawn íƒœê·¸ ì‚¬ìš©
         if (_rhythmNotes.Length == 0) return;
 
         GameObject target = _rhythmNotes[Random.Range(0, _rhythmNotes.Length)];
         ThunderAttack(target);
     }
 
-    // ¹ø°³ È¿°ú ¸Ş¼­µå
+    // ë²ˆê°œ íš¨ê³¼ ë©”ì„œë“œ
     private void ThunderAttack(GameObject note)
     {
         GameObject closestRhythm = note;
@@ -111,18 +117,18 @@ public class LightningBoss : MonoBehaviour
         _thunderArrow = Instantiate(_lightningPrefab[(int)ELightningPatternType.ThunderArrow], _thunderPosition);
         Destroy(_thunder, _thunderAnimationTime);
         Destroy(_thunderArrow, _thunderAnimationTime);
-        //ChangeNote(closestRhythm);  // ³ëÆ® ¼Ó¼º º¯°æ ¸Ş¼­µå. ¾Æ·¡ ¼³¸í Âü°í
+        //ChangeNote(closestRhythm);  // ë…¸íŠ¸ ì†ì„± ë³€ê²½ ë©”ì„œë“œ. ì•„ë˜ ì„¤ëª… ì°¸ê³ 
         _thunderSpawned = true;
     }
 
-    // ³ëÆ® ¼Ó¼ºÀ» ¹İ´ë·Î º¯°æÇÏ´Â ¸Ş¼­µå
-    // ÃßÈÄ NoteControllerÀÇ ÇÔ¼ö¸¦ °¡Á®´Ù ¾µ ¿¹Á¤. ±× ÀÌÀü±îÁø ÁÖ¼®Ã³¸®.
+    // ë…¸íŠ¸ ì†ì„±ì„ ë°˜ëŒ€ë¡œ ë³€ê²½í•˜ëŠ” ë©”ì„œë“œ
+    // ì¶”í›„ NoteControllerì˜ í•¨ìˆ˜ë¥¼ ê°€ì ¸ë‹¤ ì“¸ ì˜ˆì •. ê·¸ ì´ì „ê¹Œì§„ ì£¼ì„ì²˜ë¦¬.
     //private void ChangeNote(GameObject noteObject)
     //{
     //    Note note = noteObject.GetComponent<Note>();
     //    if (note == null)
     //    {
-    //        Debug.LogWarning("Note ÄÄÆ÷³ÍÆ®¸¦ Ã£À» ¼ö ¾ø½À´Ï´Ù.");
+    //        Debug.LogWarning("Note ì»´í¬ë„ŒíŠ¸ë¥¼ ì°¾ì„ ìˆ˜ ì—†ìŠµë‹ˆë‹¤.");
     //        return;
     //    }
 
@@ -138,7 +144,7 @@ public class LightningBoss : MonoBehaviour
     //    }
     //}
 
-    // Èå¸£´Â Àü±â È¿°ú ¸Ş¼­µå
+    // íë¥´ëŠ” ì „ê¸° íš¨ê³¼ ë©”ì„œë“œ
     private void LightningEffect()
     {
         if (!_lightningSpawned1)
@@ -159,7 +165,7 @@ public class LightningBoss : MonoBehaviour
         }
     }
 
-    // Èå¸£´Â Àü±â ¼ÒÈ¯
+    // íë¥´ëŠ” ì „ê¸° ì†Œí™˜
     private void SpawnLightning(Transform position)
     {
         _lightning = Instantiate(_lightningPrefab[(int)ELightningPatternType.Lightning], position);
