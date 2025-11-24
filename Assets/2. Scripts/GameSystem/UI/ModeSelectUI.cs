@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 
 public class ModeSelectUI : MonoBehaviour
@@ -12,19 +12,19 @@ public class ModeSelectUI : MonoBehaviour
 
     void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
-        {
+        if (InputManager.Instance.GetKeyDown(EGameKeyType.Confirm))
+        {   
             if (GameManager.Instance != null)
             {
-                GameManager.Instance.ChangeState(EGameState.SongSelect);
+                GameManager.Instance.ChangeScene(ESceneType.SongSelect);
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (InputManager.Instance.GetKeyDown(EGameKeyType.Setting))
         {
             if (GameManager.Instance != null)
             {
-                GameManager.Instance.ChangeState(EGameState.Lobby);
+                GameManager.Instance.ChangeScene(ESceneType.Lobby);
             }
         }
     }

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using TMPro;
 
 public class ResultUI : MonoBehaviour
@@ -8,22 +8,22 @@ public class ResultUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _missText;
     [SerializeField] private TextMeshProUGUI _instructionText;
 
-    void Start()
+    private void Start()
     {
         if (GameManager.Instance != null)
         {
-            GameResult result = GameManager.Instance.LastGameResult;
+            GameResult result = JudgeManager.Instance.GetGameResult();
             _perfectText.text = $"Perfect: {result.perfectCount}";
             _goodText.text = $"Good: {result.goodCount}";
             _missText.text = $"Miss: {result.missCount}";
         }
 
-        _instructionText.text = "Enter: 곡 선택 | ESC: 모드 선택";
+        _instructionText.text = "Enter: 곡 선택 | ESC: 로비";
     }
 
-    void Update()
+    private void Update()
     {
-        if (Input.GetKeyDown(KeyCode.Return) || Input.GetKeyDown(KeyCode.KeypadEnter))
+        if (InputManager.Instance.GetKeyDown(EGameKeyType.Confirm))
         {
             if (GameManager.Instance != null)
             {
@@ -31,11 +31,11 @@ public class ResultUI : MonoBehaviour
             }
         }
 
-        if (Input.GetKeyDown(KeyCode.Escape))
+        if (InputManager.Instance.GetKeyDown(EGameKeyType.Setting))
         {
             if (GameManager.Instance != null)
             {
-                GameManager.Instance.ReturnToModeSelect();
+                GameManager.Instance.ReturnToLobby();
             }
         }
     }

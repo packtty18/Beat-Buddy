@@ -1,7 +1,7 @@
-using UnityEngine;
+﻿using UnityEngine;
 using DG.Tweening;
 
-public class Note : MonoBehaviour
+public class Note : MonoBehaviour, IPoolable
 {
     [SerializeField] private SpriteRenderer _spriteRenderer;
     [SerializeField] private Sprite _lNoteSprite;
@@ -25,14 +25,20 @@ public class Note : MonoBehaviour
 
     private Vector3 _initialScale = Vector3.one;
     private Quaternion _initialRotation = Quaternion.identity;
+    private Color _initialColor;
 
     private void Awake()
     {
-        // 초기 상태 저장
         _initialScale = transform.localScale;
         _initialRotation = transform.rotation;
+
+        if (_spriteRenderer != null)
+        {
+            _initialColor = _spriteRenderer.color;
+        }
     }
 
+    // 게임 로직 관련 초기화 (OnSpawn 이후 호출)
     public void Initialize(float targetBeat, ENoteType type, float beatsInAdvance, Transform judgePoint, NoteSpawner spawner)
     {
         TargetBeat = targetBeat;
@@ -40,25 +46,12 @@ public class Note : MonoBehaviour
         _beatsToTravel = beatsInAdvance;
         _judgePoint = judgePoint;
         _spawnPosition = transform.position;
-        _isHit = false;
         _judgeManager = JudgeManager.Instance;
         _noteSpawner = spawner;
 
         if (_spriteRenderer != null)
         {
             _spriteRenderer.sprite = (type == ENoteType.LNote) ? _lNoteSprite : _rNoteSprite;
-
-            // 알파값 초기화
-            Color color = _spriteRenderer.color;
-            color.a = 1f;
-            _spriteRenderer.color = color;
-        }
-
-        // 이전 애니메이션 정리
-        if (_hitSequence != null)
-        {
-            _hitSequence.Kill();
-            _hitSequence = null;
         }
     }
 
@@ -72,7 +65,7 @@ public class Note : MonoBehaviour
 
         float secPerBeat = Conductor.Instance.SecPerBeat;
         float missWindowBeats = (_judgeManager != null)
-            ? (_judgeManager.GoodWindow / secPerBeat) + 0.1f
+            ? (_judgeManager.BadWindow / secPerBeat) + 0.1f
             : 0.5f;
 
         if (currentBeat > TargetBeat + missWindowBeats)
@@ -81,36 +74,54 @@ public class Note : MonoBehaviour
         }
     }
 
-    public void OnHit(string judgment)
+    public void OnHit(EHitType hitType)
     {
         _isHit = true;
-        NoteHit(judgment);
+        NoteHit(hitType);
     }
 
-    private void NoteHit(string judgment)
+    private void NoteHit(EHitType hitType)
     {
         if (_hitSequence != null)
         {
             _hitSequence.Kill();
         }
 
-        float duration = (judgment == "Perfect") ? _perfectAnimDuration : _goodAnimDuration;
+        float duration;
+        Ease moveEase;
+
+        switch (hitType)
+        {
+            case EHitType.Perfect:
+                duration = _perfectAnimDuration;
+                moveEase = Ease.OutBack;
+                break;
+
+            case EHitType.Good:
+                duration = _goodAnimDuration;
+                moveEase = Ease.OutQuad;
+                break;
+
+            case EHitType.Bad:
+                duration = 0.4f;
+                moveEase = Ease.Linear;
+                break;
+
+            default:
+                duration = 0.3f;
+                moveEase = Ease.Linear;
+                break;
+        }
+
         Vector3 targetPosition = transform.position + Vector3.up * _hitMoveDistance;
 
         _hitSequence = DOTween.Sequence();
+        _hitSequence.Append(transform.DOMove(targetPosition, duration).SetEase(moveEase));
+        _hitSequence.Join(_spriteRenderer.DOFade(0f, duration).SetEase(Ease.InQuad));
 
-        if (judgment == "Perfect")
+        if (hitType == EHitType.Perfect)
         {
-            // Perfect: 빠르고 역동적
-            _hitSequence.Append(transform.DOMove(targetPosition, duration).SetEase(Ease.OutBack));
-            _hitSequence.Join(_spriteRenderer.DOFade(0f, duration).SetEase(Ease.InQuad));
             _hitSequence.Join(transform.DOScale(Vector3.one * 1.3f, duration).SetEase(Ease.OutQuad));
-        }
-        else
-        {
-            // Good: 느리고 부드럽게
-            _hitSequence.Append(transform.DOMove(targetPosition, duration).SetEase(Ease.OutQuad));
-            _hitSequence.Join(_spriteRenderer.DOFade(0f, duration).SetEase(Ease.InQuad));
         }
 
         _hitSequence.OnComplete(() =>
@@ -133,32 +144,29 @@ public class Note : MonoBehaviour
         {
             _judgeManager.OnNoteMiss();
         }
-        gameObject.SetActive(false);
-    }
 
-    private void OnDisable()
-    {
-        // 비활성화 시 애니메이션 정리
-        if (_hitSequence != null)
+        if (_noteSpawner != null)
         {
-            _hitSequence.Kill();
-            _hitSequence = null;
+            _noteSpawner.ReturnNoteToPool(gameObject);
         }
-        // 모든 Transform 초기화
-        transform.localScale = _initialScale;
-        transform.rotation = _initialRotation;
-
-        // 알파값 초기화
-        if (_spriteRenderer != null)
+        else
         {
-            Color color = _spriteRenderer.color;
-            color.a = 1f;
-            _spriteRenderer.color = color;
+            gameObject.SetActive(false);
         }
     }
-
     public bool CanBeJudged() => !_isHit;
+    public float GetDistanceToTarget()
+    {
+        return Vector3.Distance(transform.position, _judgePoint.position);
+    }
 
+    public float GetProgressToTarget()
+    {
+        float currentBeat = Conductor.Instance.BgmPositionInBeats;
+        return Mathf.Clamp01(1f - (TargetBeat - currentBeat) / _beatsToTravel);
+    }
+
+    // 노트 조작 메서드들...
     public void SetColor(Color color, float duration = 0.3f)
     {
         if (_spriteRenderer != null)
@@ -169,14 +177,7 @@ public class Note : MonoBehaviour
 
     public void SetSpeed(float multiplier)
     {
-        //_speedMultiplier = multiplier;
-    }
-
-    public void SwapToOppositeRane(float duration = 0.5f)
-    {
-        Vector3 offset = transform.position - _spawnPosition;
-        Vector3 oppositeTarget = _judgePoint.position - (offset * 2f);
-        _judgePoint.position = oppositeTarget;
+        // 구현 필요
     }
 
     public void SetScale(float scale, float duration = 0.3f)
@@ -197,15 +198,47 @@ public class Note : MonoBehaviour
         transform.DOShakePosition(duration, intensity);
     }
 
-    // 정보 가져오기
-    public float GetDistanceToTarget()
+    public void OnSpawn()
     {
-        return Vector3.Distance(transform.position, _judgePoint.position);
+        _isHit = false;
+
+        transform.localScale = _initialScale;
+        transform.rotation = _initialRotation;
+
+        if (_spriteRenderer != null)
+        {
+            _spriteRenderer.color = _initialColor;
+        }
+
+        if (_hitSequence != null)
+        {
+            _hitSequence.Kill();
+            _hitSequence = null;
+        }
     }
 
-    public float GetProgressToTarget()
+    public void OnDespawn()
     {
-        float currentBeat = Conductor.Instance.BgmPositionInBeats;
-        return Mathf.Clamp01(1f - (TargetBeat - currentBeat) / _beatsToTravel);
+        if (_hitSequence != null)
+        {
+            _hitSequence.Kill();
+            _hitSequence = null;
+        }
+
+        transform.DOKill();
+        if (_spriteRenderer != null)
+        {
+            _spriteRenderer.DOKill();
+        }
+
+        transform.localScale = _initialScale;
+        transform.rotation = _initialRotation;
+
+        if (_spriteRenderer != null)
+        {
+            _spriteRenderer.color = _initialColor;
+        }
+
+        _isHit = false;
     }
 }

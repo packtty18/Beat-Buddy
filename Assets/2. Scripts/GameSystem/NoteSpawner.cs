@@ -1,23 +1,22 @@
-using System.Collections.Generic;
+﻿using System.Collections.Generic;
+using UnityEditor.EditorTools;
 using UnityEngine;
 
 public class NoteSpawner : MonoBehaviour
 {
     [Header("노트 설정")]
-    [SerializeField] private GameObject _notePrefab;
     [SerializeField] private Transform _leftSpawnPoint;
     [SerializeField] private Transform _rightSpawnPoint;
     [SerializeField] private Transform _judgePoint;
-    [SerializeField] private float _beatsShownInAdvance = 3f;
+    [SerializeField] private float _beatsShownInAdvance = 5f;
 
     private BGMDataSO _currentBGMData;
     private int _nextNoteIndex = 0;
     private List<Note> _activeNotes = new List<Note>();
-    private Queue<GameObject> _notePool = new Queue<GameObject>();
-
+    private PoolManager _poolManager;
     void Start()
     {
-        InitializePool(50);
+        _poolManager = PoolManager.Instance;
         LoadBGMDataFromConductor();
     }
 
@@ -41,16 +40,6 @@ public class NoteSpawner : MonoBehaviour
         }
     }
 
-    void InitializePool(int size)
-    {
-        for (int i = 0; i < size; i++)
-        {
-            GameObject note = Instantiate(_notePrefab, transform);
-            note.SetActive(false);
-            _notePool.Enqueue(note);
-        }
-    }
-
     void LoadBGMDataFromConductor()
     {
         if (Conductor.Instance == null) return;
@@ -65,33 +54,24 @@ public class NoteSpawner : MonoBehaviour
 
     void SpawnNote(NoteData noteData)
     {
-        GameObject noteObj = GetNoteFromPool();
+        Note noteObject = _poolManager.SpawnGetComponent<NotePool, ENoteType, Note>(noteData.type);
+
+        if (noteObject == null) return;
+
         Transform spawnPos = (noteData.type == ENoteType.LNote) ? _leftSpawnPoint : _rightSpawnPoint;
-        noteObj.transform.position = spawnPos.position;
+        noteObject.transform.position = spawnPos.position;
 
-        Note noteScript = noteObj.GetComponent<Note>();
-        if (noteScript != null)
-        {
-            noteScript.Initialize(noteData.beat, noteData.type, _beatsShownInAdvance, _judgePoint, this);
-            _activeNotes.Add(noteScript);
-        }
-    }
 
-    GameObject GetNoteFromPool()
-    {
-        if (_notePool.Count > 0)
-        {
-            GameObject note = _notePool.Dequeue();
-            note.SetActive(true);
-            return note;
-        }
-        return Instantiate(_notePrefab, transform);
+
+        noteObject.Initialize(noteData.beat, noteData.type, _beatsShownInAdvance, _judgePoint, this);
+
+        _activeNotes.Add(noteObject);
     }
 
     public void ReturnNoteToPool(GameObject note)
     {
         note.SetActive(false);
-        _notePool.Enqueue(note);
+        _poolManager.Despawn<NotePool, ENoteType>(note.GetComponent<Note>().NoteType, note);
     }
 
     public void ClearAllNotes()
@@ -99,7 +79,9 @@ public class NoteSpawner : MonoBehaviour
         foreach (Note note in _activeNotes)
         {
             if (note != null && note.gameObject != null)
-                ReturnNoteToPool(note.gameObject);
+            {
+                _poolManager.Despawn<NotePool, ENoteType>(note.GetComponent<Note>().NoteType, note.gameObject);
+            }
         }
         _activeNotes.Clear();
     }
@@ -114,14 +96,12 @@ public class NoteSpawner : MonoBehaviour
     public void RemoveNote(Note note)
     {
         _activeNotes.Remove(note);
-        // ReturnNoteToPool는 호출하지 않음!
-        // Note 자체가 애니메이션 후 SetActive(false) 처리
     }
 
     // 애니메이션 후 풀 반환용 (Note에서 호출)
     public void ReturnNoteAfterAnimation(GameObject note)
     {
-        ReturnNoteToPool(note);
+        _poolManager.Despawn<NotePool, ENoteType>(note.GetComponent<Note>().NoteType, note);
     }
 
     public void ReloadBGMData() => LoadBGMDataFromConductor();

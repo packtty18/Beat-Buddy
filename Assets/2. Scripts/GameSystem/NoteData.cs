@@ -1,9 +1,10 @@
-using System;
+﻿using System;
 using UnityEngine;
 public enum ENoteType
 {
     LNote,  // 왼쪽 노트
-    RNote   // 오른쪽 노트
+    RNote,   // 오른쪽 노트
+    
 }
 
 [Serializable]

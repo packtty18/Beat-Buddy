@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,7 +15,7 @@ public class PoolManager : SimpleSingleton<PoolManager>
         SetPoolMap();
     }
 
-    private void SetPoolMap()
+    public void SetPoolMap()
     {
         _poolMap = new Dictionary<Type, PoolBase>();
         _poolList = FindObjectsByType<PoolBase>(FindObjectsInactive.Include, FindObjectsSortMode.None);

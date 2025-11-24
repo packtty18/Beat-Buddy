@@ -1,22 +1,38 @@
-using UnityEngine;
+﻿using UnityEngine;
+
+public enum EHitType
+{
+    Perfect,
+    Good,
+    Bad,
+    Miss
+}
 
 public class JudgeManager : SimpleSingleton<JudgeManager>
 {
     [Header("판정 범위 (초)")]
-    [SerializeField] private float _perfectWindow = 0.1f;
-    [SerializeField] private float _goodWindow = 0.2f;
+    [SerializeField] private float _perfectWindow = 0.05f;
+    [SerializeField] private float _goodWindow = 0.1f;
+    [SerializeField] private float _badWindow = 0.15f;
+
+    [Header("점수 설정")]
+    [SerializeField] private int _perfectScore = 100;
+    [SerializeField] private int _goodScore = 70;
+    [SerializeField] private int _badScore = 30;
+    [SerializeField] private int _comboBonus = 10;
 
     [Header("설정")]
     [SerializeField] private NoteSpawner _noteSpawner;
-    [SerializeField] private KeyCode _leftKey = KeyCode.LeftArrow;
-    [SerializeField] private KeyCode _rightKey = KeyCode.RightArrow;
     [SerializeField] private Transform _judgePoint;
+
+    private SoundManager _soundManager;
 
     private int _score = 0;
     private int _combo = 0;
     private int _maxCombo = 0;
     private int _perfectCount = 0;
     private int _goodCount = 0;
+    private int _badCount = 0;
     private int _missCount = 0;
 
     public int Score => _score;
@@ -24,41 +40,45 @@ public class JudgeManager : SimpleSingleton<JudgeManager>
     public int MaxCombo => _maxCombo;
     public int PerfectCount => _perfectCount;
     public int GoodCount => _goodCount;
+    public int BadCount => _badCount;
     public int MissCount => _missCount;
-    public float GoodWindow => _goodWindow;
+    public float BadWindow => _badWindow;
+
+    protected override void Awake()
+    {
+        base.Awake();
+    }
 
     void Start()
     {
-        if (_noteSpawner == null)
-            _noteSpawner = FindObjectOfType<NoteSpawner>();
+        if (_soundManager == null) _soundManager = SoundManager.Instance;
+        if (_noteSpawner == null) _noteSpawner = FindObjectOfType<NoteSpawner>();
     }
 
     void Update()
     {
-        if (Input.GetKeyDown(_leftKey))
+        if (InputManager.Instance.GetKeyDown(EGameKeyType.Left))
         {
-            if (AudioManager.Instance != null)
-            {
-                AudioManager.Instance.CreateSFX(ESFXType.HitDrum);
-            }
+            _soundManager.PlaySFX(ESoundType.SFX_HitDrum, 0);
 
             // 입력 피드백 트리거
             if (InputFeedbackManager.Instance != null)
+            {
                 InputFeedbackManager.Instance.TriggerLeftFeedback();
+            }
 
             CheckHit(ENoteType.LNote);
         }
 
-        if (Input.GetKeyDown(_rightKey))
+        if (InputManager.Instance.GetKeyDown(EGameKeyType.Right))
         {
-            if (AudioManager.Instance != null)
-            {
-                AudioManager.Instance.CreateSFX(ESFXType.HitClap);
-            }
+            _soundManager.PlaySFX(ESoundType.SFX_HitClap, 0);
 
             // 입력 피드백 트리거
             if (InputFeedbackManager.Instance != null)
+            {
                 InputFeedbackManager.Instance.TriggerRightFeedback();
+            }
 
             CheckHit(ENoteType.RNote);
         }
@@ -81,7 +101,7 @@ public class JudgeManager : SimpleSingleton<JudgeManager>
             float signedDiff = currentTime - targetTime;
             float absDiff = Mathf.Abs(signedDiff);
 
-            if (absDiff <= _goodWindow && absDiff < closestAbsDiff)
+            if (absDiff <= _badWindow && absDiff < closestAbsDiff)
             {
                 closestAbsDiff = absDiff;
                 closestSignedDiff = signedDiff;
@@ -91,31 +111,99 @@ public class JudgeManager : SimpleSingleton<JudgeManager>
 
         if (closestNote != null)
         {
-            string judgment = (closestAbsDiff <= _perfectWindow) ? "Perfect" : "Good";
-            ProcessHit(closestNote, judgment, closestSignedDiff, inputType);
+            EHitType hitType = DetermineHitType(closestAbsDiff);
+            ProcessHit(closestNote, hitType, closestSignedDiff, inputType);
         }
     }
-
-    void ProcessHit(Note note, string judgment, float signedDiff, ENoteType noteType)
+    private EHitType DetermineHitType(float timeDifference)
     {
-        note.OnHit(judgment);
-
-        int points = (judgment == "Perfect") ? 100 : 50;
-        if (judgment == "Perfect") _perfectCount++;
-        else _goodCount++;
-
-        _combo++;
-        if (_combo > _maxCombo) _maxCombo = _combo;
-
-        _score += points + (_combo / 10);
-
-        _noteSpawner.RemoveNote(note);
+        if (timeDifference <= _perfectWindow)
+            return EHitType.Perfect;
+        else if (timeDifference <= _goodWindow)
+            return EHitType.Good;
+        else if (timeDifference <= _badWindow)
+            return EHitType.Bad;
+        else
+            return EHitType.Miss;
     }
 
+    void ProcessHit(Note note, EHitType hitType, float signedDiff, ENoteType noteType)
+    {
+        note.OnHit(hitType);
+
+        int basePoints = GetBaseScore(hitType);
+        bool maintainCombo = UpdateHitStatistics(hitType);
+
+        if (maintainCombo)
+        {
+            _combo++;
+            if (_combo > _maxCombo)
+            {
+                _maxCombo = _combo;
+            }
+
+            int comboMultiplier = _combo / _comboBonus;
+            _score += basePoints + comboMultiplier;
+        }
+        else
+        {
+            _score += basePoints;
+            _combo = 0;
+        }
+
+        _noteSpawner.RemoveNote(note);
+
+        //if (UIManager.Instance != null)
+        //{
+        //    UIManager.Instance.ShowJudgment(hitType, signedDiff);
+        //}
+    }
+
+    private int GetBaseScore(EHitType hitType)
+    {
+        switch (hitType)
+        {
+            case EHitType.Perfect:
+                return _perfectScore;
+            case EHitType.Good:
+                return _goodScore;
+            case EHitType.Bad:
+                return _badScore;
+            case EHitType.Miss:
+                return 0;
+            default:
+                return 0;
+        }
+    }
+    private bool UpdateHitStatistics(EHitType hitType)
+    {
+        switch (hitType)
+        {
+            case EHitType.Perfect:
+                _perfectCount++;
+                return true;
+            case EHitType.Good:
+                _goodCount++;
+                return true;
+            case EHitType.Bad:
+                _badCount++;
+                return false;
+            case EHitType.Miss:
+                _missCount++;
+                return false;
+            default:
+                return false;
+        }
+    }
     public void OnNoteMiss()
     {
         _missCount++;
         _combo = 0;
+
+        //if (UIManager.Instance != null)
+        //{
+        //    UIManager.Instance.ShowJudgment(EHitType.Miss, 0f);
+        //}
     }
 
     public GameResult GetGameResult()
@@ -126,14 +214,22 @@ public class JudgeManager : SimpleSingleton<JudgeManager>
             maxCombo = _maxCombo,
             perfectCount = _perfectCount,
             goodCount = _goodCount,
+            badCount = _badCount,
             missCount = _missCount
         };
     }
 
     public void ResetStats()
     {
-        _score = _combo = _maxCombo = 0;
-        _perfectCount = _goodCount = _missCount = 0;
+        _score = 0;
+        _combo = 0;
+        _maxCombo = 0;
+        _perfectCount = 0;
+        _goodCount = 0;
+        _badCount = 0;
+        _missCount = 0;
+
+        Debug.Log("[JudgeManager] Stats reset");
     }
 }
 
@@ -144,5 +240,6 @@ public struct GameResult
     public int maxCombo;
     public int perfectCount;
     public int goodCount;
+    public int badCount;
     public int missCount;
 }
