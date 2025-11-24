@@ -11,28 +11,30 @@ public enum EFirePatternType
 
 public class FireBossPattern : MonoBehaviour
 {
-    [Header ("Pattern Prefabs")]
+    [Header ("화염 프리팹")]
     [SerializeField] private GameObject[] _firePatternPrefab;
     private GameObject _currentObscuringEffect;
 
-    [Header ("CoolTime")]
+    [Header ("쿨타임")]
     private float _currentTimer = 0f;
-    private float _finishTimer = 3f;
+    private float _finishTimer = 2f;
 
-    [Header("Animator")]
+    [Header("애니메이터")]
     private Animator _animator;
 
-    [Header("CoroutineOption")]
+    [Header("코루틴 관련")]
     private bool _isBossAttackCycleActive = false;
     private Coroutine _coroutine;
 
 
-    void Update()
+    private void Update()
     {
+        // 공격이 이미 작동 중일 시
         if (_isBossAttackCycleActive)
         {
             _currentTimer += Time.deltaTime;
 
+            // 브레스가 끝나기 전까지 대기
             if (_coroutine != null && _currentTimer >= _finishTimer)
             {
                 HideBreathEffect();
@@ -41,18 +43,28 @@ public class FireBossPattern : MonoBehaviour
             return;
         }
 
+        StartFireAttack();
+    }
+
+    // 공격 루틴 시작
+    private void StartFireAttack()
+    {
         _coroutine = StartCoroutine(StartAttackAnimation());
         _isBossAttackCycleActive = true;
         _currentTimer = 0f;
     }
 
+    // 방해 애니메이션 시작
     private IEnumerator StartAttackAnimation()
     {
-        yield return StartCoroutine(FireStartAnimation());
+        if (_coroutine != null) _coroutine = null;
+        _coroutine = StartCoroutine(FireStartAnimation());
+        yield return _coroutine;
 
         ShowBreathEffect();
     }
 
+    // 브레스 시작 전 경고성 이펙트 소환 메서드
     private IEnumerator FireStartAnimation()
     {
         _currentObscuringEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireStart], transform);
@@ -69,12 +81,14 @@ public class FireBossPattern : MonoBehaviour
         _currentObscuringEffect = null;
         _animator = null;
     }
-    public void ShowBreathEffect()
+
+    // 브레스 이펙트 시작하는 메서드
+    private void ShowBreathEffect()
     {
         if (_firePatternPrefab != null && _currentObscuringEffect == null)
         {
             _currentObscuringEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.Breath], transform);
-            FadeInOutEffect fadeInOutAnimation = _currentObscuringEffect.GetComponent<FadeInOutEffect>();
+            FadeInOutEffect fadeInOutAnimation = _currentObscuringEffect.GetComponent<FadeInOutEffect>();  // 페이드인 호출
             fadeInOutAnimation.PlayShowAnimation();
         }
         else if (_firePatternPrefab == null)
@@ -83,10 +97,12 @@ public class FireBossPattern : MonoBehaviour
         }
     }
 
-    public void HideBreathEffect()
+    // 브레스 이펙트 숨기는 메서드
+    private void HideBreathEffect()
     {
         if (_currentObscuringEffect != null)
         {
+            // 페이드 아웃 호출
             FadeInOutEffect fadeInOutAnimation = _currentObscuringEffect.GetComponent<FadeInOutEffect>();
             System.Action cleanupAction = () =>
             {
@@ -116,4 +132,5 @@ public class FireBossPattern : MonoBehaviour
             _currentTimer = 0f;
         }
     }
+
 }
