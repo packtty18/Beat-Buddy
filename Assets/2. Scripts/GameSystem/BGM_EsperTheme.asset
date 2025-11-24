@@ -1,0 +1,685 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f950f9babf1d6e548988362fa5b63401, type: 3}
+  m_Name: BGM_EsperTheme
+  m_EditorClassIdentifier: 
+  _bgmName: EsperTheme
+  _bpm: 150.2
+  _audioClip: {fileID: 8300000, guid: 84ead80dd766f334f8929f3f53e90e6f, type: 3}
+  _notes:
+  - beat: 4.49849
+    type: 0
+  - beat: 6.4986534
+    type: 0
+  - beat: 8.4988165
+    type: 0
+  - beat: 10.49898
+    type: 0
+  - beat: 12.499144
+    type: 0
+  - beat: 14.499307
+    type: 0
+  - beat: 16.49947
+    type: 0
+  - beat: 18.499634
+    type: 0
+  - beat: 20.499796
+    type: 0
+  - beat: 22.49996
+    type: 0
+  - beat: 24.49762
+    type: 0
+  - beat: 26.497784
+    type: 0
+  - beat: 28.497946
+    type: 0
+  - beat: 30.49811
+    type: 0
+  - beat: 32.498272
+    type: 0
+  - beat: 33.24927
+    type: 0
+  - beat: 33.99777
+    type: 0
+  - beat: 35.997932
+    type: 0
+  - beat: 36.4986
+    type: 0
+  - beat: 37.998096
+    type: 0
+  - beat: 38.498764
+    type: 0
+  - beat: 39.497593
+    type: 0
+  - beat: 40.498928
+    type: 0
+  - beat: 41.249928
+    type: 0
+  - beat: 41.998425
+    type: 0
+  - beat: 42.999756
+    type: 0
+  - beat: 43.49792
+    type: 0
+  - beat: 43.998585
+    type: 0
+  - beat: 44.499252
+    type: 0
+  - beat: 45.99875
+    type: 0
+  - beat: 46.499416
+    type: 0
+  - beat: 46.99758
+    type: 0
+  - beat: 47.498245
+    type: 0
+  - beat: 47.998913
+    type: 0
+  - beat: 48.49958
+    type: 0
+  - beat: 49.248077
+    type: 0
+  - beat: 49.999077
+    type: 0
+  - beat: 51.99924
+    type: 0
+  - beat: 52.499905
+    type: 0
+  - beat: 53.999405
+    type: 0
+  - beat: 54.497566
+    type: 0
+  - beat: 55.4989
+    type: 0
+  - beat: 56.49773
+    type: 0
+  - beat: 57.24873
+    type: 0
+  - beat: 57.99973
+    type: 0
+  - beat: 58.998558
+    type: 0
+  - beat: 59.499226
+    type: 0
+  - beat: 59.999893
+    type: 0
+  - beat: 60.498055
+    type: 0
+  - beat: 61.997555
+    type: 0
+  - beat: 62.49822
+    type: 0
+  - beat: 62.998886
+    type: 0
+  - beat: 63.499554
+    type: 0
+  - beat: 63.997715
+    type: 0
+  - beat: 65.99788
+    type: 0
+  - beat: 66.248215
+    type: 0
+  - beat: 66.49854
+    type: 0
+  - beat: 66.74888
+    type: 0
+  - beat: 66.999214
+    type: 0
+  - beat: 67.49988
+    type: 0
+  - beat: 67.99804
+    type: 0
+  - beat: 68.49871
+    type: 0
+  - beat: 69.24971
+    type: 0
+  - beat: 69.99821
+    type: 0
+  - beat: 71.99837
+    type: 0
+  - beat: 72.49904
+    type: 0
+  - beat: 73.247536
+    type: 0
+  - beat: 73.998535
+    type: 0
+  - beat: 74.24886
+    type: 0
+  - beat: 74.4992
+    type: 0
+  - beat: 74.749535
+    type: 0
+  - beat: 74.99986
+    type: 0
+  - beat: 75.49803
+    type: 0
+  - beat: 75.998695
+    type: 0
+  - beat: 76.49937
+    type: 0
+  - beat: 77.247856
+    type: 0
+  - beat: 77.99886
+    type: 0
+  - beat: 79.49836
+    type: 0
+  - beat: 79.99902
+    type: 0
+  - beat: 80.49969
+    type: 0
+  - beat: 81.248184
+    type: 0
+  - beat: 81.99918
+    type: 0
+  - beat: 82.24952
+    type: 0
+  - beat: 82.499855
+    type: 0
+  - beat: 82.99802
+    type: 0
+  - beat: 83.49868
+    type: 0
+  - beat: 83.99935
+    type: 0
+  - beat: 84.49751
+    type: 0
+  - beat: 85.24851
+    type: 0
+  - beat: 85.99951
+    type: 0
+  - beat: 86.24985
+    type: 0
+  - beat: 86.49767
+    type: 0
+  - beat: 86.998344
+    type: 0
+  - beat: 87.49901
+    type: 0
+  - beat: 87.99968
+    type: 0
+  - beat: 88.49784
+    type: 0
+  - beat: 89.24884
+    type: 0
+  - beat: 89.99984
+    type: 0
+  - beat: 90.24767
+    type: 0
+  - beat: 90.498
+    type: 0
+  - beat: 90.99867
+    type: 0
+  - beat: 91.49934
+    type: 0
+  - beat: 91.9975
+    type: 0
+  - beat: 92.49817
+    type: 0
+  - beat: 92.7485
+    type: 0
+  - beat: 93.24917
+    type: 0
+  - beat: 93.74983
+    type: 0
+  - beat: 94.24799
+    type: 0
+  - beat: 94.49833
+    type: 0
+  - beat: 96.49849
+    type: 0
+  - beat: 98.49866
+    type: 0
+  - beat: 100.49882
+    type: 0
+  - beat: 102.498985
+    type: 0
+  - beat: 104.499146
+    type: 0
+  - beat: 104.74948
+    type: 0
+  - beat: 104.99981
+    type: 0
+  - beat: 105.24764
+    type: 0
+  - beat: 105.49798
+    type: 0
+  - beat: 107.49814
+    type: 0
+  - beat: 109.49831
+    type: 0
+  - beat: 111.49847
+    type: 0
+  - beat: 113.49863
+    type: 0
+  - beat: 115.498795
+    type: 0
+  - beat: 117.498955
+    type: 0
+  - beat: 119.49912
+    type: 0
+  - beat: 121.49928
+    type: 0
+  - beat: 123.49944
+    type: 0
+  - beat: 125.49961
+    type: 0
+  - beat: 128.4986
+    type: 0
+  - beat: 128.99927
+    type: 0
+  - beat: 129.49994
+    type: 0
+  - beat: 129.9981
+    type: 0
+  - beat: 130.49876
+    type: 0
+  - beat: 132.49893
+    type: 0
+  - beat: 132.9996
+    type: 0
+  - beat: 133.49776
+    type: 0
+  - beat: 133.99843
+    type: 0
+  - beat: 134.24876
+    type: 0
+  - beat: 134.99976
+    type: 0
+  - beat: 135.49792
+    type: 0
+  - beat: 135.9986
+    type: 0
+  - beat: 136.24892
+    type: 0
+  - beat: 136.99992
+    type: 0
+  - beat: 137.4981
+    type: 0
+  - beat: 137.99875
+    type: 0
+  - beat: 138.24908
+    type: 0
+  - beat: 140.49959
+    type: 0
+  - beat: 140.99774
+    type: 0
+  - beat: 141.49841
+    type: 0
+  - beat: 141.99908
+    type: 0
+  - beat: 142.24942
+    type: 0
+  - beat: 144.49991
+    type: 0
+  - beat: 144.99808
+    type: 0
+  - beat: 145.49873
+    type: 0
+  - beat: 145.9994
+    type: 0
+  - beat: 146.24974
+    type: 0
+  - beat: 148.49773
+    type: 0
+  - beat: 149.99973
+    type: 0
+  - beat: 151.49922
+    type: 0
+  - beat: 152.99873
+    type: 0
+  - beat: 154.49823
+    type: 0
+  - beat: 155.99773
+    type: 0
+  - beat: 160.49872
+    type: 0
+  - beat: 161.24971
+    type: 0
+  - beat: 161.99821
+    type: 0
+  - beat: 163.99837
+    type: 0
+  - beat: 164.49904
+    type: 0
+  - beat: 165.99854
+    type: 0
+  - beat: 166.4992
+    type: 0
+  - beat: 167.49803
+    type: 0
+  - beat: 168.49936
+    type: 0
+  - beat: 169.24786
+    type: 0
+  - beat: 169.99886
+    type: 0
+  - beat: 170.9977
+    type: 0
+  - beat: 171.49835
+    type: 0
+  - beat: 171.99902
+    type: 0
+  - beat: 172.4997
+    type: 0
+  - beat: 173.99919
+    type: 0
+  - beat: 174.49986
+    type: 0
+  - beat: 174.99802
+    type: 0
+  - beat: 175.49869
+    type: 0
+  - beat: 175.99936
+    type: 0
+  - beat: 176.49751
+    type: 0
+  - beat: 177.24852
+    type: 0
+  - beat: 177.99951
+    type: 0
+  - beat: 179.99968
+    type: 0
+  - beat: 180.49785
+    type: 0
+  - beat: 181.99985
+    type: 0
+  - beat: 182.498
+    type: 0
+  - beat: 183.49934
+    type: 0
+  - beat: 184.49817
+    type: 0
+  - beat: 185.24918
+    type: 0
+  - beat: 185.99767
+    type: 0
+  - beat: 186.999
+    type: 0
+  - beat: 187.49966
+    type: 0
+  - beat: 187.99783
+    type: 0
+  - beat: 188.49849
+    type: 0
+  - beat: 189.99799
+    type: 0
+  - beat: 190.49866
+    type: 0
+  - beat: 190.99933
+    type: 0
+  - beat: 191.49998
+    type: 0
+  - beat: 191.99815
+    type: 0
+  - beat: 193.99832
+    type: 0
+  - beat: 194.24866
+    type: 0
+  - beat: 194.499
+    type: 0
+  - beat: 194.74931
+    type: 0
+  - beat: 194.99965
+    type: 0
+  - beat: 195.49782
+    type: 0
+  - beat: 195.99849
+    type: 0
+  - beat: 196.49915
+    type: 0
+  - beat: 197.24765
+    type: 0
+  - beat: 197.99864
+    type: 0
+  - beat: 199.99881
+    type: 0
+  - beat: 200.49948
+    type: 0
+  - beat: 201.24797
+    type: 0
+  - beat: 201.99898
+    type: 0
+  - beat: 202.2493
+    type: 0
+  - beat: 202.49963
+    type: 0
+  - beat: 202.74997
+    type: 0
+  - beat: 202.9978
+    type: 0
+  - beat: 203.49847
+    type: 0
+  - beat: 203.99913
+    type: 0
+  - beat: 204.4998
+    type: 0
+  - beat: 205.2483
+    type: 0
+  - beat: 205.9993
+    type: 0
+  - beat: 207.4988
+    type: 0
+  - beat: 207.99947
+    type: 0
+  - beat: 208.49762
+    type: 0
+  - beat: 209.24863
+    type: 0
+  - beat: 209.99962
+    type: 0
+  - beat: 210.24995
+    type: 0
+  - beat: 210.49779
+    type: 0
+  - beat: 210.99846
+    type: 0
+  - beat: 211.49911
+    type: 0
+  - beat: 211.99979
+    type: 0
+  - beat: 212.49796
+    type: 0
+  - beat: 213.24895
+    type: 0
+  - beat: 213.99995
+    type: 0
+  - beat: 214.24779
+    type: 0
+  - beat: 214.49812
+    type: 0
+  - beat: 214.99878
+    type: 0
+  - beat: 215.49945
+    type: 0
+  - beat: 215.99762
+    type: 0
+  - beat: 216.49828
+    type: 0
+  - beat: 217.24928
+    type: 0
+  - beat: 217.99777
+    type: 0
+  - beat: 218.24811
+    type: 0
+  - beat: 218.49844
+    type: 0
+  - beat: 218.99911
+    type: 0
+  - beat: 219.49977
+    type: 0
+  - beat: 219.99794
+    type: 0
+  - beat: 220.49861
+    type: 0
+  - beat: 220.74893
+    type: 0
+  - beat: 221.2496
+    type: 0
+  - beat: 221.74777
+    type: 0
+  - beat: 222.24843
+    type: 0
+  - beat: 222.49876
+    type: 0
+  - beat: 224.49893
+    type: 0
+  - beat: 226.4991
+    type: 0
+  - beat: 228.49925
+    type: 0
+  - beat: 230.49942
+    type: 0
+  - beat: 232.49959
+    type: 0
+  - beat: 233.24808
+    type: 0
+  - beat: 233.99908
+    type: 0
+  - beat: 235.99925
+    type: 0
+  - beat: 236.49991
+    type: 0
+  - beat: 236.99808
+    type: 0
+  - beat: 237.9994
+    type: 0
+  - beat: 238.49757
+    type: 0
+  - beat: 239.4989
+    type: 0
+  - beat: 240.49774
+    type: 0
+  - beat: 240.9984
+    type: 0
+  - beat: 241.99974
+    type: 0
+  - beat: 243.9999
+    type: 0
+  - beat: 244.49806
+    type: 0
+  - beat: 244.99873
+    type: 0
+  - beat: 245.99756
+    type: 0
+  - beat: 246.49823
+    type: 0
+  - beat: 247.49956
+    type: 0
+  - beat: 248.49838
+    type: 0
+  - beat: 248.99905
+    type: 0
+  - beat: 249.99788
+    type: 0
+  - beat: 251.99805
+    type: 0
+  - beat: 252.49872
+    type: 0
+  - beat: 252.99939
+    type: 0
+  - beat: 253.99821
+    type: 0
+  - beat: 254.49889
+    type: 0
+  - beat: 254.99954
+    type: 0
+  - beat: 255.49771
+    type: 0
+  - beat: 255.99838
+    type: 0
+  - beat: 256.49905
+    type: 0
+  - beat: 256.9997
+    type: 0
+  - beat: 257.99854
+    type: 0
+  - beat: 259.9987
+    type: 0
+  - beat: 260.49936
+    type: 0
+  - beat: 260.99753
+    type: 0
+  - beat: 261.99887
+    type: 0
+  - beat: 262.49954
+    type: 0
+  - beat: 263.49835
+    type: 0
+  - beat: 264.4997
+    type: 0
+  - beat: 264.99786
+    type: 0
+  - beat: 265.9992
+    type: 0
+  - beat: 267.99936
+    type: 0
+  - beat: 268.49753
+    type: 0
+  - beat: 268.9982
+    type: 0
+  - beat: 269.9995
+    type: 0
+  - beat: 270.49768
+    type: 0
+  - beat: 271.49902
+    type: 0
+  - beat: 272.49783
+    type: 0
+  - beat: 272.9985
+    type: 0
+  - beat: 273.99985
+    type: 0
+  - beat: 275.9975
+    type: 0
+  - beat: 276.49817
+    type: 0
+  - beat: 276.99884
+    type: 0
+  - beat: 277.99768
+    type: 0
+  - beat: 278.49832
+    type: 0
+  - beat: 279.49966
+    type: 0
+  - beat: 288.49915
+    type: 0
+  - beat: 290.49933
+    type: 0
+  - beat: 292.49948
+    type: 0
+  - beat: 294.49963
+    type: 0
+  - beat: 296.49982
+    type: 0
+  - beat: 298.49997
+    type: 0
+  - beat: 300.49762
+    type: 0
+  - beat: 302.4978
+    type: 0
+  - beat: 304.49796
+    type: 0
+  - beat: 306.4981
+    type: 0
+  - beat: 308.4983
+    type: 0
+  - beat: 310.49844
+    type: 0
+  - beat: 312.4986
+    type: 0
+  - beat: 314.49878
+    type: 0
+  - beat: 316.49893
+    type: 0
+  - beat: 318.49908
+    type: 0
+  _difficulty: 3
