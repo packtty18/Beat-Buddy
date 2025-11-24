@@ -14,6 +14,10 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   entries:
   - Key: 1
-    Value: PSH_SceneTest1
+    Value: Lobby
   - Key: 2
-    Value: PSH_SceneTest2
+    Value: ModeSelect
+  - Key: 3
+    Value: SongSelect
+  - Key: 4
+    Value: Stage

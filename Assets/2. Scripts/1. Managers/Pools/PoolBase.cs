@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -33,6 +33,13 @@ public abstract class PoolBase<TEnum> : PoolBase
 
     protected Dictionary<TEnum, GameObject> _prefabMap;
     protected Dictionary<TEnum, Queue<GameObject>> _poolMap;
+
+    [Header("Debug")]
+    [SerializeField] private TEnum _testType;
+    [SerializeField] private Vector3 _spawnPosition = Vector3.zero;
+    [SerializeField] private Quaternion _spawnRotation = Quaternion.identity;
+
+    Queue<TypePrefabPair<TEnum>> _spawnQueue = new Queue<TypePrefabPair<TEnum>>();
 
     //해당 풀 초기화
     public override void InitPool()
@@ -179,4 +186,24 @@ public abstract class PoolBase<TEnum> : PoolBase
         }
     }
 
+    [ContextMenu("스폰테스트")]
+    public void SpawnTestObject()
+    {
+        GameObject obj = GetObject(_testType);
+        obj.transform.position = _spawnPosition;
+        obj.transform.rotation = _spawnRotation;
+        _spawnQueue.Enqueue(new TypePrefabPair<TEnum>(_testType, obj));
+    }
+
+    [ContextMenu("디스폰테스트")]
+    public void ReturnTestObject()
+    {
+        if (_spawnQueue.Count == 0)
+        {
+            return;
+        }
+        TypePrefabPair<TEnum> target = _spawnQueue.Dequeue();
+
+        ReturnObject(target.Type, target.Prefab);
+    }
 }
