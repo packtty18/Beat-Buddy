@@ -1,13 +1,7 @@
 ﻿using System;
 using TMPro.EditorUtilities;
 using UnityEngine;
-public enum EHitType
-{
-    Miss,
-    Bad,
-    Good,
-    Perfect
-}
+
 public class PlayerStat : MonoBehaviour
 {
     [SerializeField] private float _maxHealth;
