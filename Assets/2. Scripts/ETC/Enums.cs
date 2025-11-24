@@ -1,4 +1,4 @@
-﻿public enum ESFXType
-{
+public enum ETestType
+{ 
 
 }

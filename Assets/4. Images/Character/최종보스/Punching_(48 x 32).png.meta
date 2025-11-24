@@ -72,7 +72,7 @@ TextureImporter:
   spriteMeshType: 1
   alignment: 0
   spritePivot: {x: 0.5, y: 0.5}
-  spritePixelsToUnits: 100
+  spritePixelsToUnits: 10
   spriteBorder: {x: 0, y: 0, z: 0, w: 0}
   spriteGenerateFallbackPhysicsShape: 1
   alphaUsage: 1
@@ -150,10 +150,10 @@ TextureImporter:
       name: Punching_(48 x 32)_0
       rect:
         serializedVersion: 2
-        x: 8
+        x: 0
         y: 0
-        width: 30
-        height: 23
+        width: 42
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -172,10 +172,10 @@ TextureImporter:
       name: Punching_(48 x 32)_1
       rect:
         serializedVersion: 2
-        x: 56
+        x: 42
         y: 0
-        width: 30
-        height: 22
+        width: 42
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -194,10 +194,10 @@ TextureImporter:
       name: Punching_(48 x 32)_2
       rect:
         serializedVersion: 2
-        x: 102
+        x: 84
         y: 0
-        width: 26
-        height: 22
+        width: 42
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -216,10 +216,10 @@ TextureImporter:
       name: Punching_(48 x 32)_3
       rect:
         serializedVersion: 2
-        x: 149
+        x: 126
         y: 0
-        width: 21
-        height: 21
+        width: 42
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -238,10 +238,10 @@ TextureImporter:
       name: Punching_(48 x 32)_4
       rect:
         serializedVersion: 2
-        x: 200
+        x: 168
         y: 0
-        width: 32
-        height: 23
+        width: 42
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -260,10 +260,10 @@ TextureImporter:
       name: Punching_(48 x 32)_5
       rect:
         serializedVersion: 2
-        x: 248
+        x: 210
         y: 0
-        width: 32
-        height: 22
+        width: 42
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -282,10 +282,10 @@ TextureImporter:
       name: Punching_(48 x 32)_6
       rect:
         serializedVersion: 2
-        x: 296
+        x: 252
         y: 0
-        width: 26
-        height: 22
+        width: 42
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -304,10 +304,10 @@ TextureImporter:
       name: Punching_(48 x 32)_7
       rect:
         serializedVersion: 2
-        x: 341
+        x: 294
         y: 0
-        width: 21
-        height: 21
+        width: 42
+        height: 32
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -322,11 +322,33 @@ TextureImporter:
       indices: 
       edges: []
       weights: []
+    - serializedVersion: 2
+      name: Punching_(48 x 32)_8
+      rect:
+        serializedVersion: 2
+        x: 336
+        y: 0
+        width: 42
+        height: 32
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f7cc6cb1bea06a744a4c18a7c04b372b
+      internalID: -1737970464
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
     outline: []
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 6f04ac2ff309020499337af197b861da
     internalID: 0
     vertices: []
     indices: 
@@ -344,6 +366,7 @@ TextureImporter:
       Punching_(48 x 32)_5: 7844965049794554422
       Punching_(48 x 32)_6: 6020863104618865344
       Punching_(48 x 32)_7: -6167450868014408917
+      Punching_(48 x 32)_8: -1737970464
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 
