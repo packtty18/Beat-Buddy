@@ -16,7 +16,7 @@ public class FireBossPattern : MonoBehaviour
     private GameObject _currentObscuringEffect;
 
     [Header ("쿨타임")]
-    private float _finishBreathTime = 1.6f;
+    private float _breathingTime = 1.6f;
 
     [Header("애니메이터")]
     private Animator _animator;
@@ -24,16 +24,16 @@ public class FireBossPattern : MonoBehaviour
 
     private void Start()
     {
-        StartCoroutine(StartFireAttack());
+        StartCoroutine(StartFireAttackCoroutine());
     }
 
     // 공격 루틴 시작
-    private IEnumerator StartFireAttack()
+    private IEnumerator StartFireAttackCoroutine()
     {
         yield return StartCoroutine(FireStartAnimation());
         ShowBreathEffect();
 
-        yield return new WaitForSeconds(_finishBreathTime);
+        yield return new WaitForSeconds(_breathingTime);
         HideBreathEffect();
     }
 
