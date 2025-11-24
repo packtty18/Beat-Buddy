@@ -149,7 +149,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 20e9e601f0e9f13469c8943c2a787d95, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _library: {fileID: 11400000, guid: 26a7779ce26d65d4cb57c4fe5865309c, type: 2}
+  _soundDatabase: {fileID: 11400000, guid: bc8767bf7ee336d4797c618df1e25ebc, type: 2}
   _initialBgmType: 1
   _bgmObject: {fileID: 0}
   _bgmObjectName: BGM
