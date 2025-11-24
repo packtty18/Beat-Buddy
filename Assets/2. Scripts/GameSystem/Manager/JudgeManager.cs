@@ -86,7 +86,7 @@ public class JudgeManager : SimpleSingleton<JudgeManager>
 
     void CheckHit(ENoteType inputType)
     {
-        if (_noteSpawner == null || Conductor.Instance == null) return;
+        if (_noteSpawner == null) return;
 
         float currentTime = Conductor.Instance.BgmPosition;
         Note closestNote = null;
@@ -204,8 +204,6 @@ public class JudgeManager : SimpleSingleton<JudgeManager>
         //{
         //    UIManager.Instance.ShowJudgment(EHitType.Miss, 0f);
         //}
-
-        Debug.Log($"[JudgeManager] Miss - Combo broken");
     }
 
     public GameResult GetGameResult()

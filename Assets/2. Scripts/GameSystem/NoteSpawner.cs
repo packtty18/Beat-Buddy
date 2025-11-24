@@ -61,6 +61,8 @@ public class NoteSpawner : MonoBehaviour
         Transform spawnPos = (noteData.type == ENoteType.LNote) ? _leftSpawnPoint : _rightSpawnPoint;
         noteObject.transform.position = spawnPos.position;
 
+
+
         noteObject.Initialize(noteData.beat, noteData.type, _beatsShownInAdvance, _judgePoint, this);
 
         _activeNotes.Add(noteObject);

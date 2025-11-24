@@ -13,14 +13,14 @@ public class Conductor : SimpleSingleton<Conductor>
     private double _dspBGMTime;
     private double _songEndTime; // 음악 종료 시간 추적
     private bool _isPlaying = false;
-    private bool _isReady = false;
+    private bool _isReadyNow = false;
 
     public float SecPerBeat { get; private set; }
     public float BgmPosition { get; private set; }
     public float BgmPositionInBeats { get; private set; }
     public BGMDataSO CurrentBGMData => _currentBGMData;
     public float CurrentBpm => _currentBGMData?.Bpm ?? 0f;
-    public bool IsReady => _isReady;
+    public bool IsReadyNow => _isReadyNow;
 
     protected override void Awake()
     {
@@ -55,14 +55,14 @@ public class Conductor : SimpleSingleton<Conductor>
             float timeUntilStart = (float)(_dspBGMTime - currentDspTime);
             BgmPosition = -timeUntilStart;
             BgmPositionInBeats = BgmPosition / SecPerBeat;
-            _isReady = true;
+            _isReadyNow = true;
         }
         // 음악 재생 중
         else if (currentDspTime < _songEndTime)
         {
             BgmPosition = (float)(currentDspTime - _dspBGMTime);
             BgmPositionInBeats = BgmPosition / SecPerBeat;
-            _isReady = false;
+            _isReadyNow = false;
         }
         // 음악 종료
         else
@@ -70,7 +70,7 @@ public class Conductor : SimpleSingleton<Conductor>
             BgmPosition = (float)(_songEndTime - _dspBGMTime);
             BgmPositionInBeats = BgmPosition / SecPerBeat;
             _isPlaying = false;
-            _isReady = false;
+            _isReadyNow = false;
 
             Debug.Log($"[Conductor] 음악 재생 완료 - 총 재생 시간: {BgmPosition:F2}초");
         }
@@ -113,7 +113,7 @@ public class Conductor : SimpleSingleton<Conductor>
         _songEndTime = _dspBGMTime + _musicSource.clip.length;
 
         _musicSource.PlayScheduled(_dspBGMTime);
-        _isReady = true;
+        _isReadyNow = true;
         _isPlaying = true;
 
         Debug.Log($"[Conductor] BGM 재생 예약 - 곡 길이: {_musicSource.clip.length:F2}초, 시작 시간: {_dspBGMTime:F2}, 종료 시간: {_songEndTime:F2}");
@@ -125,7 +125,7 @@ public class Conductor : SimpleSingleton<Conductor>
         {
             _musicSource.Stop();
             _isPlaying = false;
-            _isReady = false;
+            _isReadyNow = false;
             Debug.Log("[Conductor] BGM 정지");
         }
     }
