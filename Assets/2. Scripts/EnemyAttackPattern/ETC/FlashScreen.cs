@@ -1,16 +1,16 @@
-using UnityEngine;
+ï»¿using UnityEngine;
 using UnityEngine.UI;
 
 public class FlashScreen : MonoBehaviour
 {
     public static FlashScreen Instance;
 
-    [Header("ÇÃ·¡½Ã ÀÌ¹ÌÁö")]
+    [Header("í”Œë˜ì‹œ ì´ë¯¸ì§€")]
     [SerializeField] private Image _flashImage;
     [SerializeField] private float _flashSpeed = 0.4f;
     [SerializeField] private Color _flashColour = new Color(0.8f, 0.9f, 1f, 0.8f);
 
-    [Header("ÇÃ·¡½Ã Æ®¸®°Å")]
+    [Header("í”Œë˜ì‹œ íŠ¸ë¦¬ê±°")]
     private bool _isFlashing = false;
 
 
