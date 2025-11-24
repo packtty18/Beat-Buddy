@@ -1,0 +1,3262 @@
+fileFormatVersion: 2
+guid: 52bf63d18d3abb44ea2acdd75e69decf
+TextureImporter:
+  internalIDToNameTable:
+  - first:
+      213: 9217859457521623387
+    second: 1361_0
+  - first:
+      213: 2879253889783403556
+    second: 1361_1
+  - first:
+      213: -7810775577149544605
+    second: 1361_2
+  - first:
+      213: 82106136370838262
+    second: 1361_3
+  - first:
+      213: 2684397712637138953
+    second: 1361_4
+  - first:
+      213: 7408415640272700732
+    second: 1361_5
+  - first:
+      213: 4122977401076672473
+    second: 1361_6
+  - first:
+      213: -8061008085708729091
+    second: 1361_7
+  - first:
+      213: -4430700977308552578
+    second: 1361_8
+  - first:
+      213: -2828005781193967394
+    second: 1361_9
+  - first:
+      213: 5767672017181593228
+    second: 1361_10
+  - first:
+      213: 2374347167210517416
+    second: 1361_11
+  - first:
+      213: -5226958294561797154
+    second: 1361_12
+  - first:
+      213: 5052821418301286116
+    second: 1361_13
+  - first:
+      213: 5499092310711356705
+    second: 1361_14
+  - first:
+      213: 9083479043473447161
+    second: 1361_15
+  - first:
+      213: -8568304668143661906
+    second: 1361_16
+  - first:
+      213: 7595892140687158249
+    second: 1361_17
+  - first:
+      213: 6327437274327774721
+    second: 1361_18
+  - first:
+      213: 6315137927480695554
+    second: 1361_19
+  - first:
+      213: -5917581089358737001
+    second: 1361_20
+  - first:
+      213: -5670143504726394094
+    second: 1361_21
+  - first:
+      213: 4823193552884558705
+    second: 1361_22
+  - first:
+      213: 7021950266913592536
+    second: 1361_23
+  - first:
+      213: 1548858768350679395
+    second: 1361_24
+  - first:
+      213: 6068864713514680622
+    second: 1361_25
+  - first:
+      213: 3881297665321522576
+    second: 1361_26
+  - first:
+      213: 4077825818140061526
+    second: 1361_27
+  - first:
+      213: 6652438850131516954
+    second: 1361_28
+  - first:
+      213: 3106664590118478975
+    second: 1361_29
+  - first:
+      213: -1347734054631479659
+    second: 1361_30
+  - first:
+      213: -1375834035888675756
+    second: 1361_31
+  - first:
+      213: 2188415085675943808
+    second: 1361_32
+  - first:
+      213: -8996436916156062194
+    second: 1361_33
+  - first:
+      213: 5016438860838437815
+    second: 1361_34
+  - first:
+      213: 6268990005808922211
+    second: 1361_35
+  - first:
+      213: 6140996950640875950
+    second: 1361_36
+  - first:
+      213: -3368321912788040415
+    second: 1361_37
+  - first:
+      213: -217150883184103150
+    second: 1361_38
+  - first:
+      213: 4869523520763178599
+    second: 1361_39
+  - first:
+      213: -5659086250954350310
+    second: 1361_40
+  - first:
+      213: -4964853139562916907
+    second: 1361_41
+  - first:
+      213: 967287625129754728
+    second: 1361_42
+  - first:
+      213: -6357640186170410029
+    second: 1361_43
+  - first:
+      213: 3142798969773315627
+    second: 1361_44
+  - first:
+      213: -3099013202713963052
+    second: 1361_45
+  - first:
+      213: 3224206130147769853
+    second: 1361_46
+  - first:
+      213: -1439336208297166232
+    second: 1361_47
+  - first:
+      213: -3059451435161246159
+    second: 1361_48
+  - first:
+      213: 7870431767672066431
+    second: 1361_49
+  - first:
+      213: -4386621133100731039
+    second: 1361_50
+  - first:
+      213: -1153055489910980946
+    second: 1361_51
+  - first:
+      213: -6463316961425329078
+    second: 1361_52
+  - first:
+      213: -200273553367153001
+    second: 1361_53
+  - first:
+      213: -6496312930205065013
+    second: 1361_54
+  - first:
+      213: -3994066519347313728
+    second: 1361_55
+  - first:
+      213: 3142158551632548353
+    second: 1361_56
+  - first:
+      213: 4968512265639762295
+    second: 1361_57
+  - first:
+      213: 8124450621461165176
+    second: 1361_58
+  - first:
+      213: 8745259499618586033
+    second: 1361_59
+  - first:
+      213: -7881321973068391210
+    second: 1361_60
+  - first:
+      213: 3775366703083158538
+    second: 1361_61
+  - first:
+      213: 515867902778595798
+    second: 1361_62
+  - first:
+      213: 513584903504421070
+    second: 1361_63
+  - first:
+      213: 3478031925855035604
+    second: 1361_64
+  - first:
+      213: 5116039965443741211
+    second: 1361_65
+  - first:
+      213: 2158100238182395207
+    second: 1361_66
+  - first:
+      213: -832050912206859425
+    second: 1361_67
+  - first:
+      213: -1091885008828205834
+    second: 1361_68
+  - first:
+      213: -1530331645521631604
+    second: 1361_69
+  - first:
+      213: 9041512438080524967
+    second: 1361_70
+  - first:
+      213: 5283540035992268561
+    second: 1361_71
+  - first:
+      213: -8902613616968017831
+    second: 1361_72
+  - first:
+      213: 2558015485042704158
+    second: 1361_73
+  - first:
+      213: -793850157842899568
+    second: 1361_74
+  - first:
+      213: -1856786897276366237
+    second: 1361_75
+  - first:
+      213: 3811696679783136476
+    second: 1361_76
+  - first:
+      213: -2095780987917368021
+    second: 1361_77
+  - first:
+      213: 9039690790950710725
+    second: 1361_78
+  - first:
+      213: -2460318280284821032
+    second: 1361_79
+  - first:
+      213: -1616180061868339639
+    second: 1361_80
+  - first:
+      213: -7830475806006753283
+    second: 1361_81
+  - first:
+      213: -8674239257753910103
+    second: 1361_82
+  - first:
+      213: 1677852923817867245
+    second: 1361_83
+  - first:
+      213: 5182112381646637255
+    second: 1361_84
+  - first:
+      213: 645542888492637655
+    second: 1361_85
+  - first:
+      213: -2970894622777776452
+    second: 1361_86
+  - first:
+      213: -7097878780871967753
+    second: 1361_87
+  - first:
+      213: 3993974107668112004
+    second: 1361_88
+  - first:
+      213: 7179133824718123407
+    second: 1361_89
+  - first:
+      213: 123146731575394716
+    second: 1361_90
+  - first:
+      213: 7470528778226157920
+    second: 1361_91
+  - first:
+      213: 8612185846759363410
+    second: 1361_92
+  - first:
+      213: 4149091309695849093
+    second: 1361_93
+  - first:
+      213: 199832033181763539
+    second: 1361_94
+  - first:
+      213: -4406898814124047092
+    second: 1361_95
+  - first:
+      213: 808724893456526185
+    second: 1361_96
+  - first:
+      213: -1112638828001676016
+    second: 1361_97
+  - first:
+      213: -1349120601372302389
+    second: 1361_98
+  - first:
+      213: 8091259959180324474
+    second: 1361_99
+  - first:
+      213: -5456384907605752055
+    second: 1361_100
+  - first:
+      213: 2590913073082761690
+    second: 1361_101
+  - first:
+      213: -748056220440874522
+    second: 1361_102
+  - first:
+      213: 4201610203864796972
+    second: 1361_103
+  - first:
+      213: -3188504221389794887
+    second: 1361_104
+  - first:
+      213: 8766173458001233327
+    second: 1361_105
+  - first:
+      213: 1213159171457864540
+    second: 1361_106
+  - first:
+      213: 523072884108255106
+    second: 1361_107
+  - first:
+      213: -2436272109963414340
+    second: 1361_108
+  - first:
+      213: 2179537272124916251
+    second: 1361_109
+  - first:
+      213: 5281917280546826150
+    second: 1361_110
+  - first:
+      213: -4039889333390654182
+    second: 1361_111
+  - first:
+      213: 4920468369355003517
+    second: 1361_112
+  - first:
+      213: -7679027239816227231
+    second: 1361_113
+  - first:
+      213: 1138729377805161714
+    second: 1361_114
+  - first:
+      213: -9184030801321840908
+    second: 1361_115
+  - first:
+      213: -1627010673372294683
+    second: 1361_116
+  - first:
+      213: -6672894272072599472
+    second: 1361_117
+  - first:
+      213: 2751229756439430163
+    second: 1361_118
+  - first:
+      213: -9216237093758833029
+    second: 1361_119
+  - first:
+      213: -4232621631803405827
+    second: 1361_120
+  - first:
+      213: -6458209434672326199
+    second: 1361_121
+  - first:
+      213: 4180430425822660455
+    second: 1361_122
+  - first:
+      213: 8398726764631061738
+    second: 1361_123
+  - first:
+      213: -5875361096946169416
+    second: 1361_124
+  - first:
+      213: 3597654338935074802
+    second: 1361_125
+  - first:
+      213: 2538916396772222
+    second: 1361_126
+  - first:
+      213: 8304156765102445754
+    second: 1361_127
+  - first:
+      213: -7029473444859705116
+    second: 1361_128
+  - first:
+      213: -5959054677121252407
+    second: 1361_129
+  - first:
+      213: 5931023614315145877
+    second: 1361_130
+  - first:
+      213: -2770696701839074171
+    second: 1361_131
+  - first:
+      213: 6955802332927833276
+    second: 1361_132
+  - first:
+      213: 1587529190643446313
+    second: 1361_133
+  - first:
+      213: 5442809196194308289
+    second: 1361_134
+  - first:
+      213: -381824404025708928
+    second: 1361_135
+  - first:
+      213: 2681323783155169
+    second: 1361_136
+  - first:
+      213: 463304657654534238
+    second: 1361_137
+  - first:
+      213: -8211554405265628264
+    second: 1361_138
+  - first:
+      213: -2617121407775734052
+    second: 1361_139
+  - first:
+      213: 3050842068280060776
+    second: 1361_140
+  - first:
+      213: 8669823592319395441
+    second: 1361_141
+  - first:
+      213: -5309617518202696238
+    second: 1361_142
+  - first:
+      213: 2312012156416940420
+    second: 1361_143
+  - first:
+      213: 2947486752691611505
+    second: 1361_144
+  - first:
+      213: 7532457100757983745
+    second: 1361_145
+  - first:
+      213: 8622560714470277349
+    second: 1361_146
+  - first:
+      213: 3691230061348429190
+    second: 1361_147
+  - first:
+      213: -8057892474004243270
+    second: 1361_148
+  - first:
+      213: 7419429819956028462
+    second: 1361_149
+  - first:
+      213: -5470110400636141415
+    second: 1361_150
+  - first:
+      213: 1549839792084689971
+    second: 1361_151
+  - first:
+      213: -4863679658388331296
+    second: 1361_152
+  - first:
+      213: 7351151922173258369
+    second: 1361_153
+  - first:
+      213: -9172629486500625833
+    second: 1361_154
+  - first:
+      213: 2204939895582267103
+    second: 1361_155
+  - first:
+      213: 3215593331078987712
+    second: 1361_156
+  - first:
+      213: -1833941717074331231
+    second: 1361_157
+  - first:
+      213: 3086171023740222747
+    second: 1361_158
+  - first:
+      213: -2585560047510665210
+    second: 1361_159
+  - first:
+      213: -2486933005538227300
+    second: 1361_160
+  - first:
+      213: 985245533885662799
+    second: 1361_161
+  - first:
+      213: -2522367388207903838
+    second: 1361_162
+  - first:
+      213: 8105788155104275413
+    second: 1361_163
+  - first:
+      213: 8663442906455960494
+    second: 1361_164
+  - first:
+      213: -1975811929345412575
+    second: 1361_165
+  - first:
+      213: -3562446899554995648
+    second: 1361_166
+  - first:
+      213: -4865393820171614864
+    second: 1361_167
+  - first:
+      213: -7090821900703702873
+    second: 1361_168
+  - first:
+      213: 226560745484779418
+    second: 1361_169
+  - first:
+      213: -433088329747380039
+    second: 1361_170
+  - first:
+      213: -4066195764576611832
+    second: 1361_171
+  - first:
+      213: 3322368452513793388
+    second: 1361_172
+  - first:
+      213: 4878664653855490011
+    second: 1361_173
+  - first:
+      213: 8230245168225120882
+    second: 1361_174
+  - first:
+      213: -6518535439520247231
+    second: 1361_175
+  - first:
+      213: -1583664765575146089
+    second: 1361_176
+  - first:
+      213: -1372103258022252525
+    second: 1361_177
+  - first:
+      213: 2300928473521584073
+    second: 1361_178
+  - first:
+      213: 4408439170035687131
+    second: 1361_179
+  - first:
+      213: 2116905202635059514
+    second: 1361_180
+  - first:
+      213: 855666538403899704
+    second: 1361_181
+  - first:
+      213: 7426419968689981796
+    second: 1361_182
+  - first:
+      213: -1137902500381821429
+    second: 1361_183
+  - first:
+      213: -2404693960887922870
+    second: 1361_184
+  - first:
+      213: 2201710956123279260
+    second: 1361_185
+  - first:
+      213: 1139533692354246116
+    second: 1361_186
+  - first:
+      213: 5881462209311840677
+    second: 1361_187
+  - first:
+      213: 8210397179959079889
+    second: 1361_188
+  - first:
+      213: -6626235282121717880
+    second: 1361_189
+  - first:
+      213: 7364392855709051574
+    second: 1361_190
+  - first:
+      213: -5104802949252414319
+    second: 1361_191
+  - first:
+      213: 6147048206519106442
+    second: 1361_192
+  - first:
+      213: -8736123147174184887
+    second: 1361_193
+  - first:
+      213: -101583555020147186
+    second: 1361_194
+  - first:
+      213: 4811526274970570597
+    second: 1361_195
+  - first:
+      213: 2916633277213042914
+    second: 1361_196
+  - first:
+      213: -1951501665031021767
+    second: 1361_197
+  - first:
+      213: 7492365475089298155
+    second: 1361_198
+  - first:
+      213: -8331084258892728092
+    second: 1361_199
+  - first:
+      213: -3263932815055808756
+    second: 1361_200
+  - first:
+      213: -2096479153106082664
+    second: 1361_201
+  - first:
+      213: -833524903158246750
+    second: 1361_202
+  - first:
+      213: 6541565483881154207
+    second: 1361_203
+  - first:
+      213: -4830490279750169230
+    second: 1361_204
+  - first:
+      213: -8849515976706625903
+    second: 1361_205
+  - first:
+      213: 2097422058137988688
+    second: 1361_206
+  - first:
+      213: 7763296836140092744
+    second: 1361_207
+  - first:
+      213: -4864218896476398169
+    second: 1361_208
+  - first:
+      213: 5587902724734561324
+    second: 1361_209
+  - first:
+      213: 4489519681167316529
+    second: 1361_210
+  - first:
+      213: 4167992269085023118
+    second: 1361_211
+  - first:
+      213: 6163219785590298261
+    second: 1361_212
+  - first:
+      213: 1210230975584392382
+    second: 1361_213
+  - first:
+      213: -5815979004415929363
+    second: 1361_214
+  - first:
+      213: -6334669749325590509
+    second: 1361_215
+  externalObjects: {}
+  serializedVersion: 13
+  mipmaps:
+    mipMapMode: 0
+    enableMipMap: 0
+    sRGBTexture: 1
+    linearTexture: 0
+    fadeOut: 0
+    borderMipMap: 0
+    mipMapsPreserveCoverage: 0
+    alphaTestReferenceValue: 0.5
+    mipMapFadeDistanceStart: 1
+    mipMapFadeDistanceEnd: 3
+  bumpmap:
+    convertToNormalMap: 0
+    externalNormalMap: 0
+    heightScale: 0.25
+    normalMapFilter: 0
+    flipGreenChannel: 0
+  isReadable: 0
+  streamingMipmaps: 0
+  streamingMipmapsPriority: 0
+  vTOnly: 0
+  ignoreMipmapLimit: 0
+  grayScaleToAlpha: 0
+  generateCubemap: 6
+  cubemapConvolution: 0
+  seamlessCubemap: 0
+  textureFormat: 1
+  maxTextureSize: 2048
+  textureSettings:
+    serializedVersion: 2
+    filterMode: 0
+    aniso: 1
+    mipBias: 0
+    wrapU: 1
+    wrapV: 1
+    wrapW: 1
+  nPOTScale: 0
+  lightmap: 0
+  compressionQuality: 50
+  spriteMode: 2
+  spriteExtrude: 1
+  spriteMeshType: 1
+  alignment: 0
+  spritePivot: {x: 0.5, y: 0.5}
+  spritePixelsToUnits: 8
+  spriteBorder: {x: 0, y: 0, z: 0, w: 0}
+  spriteGenerateFallbackPhysicsShape: 1
+  alphaUsage: 1
+  alphaIsTransparency: 1
+  spriteTessellationDetail: -1
+  textureType: 8
+  textureShape: 1
+  singleChannelComponent: 0
+  flipbookRows: 1
+  flipbookColumns: 1
+  maxTextureSizeSet: 0
+  compressionQualitySet: 0
+  textureFormatSet: 0
+  ignorePngGamma: 0
+  applyGammaDecoding: 0
+  swizzle: 50462976
+  cookieLightType: 0
+  platformSettings:
+  - serializedVersion: 4
+    buildTarget: DefaultTexturePlatform
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 0
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Standalone
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  - serializedVersion: 4
+    buildTarget: Android
+    maxTextureSize: 2048
+    resizeAlgorithm: 0
+    textureFormat: -1
+    textureCompression: 1
+    compressionQuality: 50
+    crunchedCompression: 0
+    allowsAlphaSplitting: 0
+    overridden: 0
+    ignorePlatformSupport: 0
+    androidETC2FallbackOverride: 0
+    forceMaximumCompressionQuality_BC6H_BC7: 0
+  spriteSheet:
+    serializedVersion: 2
+    sprites:
+    - serializedVersion: 2
+      name: FireStartEffect_0
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 35670903abd1db84fb8ae4f8ccca17f5
+      internalID: 371282770
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_1
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: f6a49c4e9457e214cbdd1f05825bcb91
+      internalID: 1454680942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_2
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 07b73bfce58b1d441b1fa7927892cf66
+      internalID: 1946148732
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_3
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dad1ab8a676519443b4eeecc0b60dfda
+      internalID: 959171248
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_4
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 337b8bdd8fc6fd34fbbbdf7f9a879a28
+      internalID: -651853115
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_5
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 69ea2e0a64a467e41984dbe680a62447
+      internalID: 1894923997
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_6
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 92c64539fd0f889469010ab060fbdeb1
+      internalID: -1282531262
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_7
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cd26931b454dc2e47b3fe20412c7cc47
+      internalID: 1339067714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_8
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 2129946e8746a6243bf23c41d2aa9d07
+      internalID: -493610328
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_9
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e28025b0ff84a5b4eb4075a6667cc4f5
+      internalID: -1579365047
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_10
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4827e84946d64c44982e2b015b8573a3
+      internalID: -1631849104
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_11
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 512
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ea6f0fc7c6ebe94cbd6777d51d7463b
+      internalID: 964425920
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_12
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ce6fea20ec376824bb72d396d67fa331
+      internalID: -1503726960
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_13
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b0880f51a27230d469d608418ba94efd
+      internalID: 1113256883
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_14
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cae70628e71d1a746b6ba8e2639f9c93
+      internalID: -1956629686
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_15
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0d77065dacf7c4c4584986b695e97191
+      internalID: -79876366
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_16
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad7ee9244d06b3d42ab1c7af77847285
+      internalID: 237587915
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_17
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1d054d4be54a1f044a7520817a33e0c9
+      internalID: -1705634752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_18
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7efc1ede21dc3b640a8b936f309b1ba0
+      internalID: 382449714
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_19
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4d35587faf66fb49a9977ab66e8a757
+      internalID: -1534411875
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_20
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: dcba23351c111cf47b1d34143514981d
+      internalID: -817006752
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_21
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9683117433249a1449100e1dc83650dd
+      internalID: 266244478
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_22
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c02f8a5c5612ca6469516d1984ea9139
+      internalID: 137340383
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_23
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 448
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0771ff8691474da43a028d9248721b24
+      internalID: 1816933306
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_24
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8e4ff9e1b819e0f40a98c7dd8ae77667
+      internalID: 1776181427
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_25
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ac0e2e277ccbb7a4d8a380ef1f51149e
+      internalID: 166844589
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_26
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 45efc58e52e5373498524bb0acd5bad0
+      internalID: 657900382
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_27
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 05db9efffd914604392b5d2040de3b4a
+      internalID: 412577620
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_28
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b88c4a7c82f9b9747bd420e28aa5b6eb
+      internalID: 1884586612
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_29
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 08ff45f8417d66e4b921aa48d1306297
+      internalID: -1660123634
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_30
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ea8ae9c8b9c12d148a36e320b840ea34
+      internalID: 1631054534
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_31
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ccf5b3c1c984af4fa63197ea28e59f6
+      internalID: 2057967510
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_32
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9655e9c9e542e47448a26396e094a473
+      internalID: -1264939007
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_33
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 552656faee599a848bf3e64e309af0dc
+      internalID: 84903436
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_34
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52dc205cf4c28d041a84e90a11547514
+      internalID: 209614106
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_35
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 384
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa32adadcc62341429954f4a0f85e7d9
+      internalID: 522484557
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_36
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7b36725ebca4fda4cbf8d832df583e13
+      internalID: 10533745
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_37
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1267e6e8284354144b43a7d6a7a43073
+      internalID: -353916143
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_38
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d650631a2e2294142a9e3ea2dcde0ca7
+      internalID: 557087524
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_39
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b2bbcb8d3e6a9b342ab0741dd71822e3
+      internalID: -1516092645
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_40
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 79ac613b6ccc03b4794ce3fcaefef20f
+      internalID: -825437588
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_41
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 8052b054d883a654ab52c0e2b49490b0
+      internalID: 238748692
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_42
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5f3fccf8b4433154fa9fe6188218782f
+      internalID: 1989451921
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_43
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 67042e81ffe3da84498e2f54becae025
+      internalID: -819863762
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_44
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d9f447471417f0d43a1a68a6f0e94494
+      internalID: -1508011856
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_45
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b5bcdfa1fbf19c49821c805e08edf6d
+      internalID: -119966452
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_46
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 53da41707d75cfc45bb0c04392d4ec5b
+      internalID: -1129990666
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_47
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 320
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aebdfbf41f0feae43932516c8a22981c
+      internalID: -1934496708
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_48
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7441458ea325bb94fa4e67e7af791e7f
+      internalID: -1941404832
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_49
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: b68454a47fabac244a1d145b2dd4f0c0
+      internalID: 908038974
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_50
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e0a9eec99cd18d044b4fef3295a40be3
+      internalID: -764394942
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_51
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 76e2f0154294f504a9ad4f9a28d08888
+      internalID: -1642231689
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_52
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5d22fa49f39592b488988ffacd376cc4
+      internalID: 1685775194
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_53
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 74df9894c6f69a249b782c0d106dcdcf
+      internalID: -350273909
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_54
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9e2bf8cdacca1e84aacd39cddff8e0a4
+      internalID: 760374936
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_55
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3894fa3a8676e6a4eabed679f6f6dd9a
+      internalID: 343925926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_56
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6bcc5a8023408ba4e90c0c1f4a7bcd9e
+      internalID: 1504565438
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_57
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eab66562ed1663643b3aa7936d96b5df
+      internalID: 88877129
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_58
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9332aad51244cb647abe838de7cd57b5
+      internalID: 1543803465
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_59
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 256
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: eb4a983e468fb464b88b35a167c6e365
+      internalID: -936931349
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_60
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6ec0c98f07f59e94ebd8b2d46cd356fa
+      internalID: 158552926
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_61
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: da59d3feeaef7e944a4b5b0afd55ad57
+      internalID: 614018636
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_62
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 454f78a7cdf091b46ac4553985c15f27
+      internalID: -369305890
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_63
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d92ba7da3e5d9c043ae5c1033e8d1a85
+      internalID: -1168117794
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_64
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe70f80ffdb9db2498a3565491db3fb9
+      internalID: -123389800
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_65
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: aed5056b383f0e04597d70c6630bb95d
+      internalID: -314765906
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_66
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 01a58835535fac9498d0435e652e570a
+      internalID: 1610211806
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_67
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a59cbbd351816ff4990144c2c9c8256f
+      internalID: -827867834
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_68
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 48554c8986b4ffa43b81866158889609
+      internalID: -328585962
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_69
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0034481a4c910e1488d96fe42505a814
+      internalID: -313133026
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_70
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: e8ff61c2a44246040a7b23f7d22fd15c
+      internalID: 1180784593
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_71
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 192
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 1a7f02732b274f0488c2d41ca516384b
+      internalID: -1656657147
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_72
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 023b68ee34f17934db06046596be0ff0
+      internalID: 2116330523
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_73
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 5e2d4675062b14e4c8b2d26b64630920
+      internalID: -761346421
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_74
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cb65e9e2c4d751a41a0e2810eb35bd24
+      internalID: -372476717
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_75
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 0c0690a86233039429cac8bf4d45bbd9
+      internalID: -455517224
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_76
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 94ddcabced9ab694eb460665a8ed8f18
+      internalID: 432837015
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_77
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 3126aff739ab4c34888b4ab5e9e943ee
+      internalID: -1771861006
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_78
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 9c0857fe671155d4b9178f154d1eac11
+      internalID: -58528232
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_79
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 52f8a1d2728cd9e4d846f8eb02f21411
+      internalID: -566835321
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_80
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7cd3b123c8990e94ca01873466d592c8
+      internalID: -679360323
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_81
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a1201088a4030504480228701868aef6
+      internalID: 1063690253
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_82
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a08cf2ad92c26ee44b0949d7014c36db
+      internalID: -875312049
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_83
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 128
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6edc134184abc2f4d9318e075cca7bc7
+      internalID: -760268846
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_84
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4aa8f0b11e683924b8fae05fe7171382
+      internalID: -470679668
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_85
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 377086a3dc1582b46916d5d33cad4e45
+      internalID: -444337481
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_86
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a155fc4726495f04eab47c08d6c2c530
+      internalID: -73548757
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_87
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 4a3ebbc5928bcc343a3ca789b217c10b
+      internalID: -1818561767
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_88
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a527d932193884641a4bbf5e2a9cdcb3
+      internalID: 1776725740
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_89
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6286371b304b2b5498c27d338569de39
+      internalID: 1143741272
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_90
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fa8036bb51a5ee240907948720669a02
+      internalID: 935168916
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_91
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7c2e7b6f9baaab4459de0272ab9d1a03
+      internalID: -127053735
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_92
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ad20dce0a3e298c49bd74d59220b1938
+      internalID: -1381268641
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_93
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 7ee0395a370942d4094e9ed1f693bc38
+      internalID: 1130184887
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_94
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d4c03c4b4dc4d8f4caa88ac59e67d238
+      internalID: -1444015016
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_95
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 64
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d44bcf883213ce74b9554abc6a31acab
+      internalID: 1489126563
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_96
+      rect:
+        serializedVersion: 2
+        x: 0
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 285b452d5832fbe4d87e8179bf36fb13
+      internalID: 1477311741
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_97
+      rect:
+        serializedVersion: 2
+        x: 64
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: cc03b2337896d82488f7eb7c19079249
+      internalID: -862379462
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_98
+      rect:
+        serializedVersion: 2
+        x: 128
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: d16e887d086a61f4a8b3113de2e8dea4
+      internalID: 1130027725
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_99
+      rect:
+        serializedVersion: 2
+        x: 192
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 923502577dc4a6747aa23974c1bc7477
+      internalID: -2014176955
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_100
+      rect:
+        serializedVersion: 2
+        x: 256
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: a375922df64e16449b32d27f975118ca
+      internalID: 37719225
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_101
+      rect:
+        serializedVersion: 2
+        x: 320
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: ee17866815c3481479dd3fb2f2c5485b
+      internalID: -683293133
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_102
+      rect:
+        serializedVersion: 2
+        x: 384
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: fe71bdf3ccc31b54290891d4314e9ff0
+      internalID: 1298002798
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_103
+      rect:
+        serializedVersion: 2
+        x: 448
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6b64fa16352c0774e8a6e7292d371994
+      internalID: 168250761
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_104
+      rect:
+        serializedVersion: 2
+        x: 512
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: c7f40d47a9210e84e995877e33237652
+      internalID: 356831859
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_105
+      rect:
+        serializedVersion: 2
+        x: 576
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: efa67fab06fc0fb499fd5eebd67918a7
+      internalID: -1715976826
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_106
+      rect:
+        serializedVersion: 2
+        x: 640
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 90f81e6121b268b4c869aab6b079fca8
+      internalID: -659053120
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    - serializedVersion: 2
+      name: FireStartEffect_107
+      rect:
+        serializedVersion: 2
+        x: 704
+        y: 0
+        width: 64
+        height: 64
+      alignment: 0
+      pivot: {x: 0, y: 0}
+      border: {x: 0, y: 0, z: 0, w: 0}
+      customData: 
+      outline: []
+      physicsShape: []
+      tessellationDetail: 0
+      bones: []
+      spriteID: 6fd9ee647a47c29489776eace4e75e0f
+      internalID: -195241033
+      vertices: []
+      indices: 
+      edges: []
+      weights: []
+    outline: []
+    customData: 
+    physicsShape: []
+    bones: []
+    spriteID: 52d7f26786db19e4abcc8122478e345b
+    internalID: 0
+    vertices: []
+    indices: 
+    edges: []
+    weights: []
+    secondaryTextures: []
+    spriteCustomMetadata:
+      entries: []
+    nameFileIdTable:
+      FireStartEffect_0: 371282770
+      FireStartEffect_1: 1454680942
+      FireStartEffect_10: -1631849104
+      FireStartEffect_100: 37719225
+      FireStartEffect_101: -683293133
+      FireStartEffect_102: 1298002798
+      FireStartEffect_103: 168250761
+      FireStartEffect_104: 356831859
+      FireStartEffect_105: -1715976826
+      FireStartEffect_106: -659053120
+      FireStartEffect_107: -195241033
+      FireStartEffect_11: 964425920
+      FireStartEffect_12: -1503726960
+      FireStartEffect_13: 1113256883
+      FireStartEffect_14: -1956629686
+      FireStartEffect_15: -79876366
+      FireStartEffect_16: 237587915
+      FireStartEffect_17: -1705634752
+      FireStartEffect_18: 382449714
+      FireStartEffect_19: -1534411875
+      FireStartEffect_2: 1946148732
+      FireStartEffect_20: -817006752
+      FireStartEffect_21: 266244478
+      FireStartEffect_22: 137340383
+      FireStartEffect_23: 1816933306
+      FireStartEffect_24: 1776181427
+      FireStartEffect_25: 166844589
+      FireStartEffect_26: 657900382
+      FireStartEffect_27: 412577620
+      FireStartEffect_28: 1884586612
+      FireStartEffect_29: -1660123634
+      FireStartEffect_3: 959171248
+      FireStartEffect_30: 1631054534
+      FireStartEffect_31: 2057967510
+      FireStartEffect_32: -1264939007
+      FireStartEffect_33: 84903436
+      FireStartEffect_34: 209614106
+      FireStartEffect_35: 522484557
+      FireStartEffect_36: 10533745
+      FireStartEffect_37: -353916143
+      FireStartEffect_38: 557087524
+      FireStartEffect_39: -1516092645
+      FireStartEffect_4: -651853115
+      FireStartEffect_40: -825437588
+      FireStartEffect_41: 238748692
+      FireStartEffect_42: 1989451921
+      FireStartEffect_43: -819863762
+      FireStartEffect_44: -1508011856
+      FireStartEffect_45: -119966452
+      FireStartEffect_46: -1129990666
+      FireStartEffect_47: -1934496708
+      FireStartEffect_48: -1941404832
+      FireStartEffect_49: 908038974
+      FireStartEffect_5: 1894923997
+      FireStartEffect_50: -764394942
+      FireStartEffect_51: -1642231689
+      FireStartEffect_52: 1685775194
+      FireStartEffect_53: -350273909
+      FireStartEffect_54: 760374936
+      FireStartEffect_55: 343925926
+      FireStartEffect_56: 1504565438
+      FireStartEffect_57: 88877129
+      FireStartEffect_58: 1543803465
+      FireStartEffect_59: -936931349
+      FireStartEffect_6: -1282531262
+      FireStartEffect_60: 158552926
+      FireStartEffect_61: 614018636
+      FireStartEffect_62: -369305890
+      FireStartEffect_63: -1168117794
+      FireStartEffect_64: -123389800
+      FireStartEffect_65: -314765906
+      FireStartEffect_66: 1610211806
+      FireStartEffect_67: -827867834
+      FireStartEffect_68: -328585962
+      FireStartEffect_69: -313133026
+      FireStartEffect_7: 1339067714
+      FireStartEffect_70: 1180784593
+      FireStartEffect_71: -1656657147
+      FireStartEffect_72: 2116330523
+      FireStartEffect_73: -761346421
+      FireStartEffect_74: -372476717
+      FireStartEffect_75: -455517224
+      FireStartEffect_76: 432837015
+      FireStartEffect_77: -1771861006
+      FireStartEffect_78: -58528232
+      FireStartEffect_79: -566835321
+      FireStartEffect_8: -493610328
+      FireStartEffect_80: -679360323
+      FireStartEffect_81: 1063690253
+      FireStartEffect_82: -875312049
+      FireStartEffect_83: -760268846
+      FireStartEffect_84: -470679668
+      FireStartEffect_85: -444337481
+      FireStartEffect_86: -73548757
+      FireStartEffect_87: -1818561767
+      FireStartEffect_88: 1776725740
+      FireStartEffect_89: 1143741272
+      FireStartEffect_9: -1579365047
+      FireStartEffect_90: 935168916
+      FireStartEffect_91: -127053735
+      FireStartEffect_92: -1381268641
+      FireStartEffect_93: 1130184887
+      FireStartEffect_94: -1444015016
+      FireStartEffect_95: 1489126563
+      FireStartEffect_96: 1477311741
+      FireStartEffect_97: -862379462
+      FireStartEffect_98: 1130027725
+      FireStartEffect_99: -2014176955
+  mipmapLimitGroupName: 
+  pSDRemoveMatte: 0
+  userData: 
+  assetBundleName: 
+  assetBundleVariant: 
