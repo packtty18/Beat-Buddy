@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using DG.Tweening;
 public enum EFirePatternType
 {
     BigBurn,
@@ -11,12 +12,15 @@ public enum EFirePatternType
 
 public class FireBossPattern : MonoBehaviour
 {
-    [Header ("화염 프리팹")]
+    [Header("화염 프리팹")]
     [SerializeField] private GameObject[] _firePatternPrefab;
     private GameObject _currentObscuringEffect;
 
-    [Header ("쿨타임")]
+    [Header("쿨타임")]
     private float _breathingTime = 1.6f;
+
+    [Header("스프라이트 반전")]
+    private SpriteRenderer _spriteRenderer;
 
     [Header("애니메이터")]
     private Animator _animator;
@@ -40,7 +44,21 @@ public class FireBossPattern : MonoBehaviour
     // 브레스 시작 전 경고성 이펙트 소환 메서드
     private IEnumerator FireStartAnimation()
     {
-        _currentObscuringEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireStart], transform);
+        if(_firePatternPrefab != null && transform.position.x >= 0)
+        {
+            _currentObscuringEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireStart], transform);
+        }
+        else if (_firePatternPrefab != null && transform.position.x < 0)
+        {
+            _currentObscuringEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireStart], transform);
+            _spriteRenderer = _currentObscuringEffect.GetComponent<SpriteRenderer>();
+            FlippedYOn();
+        }
+        else
+        {
+            Debug.LogWarning("프리팹이 할당되지 않았습니다.");
+        }
+
         _animator = _currentObscuringEffect.GetComponent<Animator>();
 
         AnimatorStateInfo info = _animator.GetCurrentAnimatorStateInfo(0);
@@ -53,7 +71,8 @@ public class FireBossPattern : MonoBehaviour
         {
             yield return null;
         }
-        
+
+        if (transform.position.x < 0) FlippedYOff();
         Destroy(_currentObscuringEffect);
         _currentObscuringEffect = null;
         _animator = null;
@@ -62,13 +81,20 @@ public class FireBossPattern : MonoBehaviour
     // 브레스 이펙트 시작하는 메서드
     private void ShowBreathEffect()
     {
-        if (_firePatternPrefab != null && _currentObscuringEffect == null)
+        if (_firePatternPrefab != null && transform.position.x >= 0)
         {
             _currentObscuringEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.Breath], transform);
             FadeInOutEffect fadeInOutAnimation = _currentObscuringEffect.GetComponent<FadeInOutEffect>();  // 페이드인 호출
             fadeInOutAnimation.PlayShowAnimation();
         }
-        else if (_firePatternPrefab == null)
+        else if (_firePatternPrefab != null && transform.position.x < 0)
+        {
+            _currentObscuringEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.Breath], transform);
+            FlippedXOn();
+            FadeInOutEffect fadeInOutAnimation = _currentObscuringEffect.GetComponent<FadeInOutEffect>();  // 페이드인 호출
+            fadeInOutAnimation.PlayShowAnimation();
+        }
+        else
         {
             Debug.LogWarning("화면을 가릴 프리팹이 할당되지 않았습니다.");
         }
@@ -85,6 +111,7 @@ public class FireBossPattern : MonoBehaviour
             {
                 if (_currentObscuringEffect != null)
                 {
+                    if (transform.position.x < 0) FlippedXOff();
                     Destroy(_currentObscuringEffect);
                     _currentObscuringEffect = null;
                 }
@@ -101,7 +128,30 @@ public class FireBossPattern : MonoBehaviour
         }
         else
         {
+            FlippedXOff();
             _currentObscuringEffect = null;
         }
+    }
+
+    private void FlippedXOn()
+    {
+        _spriteRenderer = _currentObscuringEffect.GetComponent<SpriteRenderer>();
+        _spriteRenderer.flipX = true;
+    }
+    private void FlippedXOff()
+    {
+        _spriteRenderer = _currentObscuringEffect.GetComponent<SpriteRenderer>();
+        _spriteRenderer.flipX = false;
+    }
+
+    private void FlippedYOn()
+    {
+        _spriteRenderer = _currentObscuringEffect.GetComponent<SpriteRenderer>();
+        _spriteRenderer.flipY = true;
+    }
+    private void FlippedYOff()
+    {
+        _spriteRenderer = _currentObscuringEffect.GetComponent<SpriteRenderer>();
+        _spriteRenderer.flipY = false;
     }
 }

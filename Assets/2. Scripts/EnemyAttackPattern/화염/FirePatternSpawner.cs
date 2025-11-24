@@ -10,7 +10,7 @@ public class FirePatternSpawner : MonoBehaviour
     private float _spawnRangeY = -3.8f;
 
     [Header("쿨타임")]
-    private float _spawnCoolTime = 3f;
+    private float _spawnCoolTime = 2f;
 
     [Header("좌우 랜덤 스폰")]
     private float _maxRate = 1f;
@@ -26,7 +26,7 @@ public class FirePatternSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(_spawnCoolTime);
         RandomSpawnPosition();
-        SpawnPattern();
+        SpawnFirePattern();
     }
 
     private void RandomSpawnPosition()
@@ -43,7 +43,7 @@ public class FirePatternSpawner : MonoBehaviour
         }
     }
 
-    private void SpawnPattern()
+    private void SpawnFirePattern()
     {
         GameObject Pattern = Instantiate(_firePatternSpawner);
         Pattern.transform.position = _spawnerPosition.position;
