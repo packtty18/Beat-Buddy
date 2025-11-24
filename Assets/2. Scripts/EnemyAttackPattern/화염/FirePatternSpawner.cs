@@ -7,7 +7,6 @@ public class FirePatternSpawner : MonoBehaviour
     [SerializeField] private GameObject _firePatternSpawner;
     private Transform _spawnerPosition;
     private float _spawnRangeX = 6.7f;
-    private float _spawnRangeY = -3.8f;
 
     [Header("쿨타임")]
     private float _spawnCoolTime = 2f;
@@ -26,7 +25,6 @@ public class FirePatternSpawner : MonoBehaviour
     {
         yield return new WaitForSeconds(_spawnCoolTime);
         RandomSpawnPosition();
-        SpawnFirePattern();
     }
 
     private void RandomSpawnPosition()
@@ -35,17 +33,11 @@ public class FirePatternSpawner : MonoBehaviour
         float _spawnPosition = Random.Range(_minRate, _maxRate);
         if (_spawnPosition < 0.5f)
         {
-            _spawnerPosition.position = new Vector2(-_spawnRangeX, _spawnRangeY);
+            _spawnerPosition.position = new Vector2(-_spawnRangeX, _spawnerPosition.position.y);
         }
         else
         {
-            _spawnerPosition.position = new Vector2(_spawnRangeX, _spawnRangeY);
+            _spawnerPosition.position = new Vector2(_spawnRangeX, _spawnerPosition.position.y);
         }
-    }
-
-    private void SpawnFirePattern()
-    {
-        GameObject Pattern = Instantiate(_firePatternSpawner);
-        Pattern.transform.position = _spawnerPosition.position;
     }
 }

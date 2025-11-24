@@ -22,15 +22,15 @@ public class FireBossPattern : MonoBehaviour
     private GameObject _burningEffect;
 
     [Header("버닝 포지션")]
-    private Transform _burningPositiion1;
-    private Transform _burningPositiion2;
-    private Transform _burningPositiion3;
+    [SerializeField] private Transform _burningPositiion1;
+    [SerializeField] private Transform _burningPositiion2;
+    [SerializeField] private Transform _burningPositiion3;
     private Transform _reversePosition;
 
     [Header("쿨타임")]
-    private float _breathingTime = 1.6f;
-    private float _fireRiseAnimationTime = 0.3f;
-    private float _burningAnimationTime = 5f;
+    private float _breathingTime = 0.8f;
+    private float _fireRiseAnimationTime = 0.1f;
+    private float _burningAnimationTime = 6.05f;
 
     [Header("스프라이트 반전")]
     private SpriteRenderer _spriteRenderer;
@@ -139,6 +139,7 @@ public class FireBossPattern : MonoBehaviour
         }
         else if (_firePatternPrefab != null && transform.position.x < 0)
         {
+            _reversePosition.position = new Vector2(-position.position.x, position.position.y);
             _fireRise = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireRise], position);
             FlippedXOn(_fireRise);
             Destroy(_fireRise, _fireRiseAnimationTime);
@@ -160,10 +161,11 @@ public class FireBossPattern : MonoBehaviour
             Destroy(_fireRise, _fireRiseAnimationTime);
             _burningEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.SmallBurn], position);
             FlippedXOff(_burningEffect);
-            Destroy(_burningEffect, _fireRiseAnimationTime);
+            Destroy(_burningEffect, _burningAnimationTime);
         }
         else if (_firePatternPrefab != null && transform.position.x < 0)
         {
+            _reversePosition.position = new Vector2(-position.position.x, position.position.y);
             _fireRise = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireRise], position);
             FlippedXOn(_fireRise);
             Destroy(_fireRise, _fireRiseAnimationTime);
@@ -209,25 +211,25 @@ public class FireBossPattern : MonoBehaviour
         }
     }
 
-    private void FlippedXOn(GameObject FireEffect)
+    private void FlippedXOn(GameObject fireEffect)
     {
-        _spriteRenderer = FireEffect.GetComponent<SpriteRenderer>();
+        _spriteRenderer = fireEffect.GetComponent<SpriteRenderer>();
         _spriteRenderer.flipX = true;
     }
-    private void FlippedXOff(GameObject FireEffect)
+    private void FlippedXOff(GameObject fireEffect)
     {
-        _spriteRenderer = FireEffect.GetComponent<SpriteRenderer>();
+        _spriteRenderer = fireEffect.GetComponent<SpriteRenderer>();
         _spriteRenderer.flipX = true;
     }
 
-    private void FlippedYOn(GameObject FireEffect)
+    private void FlippedYOn(GameObject fireEffect)
     {
-        _spriteRenderer = FireEffect.GetComponent<SpriteRenderer>();
+        _spriteRenderer = fireEffect.GetComponent<SpriteRenderer>();
         _spriteRenderer.flipY = true;
     }
-    private void FlippedYOff(GameObject FireEffect)
+    private void FlippedYOff(GameObject fireEffect)
     {
-        _spriteRenderer = FireEffect.GetComponent<SpriteRenderer>();
+        _spriteRenderer = fireEffect.GetComponent<SpriteRenderer>();
         _spriteRenderer.flipY = false;
     }
 }
