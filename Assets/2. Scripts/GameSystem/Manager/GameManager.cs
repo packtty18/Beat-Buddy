@@ -246,8 +246,8 @@ public class GameManager : SimpleSingleton<GameManager>
         _currentState = EGameState.GamePlay;
         Debug.Log("[GameManager] === 게임 플레이 시작 ===");
 
-        // 음악이 준비될 때까지 대기
-        yield return new WaitUntil(() => Conductor.Instance.IsReady);
+        // 음악이 준비될 때까지 대기  //11-24일 박성훈 : 여기 IsReady라고 되어있는데 오류나서 이걸로 바꿨습니다. 확인 바래요
+        yield return new WaitUntil(() => Conductor.Instance.IsReadyNow);
         Debug.Log("[GameManager] 음악 준비 완료");
 
         // 음악이 끝날 때까지 대기
