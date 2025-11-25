@@ -4,19 +4,35 @@ using UnityEngine;
 public enum ESoundType
 {
     None = 0,
-    BGM1,
-    BGM2,
-    BGM3,
-    BGM4,
-    SFX1,
-    SFX_HitDrum,
-    SFX_HitClap,
+    BGM_Start =1,
+    BGM_ModeSelect=2,
+    BGM_StageSelect=3,
+    BGM_Result=4,
+    BGM_Stage1=5,
+    BGM_Stage2=6,
+    BGM_Stage3=7,
+    BGM_Stage4=8,
+    BGM_Stage5=9,
+    SFX_PressAnyButton=10,
+    SFX_SongSelected=11,
+    SFX_HitDrum=12,
+    SFX_HitClap=13,
+    SFX_NoteMiss=14,
+    SFX_ButtonConfirm=15,
+    SFX_ButtonSelect=16,
+    SFX_SettingUIAppear=17,
+    SFX_FeverEnd=18,
+    SFX_PlayerAttack=19,
+    SFX_PlayerHit=20,
+    SFX_Upgrade=21,
+    SFX_StageFail=22,
+    SFX_StageVictory=23,
 }
 public class SoundManager : CoreSingleton<SoundManager>
 {
     [Header("사운드 라이브러리 추가")]
     [SerializeField] private SoundDatabaseSO _soundDatabase;
-    [SerializeField] private ESoundType _initialBgmType = ESoundType.BGM1;
+    [SerializeField] private ESoundType _initialBgmType = ESoundType.BGM_Start;
     [SerializeField] private GameObject _bgmObject;
 
     [Header("BGM Settings")]
