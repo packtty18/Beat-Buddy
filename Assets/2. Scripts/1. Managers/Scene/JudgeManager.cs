@@ -92,7 +92,7 @@ public class JudgeManager : SceneSingleton<JudgeManager>
     {
         if (_noteSpawner == null) return;
 
-        float currentTime = Conductor.Instance.BgmPosition;
+        float currentTime = SongPlayManager.Instance.BgmPosition;
         Note closestNote = null;
         float closestAbsDiff = float.MaxValue;
         float closestSignedDiff = 0f;
@@ -101,7 +101,7 @@ public class JudgeManager : SceneSingleton<JudgeManager>
         {
             if (!note.CanBeJudged() || note.NoteType != inputType) continue;
 
-            float targetTime = note.TargetBeat * Conductor.Instance.SecPerBeat;
+            float targetTime = note.TargetBeat * SongPlayManager.Instance.SecPerBeat;
             float signedDiff = currentTime - targetTime;
             float absDiff = Mathf.Abs(signedDiff);
 

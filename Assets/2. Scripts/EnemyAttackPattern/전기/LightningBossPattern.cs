@@ -1,6 +1,6 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
-using static UnityEngine.GraphicsBuffer;
 
 public enum ELightningPatternType
 {
@@ -21,8 +21,8 @@ public class LightningBossPattern : MonoBehaviour
     private GameObject _thunderArrow;
 
     [Header("리듬노트 프리팹")]
-    private GameObject[] _rhythmNotes;
-    private GameObject _rhythmNote;
+    private List<Note> _rhythmNotes;
+    private Note _rhythmNote;
     private GameObject _leftNote;
     private GameObject _rightNote;
     //public ENoteType NoteType; Enum에서 노트 타입 불러올때 사용. 일단 주석처리
@@ -47,7 +47,11 @@ public class LightningBossPattern : MonoBehaviour
     private float _thunderAnimationTime = 0.34f;
     private float _lightningAnimationTime = 0.3f;
 
-
+    private NoteController _noteController;
+    private void Start()
+    {
+        _noteController = BuddyManager.Instance.GetNoteController();
+    }
     public void Attack()
     {
         StartCoroutine(StartLightningAttackCoroutine());
@@ -56,6 +60,7 @@ public class LightningBossPattern : MonoBehaviour
     private IEnumerator StartLightningAttackCoroutine()
     {
         _isLightningAttackActive = true;
+        BuddyManager.Instance.StartBuddyPattern(true);
 
         // 초기화
         SetValue();
@@ -72,6 +77,8 @@ public class LightningBossPattern : MonoBehaviour
         SpawnLightning(_lightningPosition3);
 
         _isLightningAttackActive = false;
+        BuddyManager.Instance.StartBuddyPattern(false);
+
     }
 
     private void SetValue()
@@ -106,17 +113,18 @@ public class LightningBossPattern : MonoBehaviour
     // 번개 공격 노트 랜덤 타게팅 메서드
     private void RandomTargetingNotes()
     {
-        GameObject[] _rhythmNotes = GameObject.FindGameObjectsWithTag("Respawn");  // 임시로 Respawn 태그 사용
-        if (_rhythmNotes.Length == 0) return;
+        _rhythmNotes = _noteController.GetRandomNotesByProgress(0.4f, 1f, 5);
 
-        GameObject target = _rhythmNotes[Random.Range(0, _rhythmNotes.Length)];
+        if (_rhythmNotes.Count == 0) return;
+
+        Note target = _rhythmNotes[Random.Range(0, _rhythmNotes.Count)];
         _rhythmNote= target;
     }
 
     // 번개 효과 메서드
-    private void ThunderAttack(GameObject note)
+    private void ThunderAttack(Note note)
     {
-        GameObject closestRhythm = note;
+        Note closestRhythm = note;
         _thunderPosition = closestRhythm.transform;
         _thunder = Instantiate(_lightningPrefab[(int)ELightningPatternType.Thunder], _thunderPosition);
         _thunderArrow = Instantiate(_lightningPrefab[(int)ELightningPatternType.ThunderArrow], _thunderPosition);
