@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class Conductor : SimpleSingleton<Conductor>
+public class Conductor : CoreSingleton<Conductor>
 {
     [Header("BGM 설정")]
     [SerializeField] private BGMDataSO[] _bgmList = new BGMDataSO[5];

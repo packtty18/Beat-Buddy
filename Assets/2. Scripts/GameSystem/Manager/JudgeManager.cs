@@ -8,7 +8,7 @@ public enum EHitType
     Miss
 }
 
-public class JudgeManager : SimpleSingleton<JudgeManager>
+public class JudgeManager : CoreSingleton<JudgeManager>
 {
     [Header("판정 범위 (초)")]
     [SerializeField] private float _perfectWindow = 0.05f;

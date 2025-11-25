@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public enum ESFXType
 {
@@ -6,7 +6,7 @@ public enum ESFXType
     HitClap,
 }
 
-public class AudioManager : SimpleSingleton<AudioManager>
+public class AudioManager : CoreSingleton<AudioManager>
 {
     [Header("리듬게임 키 입력음")]
     [SerializeField] private AudioClip _hitDrumSound;

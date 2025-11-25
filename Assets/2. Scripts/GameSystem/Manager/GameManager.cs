@@ -9,7 +9,7 @@ public enum EGameState
     GameEnd,
 }
 
-public class GameManager : SimpleSingleton<GameManager>
+public class GameManager : CoreSingleton<GameManager>
 {
     private ETransitionType _outTransitionType = ETransitionType.None;
     private ETransitionType _inTransitionType = ETransitionType.None;
