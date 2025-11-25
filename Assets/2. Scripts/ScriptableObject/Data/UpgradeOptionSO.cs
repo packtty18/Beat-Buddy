@@ -18,6 +18,14 @@ public class UpgradeOptionSO : ScriptableObject
 {
     public EUpgradeType OptionType;
     public float Value;
+    public Sprite Icon;
+    public string Name;
+    [SerializeField] private string Description;
+
+    public string GetDescription()
+    {
+        return Description.Replace("{Value}", Value.ToString());
+    }
 
     public void Apply(PlayerStatDataSO playerStat, BuddyStatDataSO buddyStat)
     {
