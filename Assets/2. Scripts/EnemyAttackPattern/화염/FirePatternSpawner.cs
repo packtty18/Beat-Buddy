@@ -24,11 +24,10 @@ public class FirePatternSpawner : MonoBehaviour
     private IEnumerator FirePatternSpawnCoroutine()
     {
         yield return new WaitForSeconds(_spawnCoolTime);
-        RandomSpawnPosition();
         SpawnFirePattern();
     }
 
-    private void RandomSpawnPosition()
+    private void SpawnFirePattern()
     {
         _spawnerPosition = transform;
         float _spawnPosition = Random.Range(_minRate, _maxRate);
@@ -40,10 +39,6 @@ public class FirePatternSpawner : MonoBehaviour
         {
             _spawnerPosition.position = new Vector2(_spawnRangeX, _spawnerPosition.position.y);
         }
-    }
-
-    private void SpawnFirePattern()
-    {
         FireBossPattern startAttack = GetComponent<FireBossPattern>();
         startAttack.Attack();
     }

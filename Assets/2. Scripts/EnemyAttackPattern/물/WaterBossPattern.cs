@@ -11,7 +11,7 @@ public class WaterBossPattern : MonoBehaviour
     private GameObject _raindrops;
 
     [Header("패턴 지속시간")]
-    private float _raindropAnimationTime = 3f;
+    private float _raindropAnimationTime = 8f;
 
 
     public void Attack()

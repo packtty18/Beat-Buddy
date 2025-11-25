@@ -5,7 +5,7 @@ using System.Collections;
 public class WaterPatternSpawner : MonoBehaviour
 {
     [Header("쿨타임")]
-    private float _spawnCoolTime = 4f;
+    private float _spawnCoolTime = 16f;
 
     private void Start()
     {
