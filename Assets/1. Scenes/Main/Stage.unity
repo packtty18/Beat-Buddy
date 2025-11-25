@@ -352,7 +352,7 @@ GameObject:
   - component: {fileID: 149587380}
   - component: {fileID: 149587381}
   m_Layer: 0
-  m_Name: Conductor
+  m_Name: SongPlayManager
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1225,63 +1225,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _noteSpawner: {fileID: 917553811}
---- !u!1001 &998696457
-PrefabInstance:
-  m_ObjectHideFlags: 0
-  serializedVersion: 2
-  m_Modification:
-    serializedVersion: 3
-    m_TransformParent: {fileID: 0}
-    m_Modifications:
-    - target: {fileID: 2059847426935407767, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
-      propertyPath: m_LocalPosition.x
-      value: 4.3
-      objectReference: {fileID: 0}
-    - target: {fileID: 2059847426935407767, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
-      propertyPath: m_LocalPosition.y
-      value: -0.5
-      objectReference: {fileID: 0}
-    - target: {fileID: 2059847426935407767, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
-      propertyPath: m_LocalPosition.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2059847426935407767, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
-      propertyPath: m_LocalRotation.w
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 2059847426935407767, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
-      propertyPath: m_LocalRotation.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2059847426935407767, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
-      propertyPath: m_LocalRotation.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2059847426935407767, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
-      propertyPath: m_LocalRotation.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2059847426935407767, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.x
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2059847426935407767, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.y
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 2059847426935407767, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
-      propertyPath: m_LocalEulerAnglesHint.z
-      value: 0
-      objectReference: {fileID: 0}
-    - target: {fileID: 8702406050555740371, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
-      propertyPath: m_Name
-      value: FirePatternSpawner
-      objectReference: {fileID: 0}
-    m_RemovedComponents: []
-    m_RemovedGameObjects: []
-    m_AddedGameObjects: []
-    m_AddedComponents: []
-  m_SourcePrefab: {fileID: 100100000, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
 --- !u!1 &1008013030
 GameObject:
   m_ObjectHideFlags: 0
@@ -2079,4 +2022,3 @@ SceneRoots:
   - {fileID: 1933333660}
   - {fileID: 694129561}
   - {fileID: 1082093630}
-  - {fileID: 998696457}
