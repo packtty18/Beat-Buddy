@@ -13,7 +13,7 @@ public class FadeInOutEffect : MonoBehaviour
 
     [Header("스프라이트 컬러 관련 옵션")]
     private SpriteRenderer _spriteRenderer;
-    [SerializeField] private float _maxAlpha = 0.5f;  // 최대 알파값
+    [SerializeField] private float _maxAlpha = 0.6f;  // 최대 알파값
 
 
     private void Awake()

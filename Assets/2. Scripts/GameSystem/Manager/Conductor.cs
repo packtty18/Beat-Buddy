@@ -1,11 +1,9 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class Conductor : CoreSingleton<Conductor>
+public class Conductor : SceneSingleton<Conductor>
 {
     [Header("BGM 설정")]
-    [SerializeField] private BGMDataSO[] _bgmList = new BGMDataSO[5];
-    [SerializeField] private int _currentBGMIndex = 0;
     [SerializeField] private float _readyTime = 3f;
 
     private AudioSource _musicSource;
@@ -13,21 +11,20 @@ public class Conductor : CoreSingleton<Conductor>
     private double _dspBGMTime;
     private double _songEndTime; // 음악 종료 시간 추적
     private bool _isPlaying = false;
-    private bool _isReadyNow = false;
+    private bool _isSpawnNow = false;
 
     public float SecPerBeat { get; private set; }
     public float BgmPosition { get; private set; }
     public float BgmPositionInBeats { get; private set; }
     public BGMDataSO CurrentBGMData => _currentBGMData;
     public float CurrentBpm => _currentBGMData?.Bpm ?? 0f;
-    public bool IsReadyNow => _isReadyNow;
+    public bool IsSpawnNow => _isSpawnNow;
 
     protected override void Awake()
     {
         base.Awake();
         _musicSource = GetComponent<AudioSource>();
         _musicSource.playOnAwake = false;
-        DontDestroyOnLoad(gameObject);
     }
 
     private void Start()
@@ -35,11 +32,6 @@ public class Conductor : CoreSingleton<Conductor>
         if (SoundManager.Instance != null)
         {
             SoundManager.Instance.StopBGM();
-        }
-
-        if (_bgmList.Length > 0 && _bgmList[_currentBGMIndex] != null)
-        {
-            LoadBGM(_currentBGMIndex);
         }
     }
 
@@ -55,14 +47,14 @@ public class Conductor : CoreSingleton<Conductor>
             float timeUntilStart = (float)(_dspBGMTime - currentDspTime);
             BgmPosition = -timeUntilStart;
             BgmPositionInBeats = BgmPosition / SecPerBeat;
-            _isReadyNow = true;
+            _isSpawnNow = true;
         }
         // 음악 재생 중
         else if (currentDspTime < _songEndTime)
         {
             BgmPosition = (float)(currentDspTime - _dspBGMTime);
             BgmPositionInBeats = BgmPosition / SecPerBeat;
-            _isReadyNow = false;
+            _isSpawnNow = false;
         }
         // 음악 종료
         else
@@ -70,25 +62,66 @@ public class Conductor : CoreSingleton<Conductor>
             BgmPosition = (float)(_songEndTime - _dspBGMTime);
             BgmPositionInBeats = BgmPosition / SecPerBeat;
             _isPlaying = false;
-            _isReadyNow = false;
+            _isSpawnNow = false;
 
             Debug.Log($"[Conductor] 음악 재생 완료 - 총 재생 시간: {BgmPosition:F2}초");
         }
     }
 
-    public void LoadBGM(int index)
+    public void LoadSelectedSong()
     {
-        if (index < 0 || index >= _bgmList.Length || _bgmList[index] == null)
+        if (SongManager.Instance == null)
         {
-            Debug.LogWarning($"[Conductor] 유효하지 않은 BGM 인덱스: {index}");
+            Debug.LogError("[Conductor] SongManager가 없습니다!");
             return;
         }
 
-        _currentBGMIndex = index;
-        _currentBGMData = _bgmList[index];
+        BGMDataSO selectedSong = SongManager.Instance.SelectedSong;
+        if (selectedSong == null)
+        {
+            Debug.LogError("[Conductor] 선택된 곡이 없습니다!");
+            return;
+        }
+
+        LoadBGMData(selectedSong);
+    }
+
+    public void LoadBGM(ESongType songType)
+    {
+        if (SongManager.Instance == null)
+        {
+            Debug.LogError("[Conductor] SongManager가 없습니다!");
+            return;
+        }
+
+        BGMDataSO song = SongManager.Instance.GetSong(songType);
+        if (song == null)
+        {
+            Debug.LogError($"[Conductor] 곡을 찾을 수 없습니다: {songType}");
+            return;
+        }
+
+        LoadBGMData(song);
+    }
+
+    private void LoadBGMData(BGMDataSO bgmData)
+    {
+        if (bgmData == null)
+        {
+            Debug.LogError("[Conductor] BGM 데이터가 null입니다!");
+            return;
+        }
+
+        if (bgmData.AudioClip == null)
+        {
+            Debug.LogError($"[Conductor] {bgmData.BgmName}의 AudioClip이 없습니다!");
+            return;
+        }
+
+        _currentBGMData = bgmData;
         SecPerBeat = 60f / _currentBGMData.Bpm;
 
-        Debug.Log($"[Conductor] BGM 로드: {_currentBGMData.BgmName}, BPM: {_currentBGMData.Bpm}");
+        Debug.Log($"[Conductor] BGM 로드: {_currentBGMData.BgmName} ({bgmData.SongType}), BPM: {_currentBGMData.Bpm}");
     }
 
     public void PlayBGM()
@@ -113,10 +146,10 @@ public class Conductor : CoreSingleton<Conductor>
         _songEndTime = _dspBGMTime + _musicSource.clip.length;
 
         _musicSource.PlayScheduled(_dspBGMTime);
-        _isReadyNow = true;
+        _isSpawnNow = true;
         _isPlaying = true;
 
-        Debug.Log($"[Conductor] BGM 재생 예약 - 곡 길이: {_musicSource.clip.length:F2}초, 시작 시간: {_dspBGMTime:F2}, 종료 시간: {_songEndTime:F2}");
+        Debug.Log($"[Conductor] BGM 재생 예약 - 곡 길이: {_musicSource.clip.length:F2}초");
     }
 
     public void StopBGM()
@@ -125,7 +158,7 @@ public class Conductor : CoreSingleton<Conductor>
         {
             _musicSource.Stop();
             _isPlaying = false;
-            _isReadyNow = false;
+            _isSpawnNow = false;
             Debug.Log("[Conductor] BGM 정지");
         }
     }
@@ -169,10 +202,5 @@ public class Conductor : CoreSingleton<Conductor>
         if (totalLength <= 0f) return 0f;
 
         return Mathf.Clamp01(BgmPosition / totalLength);
-    }
-
-    private void OnDestroy()
-    {
-        StopBGM();
     }
 }

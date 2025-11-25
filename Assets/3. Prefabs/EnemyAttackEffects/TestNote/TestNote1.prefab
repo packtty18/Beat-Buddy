@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 2251317269500404611}
   - component: {fileID: 4141378148694218380}
-  - component: {fileID: 6974598570019131397}
   m_Layer: 0
   m_Name: TestNote1
   m_TagString: Respawn
@@ -88,15 +87,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &6974598570019131397
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 2472147048121852650}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 517d68c9dd83fc34484cbe7fd11f3287, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 

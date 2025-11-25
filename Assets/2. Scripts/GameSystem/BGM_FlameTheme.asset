@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f950f9babf1d6e548988362fa5b63401, type: 3}
   m_Name: BGM_FlameTheme
   m_EditorClassIdentifier: 
+  _songType: 1
   _bgmName: FlameTheme
   _bpm: 106.95
   _audioClip: {fileID: 8300000, guid: 0d6e5482bcf172741ba70941bb038524, type: 3}
