@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class PoolManager : SimpleSingleton<PoolManager>
+public class PoolManager : CoreSingleton<PoolManager>
 {
     [Header("Pools")]
     private PoolBase[] _poolList;

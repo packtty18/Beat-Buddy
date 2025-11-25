@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 
-public class SceneSingleton<T> : MonoBehaviour where T : MonoBehaviour
+//씬이 변경되도 파괴되지 않음
+public class CoreSingleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T _instance;
     public static T Instance
@@ -16,6 +17,7 @@ public class SceneSingleton<T> : MonoBehaviour where T : MonoBehaviour
         if (_instance == null)
         {
             _instance = this as T;
+            DontDestroyOnLoad(this);
         }
         else
         {
@@ -25,19 +27,11 @@ public class SceneSingleton<T> : MonoBehaviour where T : MonoBehaviour
 
     public static bool IsManagerExist()
     {
-        if (_instance == null)
+        if(_instance == null)
         {
             Debug.LogWarning($"{typeof(T).Name} is not Exist");
         }
 
         return _instance != null;
-    }
-
-    private void OnDestroy()
-    {
-        if (_instance == this)
-        {
-            _instance = null;
-        }
     }
 }

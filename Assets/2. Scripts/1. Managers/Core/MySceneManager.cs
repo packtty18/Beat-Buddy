@@ -2,7 +2,7 @@
 using UnityEngine.SceneManagement;
 
 
-public class MySceneManager : SimpleSingleton<MySceneManager>
+public class MySceneManager : CoreSingleton<MySceneManager>
 {
     [SerializeField] private SceneDatabaseSO _sceneDatabase;
     [SerializeField] private TransitionDatabaseSO _transitionDatabase;

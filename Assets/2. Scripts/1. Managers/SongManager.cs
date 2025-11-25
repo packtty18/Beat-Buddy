@@ -11,7 +11,7 @@ public enum ESongType
     KonTheme,
 }
 
-public class SongManager : SimpleSingleton<SongManager>
+public class SongManager : CoreSingleton<SongManager>
 {
     [Header("곡 데이터베이스")]
     [SerializeField] private SongDatabaseSO _songDatabase;

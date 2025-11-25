@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -12,7 +12,7 @@ public enum EGameKeyType
     Setting
 }
 
-public class InputManager : SimpleSingleton<InputManager>
+public class InputManager : CoreSingleton<InputManager>
 {
     // 각 게임 키에 대응하는 KeyCode 배열
     private Dictionary<EGameKeyType, KeyCode[]> _keyMapping = new Dictionary<EGameKeyType, KeyCode[]>()

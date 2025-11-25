@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 
+//특정 씬에서만 존재함
 public class SceneSingleton<T> : MonoBehaviour where T : MonoBehaviour
 {
     private static T _instance;

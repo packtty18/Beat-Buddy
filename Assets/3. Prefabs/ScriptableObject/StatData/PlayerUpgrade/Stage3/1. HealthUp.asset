@@ -14,3 +14,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OptionType: 0
   Value: 40
+  Icon: {fileID: 4759655525706477192, guid: a909c22fe87abce4ea06380490e86fd1, type: 3}
+  Name: "\uCCB4\uB825 \uC99D\uAC00"
+  Description: "\uCCB4\uB825\uC774 {Value} \uC99D\uAC00\uD55C\uB2E4"
