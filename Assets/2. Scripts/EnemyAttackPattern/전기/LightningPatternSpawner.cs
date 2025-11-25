@@ -20,7 +20,7 @@ public class LightningPatternSpawner : MonoBehaviour
         yield return new WaitForSeconds(_spawnCoolTime);
     }
 
-    private void SpawnLightningPattern()
+    public void SpawnLightningPattern()
     {
         LightningBossPattern startAttack = GetComponent<LightningBossPattern>();
         startAttack.Attack();

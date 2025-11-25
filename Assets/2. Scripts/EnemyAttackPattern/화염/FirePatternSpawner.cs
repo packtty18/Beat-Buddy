@@ -30,7 +30,7 @@ public class FirePatternSpawner : MonoBehaviour
         yield return new WaitForSeconds(_spawnCoolTime);
     }
 
-    private void SpawnFirePattern()
+    public void SpawnFirePattern()
     {
         _spawnerPosition = transform;
         float _spawnPosition = Random.Range(_minRate, _maxRate);

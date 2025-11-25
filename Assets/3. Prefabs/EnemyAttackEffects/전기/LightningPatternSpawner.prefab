@@ -43,7 +43,7 @@ GameObject:
   - component: {fileID: 3594970248665794767}
   - component: {fileID: 6106795775143130219}
   m_Layer: 0
-  m_Name: LightningAttackSpawner
+  m_Name: LightningPatternSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

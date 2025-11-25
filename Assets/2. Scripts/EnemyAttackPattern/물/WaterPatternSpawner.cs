@@ -19,7 +19,7 @@ public class WaterPatternSpawner : MonoBehaviour
         SpawnWaterPattern();
     }
 
-    private void SpawnWaterPattern()
+    public void SpawnWaterPattern()
     {
         WaterBossPattern startAttack = GetComponent<WaterBossPattern>();
         startAttack.Attack();

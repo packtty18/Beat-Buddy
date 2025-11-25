@@ -68,8 +68,6 @@ public class FireBossPattern : MonoBehaviour
     // 브레스 시작 전 경고성 이펙트 소환 메서드
     private IEnumerator FireStartAnimation()
     {
-
-
         if (_firePatternPrefab != null && transform.position.x >= 0)
         {
             _currentFireEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireStart], transform);

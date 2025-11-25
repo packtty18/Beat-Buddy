@@ -20,7 +20,7 @@ public class EsperPatternSpawner : MonoBehaviour
         yield return new WaitForSeconds(_spawnCoolTime);
     }
 
-    private void SpawnEsperPattern()
+    public void SpawnEsperPattern()
     {
         EsperBossPattern startAttack = GetComponent<EsperBossPattern>();
         startAttack.Attack();
