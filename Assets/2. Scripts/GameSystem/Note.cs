@@ -59,11 +59,11 @@ public class Note : MonoBehaviour, IPoolable
     {
         if (_isHit) return;
 
-        float currentBeat = Conductor.Instance.BgmPositionInBeats;
+        float currentBeat = SongPlayManager.Instance.BgmPositionInBeats;
         float progress = Mathf.Clamp01(1f - (TargetBeat - currentBeat) / _beatsToTravel);
         transform.position = Vector3.Lerp(_spawnPosition, _judgePoint.position, progress);
 
-        float secPerBeat = Conductor.Instance.SecPerBeat;
+        float secPerBeat = SongPlayManager.Instance.SecPerBeat;
         float missWindowBeats = (_judgeManager != null)
             ? (_judgeManager.BadWindow / secPerBeat) + 0.1f
             : 0.5f;
@@ -162,7 +162,7 @@ public class Note : MonoBehaviour, IPoolable
 
     public float GetProgressToTarget()
     {
-        float currentBeat = Conductor.Instance.BgmPositionInBeats;
+        float currentBeat = SongPlayManager.Instance.BgmPositionInBeats;
         return Mathf.Clamp01(1f - (TargetBeat - currentBeat) / _beatsToTravel);
     }
 

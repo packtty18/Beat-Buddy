@@ -82,7 +82,7 @@ public class SongManager : SimpleSingleton<SongManager>
             Debug.LogError($"[SongManager] 유효하지 않은 곡 인덱스: {index}");
         }
     }
-    // ESongType으로 곡 가져오기 (Conductor)
+    // ESongType으로 곡 가져오기 (SongPlayManager)
     public BGMDataSO GetSong(ESongType songType)
     {
         if (_songDatabase == null)

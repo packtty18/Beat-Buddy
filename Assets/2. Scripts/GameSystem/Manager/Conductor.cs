@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 
 [RequireComponent(typeof(AudioSource))]
-public class Conductor : SceneSingleton<Conductor>
+public class SongPlayManager : SceneSingleton<SongPlayManager>
 {
     [Header("BGM 설정")]
     [SerializeField] private float _readyTime = 3f;
@@ -64,7 +64,7 @@ public class Conductor : SceneSingleton<Conductor>
             _isPlaying = false;
             _isSpawnNow = false;
 
-            Debug.Log($"[Conductor] 음악 재생 완료 - 총 재생 시간: {BgmPosition:F2}초");
+            Debug.Log($"[SongPlayManager] 음악 재생 완료 - 총 재생 시간: {BgmPosition:F2}초");
         }
     }
 
@@ -72,14 +72,14 @@ public class Conductor : SceneSingleton<Conductor>
     {
         if (SongManager.Instance == null)
         {
-            Debug.LogError("[Conductor] SongManager가 없습니다!");
+            Debug.LogError("[SongPlayManager] SongManager가 없습니다!");
             return;
         }
 
         BGMDataSO selectedSong = SongManager.Instance.SelectedSong;
         if (selectedSong == null)
         {
-            Debug.LogError("[Conductor] 선택된 곡이 없습니다!");
+            Debug.LogError("[SongPlayManager] 선택된 곡이 없습니다!");
             return;
         }
 
@@ -90,14 +90,14 @@ public class Conductor : SceneSingleton<Conductor>
     {
         if (SongManager.Instance == null)
         {
-            Debug.LogError("[Conductor] SongManager가 없습니다!");
+            Debug.LogError("[SongPlayManager] SongManager가 없습니다!");
             return;
         }
 
         BGMDataSO song = SongManager.Instance.GetSong(songType);
         if (song == null)
         {
-            Debug.LogError($"[Conductor] 곡을 찾을 수 없습니다: {songType}");
+            Debug.LogError($"[SongPlayManager] 곡을 찾을 수 없습니다: {songType}");
             return;
         }
 
@@ -108,33 +108,33 @@ public class Conductor : SceneSingleton<Conductor>
     {
         if (bgmData == null)
         {
-            Debug.LogError("[Conductor] BGM 데이터가 null입니다!");
+            Debug.LogError("[SongPlayManager] BGM 데이터가 null입니다!");
             return;
         }
 
         if (bgmData.AudioClip == null)
         {
-            Debug.LogError($"[Conductor] {bgmData.BgmName}의 AudioClip이 없습니다!");
+            Debug.LogError($"[SongPlayManager] {bgmData.BgmName}의 AudioClip이 없습니다!");
             return;
         }
 
         _currentBGMData = bgmData;
         SecPerBeat = 60f / _currentBGMData.Bpm;
 
-        Debug.Log($"[Conductor] BGM 로드: {_currentBGMData.BgmName} ({bgmData.SongType}), BPM: {_currentBGMData.Bpm}");
+        Debug.Log($"[SongPlayManager] BGM 로드: {_currentBGMData.BgmName} ({bgmData.SongType}), BPM: {_currentBGMData.Bpm}");
     }
 
     public void PlayBGM()
     {
         if (_currentBGMData == null || _musicSource == null)
         {
-            Debug.LogError("[Conductor] BGM 데이터 또는 AudioSource가 없습니다!");
+            Debug.LogError("[SongPlayManager] BGM 데이터 또는 AudioSource가 없습니다!");
             return;
         }
 
         if (_currentBGMData.AudioClip == null)
         {
-            Debug.LogError("[Conductor] AudioClip이 없습니다!");
+            Debug.LogError("[SongPlayManager] AudioClip이 없습니다!");
             return;
         }
 
@@ -149,7 +149,7 @@ public class Conductor : SceneSingleton<Conductor>
         _isSpawnNow = true;
         _isPlaying = true;
 
-        Debug.Log($"[Conductor] BGM 재생 예약 - 곡 길이: {_musicSource.clip.length:F2}초");
+        Debug.Log($"[SongPlayManager] BGM 재생 예약 - 곡 길이: {_musicSource.clip.length:F2}초");
     }
 
     public void StopBGM()
@@ -159,7 +159,7 @@ public class Conductor : SceneSingleton<Conductor>
             _musicSource.Stop();
             _isPlaying = false;
             _isSpawnNow = false;
-            Debug.Log("[Conductor] BGM 정지");
+            Debug.Log("[SongPlayManager] BGM 정지");
         }
     }
 
