@@ -10,7 +10,6 @@ GameObject:
   m_Component:
   - component: {fileID: 1771611765699130424}
   - component: {fileID: 1115821200809216247}
-  - component: {fileID: -8191896301723186842}
   m_Layer: 0
   m_Name: TestNote2
   m_TagString: Respawn
@@ -76,7 +75,7 @@ SpriteRenderer:
   m_LightmapParameters: {fileID: 0}
   m_SortingLayerID: 0
   m_SortingLayer: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
   m_Sprite: {fileID: -9095717837082945937, guid: 207ee8102dd4143d288186ef0be518ee, type: 3}
   m_Color: {r: 0.13679248, g: 0.9717496, b: 1, a: 1}
   m_FlipX: 0
@@ -88,18 +87,3 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
---- !u!114 &-8191896301723186842
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 3108134911478699293}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 517d68c9dd83fc34484cbe7fd11f3287, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _spriteRenderer: {fileID: 0}
-  _lNoteSprite: {fileID: 0}
-  _rNoteSprite: {fileID: 0}

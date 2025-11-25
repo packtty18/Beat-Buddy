@@ -4,9 +4,9 @@ using System.Collections;
 public class LightningPatternSpawner : MonoBehaviour
 {
     [Header("쿨타임")]
-    private float _spawnCoolTime = 3f;
+    private float _spawnCoolTime = 9f;
 
-    private void Start()
+    private void StartAttack()
     {
         StartCoroutine(LightningPatternSpawnCoroutine());
     }

@@ -5,9 +5,9 @@ using System.Collections;
 public class WaterPatternSpawner : MonoBehaviour
 {
     [Header("쿨타임")]
-    private float _spawnCoolTime = 16f;
+    private float _spawnCoolTime = 14f;
 
-    private void Start()
+    private void StartAttack()
     {
         StartCoroutine(WaterPatternSpawnCoroutine());
     }

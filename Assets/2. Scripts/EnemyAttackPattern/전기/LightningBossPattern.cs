@@ -1,5 +1,6 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
+using static UnityEngine.GraphicsBuffer;
 
 public enum ELightningPatternType
 {
@@ -21,6 +22,7 @@ public class LightningBossPattern : MonoBehaviour
 
     [Header("리듬노트 프리팹")]
     private GameObject[] _rhythmNotes;
+    private GameObject _rhythmNote;
     private GameObject _leftNote;
     private GameObject _rightNote;
     //public ENoteType NoteType; Enum에서 노트 타입 불러올때 사용. 일단 주석처리
@@ -46,16 +48,6 @@ public class LightningBossPattern : MonoBehaviour
     private float _lightningAnimationTime = 0.3f;
 
 
-    private void Start()
-    {
-        // 초기화
-        _thunderSpawned = false;
-        _thunderRepeat = false;
-
-        _leftNote = Resources.Load<GameObject>("LNote");
-        _rightNote = Resources.Load<GameObject>("RNote");
-    }
-
     public void Attack()
     {
         StartCoroutine(StartLightningAttackCoroutine());
@@ -64,6 +56,9 @@ public class LightningBossPattern : MonoBehaviour
     private IEnumerator StartLightningAttackCoroutine()
     {
         _isLightningAttackActive = true;
+
+        // 초기화
+        SetValue();
 
         // 플래시 효과 발동
         FlashScreen.Flash();
@@ -79,6 +74,16 @@ public class LightningBossPattern : MonoBehaviour
         _isLightningAttackActive = false;
     }
 
+    private void SetValue()
+    {
+        // 초기화
+        _thunderSpawned = false;
+        _thunderRepeat = false;
+
+        _leftNote = Resources.Load<GameObject>("LNote");
+        _rightNote = Resources.Load<GameObject>("RNote");
+    }
+
     // 공격 시작 메서드
     private void StartLightningAttack()
     {
@@ -92,18 +97,20 @@ public class LightningBossPattern : MonoBehaviour
         int repeatCount = Random.Range(_minAttackCount, _maxAttackCount);
         for (int i = 0; i <= repeatCount; i++) 
         {
-            ThunderAttackRandom();
+            RandomTargetingNotes();
+            ThunderAttack(_rhythmNote);
+            //ChangeNote(_rhythmNote);  // 노트 속성 변경 메서드. 아래 설명 참고
         }
     }
 
     // 번개 공격 노트 랜덤 타게팅 메서드
-    private void ThunderAttackRandom()
+    private void RandomTargetingNotes()
     {
         GameObject[] _rhythmNotes = GameObject.FindGameObjectsWithTag("Respawn");  // 임시로 Respawn 태그 사용
         if (_rhythmNotes.Length == 0) return;
 
         GameObject target = _rhythmNotes[Random.Range(0, _rhythmNotes.Length)];
-        ThunderAttack(target);
+        _rhythmNote= target;
     }
 
     // 번개 효과 메서드
@@ -115,15 +122,7 @@ public class LightningBossPattern : MonoBehaviour
         _thunderArrow = Instantiate(_lightningPrefab[(int)ELightningPatternType.ThunderArrow], _thunderPosition);
         Destroy(_thunder, _thunderAnimationTime);
         Destroy(_thunderArrow, _thunderAnimationTime);
-        //ChangeNote(closestRhythm);  // 노트 속성 변경 메서드. 아래 설명 참고
         _thunderSpawned = true;
-    }
-
-    // 흐르는 전기 소환
-    private void SpawnLightning(Transform position)
-    {
-        _lightning = Instantiate(_lightningPrefab[(int)ELightningPatternType.Lightning], position);
-        Destroy(_lightning, _lightningAnimationTime);
     }
 
     // 노트 속성을 반대로 변경하는 메서드
@@ -148,4 +147,11 @@ public class LightningBossPattern : MonoBehaviour
     //        note.ChangeType(newType);
     //    }
     //}
+
+    // 흐르는 전기 소환
+    private void SpawnLightning(Transform position)
+    {
+        _lightning = Instantiate(_lightningPrefab[(int)ELightningPatternType.Lightning], position);
+        Destroy(_lightning, _lightningAnimationTime);
+    }
 }
