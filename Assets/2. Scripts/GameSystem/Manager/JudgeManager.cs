@@ -8,7 +8,7 @@ public enum EHitType
     Miss
 }
 
-public class JudgeManager : SimpleSingleton<JudgeManager>
+public class JudgeManager : SceneSingleton<JudgeManager>
 {
     [Header("판정 범위 (초)")]
     [SerializeField] private float _perfectWindow = 0.05f;
@@ -52,7 +52,11 @@ public class JudgeManager : SimpleSingleton<JudgeManager>
     void Start()
     {
         if (_soundManager == null) _soundManager = SoundManager.Instance;
-        if (_noteSpawner == null) _noteSpawner = FindObjectOfType<NoteSpawner>();
+        if (_noteSpawner == null)
+        {
+            Debug.LogError("[JudgeManager] NoteSpawner가 할당되지 않았습니다!");
+            return;
+        }
     }
 
     void Update()

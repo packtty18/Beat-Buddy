@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f950f9babf1d6e548988362fa5b63401, type: 3}
   m_Name: BGM_KONTheme
   m_EditorClassIdentifier: 
+  _songType: 6
   _bgmName: KONTheme
   _bpm: 120
   _audioClip: {fileID: 8300000, guid: 503d6484d78677d499d430662f394d83, type: 3}

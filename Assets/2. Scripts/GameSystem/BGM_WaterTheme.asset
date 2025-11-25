@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f950f9babf1d6e548988362fa5b63401, type: 3}
   m_Name: BGM_WaterTheme
   m_EditorClassIdentifier: 
+  _songType: 2
   _bgmName: WaterTheme
   _bpm: 138
   _audioClip: {fileID: 8300000, guid: 0958de842a484b94d880c833f02f90c9, type: 3}
