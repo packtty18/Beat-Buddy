@@ -9,7 +9,7 @@ public class FirePatternSpawner : MonoBehaviour
     private float _spawnRangeX = 6.7f;
 
     [Header("쿨타임")]
-    private float _spawnCoolTime = 2f;
+    private float _spawnCoolTime = 5f;
 
     [Header("좌우 랜덤 스폰")]
     private float _maxRate = 1f;
@@ -34,10 +34,14 @@ public class FirePatternSpawner : MonoBehaviour
         if (_spawnPosition < 0.5f)
         {
             _spawnerPosition.position = new Vector2(-_spawnRangeX, _spawnerPosition.position.y);
+            FireBossPattern startAttack = GetComponent<FireBossPattern>();
+            startAttack.Attack();
         }
         else
         {
             _spawnerPosition.position = new Vector2(_spawnRangeX, _spawnerPosition.position.y);
+            FireBossPattern startAttack = GetComponent<FireBossPattern>();
+            startAttack.Attack();
         }
     }
 }

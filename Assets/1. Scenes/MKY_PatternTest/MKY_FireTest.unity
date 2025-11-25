@@ -119,37 +119,6 @@ NavMeshSettings:
     debug:
       m_Flags: 0
   m_NavMeshData: {fileID: 0}
---- !u!1 &88497886
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 88497887}
-  m_Layer: 0
-  m_Name: BurningPosition1
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &88497887
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 88497886}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 7.5, y: -3.1, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &830111849
 GameObject:
   m_ObjectHideFlags: 0
@@ -287,11 +256,6 @@ MonoBehaviour:
     m_MipBias: 0
     m_VarianceClampScale: 0.9
     m_ContrastAdaptiveSharpening: 0
---- !u!1 &859296416 stripped
-GameObject:
-  m_CorrespondingSourceObject: {fileID: 8702406050555740371, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
-  m_PrefabInstance: {fileID: 860779896}
-  m_PrefabAsset: {fileID: 0}
 --- !u!1001 &860779896
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -300,14 +264,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: -4105715588222034474, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
-      propertyPath: m_Enabled
-      value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: -4105715588222034474, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
-      propertyPath: _firePatternSpawner
-      value: 
-      objectReference: {fileID: 859296416}
     - target: {fileID: 2059847426935407767, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
       propertyPath: m_LocalPosition.x
       value: 6.7
@@ -348,18 +304,6 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    - target: {fileID: 5289976498120328251, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
-      propertyPath: _burningPositiion1
-      value: 
-      objectReference: {fileID: 88497887}
-    - target: {fileID: 5289976498120328251, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
-      propertyPath: _burningPositiion2
-      value: 
-      objectReference: {fileID: 1459826066}
-    - target: {fileID: 5289976498120328251, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
-      propertyPath: _burningPositiion3
-      value: 
-      objectReference: {fileID: 1021318933}
     - target: {fileID: 8702406050555740371, guid: 5022faa6dd896574ab0bf9cf6b2da0f9, type: 3}
       propertyPath: m_Name
       value: FirePatternSpawner
@@ -456,75 +400,10 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1021318932
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1021318933}
-  m_Layer: 0
-  m_Name: BurningPosition3
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1021318933
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1021318932}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 2.4, y: -4.3, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1 &1459826065
-GameObject:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  serializedVersion: 6
-  m_Component:
-  - component: {fileID: 1459826066}
-  m_Layer: 0
-  m_Name: BurningPosition2
-  m_TagString: Untagged
-  m_Icon: {fileID: 0}
-  m_NavMeshLayer: 0
-  m_StaticEditorFlags: 0
-  m_IsActive: 1
---- !u!4 &1459826066
-Transform:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 1459826065}
-  serializedVersion: 2
-  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 3.7, y: -3.2, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
-  m_ConstrainProportionsScale: 0
-  m_Children: []
-  m_Father: {fileID: 0}
-  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
   m_Roots:
   - {fileID: 830111852}
   - {fileID: 880693239}
-  - {fileID: 88497887}
-  - {fileID: 1459826066}
-  - {fileID: 1021318933}
   - {fileID: 860779896}

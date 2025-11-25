@@ -39,7 +39,7 @@ public class FireBossPattern : MonoBehaviour
     private Animator _animator;
 
 
-    private void Start()
+    public void Attack()
     {
         StartCoroutine(StartFireAttackCoroutine());
     }
