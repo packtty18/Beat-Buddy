@@ -1,6 +1,6 @@
-using UnityEngine;
+﻿using UnityEngine;
 
-public class InputFeedbackManager : SimpleSingleton<InputFeedbackManager>
+public class InputFeedbackManager : SceneSingleton<InputFeedbackManager>
 {
     [Header("타격 피드백")]
     [SerializeField] private InputFeedback _leftFeedback;

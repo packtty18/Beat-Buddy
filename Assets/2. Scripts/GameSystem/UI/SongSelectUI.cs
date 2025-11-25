@@ -8,29 +8,31 @@ public class SongSelectUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _songInfoText;
     [SerializeField] private TextMeshProUGUI _instructionText;
 
-    [Header("곡 리스트 UI (선택)")]
-    [SerializeField] private Transform _songListParent;
-    [SerializeField] private GameObject _songItemPrefab;
-
     private int _currentIndex = 0;
     private BGMDataSO[] _songs;
 
     void Start()
     {
-        if (GameManager.Instance != null)
+        if (SongManager.Instance == null)
         {
-            _songs = GameManager.Instance.AvailableSongs;
-            _currentIndex = GameManager.Instance.SelectedSongIndex;
-
-            if (_songs == null || _songs.Length == 0)
-            {
-                Debug.LogError("사용 가능한 곡이 없습니다!");
-                _songTitleText.text = "곡이 없습니다";
-                return;
-            }
-
-            UpdateDisplay();
+            Debug.LogError("[SongSelectUI] SongManager가 없습니다!");
+            return;
         }
+
+        _songs = SongManager.Instance.GetAllSongs();
+        _currentIndex = SongManager.Instance.GetSelectedSongIndex();
+
+        if (_songs == null || _songs.Length == 0)
+        {
+            Debug.LogError("[SongSelectUI] 사용 가능한 곡이 없습니다!");
+            if (_songTitleText != null)
+            {
+                _songTitleText.text = "곡이 없습니다";
+            }
+            return;
+        }
+
+        UpdateDisplay();
 
         if (_instructionText != null)
         {
@@ -41,6 +43,7 @@ public class SongSelectUI : MonoBehaviour
     void Update()
     {
         if (_songs == null || _songs.Length == 0) return;
+        if (InputManager.Instance == null) return;
 
         // 위 화살표: 이전 곡
         if (InputManager.Instance.GetKeyDown(EGameKeyType.Up))
@@ -67,10 +70,10 @@ public class SongSelectUI : MonoBehaviour
         // Enter: 곡 선택 및 게임 시작
         if (InputManager.Instance.GetKeyDown(EGameKeyType.Confirm))
         {
-            if (GameManager.Instance != null)
+            if (SongManager.Instance != null && GameManager.Instance != null)
             {
-                GameManager.Instance.SelectSong(_currentIndex);
-                GameManager.Instance.ChangeScene(ESceneType.Stage);
+                SongManager.Instance.SelectSongByIndex(_currentIndex);
+                GameManager.Instance.StartStage(); // StartStage() -> StartGame()
                 PlayConfirmSound();
             }
         }
@@ -103,32 +106,22 @@ public class SongSelectUI : MonoBehaviour
         {
             _songInfoText.text = $"BPM: {song.Bpm:F0} | 노트: {song.GetTotalNotes()}개 | 난이도: {song.Difficulty}/5";
         }
+
+        Debug.Log($"[SongSelectUI] 곡 선택: {song.BgmName} ({song.SongType})");
     }
 
     void PlaySelectSound()
     {
-        // 선택 효과음 (선택사항)
-        if (AudioManager.Instance != null)
-        {
-            // AudioManager.Instance.PlaySelectSound();
-        }
+        // 효과음 재생
     }
 
     void PlayConfirmSound()
     {
-        // 확인 효과음 (선택사항)
-        if (AudioManager.Instance != null)
-        {
-            // SoundManager.Instance.PlayConfirmSound();
-        }
+        // 확인 효과음
     }
 
     void PlayCancelSound()
     {
-        // 취소 효과음 (선택사항)
-        if (AudioManager.Instance != null)
-        {
-            // AudioManager.Instance.PlayCancelSound();
-        }
+        // 취소 효과음
     }
 }

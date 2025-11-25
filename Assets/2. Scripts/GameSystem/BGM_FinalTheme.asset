@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f950f9babf1d6e548988362fa5b63401, type: 3}
   m_Name: BGM_FinalTheme
   m_EditorClassIdentifier: 
+  _songType: 5
   _bgmName: FinalTheme
   _bpm: 145
   _audioClip: {fileID: 8300000, guid: de413e0fba89dac4981f963dac2ca0e7, type: 3}

@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 using System.Linq;
 #if UNITY_EDITOR
 using UnityEditor;
@@ -7,6 +7,9 @@ using UnityEditor;
 [CreateAssetMenu(fileName = "NewBGMData", menuName = "Rhythm/BGM Data SO")]
 public class BGMDataSO : ScriptableObject
 {
+    [Header("곡 식별자")]
+    [SerializeField] private ESongType _songType = ESongType.None; 
+
     [Header("BGM 정보")]
     [SerializeField] private string _bgmName;
     [SerializeField] private float _bpm;
@@ -19,6 +22,7 @@ public class BGMDataSO : ScriptableObject
     [Range(1, 5)]
     [SerializeField] private int _difficulty = 3;
 
+    public ESongType SongType => _songType;
     public string BgmName => _bgmName;
     public float Bpm => _bpm;
     public AudioClip AudioClip => _audioClip;
@@ -33,6 +37,10 @@ public class BGMDataSO : ScriptableObject
         {
             Debug.LogError($"[{_bgmName}]: AudioClip이 없습니다!");
             return false;
+        }
+        if (_songType == ESongType.None)
+        {
+            Debug.LogWarning($"[{_bgmName}]: SongType이 설정되지 않았습니다!");
         }
         return true;
     }
