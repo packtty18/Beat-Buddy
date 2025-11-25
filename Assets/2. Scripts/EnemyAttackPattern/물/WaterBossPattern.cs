@@ -24,22 +24,40 @@ public class WaterBossPattern : MonoBehaviour
     {
         _isWaterAttackActive = true;
 
-        StartWaterAttack();
+        _raindrops = Instantiate(_raindropsPrefab);
         yield return new WaitForSeconds(_raindropAnimationTime);
-        FinishWaterAttack();
+        StopRain();
 
         _isWaterAttackActive = false;
     }
 
-    // 일정 시간이 되면 효과를 활성화하는 메서드
-    private void StartWaterAttack()
+    private void StopRain()
     {
-        _raindrops = Instantiate(_raindropsPrefab);
-    }
-
-    // 시간이 지난 후 효과 파괴
-    private void FinishWaterAttack()
-    {
-        Destroy(_raindrops);
+        if (_raindrops != null)
+        {
+            // 페이드 아웃 호출
+            FadeOutRaindropVFX fadeOutAnimation = _raindrops.GetComponent<FadeOutRaindropVFX>();
+            System.Action cleanupAction = () =>
+            {
+                if (_raindrops != null)
+                {
+                    Destroy(_raindrops);
+                    _raindrops = null;
+                }
+            };
+            if (fadeOutAnimation != null)
+            {
+                StartCoroutine(fadeOutAnimation.FadeOutRainCoroutine(cleanupAction));
+            }
+            else
+            {
+                Debug.LogWarning("StopRain: FadeOutRaindropVFX 컴포넌트가 없으므로 즉시 정리합니다.");
+                cleanupAction.Invoke();
+            }
+        }
+        else
+        {
+            _raindrops = null;
+        }
     }
 }

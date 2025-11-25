@@ -11,6 +11,7 @@ GameObject:
   - component: {fileID: 1559500737083122281}
   - component: {fileID: 5130499602551144680}
   - component: {fileID: 929759393585110817}
+  - component: {fileID: -9126600583372122776}
   m_Layer: 0
   m_Name: RaindropsVFX
   m_TagString: Untagged
@@ -126,3 +127,16 @@ VFXRenderer:
   m_SortingLayerID: 217878433
   m_SortingLayer: 0
   m_SortingOrder: 1
+--- !u!114 &-9126600583372122776
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 6978433744498728086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 26bd227d41ea20e43b68ea1793740e98, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _raindropVFX: {fileID: 5130499602551144680}
