@@ -52,7 +52,11 @@ public class JudgeManager : SceneSingleton<JudgeManager>
     void Start()
     {
         if (_soundManager == null) _soundManager = SoundManager.Instance;
-        if (_noteSpawner == null) return;
+        if (_noteSpawner == null)
+        {
+            Debug.LogError("[JudgeManager] NoteSpawner가 할당되지 않았습니다!");
+            return;
+        }
     }
 
     void Update()

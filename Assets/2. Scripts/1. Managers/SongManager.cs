@@ -74,7 +74,8 @@ public class SongManager : SimpleSingleton<SongManager>
         if (index >= 0 && index < allSongs.Count)
         {
             BGMDataSO song = allSongs[index];
-            SelectSong(song.SongType);
+            _selectedSong = song;
+            _selectedSongType = song.SongType;
         }
         else
         {
@@ -103,7 +104,10 @@ public class SongManager : SimpleSingleton<SongManager>
         }
         return _songDatabase.GetAllData().ToArray();
     }
-
+    public string GetSelectedSongName()
+    {
+        return _selectedSong.BgmName;
+    }
     // 선택된 곡의 인덱스 가져오기 (UI 호환성)
     public int GetSelectedSongIndex()
     {

@@ -47,7 +47,7 @@ public class GameManager : SimpleSingleton<GameManager>
     {
         if (SongManager.Instance.SelectedSong != null)
         {
-            Debug.Log($"[GameManager] 게임 시작 요청: {SongManager.Instance.SelectedSong.BgmName}");
+            Debug.Log($"[GameManager] 게임 시작 요청: {SongManager.Instance.GetSelectedSongName()}");
             ChangeScene(ESceneType.Stage);
         }
         else

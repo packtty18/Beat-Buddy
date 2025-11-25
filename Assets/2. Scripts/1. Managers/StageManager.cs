@@ -20,10 +20,7 @@ public class StageManager : SceneSingleton<StageManager>
 
     private EGameState _currentState = EGameState.None;
     private Coroutine _stageFlowCoroutine;
-    private GameResult _lastGameResult;
     private bool _bossPatternActivated = false;
-
-    public GameResult LastGameResult => _lastGameResult;
 
     public bool BossPatternActivated
     {
@@ -177,7 +174,7 @@ public class StageManager : SceneSingleton<StageManager>
             note.SetColor(Color.red, 0.3f);
             note.SetScale(1.3f, 0.3f);
         }
-        Debug.Log("[GameManager] 치트키: 랜덤 3개 빨간색");
+        Debug.Log("[StageManager] 치트키: 랜덤 3개 빨간색");
     }
 
     private void ActivateSlowMotion()
@@ -188,7 +185,7 @@ public class StageManager : SceneSingleton<StageManager>
             note.SetSpeed(0.5f);
             note.SetColor(Color.cyan, 0.3f);
         }
-        Debug.Log("[GameManager] 치트키: 가까운 5개 느리게");
+        Debug.Log("[StageManager] 치트키: 가까운 5개 느리게");
     }
 
     private void MakeMiddleNotesInvisible()
@@ -198,7 +195,7 @@ public class StageManager : SceneSingleton<StageManager>
         {
             note.SetAlpha(0.3f, 0.3f);
         }
-        Debug.Log("[GameManager] 치트키: 중간 노트 투명");
+        Debug.Log("[StageManager] 치트키: 중간 노트 투명");
     }
 
     #endregion
