@@ -6,7 +6,7 @@ public class MySceneManager : SimpleSingleton<MySceneManager>
 {
     [SerializeField] private SceneDatabaseSO _sceneDatabase;
     [SerializeField] private TransitionDatabaseSO _transitionDatabase;
-
+    [SerializeField] private LoadingImageController _loadImage;
     private ESceneType _currentScene = ESceneType.None;
 
 
@@ -61,7 +61,7 @@ public class MySceneManager : SimpleSingleton<MySceneManager>
 
         TransitionBase outTransition = _transitionDatabase.GetData(outTransitionType);
         TransitionBase inTransition = _transitionDatabase.GetData(inTransitionType);
-        var pipeline = new SceneLoadPipeline(sceneName, outTransition, inTransition);
+        var pipeline = new SceneLoadPipeline(sceneName, _loadImage, outTransition, inTransition);
         StartCoroutine(pipeline.Execute());
     }
 }
