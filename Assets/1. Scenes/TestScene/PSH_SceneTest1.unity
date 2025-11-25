@@ -770,7 +770,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &737245293
 RectTransform:
   m_ObjectHideFlags: 0
@@ -909,7 +909,7 @@ MonoBehaviour:
   - {fileID: -360990944117047106, guid: 745cb1c4cd40fed448cadd030060ee54, type: 3}
   - {fileID: 8680769257699541427, guid: 745cb1c4cd40fed448cadd030060ee54, type: 3}
   _speed: 0.1
-  _fadeDuration: 3
+  _fadeDuration: 1
 --- !u!114 &824811925
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1007,7 +1007,7 @@ MonoBehaviour:
   - {fileID: -1260584324, guid: ee6340f0f0d849447b19633b623a78d6, type: 3}
   - {fileID: -521251784, guid: ee6340f0f0d849447b19633b623a78d6, type: 3}
   _speed: 0.1
-  _fadeDuration: 3
+  _fadeDuration: 1
 --- !u!114 &1119847414
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1105,7 +1105,7 @@ MonoBehaviour:
   - {fileID: 8441581256303879825, guid: f4fdcdc535db0ac4790576fae6e1d9fb, type: 3}
   - {fileID: -6204446706862451744, guid: f4fdcdc535db0ac4790576fae6e1d9fb, type: 3}
   _speed: 0.1
-  _fadeDuration: 3
+  _fadeDuration: 1
 --- !u!114 &1181793870
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1203,7 +1203,7 @@ MonoBehaviour:
   - {fileID: -4355710522674598305, guid: 5c73eb4fb583b1e40901370f1efaa57d, type: 3}
   - {fileID: -1582072333585351342, guid: 5c73eb4fb583b1e40901370f1efaa57d, type: 3}
   _speed: 0.1
-  _fadeDuration: 3
+  _fadeDuration: 1
 --- !u!114 &1181938572
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1339,7 +1339,7 @@ MonoBehaviour:
   - {fileID: -360990944117047106, guid: 11e4d38e608d74746a5b2d588a582e5f, type: 3}
   - {fileID: 8680769257699541427, guid: 11e4d38e608d74746a5b2d588a582e5f, type: 3}
   _speed: 0.1
-  _fadeDuration: 3
+  _fadeDuration: 1
 --- !u!1 &1612112517
 GameObject:
   m_ObjectHideFlags: 0
