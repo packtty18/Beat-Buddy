@@ -20,7 +20,7 @@ public class StatManager : SceneSingleton<StatManager>
 
     protected override void Awake()
     {
-        
+        base.Awake();  
         if (_upgradeOptions == null)
         {
             _upgradeOptions = new List<UpgradeOptionSO>();

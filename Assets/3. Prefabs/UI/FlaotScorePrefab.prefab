@@ -150,5 +150,5 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: {fileID: 5600398030787034622}
-  _riseSpeed: 50
+  _riseSpeed: 1
   _duration: 1
