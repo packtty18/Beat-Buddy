@@ -8,9 +8,6 @@ public class StatManager : SceneSingleton<StatManager>
     [SerializeField] private PlayerStatDataSO _defaultPlayerStat;             //플레이어 기본 스텟
     [SerializeField] private BuddyStatDataSO[] _stageDefaultBuddyStats;          //버디 기본 스텟
 
-    [Header("Upgrade Options")]
-    [SerializeField] private List<UpgradeOptionSO> _upgradeOptions;     //업그레이드 요소
-
     [Header("Runtime Stats")]
     [SerializeField] private PlayerStat _playerStat;                    //현재 스테이지의 플레이어 스텟
     [SerializeField] private BuddyStat _buddyStat;                      //현재 스테이지의 버디 스텟
@@ -18,13 +15,12 @@ public class StatManager : SceneSingleton<StatManager>
     [Header("Debug")]
     [SerializeField] private int currentStage;
 
+
+    private List<UpgradeOptionSO> _upgradeOptions => UpgradeManager.Instance.GetUpgradeOption();     //업그레이드 요소
+
     protected override void Awake()
     {
         base.Awake();  
-        if (_upgradeOptions == null)
-        {
-            _upgradeOptions = new List<UpgradeOptionSO>();
-        }
     }
 
     /// <summary>

@@ -1,7 +1,7 @@
-using System.Collections;
+﻿using System.Collections;
 using UnityEngine;
 
-public class TransitionManager : SimpleSingleton<TransitionManager>
+public class TransitionManager : CoreSingleton<TransitionManager>
 {
     [SerializeField]private OverlayController _controller;
     protected override void Awake()

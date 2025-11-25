@@ -12,7 +12,7 @@ public enum ESoundType
     SFX_HitDrum,
     SFX_HitClap,
 }
-public class SoundManager : SimpleSingleton<SoundManager>
+public class SoundManager : CoreSingleton<SoundManager>
 {
     [Header("사운드 라이브러리 추가")]
     [SerializeField] private SoundDatabaseSO _soundDatabase;
