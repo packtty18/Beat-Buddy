@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using UnityEngine;
 
-public class StatManager : SimpleSingleton<StatManager>
+public class StatManager : SceneSingleton<StatManager>
 {
     [Header("Default Stats")]
     [SerializeField] private PlayerStatDataSO _defaultPlayerStat;             //플레이어 기본 스텟
@@ -20,7 +20,7 @@ public class StatManager : SimpleSingleton<StatManager>
 
     protected override void Awake()
     {
-        base.Awake();
+        base.Awake();  
         if (_upgradeOptions == null)
         {
             _upgradeOptions = new List<UpgradeOptionSO>();
