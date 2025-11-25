@@ -25,7 +25,6 @@ public class FireBossPattern : MonoBehaviour
     [SerializeField] private Transform _burningPositiion1;
     [SerializeField] private Transform _burningPositiion2;
     [SerializeField] private Transform _burningPositiion3;
-    private Transform _reversePosition;
 
     [Header("쿨타임")]
     private float _breathingTime = 0.8f;
@@ -126,6 +125,7 @@ public class FireBossPattern : MonoBehaviour
         }
     }
 
+    // 큰 불 버닝 이펙트
     private void SpawningBigBurningEffect(Transform position)
     {
         if (_firePatternPrefab != null && transform.position.x >= 0)
@@ -139,11 +139,11 @@ public class FireBossPattern : MonoBehaviour
         }
         else if (_firePatternPrefab != null && transform.position.x < 0)
         {
-            _reversePosition.position = new Vector2(-position.position.x, position.position.y);
-            _fireRise = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireRise], position);
+            Vector2 reversePosition = new Vector2(-position.position.x, position.position.y);
+            _fireRise = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireRise], reversePosition, Quaternion.identity);
             FlippedXOn(_fireRise);
             Destroy(_fireRise, _fireRiseAnimationTime);
-            _burningEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.BigBurn], position);
+            _burningEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.BigBurn], reversePosition, Quaternion.identity);
             FlippedXOn(_burningEffect);
             Destroy(_burningEffect, _burningAnimationTime);
         }
@@ -152,6 +152,8 @@ public class FireBossPattern : MonoBehaviour
             Debug.LogWarning("프리팹이 할당되지 않았습니다.");
         }
     }
+
+    // 작은 불 버닝 이펙트
     private void SpawningSmallBurningEffect(Transform position)
     {
         if (_firePatternPrefab != null && transform.position.x >= 0)
@@ -165,11 +167,11 @@ public class FireBossPattern : MonoBehaviour
         }
         else if (_firePatternPrefab != null && transform.position.x < 0)
         {
-            _reversePosition.position = new Vector2(-position.position.x, position.position.y);
-            _fireRise = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireRise], position);
+            Vector2 reversePosition = new Vector2(-position.position.x, position.position.y);
+            _fireRise = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireRise], reversePosition, Quaternion.identity);
             FlippedXOn(_fireRise);
             Destroy(_fireRise, _fireRiseAnimationTime);
-            _burningEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.SmallBurn], position);
+            _burningEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.SmallBurn], reversePosition, Quaternion.identity);
             FlippedXOn(_burningEffect);
             Destroy(_burningEffect, _burningAnimationTime);
         }
