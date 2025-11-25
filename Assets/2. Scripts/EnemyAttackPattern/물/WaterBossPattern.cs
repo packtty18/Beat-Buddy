@@ -19,6 +19,7 @@ public class WaterBossPattern : MonoBehaviour
         StartCoroutine(StartWaterAttackCoroutine());
     }
 
+    // 물 공격 시작 코루틴
     private IEnumerator StartWaterAttackCoroutine()
     {
         _isWaterAttackActive = true;
@@ -35,6 +36,8 @@ public class WaterBossPattern : MonoBehaviour
     {
         _raindrops = Instantiate(_raindropsPrefab);
     }
+
+    // 시간이 지난 후 효과 파괴
     private void FinishWaterAttack()
     {
         Destroy(_raindrops);
