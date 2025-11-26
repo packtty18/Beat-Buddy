@@ -21,12 +21,12 @@ public class BuddyManager : SceneSingleton<BuddyManager>
     {
         base.Awake();
         _currentBuddyType = 0;
+        if (StatManager.Instance != null)
+        {
+            StatManager.Instance.OnStatApplied += UpdateBuddyDamage;
+        }
     }
 
-    public float GetBuddyDamage()
-    {
-        return _buddyDamage;
-    }
     public void SpawnBuddy()
     {
         // 현재 선택된 곡의 버디 타입 가져오기
@@ -49,16 +49,39 @@ public class BuddyManager : SceneSingleton<BuddyManager>
             GameObject buddyPrefab = _buddyList[buddyIndex];
             _currentBuddyPrefab = Instantiate(buddyPrefab, _buddySpawnPoint.position, Quaternion.identity, _buddySpawnPoint);
             _currentBuddyType = selectedSongType;
-            _currentBuddyPrefab.transform.DOMoveX(_currentBuddyPrefab.transform.position.x - 5f, 5f);
+            _currentBuddyPrefab.transform.DOMoveX(_currentBuddyPrefab.transform.position.x - 5f, 3f);
             GetBuddyStat(_currentBuddyPrefab);
+            GetBuddyEvent();
         }
     } 
+
+    private void GetBuddyEvent()
+    {
+        PlayerManager.Instance.OnAttackToBuddy += OnHitDamage;
+    }
+
+    private void OnHitDamage(float playerDamage)
+    {
+        _buddyStat.DecreaseHealth(playerDamage);
+        _currentBuddyPrefab.GetComponent<BuddyAnimatorController>().OnHit();
+    }
 
     private void GetBuddyStat(GameObject currentBuddyPrefab)
     {
         _buddyStat = _currentBuddyPrefab.GetComponent<BuddyStat>();
-        _buddyDamage = _buddyStat.GetDamage();
         StatManager.Instance.SetBuddyStat(_buddyStat);
+    }
+    private void UpdateBuddyDamage()
+    {
+        if (_buddyStat != null)
+        {
+            _buddyDamage = _buddyStat.GetDamage();
+            Debug.Log($"[BuddyManager] Buddy Damage Updated: {_buddyDamage}");
+        }
+    }
+    public float GetBuddyDamage()
+    {
+        return _buddyDamage;
     }
 
     public void StartBuddyPattern(bool attacking)

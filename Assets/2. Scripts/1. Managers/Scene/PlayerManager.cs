@@ -1,5 +1,7 @@
 ﻿using DG.Tweening;
+using System;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class PlayerManager : SceneSingleton<PlayerManager>
 {
@@ -10,6 +12,8 @@ public class PlayerManager : SceneSingleton<PlayerManager>
     private BuddyManager _buddyManager;
     private ScoreManager _scoreManager;
     private float _scoreIncrease;
+
+    public Action<float> OnAttackToBuddy;
 
     protected override void Awake()
     {
@@ -40,13 +44,20 @@ public class PlayerManager : SceneSingleton<PlayerManager>
     {
         _playerStat = currentPlayerPrefab.GetComponent<PlayerStat>();
         _playerStat.StartAttack += OnAttack;
+        _playerStat.IsFever += OnFever;
         StatManager.Instance.SetPlayerStat(_playerStat);
         _buddyManager = BuddyManager.Instance;
     }
 
+    private void OnFever(bool isFever)
+    {
+        _currentPlayerPrefab.GetComponent<PlayerAnimatorController>().SetFever(isFever);
+    }
     private void OnAttack()
     {
+        _currentPlayerPrefab.GetComponent<PlayerAnimatorController>().OnAttack();
         _playerStat.ResetAttackGuage();
+        OnAttackToBuddy?.Invoke(_playerStat.GetDamage());
     }
 
     public void OnHit(EHitType hitType)
@@ -55,26 +66,36 @@ public class PlayerManager : SceneSingleton<PlayerManager>
         switch (hitType)
         {
             case EHitType.Perfect:
-                _scoreManager.IncreaseScore(_scoreIncrease);
-                _playerStat.OnHeal(hitType);
-                _playerStat.IncreaseAttackGuage();
-                _playerStat.IncreaseFeverGuage();
+                GetPerfectGood(hitType);
                 break;
             case EHitType.Good:
-                _scoreManager.IncreaseScore(_scoreIncrease);
-                _playerStat.OnHeal(hitType);
-                _playerStat.IncreaseAttackGuage();
-                _playerStat.IncreaseFeverGuage();
+                GetPerfectGood(hitType);
                 break;
             case EHitType.Bad:
+                GetBadMiss();
                 break;
             case EHitType.Miss:
-                _playerStat.DecreaseHealth(_buddyManager.GetComponent<BuddyStat>().GetDamage());
-                _playerStat.ResetFeverGuage();
+                GetBadMiss();
                 break;
             default:
                 Debug.Log("Unknown Hit Type!");
                 break;
         }
+    }
+
+    private void GetPerfectGood(EHitType hitType)
+    {
+        // 퍼펙트 굿 시
+        _scoreManager.IncreaseScore(_scoreIncrease);
+        _playerStat.OnHeal(hitType);
+        _playerStat.IncreaseAttackGuage();
+        _playerStat.IncreaseFeverGuage();
+    }
+    private void GetBadMiss()
+    {
+        // 배드 미스 시
+        _playerStat.DecreaseHealth(_buddyManager.GetBuddyDamage());
+        _currentPlayerPrefab.GetComponent<PlayerAnimatorController>().OnHit();
+        _playerStat.ResetFeverGuage();
     }
 }

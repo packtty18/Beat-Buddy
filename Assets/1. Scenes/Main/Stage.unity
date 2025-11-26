@@ -2282,8 +2282,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: cdf70a7dce43a27428f26bcc6205b0d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _perfectWindow: 0.1
-  _goodWindow: 0.2
+  _perfectWindow: 0.05
+  _goodWindow: 0.1
   _badWindow: 0.15
   _perfectScore: 100
   _goodScore: 70

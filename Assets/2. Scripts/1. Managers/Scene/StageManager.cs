@@ -90,8 +90,8 @@ public class StageManager : SceneSingleton<StageManager>
         //{
         //    UIManager.Instance.ShowStartText();
         //}
-        BuddyManager.Instance.SpawnBuddy();
 
+        BuddyManager.Instance.SpawnBuddy();
         StatManager.Instance.SetStat(SongManager.Instance.GetSelectedSongIndex());
 
         // 음악 재생 시작

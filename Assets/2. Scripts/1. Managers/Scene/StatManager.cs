@@ -15,8 +15,9 @@ public class StatManager : SceneSingleton<StatManager>
     [Header("Debug")]
     [SerializeField] private int currentStage;
 
-
     private List<UpgradeOptionSO> _upgradeOptions => UpgradeManager.Instance.GetUpgradeOption();     //업그레이드 요소
+
+    public Action OnStatApplied;
 
     protected override void Awake()
     {
@@ -59,6 +60,7 @@ public class StatManager : SceneSingleton<StatManager>
         _buddyStat.SetStat(_upgradedBuddyStat);
 
         Debug.Log($"[StatManager] Stage {stage} stats applied.");
+        OnStatApplied?.Invoke();
     }
 
     public void AddUpgradeOption(UpgradeOptionSO upgrade)
