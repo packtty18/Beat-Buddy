@@ -11,6 +11,7 @@ public class BGMDataSO : ScriptableObject
     [SerializeField] private ESongType _songType = ESongType.None; 
 
     [Header("BGM 정보")]
+    [SerializeField] private Sprite _bgmIcon;
     [SerializeField] private string _bgmName;
     [SerializeField] private float _bpm;
     [SerializeField] private AudioClip _audioClip;
@@ -23,6 +24,7 @@ public class BGMDataSO : ScriptableObject
     [SerializeField] private int _difficulty = 3;
 
     public ESongType SongType => _songType;
+    public Sprite BgmIcon => _bgmIcon;
     public string BgmName => _bgmName;
     public float Bpm => _bpm;
     public AudioClip AudioClip => _audioClip;

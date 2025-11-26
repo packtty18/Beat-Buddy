@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BGM_ThunderTheme
   m_EditorClassIdentifier: 
   _songType: 3
+  _bgmIcon: {fileID: 3110789236329512668, guid: df3af4f6b79b5af4196ec552de4ccdf6, type: 3}
   _bgmName: ThunderTheme
   _bpm: 150
   _audioClip: {fileID: 8300000, guid: 7c6480fa2e2d99c46a71a564a93ffa25, type: 3}

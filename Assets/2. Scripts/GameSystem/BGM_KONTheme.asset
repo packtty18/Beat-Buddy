@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BGM_KONTheme
   m_EditorClassIdentifier: 
   _songType: 6
+  _bgmIcon: {fileID: -195329453347598043, guid: 544c9151d0e79d44c86bce00c7db330b, type: 3}
   _bgmName: KONTheme
   _bpm: 120
   _audioClip: {fileID: 8300000, guid: 503d6484d78677d499d430662f394d83, type: 3}

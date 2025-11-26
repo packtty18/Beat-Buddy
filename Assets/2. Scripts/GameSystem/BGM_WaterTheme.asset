@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BGM_WaterTheme
   m_EditorClassIdentifier: 
   _songType: 2
+  _bgmIcon: {fileID: -2584869664739227912, guid: f6186b96c9b2be54eb5f361a91433555, type: 3}
   _bgmName: WaterTheme
   _bpm: 138
   _audioClip: {fileID: 8300000, guid: 0958de842a484b94d880c833f02f90c9, type: 3}
