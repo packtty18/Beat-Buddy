@@ -29,6 +29,7 @@ public class WaterBossPattern : MonoBehaviour
         yield return new WaitForSeconds(_raindropAnimationTime);
         StopRain();
         BuddyManager.Instance.StartBuddyPattern(false);
+
         _isWaterAttackActive = false;
     }
 
@@ -37,29 +38,11 @@ public class WaterBossPattern : MonoBehaviour
     {
         if (_raindrops != null)
         {
-            // 페이드 아웃 호출
-            FadeOutRaindropVFX fadeOutAnimation = _raindrops.GetComponent<FadeOutRaindropVFX>();
-            System.Action cleanupAction = () =>
+            var effect = _raindrops.GetComponent<IPatternEffect>();
+            if (effect != null)
             {
-                if (_raindrops != null)
-                {
-                    Destroy(_raindrops);
-                    _raindrops = null;
-                }
-            };
-            if (fadeOutAnimation != null)
-            {
-                StartCoroutine(fadeOutAnimation.FadeOutRainCoroutine(cleanupAction));
+                effect.StopRainEffect();
             }
-            else
-            {
-                Debug.LogWarning("StopRain: FadeOutRaindropVFX 컴포넌트가 없으므로 즉시 정리합니다.");
-                cleanupAction.Invoke();
-            }
-        }
-        else
-        {
-            _raindrops = null;
         }
     }
 }

@@ -20,7 +20,8 @@ public class EsperBossPattern : MonoBehaviour
     [Header("S자 이동 관련 옵션")]
     private float _noteAmplitude;  // 진폭
     private float _noteFrequency;  // 흔들리는 빈도
-    private float _noteMovingTime = 2f;  // 흔들리는 기간
+    private float _noteMovingTime = 6f;  // 흔들리는 기간
+    private float _watingTrasnfer = 2f;
 
     [Header("진폭 랜덤값")]
     private float _minAmplitude = 0.8f;
@@ -47,6 +48,10 @@ public class EsperBossPattern : MonoBehaviour
         BuddyManager.Instance.StartBuddyPattern(true);
 
         SetValue();
+
+        MakeScreenPurple.MakePurpleScreen();
+        EsperPatternEffect.MakeEsperEffect();  // 화면 이펙트 생성
+        yield return new WaitForSeconds(_watingTrasnfer);  // 화면 색변환 대기
         SetNoteNumbers();
         StartCoroutine(MovingNotesCoroutine());
         yield return new WaitForSeconds(_noteMovingTime);
@@ -66,7 +71,6 @@ public class EsperBossPattern : MonoBehaviour
     private void SetNoteNumbers()
     {
         _rhythmNotes = _noteController.GetRandomNotesByProgress(0.4f, 1f, 5);
-        //_rhythmNotes = GameObject.FindGameObjectsWithTag("Respawn");  임시로 Respawn 태그 사용
         if (_rhythmNotes.Count == 0) return;
 
         _noteNumbers = _rhythmNotes.Count;
