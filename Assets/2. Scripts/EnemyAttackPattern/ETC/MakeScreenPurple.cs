@@ -8,8 +8,8 @@ public class MakeScreenPurple : MonoBehaviour
 
     [Header("보라화면 이미지")]
     [SerializeField] private Image _purpleImage;
-    [SerializeField] private Color _purpleColour = new Color(0.7f, 0.3f, 0.66f, 0.11f);
-    private float _purpleSpeed = 1.2f;
+    [SerializeField] private Color _purpleColour = new Color(0.7f, 0.3f, 0.66f, 0.1f);
+    private float _purpleSpeed = 1.6f;
     private float _purpleTime = 8f;
 
 
