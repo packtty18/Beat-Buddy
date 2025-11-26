@@ -16,15 +16,7 @@ public class ModeSelectUI : MonoBehaviour
         {   
             if (GameManager.Instance != null)
             {
-                GameManager.Instance.ChangeScene(ESceneType.SongSelect);
-            }
-        }
-
-        if (InputManager.Instance.GetKeyDown(EGameKeyType.Setting))
-        {
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.ChangeScene(ESceneType.Lobby);
+                GameManager.Instance.ChangeScene(ESceneType.SongSelect, ETransitionType.ModeToSongOut, ETransitionType.ModeToSongIn);
             }
         }
     }

@@ -12,7 +12,7 @@ public class LobbyUI : MonoBehaviour
         {
             if (GameManager.Instance != null)
             {
-                GameManager.Instance.ChangeScene(ESceneType.ModeSelect);
+                GameManager.Instance.ChangeScene(ESceneType.ModeSelect, ETransitionType.LobbyToModeOut, ETransitionType.LobbyToModeIn);
             }
         }
 
