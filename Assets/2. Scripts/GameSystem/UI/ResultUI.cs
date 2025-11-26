@@ -36,7 +36,7 @@ public class ResultUI : MonoBehaviour
         {
             if (GameManager.Instance != null)
             {
-                GameManager.Instance.ReturnToLobby();
+                GameManager.Instance.ReturnToMode();
             }
         }
     }

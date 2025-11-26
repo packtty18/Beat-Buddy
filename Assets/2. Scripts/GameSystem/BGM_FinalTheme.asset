@@ -13,6 +13,7 @@ MonoBehaviour:
   m_Name: BGM_FinalTheme
   m_EditorClassIdentifier: 
   _songType: 5
+  _bgmIcon: {fileID: 5688410845578834731, guid: 467ef8f1f43a4d54da1845197bb8e923, type: 3}
   _bgmName: FinalTheme
   _bpm: 145
   _audioClip: {fileID: 8300000, guid: de413e0fba89dac4981f963dac2ca0e7, type: 3}
