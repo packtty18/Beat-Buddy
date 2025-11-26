@@ -710,8 +710,8 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0.5, y: 0.5}
   m_AnchorMax: {x: 0.5, y: 0.5}
-  m_AnchoredPosition: {x: 464, y: 0}
-  m_SizeDelta: {x: 1000, y: 1080}
+  m_AnchoredPosition: {x: 460, y: 0}
+  m_SizeDelta: {x: 900, y: 980}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1082868691
 MonoBehaviour:
@@ -729,8 +729,8 @@ MonoBehaviour:
   _instantRoot: {fileID: 91449575}
   _songDatas: []
   songItems: []
-  radius: 650
-  angleStep: 25
+  radius: 730
+  angleStep: 20
   itemOffset: {x: 0, y: 20}
   centerPos: {x: 650, y: 0}
   moveLerpSpeed: 8
@@ -1006,7 +1006,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &1614217785
 RectTransform:
   m_ObjectHideFlags: 0

@@ -8,17 +8,12 @@ public class LobbyUI : MonoBehaviour
 
     void Update()
     {
-        if (InputManager.Instance.GetKeyDown(EGameKeyType.Confirm))
+        if (InputManager.Instance.GetAnyKey())
         {
             if (GameManager.Instance != null)
             {
                 GameManager.Instance.ChangeScene(ESceneType.ModeSelect, ETransitionType.LobbyToModeOut, ETransitionType.LobbyToModeIn);
             }
-        }
-
-        if (InputManager.Instance.GetKeyDown(EGameKeyType.Setting))
-        {
-            Application.Quit();
         }
     }
 }

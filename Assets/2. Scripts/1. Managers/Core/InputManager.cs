@@ -2,6 +2,7 @@
 using System;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public enum EGameKeyType
 {
@@ -84,6 +85,12 @@ public class InputManager : CoreSingleton<InputManager>
     public void SetInputActive(bool tf)
     {
         _isActive = tf;
+    }
+
+    public bool GetAnyKey()
+    {
+        return GetKeyDown(EGameKeyType.Left) || GetKeyDown(EGameKeyType.Right) || GetKeyDown(EGameKeyType.Up) || GetKeyDown(EGameKeyType.Down)
+            || GetKeyDown(EGameKeyType.Confirm) || GetKeyDown(EGameKeyType.Setting);
     }
 
     public bool GetKeyDown(EGameKeyType key)
