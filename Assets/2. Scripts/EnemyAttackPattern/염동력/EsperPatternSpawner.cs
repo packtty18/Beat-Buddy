@@ -15,9 +15,12 @@ public class EsperPatternSpawner : MonoBehaviour
 
     private IEnumerator EsperPatternSpawnCoroutine()
     {
-        yield return new WaitForSeconds(_startAttackTime);
-        SpawnEsperPattern();
-        yield return new WaitForSeconds(_spawnCoolTime);
+        while (SongPlayManager.Instance.IsPlaying())
+        {
+            yield return new WaitForSeconds(_startAttackTime);
+            SpawnEsperPattern();
+            yield return new WaitForSeconds(_spawnCoolTime);
+        }
     }
 
     public void SpawnEsperPattern()

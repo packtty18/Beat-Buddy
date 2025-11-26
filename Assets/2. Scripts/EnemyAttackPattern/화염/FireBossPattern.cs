@@ -48,6 +48,7 @@ public class FireBossPattern : MonoBehaviour
     private IEnumerator StartFireAttackCoroutine()
     {
         _isFireAttackActive = true;
+        BuddyManager.Instance.StartBuddyPattern(true);
 
         yield return StartCoroutine(FireStartAnimation());
         ShowBreathEffect();
@@ -63,6 +64,7 @@ public class FireBossPattern : MonoBehaviour
         HideBreathEffect();
 
         _isFireAttackActive = false;
+        BuddyManager.Instance.StartBuddyPattern(false);
     }
 
     // 브레스 시작 전 경고성 이펙트 소환 메서드

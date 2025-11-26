@@ -14,3 +14,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   OptionType: 6
   Value: 0.2
+  Icon: {fileID: 5376287290657489777, guid: ecc4aa16d3be8054aa482e87414dd135, type: 3}
+  Name: "\uD53C\uBC84 \uAD50\uAC10\uAC8C\uC774\uC9C0 \uBCF4\uB108\uC2A4 \uC99D\uAC00"
+  Description: "\uD53C\uBC84\uC2DC \uC5BB\uB294 \uAD50\uAC10\uAC8C\uC774\uC9C0 \uCD94\uAC00\uB7C9\uC774
+    {Value} \uC99D\uAC00\uD55C\uB2E4"

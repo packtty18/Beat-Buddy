@@ -12,6 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f950f9babf1d6e548988362fa5b63401, type: 3}
   m_Name: BGM_EsperTheme
   m_EditorClassIdentifier: 
+  _songType: 4
   _bgmName: EsperTheme
   _bpm: 116
   _audioClip: {fileID: 8300000, guid: 2131728b0649ad74d94dad5324595c75, type: 3}

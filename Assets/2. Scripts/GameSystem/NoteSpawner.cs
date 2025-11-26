@@ -14,22 +14,28 @@ public class NoteSpawner : MonoBehaviour
     private int _nextNoteIndex = 0;
     private List<Note> _activeNotes = new List<Note>();
     private PoolManager _poolManager;
+    private bool _isSpawningEnabled = false;
+
     void Start()
     {
         _poolManager = PoolManager.Instance;
-        LoadBGMDataFromConductor();
+        LoadBGMDataFromSongPlayManager();
     }
 
     void Update()
     {
+        if (!_isSpawningEnabled) return;
+
         if (_currentBGMData == null || _nextNoteIndex >= _currentBGMData.Notes.Length) return;
 
-        float currentBeat = Conductor.Instance.BgmPositionInBeats;
+        
+        float currentBeat = SongPlayManager.Instance.BgmPositionInBeats;
 
         while (_nextNoteIndex < _currentBGMData.Notes.Length)
         {
             NoteData nextNote = _currentBGMData.Notes[_nextNoteIndex];
-            float spawnBeat = Mathf.Max(0f, nextNote.beat - _beatsShownInAdvance);
+            // Max 때문에 이전에 스폰되는 노트 모두 삭제됐었음.
+            float spawnBeat = nextNote.beat - _beatsShownInAdvance; 
 
             if (currentBeat >= spawnBeat)
             {
@@ -40,16 +46,29 @@ public class NoteSpawner : MonoBehaviour
         }
     }
 
-    void LoadBGMDataFromConductor()
+    void LoadBGMDataFromSongPlayManager()
     {
-        if (Conductor.Instance == null) return;
+        if (SongPlayManager.Instance == null) return;
 
-        _currentBGMData = Conductor.Instance.CurrentBGMData;
+        _currentBGMData = SongPlayManager.Instance.CurrentBGMData;
         if (_currentBGMData == null) return;
 
         _nextNoteIndex = 0;
         ClearAllNotes();
         _currentBGMData.SortNotes();
+    }
+
+    public void StartSpawning()
+    {
+        _nextNoteIndex = 0;
+        _isSpawningEnabled = true;
+        Debug.Log("[NoteSpawner] 노트 스폰 시작!");
+    }
+
+    public void StopSpawning()
+    {
+        _isSpawningEnabled = false;
+        Debug.Log("[NoteSpawner] 노트 스폰 중지!");
     }
 
     void SpawnNote(NoteData noteData)
@@ -60,8 +79,6 @@ public class NoteSpawner : MonoBehaviour
 
         Transform spawnPos = (noteData.type == ENoteType.LNote) ? _leftSpawnPoint : _rightSpawnPoint;
         noteObject.transform.position = spawnPos.position;
-
-
 
         noteObject.Initialize(noteData.beat, noteData.type, _beatsShownInAdvance, _judgePoint, this);
 
@@ -92,6 +109,10 @@ public class NoteSpawner : MonoBehaviour
         return _activeNotes;
     }
 
+    public bool IsSpawningEnabled()
+    {
+        return _isSpawningEnabled;
+    }
     // 즉시 제거하지 않고, 리스트에서만 제거
     public void RemoveNote(Note note)
     {
@@ -104,5 +125,5 @@ public class NoteSpawner : MonoBehaviour
         _poolManager.Despawn<NotePool, ENoteType>(note.GetComponent<Note>().NoteType, note);
     }
 
-    public void ReloadBGMData() => LoadBGMDataFromConductor();
+    public void ReloadBGMData() => LoadBGMDataFromSongPlayManager();
 }

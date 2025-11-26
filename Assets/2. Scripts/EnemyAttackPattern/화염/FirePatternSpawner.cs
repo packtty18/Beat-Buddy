@@ -25,9 +25,12 @@ public class FirePatternSpawner : MonoBehaviour
 
     private IEnumerator FirePatternSpawnCoroutine()
     {
-        yield return new WaitForSeconds(_startAttackTime);
-        SpawnFirePattern();
-        yield return new WaitForSeconds(_spawnCoolTime);
+        while(SongPlayManager.Instance.IsPlaying())
+        {
+            yield return new WaitForSeconds(_startAttackTime);
+            SpawnFirePattern();
+            yield return new WaitForSeconds(_spawnCoolTime);
+        }
     }
 
     public void SpawnFirePattern()

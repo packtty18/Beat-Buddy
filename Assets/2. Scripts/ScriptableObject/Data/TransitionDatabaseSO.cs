@@ -1,4 +1,4 @@
-using UnityEngine;
+﻿using UnityEngine;
 
 public enum ETransitionType
 {
@@ -9,6 +9,7 @@ public enum ETransitionType
     ScaleIn,
     SlideOut,
     SlideIn,
+    SlideStageIn,
 }
 
 [CreateAssetMenu(fileName = "TransitionDatabase", menuName = "SO/TransitionDatabase")]

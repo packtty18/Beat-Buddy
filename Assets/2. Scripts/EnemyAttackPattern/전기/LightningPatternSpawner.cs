@@ -15,9 +15,12 @@ public class LightningPatternSpawner : MonoBehaviour
 
     private IEnumerator LightningPatternSpawnCoroutine()
     {
-        yield return new WaitForSeconds(_startAttackTime);
-        SpawnLightningPattern();
-        yield return new WaitForSeconds(_spawnCoolTime);
+        while (SongPlayManager.Instance.IsPlaying())
+        {
+            yield return new WaitForSeconds(_startAttackTime);
+            SpawnLightningPattern();
+            yield return new WaitForSeconds(_spawnCoolTime);
+        }
     }
 
     public void SpawnLightningPattern()
