@@ -42,7 +42,7 @@ public class SongItemUI : MonoBehaviour, IUIConfirmable
 
         SongManager.Instance.SelectSongByIndex((int)_data.SongType -1 );
         GameManager.Instance.StartStage(); // StartStage() -> StartGame()
-        SoundManager.Instance.PlaySFX(ESoundType.BGM_StageSelect);
+        SoundManager.Instance.PlaySFX(ESoundType.SFX_ButtonConfirm);
     }
 
     public AudioClip GetAudioClip()
