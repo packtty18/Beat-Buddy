@@ -18,6 +18,10 @@ public class BuddyStat : MonoBehaviour
         _currentHealth = Mathf.Max(0, _currentHealth - value);
     }
 
+    public bool isDefeated()
+    {
+        return _currentHealth <= 0;
+    }
     public float GetDamage()
     {
         return _damage;
