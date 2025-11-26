@@ -13,7 +13,7 @@ public enum EFirePatternType
 public class FireBossPattern : MonoBehaviour
 {
     [Header("화염 공격 트리거")]
-    public bool _isFireAttackActive = false;
+    [SerializeField] private bool _isFireAttackActive = false;
 
     [Header("화염 프리팹")]
     [SerializeField] private GameObject[] _firePatternPrefab;
@@ -25,6 +25,7 @@ public class FireBossPattern : MonoBehaviour
     [SerializeField] private Transform _burningPositiion1;
     [SerializeField] private Transform _burningPositiion2;
     [SerializeField] private Transform _burningPositiion3;
+    private float _reverseXadjustment = 4f;
 
     [Header("쿨타임")]
     private float _breathingTime = 0.8f;
@@ -69,8 +70,6 @@ public class FireBossPattern : MonoBehaviour
     // 브레스 시작 전 경고성 이펙트 소환 메서드
     private IEnumerator FireStartAnimation()
     {
-
-
         if (_firePatternPrefab != null && transform.position.x >= 0)
         {
             _currentFireEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireStart], transform);
@@ -141,11 +140,14 @@ public class FireBossPattern : MonoBehaviour
         }
         else if (_firePatternPrefab != null && transform.position.x < 0)
         {
-            Vector2 reversePosition = new Vector2(-position.position.x, position.position.y);
-            _fireRise = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireRise], reversePosition, Quaternion.identity);
+            _fireRise = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireRise], position);
+            Vector3 localPosition = _fireRise.transform.localPosition;
+            localPosition.x = -localPosition.x + _reverseXadjustment;
+            _fireRise.transform.localPosition = localPosition;
             FlippedXOn(_fireRise);
             Destroy(_fireRise, _fireRiseAnimationTime);
-            _burningEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.BigBurn], reversePosition, Quaternion.identity);
+            _burningEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.BigBurn], position);
+            _burningEffect.transform.localPosition = localPosition;
             FlippedXOn(_burningEffect);
             Destroy(_burningEffect, _burningAnimationTime);
         }
@@ -169,11 +171,14 @@ public class FireBossPattern : MonoBehaviour
         }
         else if (_firePatternPrefab != null && transform.position.x < 0)
         {
-            Vector2 reversePosition = new Vector2(-position.position.x, position.position.y);
-            _fireRise = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireRise], reversePosition, Quaternion.identity);
+            _fireRise = Instantiate(_firePatternPrefab[(int)EFirePatternType.FireRise], position);
+            Vector3 localPosition = _fireRise.transform.localPosition;
+            localPosition.x = -localPosition.x + _reverseXadjustment;
+            _fireRise.transform.localPosition = localPosition;
             FlippedXOn(_fireRise);
             Destroy(_fireRise, _fireRiseAnimationTime);
-            _burningEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.SmallBurn], reversePosition, Quaternion.identity);
+            _burningEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.SmallBurn], position);
+            _burningEffect.transform.localPosition = localPosition;
             FlippedXOn(_burningEffect);
             Destroy(_burningEffect, _burningAnimationTime);
         }
@@ -215,6 +220,8 @@ public class FireBossPattern : MonoBehaviour
         }
     }
 
+
+    // 이펙트 좌우반전 관련 메서드
     private void FlippedXOn(GameObject fireEffect)
     {
         _spriteRenderer = fireEffect.GetComponent<SpriteRenderer>();
@@ -223,7 +230,7 @@ public class FireBossPattern : MonoBehaviour
     private void FlippedXOff(GameObject fireEffect)
     {
         _spriteRenderer = fireEffect.GetComponent<SpriteRenderer>();
-        _spriteRenderer.flipX = true;
+        _spriteRenderer.flipX = false;
     }
 
     private void FlippedYOn(GameObject fireEffect)

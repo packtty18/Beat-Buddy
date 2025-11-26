@@ -9,8 +9,8 @@ public class FirePatternSpawner : MonoBehaviour
     private float _spawnRangeX = 6.7f;
 
     [Header("쿨타임")]
-    private float _startAttackTime = 12f;  // 패턴 시작 시간 12초
-    private float _spawnCoolTime = 6f;     // 패턴 쿨타임 18초 (12 + 6)
+    private float _startAttackTime = 11f;  // 기본 11f
+    private float _spawnCoolTime = 6f;     // 쿨타임 기본 17f (11 + 6)
 
 
     [Header("좌우 랜덤 스폰")]
@@ -18,7 +18,7 @@ public class FirePatternSpawner : MonoBehaviour
     private float _minRate = 0f;
 
 
-    private void Start()
+    private void StartAttack()
     {
         StartCoroutine(FirePatternSpawnCoroutine());
     }
@@ -33,7 +33,7 @@ public class FirePatternSpawner : MonoBehaviour
         }
     }
 
-    private void SpawnFirePattern()
+    public void SpawnFirePattern()
     {
         _spawnerPosition = transform;
         float _spawnPosition = Random.Range(_minRate, _maxRate);
