@@ -71,6 +71,12 @@ public class NoteSpawner : MonoBehaviour
         Debug.Log("[NoteSpawner] 노트 스폰 중지!");
     }
 
+    public void ChangeSpawnerPosition()
+    {
+        Transform tempSpawnPoint = _leftSpawnPoint;
+        _leftSpawnPoint = _rightSpawnPoint;
+        _rightSpawnPoint = tempSpawnPoint;
+    }
     void SpawnNote(NoteData noteData)
     {
         Note noteObject = _poolManager.SpawnGetComponent<NotePool, ENoteType, Note>(noteData.type);

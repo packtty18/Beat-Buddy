@@ -30,7 +30,7 @@ public class InputManager : CoreSingleton<InputManager>
     private Dictionary<EGameKeyType, bool> _currentDownStates = new Dictionary<EGameKeyType, bool>();
     private Dictionary<EGameKeyType, bool> _previousDownStates = new Dictionary<EGameKeyType, bool>();
     private EGameKeyType[] _gameKeyTypes;
-    private bool _isActive = true;
+    //private bool _isActive = true;
 
     
 
@@ -51,10 +51,10 @@ public class InputManager : CoreSingleton<InputManager>
     private void Update()
     {
         //인풋 비활성화시 로직 중단
-        if (!_isActive)
-        {
-            return;
-        }
+        //if (!_isActive)
+        //{
+        //    return;
+        //}
 
         // 이전 상태 저장
         foreach (EGameKeyType key in _gameKeyTypes)
@@ -83,7 +83,7 @@ public class InputManager : CoreSingleton<InputManager>
 
     public void SetInputActive(bool tf)
     {
-        _isActive = tf;
+        //_isActive = tf;
     }
 
     public bool GetKeyDown(EGameKeyType key)

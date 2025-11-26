@@ -69,7 +69,7 @@ public class StageManager : SceneSingleton<StageManager>
             _noteSpawner.ReloadBGMData();
             Debug.Log("[StageManager] NoteSpawner BGM 데이터 리로드 완료");
         }
-
+        // 플레이어 스폰
         PlayerManager.Instance.SpawnPlayer();
 
         // 카운트다운
@@ -92,10 +92,10 @@ public class StageManager : SceneSingleton<StageManager>
         //{
         //    UIManager.Instance.ShowStartText();
         //}
-
+        // 버디 스폰
         BuddyManager.Instance.SpawnBuddy();
+        // 버디 스탯 설정 
         StatManager.Instance.SetStat(SongManager.Instance.GetSelectedSongIndex());
-
         // 음악 재생 시작
         SongPlayManager.Instance.PlayBGM();
         Debug.Log("[StageManager] 음악 3초 대기 - 노트 생성 시간");
@@ -152,6 +152,7 @@ public class StageManager : SceneSingleton<StageManager>
         // 버디 애니메이션
         BuddyManager.Instance.RunAwayAnimation();
 
+        Debug.Log(SongPlayManager.Instance.IsPlaying());
         _resultUI.gameObject.SetActive(true);
         _resultUI.DisplayResult();
     }

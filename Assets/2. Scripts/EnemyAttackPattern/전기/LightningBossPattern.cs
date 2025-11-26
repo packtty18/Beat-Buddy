@@ -20,12 +20,6 @@ public class LightningBossPattern : MonoBehaviour
     private GameObject _thunder;
     private GameObject _thunderArrow;
 
-    [Header("리듬노트 프리팹")]
-    private List<Note> _rhythmNotes;
-    private Note _rhythmNote;
-    private GameObject _leftNote;
-    private GameObject _rightNote;
-
     [Header("이펙트 포지션")]
     private Transform _thunderPosition;
     [SerializeField] private Transform _lightningPosition1;
@@ -52,10 +46,11 @@ public class LightningBossPattern : MonoBehaviour
     private float _thunderAnimationTime = 0.34f;
     private float _lightningAnimationTime = 0.3f;
 
-    private NoteController _noteController;
+    private NoteSpawner _noteSpawner;
+
     private void Start()
     {
-        //_noteController = BuddyManager.Instance.GetNoteController();
+        _noteSpawner = FindObjectOfType<NoteSpawner>();
     }
     public void Attack()
     {
@@ -65,7 +60,7 @@ public class LightningBossPattern : MonoBehaviour
     private IEnumerator StartLightningAttackCoroutine()
     {
         _isLightningAttackActive = true;
-        //BuddyManager.Instance.StartBuddyPattern(true);
+        BuddyManager.Instance.StartBuddyPattern(true);
 
         // 초기화
         SetValue();
@@ -73,6 +68,7 @@ public class LightningBossPattern : MonoBehaviour
         // 플래시 효과 발동
         FlashScreen.Flash();
         StartLightningAttack();
+        _noteSpawner.ChangeSpawnerPosition();
 
         yield return new WaitForSeconds(_startLightning);
         SpawnLightning(_lightningPosition1);
@@ -82,8 +78,7 @@ public class LightningBossPattern : MonoBehaviour
         SpawnLightning(_lightningPosition3);
 
         _isLightningAttackActive = false;
-        //BuddyManager.Instance.StartBuddyPattern(false);
-
+        BuddyManager.Instance.StartBuddyPattern(false);
     }
 
     private void SetValue()
@@ -92,8 +87,8 @@ public class LightningBossPattern : MonoBehaviour
         _thunderSpawned = false;
         _thunderRepeat = false;
 
-        _leftNote = Resources.Load<GameObject>("LNote");
-        _rightNote = Resources.Load<GameObject>("RNote");
+        //_leftNote = Resources.Load<GameObject>("LNote");
+        //_rightNote = Resources.Load<GameObject>("RNote");
     }
 
     // 공격 시작 메서드
@@ -113,17 +108,6 @@ public class LightningBossPattern : MonoBehaviour
             if (_thunderSpawned == false) ThunderAttack();
         }
         _thunderSpawned = true;
-    }
-
-    // 번개 공격 노트 랜덤 타게팅 메서드
-    private void RandomTargetingNotes()
-    {
-        _rhythmNotes = _noteController.GetRandomNotesByProgress(0.4f, 1f, 5);
-
-        if (_rhythmNotes.Count == 0) return;
-
-        Note target = _rhythmNotes[Random.Range(0, _rhythmNotes.Count)];
-        _rhythmNote= target;
     }
 
     // 번개 효과 메서드

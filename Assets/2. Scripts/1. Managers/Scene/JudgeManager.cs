@@ -27,6 +27,7 @@ public class JudgeManager : SceneSingleton<JudgeManager>
 
     private SoundManager _soundManager;
     private PlayerManager _playerManager;
+    private PoolManager _poolManager;
 
     private int _score = 0;
     private int _combo = 0;
@@ -54,6 +55,7 @@ public class JudgeManager : SceneSingleton<JudgeManager>
     {
         if (_soundManager == null) _soundManager = SoundManager.Instance;
         if (_playerManager == null) _playerManager = PlayerManager.Instance;
+        if (_poolManager == null) _poolManager = PoolManager.Instance;
         if (_noteSpawner == null)
         {
             Debug.LogError("[JudgeManager] NoteSpawner가 할당되지 않았습니다!");
@@ -61,6 +63,7 @@ public class JudgeManager : SceneSingleton<JudgeManager>
         }
     }
 
+        
     void Update()
     {
         if (InputManager.Instance.GetKeyDown(EGameKeyType.Left))
@@ -128,11 +131,20 @@ public class JudgeManager : SceneSingleton<JudgeManager>
     private EHitType DetermineHitType(float timeDifference)
     {
         if (timeDifference <= _perfectWindow)
+        {
+            SpawnEffect(ENoteEffectType.PerfectEffect);
             return EHitType.Perfect;
+        }
         else if (timeDifference <= _goodWindow)
+        {
+            SpawnEffect(ENoteEffectType.GoodEffect);
             return EHitType.Good;
+        }
         else if (timeDifference <= _badWindow)
+        {
+            SpawnEffect(ENoteEffectType.BadEffect);
             return EHitType.Bad;
+        }
         else
             return EHitType.Miss;
     }
@@ -212,13 +224,19 @@ public class JudgeManager : SceneSingleton<JudgeManager>
         _missCount++;
         _combo = 0;
         _playerManager.OnHit(EHitType.Miss);
-
+        SpawnEffect(ENoteEffectType.MissEffect);
         //if (UIManager.Instance != null)
         //{
         //    UIManager.Instance.ShowJudgment(EHitType.Miss, 0f);
         //}
     }
 
+    private void SpawnEffect(ENoteEffectType effectType)
+    {
+        NoteEffect noteEffect = _poolManager.SpawnGetComponent<NoteEffectPool, ENoteEffectType, NoteEffect>(effectType);
+        noteEffect.SetEffectType(effectType);
+        noteEffect.transform.position = _judgePoint.position;
+    }
     public GameResult GetGameResult()
     {
         return new GameResult

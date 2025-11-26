@@ -20,7 +20,7 @@ public class BuddyStat : MonoBehaviour
 
     public bool isDefeated()
     {
-        return _currentHealth <= 0;
+        return _currentHealth <= _maxHealth * 0.5f;
     }
     public float GetDamage()
     {
