@@ -13,7 +13,7 @@ public enum EFirePatternType
 public class FireBossPattern : MonoBehaviour
 {
     [Header("화염 공격 트리거")]
-    public bool _isFireAttackActive = false;
+    [SerializeField] private bool _isFireAttackActive = false;
 
     [Header("화염 프리팹")]
     [SerializeField] private GameObject[] _firePatternPrefab;
