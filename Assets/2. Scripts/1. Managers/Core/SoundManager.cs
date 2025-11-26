@@ -39,6 +39,12 @@ public class SoundManager : CoreSingleton<SoundManager>
     [SerializeField] private string _bgmObjectName = "BGM";
     private SoundObject _bgmSource;
 
+    private float _bgmVolume = 1f;
+    private float _sfxVolume = 1f;
+
+    public float bgmVolume => _bgmVolume;
+    public float SfxVolume => _sfxVolume;
+
     protected override void Awake()
     {
         base.Awake();
@@ -57,6 +63,17 @@ public class SoundManager : CoreSingleton<SoundManager>
         SetBgmSource();
     }
 
+    public void SetBgmSound(float value)
+    {
+        _bgmVolume = value;
+        _bgmObject.GetComponent<SoundObject>().SetVolume(value);
+    }
+
+    public void SetSFXSound(float value)
+    {
+        _sfxVolume = value;
+    }
+
     private void SetBgmSource()
     {
         if (_bgmObject == null)
@@ -65,12 +82,12 @@ public class SoundManager : CoreSingleton<SoundManager>
 
             GameObject newObject = new GameObject(_bgmObjectName);
             newObject.transform.SetParent(transform);
-
+            _bgmObject = newObject;
             _bgmSource = newObject.AddComponent<SoundObject>();
         }
         else
         {
-            if (!_bgmObject.TryGetComponent<SoundObject>(out _bgmSource))
+            if (!_bgmObject.TryGetComponent(out _bgmSource))
             {
                 _bgmSource = _bgmObject.AddComponent<SoundObject>();
             }
@@ -79,10 +96,19 @@ public class SoundManager : CoreSingleton<SoundManager>
         AudioClip targetAudio = _soundDatabase.GetData(_initialBgmType);
         if (targetAudio != null)
         {
-            _bgmSource.OnPlay(targetAudio, true);
+            _bgmSource.OnPlay(targetAudio, true, bgmVolume);
         }
     }
 
+    public void PlayBGM(AudioClip clip, float playTime = 0)
+    {
+        if (_bgmSource == null || _soundDatabase == null)
+        {
+            return;
+        }
+
+        _bgmSource.OnPlay(clip, true, bgmVolume, playTime);
+    }
 
     public void PlayBGM(ESoundType bgmType, float playTime = 0)
     {
@@ -105,7 +131,7 @@ public class SoundManager : CoreSingleton<SoundManager>
 
         Debug.Log($"[SoundManager] PlayBGM requested: {bgmType}");
 
-        _bgmSource.OnPlay(clip, true, playTime);
+        _bgmSource.OnPlay(clip, true,bgmVolume, playTime);
     }
 
     public void StopBGM()
@@ -150,6 +176,6 @@ public class SoundManager : CoreSingleton<SoundManager>
             _pool.Despawn<SoundPool, ESoundObject>(ESoundObject.SoundObject, soundObject.gameObject);
         };
 
-        soundObject.OnPlay(clip, false, playTime);
+        soundObject.OnPlay(clip, false, SfxVolume, playTime);
     }
 }
