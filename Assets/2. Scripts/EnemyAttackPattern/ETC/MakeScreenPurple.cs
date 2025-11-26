@@ -53,7 +53,7 @@ public class MakeScreenPurple : MonoBehaviour
         while (timer < _purpleTime)
         {
             timer += Time.deltaTime;
-            float t = timer / _purpleTime;
+            float t = timer / _purpleSpeed;
             _purpleImage.color = Color.Lerp(_purpleImage.color, _purpleColour, t);
             _vignetteSpriteRenderer.color = Color.Lerp(_vignetteSpriteRenderer.color, _vignetteColour, t);
             yield return null;
@@ -66,12 +66,14 @@ public class MakeScreenPurple : MonoBehaviour
         while (timer < _purpleSpeed)
         {
             timer += Time.deltaTime;
-            float t = timer / _purpleTime;
+            float t = timer / _purpleSpeed;
             _purpleImage.color = Color.Lerp(_purpleImage.color, Color.clear, t);
             _vignetteSpriteRenderer.color = Color.Lerp(_vignetteSpriteRenderer.color, Color.clear, t);
             yield return null;
         }
+
         _purpleImage.color = Color.clear;
         _vignetteSpriteRenderer.color = Color.clear;
+        _isRunning = false;
     }
 }

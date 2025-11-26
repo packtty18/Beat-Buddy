@@ -36,10 +36,13 @@ public class WaterBossPattern : MonoBehaviour
     // 스킬 멈출 때 비 천천히 사라지는 효과 메서드
     private void StopRain()
     {
-        var effect = _raindrops.GetComponent<IPatternEffect>();
-        if (effect != null)
+        if (_raindrops != null)
         {
-            effect.StopRainEffect();
+            var effect = _raindrops.GetComponent<IPatternEffect>();
+            if (effect != null)
+            {
+                effect.StopRainEffect();
+            }
         }
     }
 }
