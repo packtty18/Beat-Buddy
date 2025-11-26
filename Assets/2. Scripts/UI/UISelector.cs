@@ -1,75 +1,175 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
-using UnityEngine.UI;
 
 public class UISelector : MonoBehaviour
 {
     [Header("UI Elements")]
-    [SerializeField] private List<Button> buttons = new List<Button>();
-    [SerializeField] private GameObject selectionUIPrefab;
-    [SerializeField] private Transform _canvas;
+    [SerializeField] private List<RectTransform> _targets = new List<RectTransform>();
 
-    [SerializeField] private RectTransform selectionUI;
-    [SerializeField] private int currentIndex = 0;
+    [Header("Highlight Prefab")]
+    [SerializeField] private GameObject _selectionPrefab;
+
+    [Header("Selector State")]
+    [SerializeField] private bool _isActive = false;
+
+    [Header("Debug")]
+    [SerializeField] private int _currentIndex = 0;
+
+    private RectTransform _currentTarget => _targets[_currentIndex];
+    private UISelector _prevSelector;
+    private RectTransform _highlightUI;
+
+    // 한 프레임 입력 스킵 플래그
+    private bool _skipNextFrame = false;
 
     private void Start()
     {
-        if (buttons.Count == 0)
+        Init();
+    }
+
+    public void Init()
+    {
+        _currentIndex = 0;
+        InitHighlight();
+        UpdateHighlight();
+    }
+
+    private void InitHighlight()
+    {
+        if (_selectionPrefab == null || _highlightUI != null)
         {
-            Debug.LogWarning("Buttons or Selection UI not assigned!");
             return;
         }
 
-        UpdateSelectionUI();
+        GameObject obj = Instantiate(_selectionPrefab, transform);
+        _highlightUI = obj.GetComponent<RectTransform>();
+        _highlightUI.gameObject.SetActive(false);
+    }
+    public void SetActiveSelector()
+    {
+        _isActive = true;
+        gameObject.SetActive(true);
+        UpdateHighlight();
+    }
+
+    public void DeactivateSelector()
+    {
+        _isActive = false;
+        gameObject.SetActive(false);
+
+        if (_highlightUI != null)
+        {
+            _highlightUI.gameObject.SetActive(false);
+        }
+    }
+
+    public void GoToNextSelector(UISelector next)
+    {
+        if (next == null)
+        {
+            return;
+        }
+
+        _isActive = false;
+        
+        next.RegisterPrevious(this);
+        next.SetActiveSelector();
+        next.Init();
+    }
+
+    public void ReturnToPrevious()
+    {
+        if (_prevSelector == null)
+        {
+            return;
+        }
+
+        DeactivateSelector();
+        
+        _prevSelector.SetActiveSelector();
+        _prevSelector._skipNextFrame = true;
+    }
+
+    private void RegisterPrevious(UISelector selector)
+    {
+        _prevSelector = selector;
     }
 
     private void Update()
     {
-        if (buttons.Count == 0)
+        if (_skipNextFrame)
+        {
+            _skipNextFrame = false;
+            return; // 한 프레임 입력 무시
+        }
+
+        if (!_isActive || _targets.Count == 0 || !InputManager.IsManagerExist())
         {
             return;
         }
 
-        if(!InputManager.IsManagerExist())
-        {
-            return;
-        }
+        HandleMoveInput();
+        HandleControlInput();
+    }
 
+    //상하로 다음 UI로 이동
+    private void HandleMoveInput()
+    {
         if (InputManager.Instance.GetKeyDown(EGameKeyType.Up))
         {
-            currentIndex--;
-            if (currentIndex < 0) currentIndex = buttons.Count - 1;
-            UpdateSelectionUI();
-        }
+            _currentIndex--;
+            if (_currentIndex < 0)
+            {
+                _currentIndex = _targets.Count - 1;
+            }
 
-        // ↓ 키 이동
-        if (InputManager.Instance.GetKeyDown(EGameKeyType.Down))
-        {
-            currentIndex++;
-            if (currentIndex >= buttons.Count) currentIndex = 0;
-            UpdateSelectionUI();
+            UpdateHighlight();
         }
-
-        // Enter 클릭
-        if (InputManager.Instance.GetKeyDown(EGameKeyType.Confirm))
+        else if (InputManager.Instance.GetKeyDown(EGameKeyType.Down))
         {
-            buttons[currentIndex].onClick?.Invoke();
+            _currentIndex++;
+            if (_currentIndex >= _targets.Count)
+            {
+                _currentIndex = 0;
+            }
+            UpdateHighlight();
         }
     }
 
-    private void UpdateSelectionUI()
+    //엔터 혹은 좌우 키로 해당 UI 조절
+    private void HandleControlInput()
     {
-        RectTransform btnRect = buttons[currentIndex].GetComponent<RectTransform>();
-        if (selectionUI == null)
+        // 확인
+        if (InputManager.Instance.GetKeyDown(EGameKeyType.Confirm) &&
+            _currentTarget.TryGetComponent(out IUIConfirmable confirmable))
         {
-            selectionUI = Instantiate(selectionUIPrefab, btnRect).GetComponent<RectTransform>();
+            confirmable.OnConfirm();
         }
 
-        // 선택 UI 위치와 크기를 현재 버튼에 맞춤
+        // 좌우
+        if (_currentTarget.TryGetComponent(out IUIValueChangeable valueChange))
+        {
+            if (InputManager.Instance.GetKeyDown(EGameKeyType.Right))
+                valueChange.OnValueIncrease();
 
-        selectionUI.SetParent(btnRect,false);
-        selectionUI.localPosition = Vector3.zero;
-        selectionUI.sizeDelta = btnRect.sizeDelta;
+            if (InputManager.Instance.GetKeyDown(EGameKeyType.Left))
+                valueChange.OnValueDecrease();
+        }
     }
 
+    //하이라이트 조절
+    private void UpdateHighlight()
+    {
+        if (_highlightUI == null)
+        {
+            return;
+        }
+
+        RectTransform targetRect = _currentTarget;
+
+        _highlightUI.gameObject.SetActive(true);
+        _highlightUI.SetParent(targetRect, false);
+        _highlightUI.localPosition = Vector3.zero;
+        _highlightUI.sizeDelta = new Vector3(targetRect.sizeDelta.x + 10, targetRect.sizeDelta.y + 10) ;
+    }
 }
