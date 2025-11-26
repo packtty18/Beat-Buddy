@@ -55,7 +55,7 @@ public class LightningBossPattern : MonoBehaviour
     private NoteController _noteController;
     private void Start()
     {
-        //_noteController = BuddyManager.Instance.GetNoteController();
+        _noteController = BuddyManager.Instance.GetNoteController();
     }
     public void Attack()
     {
@@ -65,7 +65,7 @@ public class LightningBossPattern : MonoBehaviour
     private IEnumerator StartLightningAttackCoroutine()
     {
         _isLightningAttackActive = true;
-        //BuddyManager.Instance.StartBuddyPattern(true);
+        BuddyManager.Instance.StartBuddyPattern(true);
 
         // 초기화
         SetValue();
@@ -82,7 +82,7 @@ public class LightningBossPattern : MonoBehaviour
         SpawnLightning(_lightningPosition3);
 
         _isLightningAttackActive = false;
-        //BuddyManager.Instance.StartBuddyPattern(false);
+        BuddyManager.Instance.StartBuddyPattern(false);
 
     }
 
@@ -109,7 +109,7 @@ public class LightningBossPattern : MonoBehaviour
         int repeatCount = Random.Range(_minAttackCount, _maxAttackCount);
         for (int i = 0; i <= repeatCount; i++) 
         {
-            //RandomTargetingNotes();
+            RandomTargetingNotes();
             if (_thunderSpawned == false) ThunderAttack();
         }
         _thunderSpawned = true;

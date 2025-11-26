@@ -35,31 +35,10 @@ public class WaterBossPattern : MonoBehaviour
     // 스킬 멈출 때 비 천천히 사라지는 효과 메서드
     private void StopRain()
     {
-        if (_raindrops != null)
+        var effect = _raindrops.GetComponent<IPatternEffect>();
+        if (effect != null)
         {
-            // 페이드 아웃 호출
-            FadeOutRaindropVFX fadeOutAnimation = _raindrops.GetComponent<FadeOutRaindropVFX>();
-            System.Action cleanupAction = () =>
-            {
-                if (_raindrops != null)
-                {
-                    Destroy(_raindrops);
-                    _raindrops = null;
-                }
-            };
-            if (fadeOutAnimation != null)
-            {
-                StartCoroutine(fadeOutAnimation.FadeOutRainCoroutine(cleanupAction));
-            }
-            else
-            {
-                Debug.LogWarning("StopRain: FadeOutRaindropVFX 컴포넌트가 없으므로 즉시 정리합니다.");
-                cleanupAction.Invoke();
-            }
-        }
-        else
-        {
-            _raindrops = null;
+            effect.StopRainEffect();
         }
     }
 }

@@ -2,7 +2,7 @@
 using UnityEngine.VFX;
 using System.Collections;
 
-public class FadeOutRaindropVFX : MonoBehaviour
+public class FadeOutRaindropVFX : MonoBehaviour, IPatternEffect
 {
     [Header("VFX")]
     [SerializeField] private VisualEffect _raindropVFX;
@@ -12,6 +12,11 @@ public class FadeOutRaindropVFX : MonoBehaviour
     private float _startSizeMax;
     private float _startIntensity;
 
+
+    public void StopRainEffect()
+    {
+        StartCoroutine(FadeOutRainCoroutine(() => Destroy(gameObject)));
+    }
 
     public IEnumerator FadeOutRainCoroutine(System.Action onComplete)
     {
@@ -30,11 +35,11 @@ public class FadeOutRaindropVFX : MonoBehaviour
             time += Time.deltaTime;
             yield return null;
         }
-
-        if (onComplete != null)
-        {
-            onComplete.Invoke();
-        }
-        Destroy(gameObject);
     }
 }
+
+internal interface IPatternEffect
+{
+    void StopRainEffect();
+}
+
