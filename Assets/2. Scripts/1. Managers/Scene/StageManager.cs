@@ -1,14 +1,6 @@
 ﻿using System.Collections;
 using UnityEngine;
 
-public enum EGameState
-{
-    None,
-    GameReady,
-    GamePlay,
-    GameEnd,
-}
-
 public class StageManager : SceneSingleton<StageManager>
 {
     [Header("시작, 끝 딜레이")]
@@ -18,16 +10,7 @@ public class StageManager : SceneSingleton<StageManager>
     [SerializeField] private NoteSpawner _noteSpawner;
     [SerializeField] private NoteController _noteController;
 
-    private EGameState _currentState = EGameState.None;
     private Coroutine _stageFlowCoroutine;
-    private bool _bossPatternActivated = false;
-
-    public bool BossPatternActivated
-    {
-        get => _bossPatternActivated;
-        set => _bossPatternActivated = value;
-    }
-    public EGameState CurrentState => _currentState;
 
     private void Start()
     {
@@ -46,12 +29,11 @@ public class StageManager : SceneSingleton<StageManager>
     }
     private IEnumerator StageGameFlow()
     {
-        _currentState = EGameState.GameReady;
         Debug.Log("[StageManager] === Stage 게임 흐름 시작 ===");
 
-        if (Conductor.Instance == null)
+        if (SongPlayManager.Instance == null)
         {
-            Debug.LogError("[StageManager] Conductor가 없습니다!");
+            Debug.LogError("[StageManager] SongPlayManager가 없습니다!");
             yield break;
         }
 
@@ -77,7 +59,7 @@ public class StageManager : SceneSingleton<StageManager>
             Debug.Log("[StageManager] NoteSpawner 정리 완료");
         }
 
-        Conductor.Instance.LoadSelectedSong();
+        SongPlayManager.Instance.LoadSelectedSong();
 
         // NoteSpawner BGM 데이터 리로드
         if (_noteSpawner != null)
@@ -106,18 +88,19 @@ public class StageManager : SceneSingleton<StageManager>
         //{
         //    UIManager.Instance.ShowStartText();
         //}
+        BuddyManager.Instance.SpawnBuddy();
 
         // 음악 재생 시작
-        Conductor.Instance.PlayBGM();
+        SongPlayManager.Instance.PlayBGM();
         Debug.Log("[StageManager] 음악 3초 대기 - 노트 생성 시간");
 
         // 음악이 준비될 때까지 대기  
         _noteSpawner.StartSpawning();
-        yield return new WaitUntil(() => Conductor.Instance.IsSpawnNow);
+        yield return new WaitUntil(() => SongPlayManager.Instance.IsSpawnNow);
         Debug.Log("[StageManager] 음악 시작");
 
         // 음악이 끝날 때까지 대기
-        yield return new WaitUntil(() => !Conductor.Instance.IsPlaying());
+        yield return new WaitUntil(() => !SongPlayManager.Instance.IsPlaying());
         Debug.Log("[StageManager] 음악 종료 감지");
 
         // 게임 종료 처리
@@ -203,10 +186,10 @@ public class StageManager : SceneSingleton<StageManager>
     // 씬 바꿀 때 호출
     private void CleanupStage()
     {
-        // Conductor 정지
-        if (Conductor.Instance != null)
+        // SongPlayManager 정지
+        if (SongPlayManager.Instance != null)
         {
-            Conductor.Instance.StopBGM();
+            SongPlayManager.Instance.StopBGM();
         }
         // NoteSpawner 정리
         if (_noteSpawner != null)

@@ -4,7 +4,7 @@ using System.Collections;
 public class WaterBossPattern : MonoBehaviour
 {
     [Header("물 공격 트리거")]
-    public bool _isWaterAttackActive = false;
+    [SerializeField] private bool _isWaterAttackActive = false;
 
     [Header("물 효과 프리팹")]
     [SerializeField] private GameObject _raindropsPrefab;
@@ -17,26 +17,49 @@ public class WaterBossPattern : MonoBehaviour
     public void Attack()
     {
         StartCoroutine(StartWaterAttackCoroutine());
+        Debug.Log("어택");
     }
 
     private IEnumerator StartWaterAttackCoroutine()
     {
         _isWaterAttackActive = true;
 
-        StartWaterAttack();
+        _raindrops = Instantiate(_raindropsPrefab);
+        BuddyManager.Instance.StartBuddyPattern(true);
         yield return new WaitForSeconds(_raindropAnimationTime);
-        FinishWaterAttack();
-
+        StopRain();
+        BuddyManager.Instance.StartBuddyPattern(false);
         _isWaterAttackActive = false;
     }
 
-    // 일정 시간이 되면 효과를 활성화하는 메서드
-    private void StartWaterAttack()
+    // 스킬 멈출 때 비 천천히 사라지는 효과 메서드
+    private void StopRain()
     {
-        _raindrops = Instantiate(_raindropsPrefab);
-    }
-    private void FinishWaterAttack()
-    {
-        Destroy(_raindrops);
+        if (_raindrops != null)
+        {
+            // 페이드 아웃 호출
+            FadeOutRaindropVFX fadeOutAnimation = _raindrops.GetComponent<FadeOutRaindropVFX>();
+            System.Action cleanupAction = () =>
+            {
+                if (_raindrops != null)
+                {
+                    Destroy(_raindrops);
+                    _raindrops = null;
+                }
+            };
+            if (fadeOutAnimation != null)
+            {
+                StartCoroutine(fadeOutAnimation.FadeOutRainCoroutine(cleanupAction));
+            }
+            else
+            {
+                Debug.LogWarning("StopRain: FadeOutRaindropVFX 컴포넌트가 없으므로 즉시 정리합니다.");
+                cleanupAction.Invoke();
+            }
+        }
+        else
+        {
+            _raindrops = null;
+        }
     }
 }

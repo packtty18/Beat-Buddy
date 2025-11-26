@@ -3,8 +3,8 @@ using UnityEngine;
 
 public class GameManager : CoreSingleton<GameManager>
 {
-    private ETransitionType _outTransitionType = ETransitionType.None;
-    private ETransitionType _inTransitionType = ETransitionType.None;
+    [SerializeField] private ETransitionType _outTransitionType = ETransitionType.None;
+    [SerializeField] private ETransitionType _inTransitionType = ETransitionType.None;
     private bool _blockLoadSameScene = true;
 
     private ESceneType _currentScene = ESceneType.Lobby;
