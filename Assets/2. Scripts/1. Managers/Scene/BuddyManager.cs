@@ -14,6 +14,8 @@ public class BuddyManager : SceneSingleton<BuddyManager>
     [SerializeField] private NoteController _noteController;
 
     private ESongType _currentBuddyType;
+    private float _buddyDamage;
+    private BuddyStat _buddyStat;
 
     protected override void Awake()
     {
@@ -21,6 +23,10 @@ public class BuddyManager : SceneSingleton<BuddyManager>
         _currentBuddyType = 0;
     }
 
+    public float GetBuddyDamage()
+    {
+        return _buddyDamage;
+    }
     public void SpawnBuddy()
     {
         // 현재 선택된 곡의 버디 타입 가져오기
@@ -44,7 +50,15 @@ public class BuddyManager : SceneSingleton<BuddyManager>
             _currentBuddyPrefab = Instantiate(buddyPrefab, _buddySpawnPoint.position, Quaternion.identity, _buddySpawnPoint);
             _currentBuddyType = selectedSongType;
             _currentBuddyPrefab.transform.DOMoveX(_currentBuddyPrefab.transform.position.x - 5f, 5f);
+            GetBuddyStat(_currentBuddyPrefab);
         }
+    } 
+
+    private void GetBuddyStat(GameObject currentBuddyPrefab)
+    {
+        _buddyStat = _currentBuddyPrefab.GetComponent<BuddyStat>();
+        _buddyDamage = _buddyStat.GetDamage();
+        StatManager.Instance.SetBuddyStat(_buddyStat);
     }
 
     public void StartBuddyPattern(bool attacking)

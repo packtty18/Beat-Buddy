@@ -92,6 +92,8 @@ public class StageManager : SceneSingleton<StageManager>
         //}
         BuddyManager.Instance.SpawnBuddy();
 
+        StatManager.Instance.SetStat(SongManager.Instance.GetSelectedSongIndex());
+
         // 음악 재생 시작
         SongPlayManager.Instance.PlayBGM();
         Debug.Log("[StageManager] 음악 3초 대기 - 노트 생성 시간");

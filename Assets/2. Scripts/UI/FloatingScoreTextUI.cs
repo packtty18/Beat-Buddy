@@ -13,7 +13,7 @@ public class FloatingScoreTextUI : MonoBehaviour, IPoolable
     {
         transform.SetParent(parent);
         transform.localScale = Vector3.one;
-        transform.position = Vector3.zero;
+        transform.localPosition = Vector3.zero;
         _text.text = text;
         _timer = 0f;
     }

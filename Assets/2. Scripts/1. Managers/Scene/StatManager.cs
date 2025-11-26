@@ -32,6 +32,15 @@ public class StatManager : SceneSingleton<StatManager>
         SetStat(currentStage);
     }
 
+    public void SetPlayerStat(PlayerStat playerStat)
+    {
+        _playerStat = playerStat;
+    }
+    public void SetBuddyStat(BuddyStat buddyStat)
+    {
+        _buddyStat = buddyStat;
+    }
+
     public void SetStat(int stage)
     {
         currentStage = stage;
@@ -39,7 +48,7 @@ public class StatManager : SceneSingleton<StatManager>
         BuddyStatDataSO _upgradedBuddyStat = ScriptableObject.CreateInstance<BuddyStatDataSO>();
 
         _upgradedPlayerStat.CopyStat(_defaultPlayerStat);
-        _upgradedBuddyStat.CopyStat(_stageDefaultBuddyStats[stage - 1]);
+        _upgradedBuddyStat.CopyStat(_stageDefaultBuddyStats[stage]);
 
         foreach (var upgrade in _upgradeOptions)
         {

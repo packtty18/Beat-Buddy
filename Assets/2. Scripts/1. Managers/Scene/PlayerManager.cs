@@ -19,21 +19,29 @@ public class PlayerManager : SceneSingleton<PlayerManager>
     private void Start()
     {
         _playerStat = GetComponent<PlayerStat>();
-        _playerStat.StartAttack += OnAttack;
-        _buddyManager = BuddyManager.Instance;
+        _scoreManager = ScoreManager.Instance;
     }
 
     public void SpawnPlayer()
     {
         if (_playerPrefab != null)
         {
-            _currentPlayerPrefab = Instantiate(_playerPrefab, _playerSpawnPoint.position, Quaternion.identity);
+            _currentPlayerPrefab = Instantiate(_playerPrefab, _playerSpawnPoint.position, Quaternion.identity, _playerSpawnPoint);
             _currentPlayerPrefab.transform.DOMoveX(_currentPlayerPrefab.transform.position.x + 5f, 3f);
+            GetPlayerStat(_currentPlayerPrefab);
         }
         else
         {
             Debug.LogError("[PlayerManager] 플레이어 프리팹 또는 스폰 포인트가 없습니다!");
         }
+    }
+
+    private void GetPlayerStat(GameObject currentPlayerPrefab)
+    {
+        _playerStat = currentPlayerPrefab.GetComponent<PlayerStat>();
+        _playerStat.StartAttack += OnAttack;
+        StatManager.Instance.SetPlayerStat(_playerStat);
+        _buddyManager = BuddyManager.Instance;
     }
 
     private void OnAttack()

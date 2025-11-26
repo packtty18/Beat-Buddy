@@ -8,7 +8,7 @@ public class SongSelectUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _songInfoText;
     [SerializeField] private TextMeshProUGUI _instructionText;
 
-    private int _currentIndex = 0;
+    private int _currentStageIndex = 0;
     private BGMDataSO[] _songs;
 
     void Start()
@@ -20,7 +20,7 @@ public class SongSelectUI : MonoBehaviour
         }
 
         _songs = SongManager.Instance.GetAllSongs();
-        _currentIndex = SongManager.Instance.GetSelectedSongIndex();
+        _currentStageIndex = SongManager.Instance.GetSelectedSongIndex();
 
         if (_songs == null || _songs.Length == 0)
         {
@@ -48,9 +48,9 @@ public class SongSelectUI : MonoBehaviour
         // 위 화살표: 이전 곡
         if (InputManager.Instance.GetKeyDown(EGameKeyType.Up))
         {
-            _currentIndex--;
-            if (_currentIndex < 0)
-                _currentIndex = _songs.Length - 1;
+            _currentStageIndex--;
+            if (_currentStageIndex < 0)
+                _currentStageIndex = _songs.Length - 1;
 
             UpdateDisplay();
             PlaySelectSound();
@@ -59,9 +59,9 @@ public class SongSelectUI : MonoBehaviour
         // 아래 화살표: 다음 곡
         if (InputManager.Instance.GetKeyDown(EGameKeyType.Down))
         {
-            _currentIndex++;
-            if (_currentIndex >= _songs.Length)
-                _currentIndex = 0;
+            _currentStageIndex++;
+            if (_currentStageIndex >= _songs.Length)
+                _currentStageIndex = 0;
 
             UpdateDisplay();
             PlaySelectSound();
@@ -72,8 +72,8 @@ public class SongSelectUI : MonoBehaviour
         {
             if (SongManager.Instance != null && GameManager.Instance != null)
             {
-                SongManager.Instance.SelectSongByIndex(_currentIndex);
-                GameManager.Instance.StartStage(); // StartStage() -> StartGame()
+                SongManager.Instance.SelectSongByIndex(_currentStageIndex);
+                GameManager.Instance.StartStage(); 
                 PlayConfirmSound();
             }
         }
@@ -91,9 +91,9 @@ public class SongSelectUI : MonoBehaviour
 
     void UpdateDisplay()
     {
-        if (_currentIndex < 0 || _currentIndex >= _songs.Length) return;
+        if (_currentStageIndex < 0 || _currentStageIndex >= _songs.Length) return;
 
-        BGMDataSO song = _songs[_currentIndex];
+        BGMDataSO song = _songs[_currentStageIndex];
 
         // 곡 제목
         if (_songTitleText != null)

@@ -525,7 +525,6 @@ GameObject:
   - component: {fileID: 191791447}
   - component: {fileID: 191791449}
   - component: {fileID: 191791448}
-  - component: {fileID: 191791450}
   m_Layer: 5
   m_Name: ScoreText
   m_TagString: Untagged
@@ -651,21 +650,6 @@ CanvasRenderer:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 191791446}
   m_CullTransparentMesh: 1
---- !u!114 &191791450
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_CorrespondingSourceObject: {fileID: 0}
-  m_PrefabInstance: {fileID: 0}
-  m_PrefabAsset: {fileID: 0}
-  m_GameObject: {fileID: 191791446}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 7b35adf6860d17146b6409d1d5f6ec1b, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  _text: {fileID: 191791448}
-  _riseSpeed: 1
-  _duration: 1
 --- !u!1 &212935453
 GameObject:
   m_ObjectHideFlags: 0
@@ -1639,10 +1623,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 0cd44c1031e13a943bb63640046fad76, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_UiScaleMode: 0
+  m_UiScaleMode: 1
   m_ReferencePixelsPerUnit: 100
   m_ScaleFactor: 1
-  m_ReferenceResolution: {x: 800, y: 600}
+  m_ReferenceResolution: {x: 1920, y: 1080}
   m_ScreenMatchMode: 0
   m_MatchWidthOrHeight: 0
   m_PhysicalUnit: 3
@@ -1659,8 +1643,8 @@ Canvas:
   m_GameObject: {fileID: 1082093626}
   m_Enabled: 1
   serializedVersion: 3
-  m_RenderMode: 0
-  m_Camera: {fileID: 0}
+  m_RenderMode: 1
+  m_Camera: {fileID: 1298730521}
   m_PlaneDistance: 100
   m_PixelPerfect: 0
   m_ReceivesEvents: 1
@@ -2020,6 +2004,7 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1672740461}
+  - component: {fileID: 1672740462}
   m_Layer: 5
   m_Name: ScoreUI
   m_TagString: Untagged
@@ -2047,6 +2032,22 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
+--- !u!114 &1672740462
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1672740460}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: c77147ee539b4b6488a6fab7908342a2, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  _text: {fileID: 191791448}
+  _minDuration: 0.2
+  _maxDuration: 1
+  _scorePerSecond: 2000
 --- !u!1 &1691203995
 GameObject:
   m_ObjectHideFlags: 0
