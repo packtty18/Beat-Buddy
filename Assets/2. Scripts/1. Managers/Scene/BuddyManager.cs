@@ -6,6 +6,7 @@ public class BuddyManager : SceneSingleton<BuddyManager>
 {
     [Header("버디 리스트")]
     [SerializeField] private List<GameObject> _buddyList = new List<GameObject>();
+    [Header("현재 버디가 누구냐 (확인용)")]
     [SerializeField] private GameObject _currentBuddyPrefab;
     [Header("버디 스폰 위치")]
     [SerializeField] private Transform _buddySpawnPoint;

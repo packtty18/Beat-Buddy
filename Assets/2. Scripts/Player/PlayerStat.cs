@@ -24,6 +24,8 @@ public class PlayerStat : MonoBehaviour
     [SerializeField] public bool IsFeverOn;
     [SerializeField] public bool IsAttakcOn;
 
+    public event Action StartAttack;
+
     public void SetStat(PlayerStatDataSO stat)
     {
         _maxHealth = stat.MaxHealth;
@@ -88,6 +90,7 @@ public class PlayerStat : MonoBehaviour
         if(_currentAttackGuage == _maxAttackGuage)
         {
             IsAttakcOn = true;
+            StartAttack?.Invoke();
         }
     }
 
