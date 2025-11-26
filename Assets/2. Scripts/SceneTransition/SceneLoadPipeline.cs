@@ -53,6 +53,7 @@ public class SceneLoadPipeline
 
     private IEnumerator PlayInPhase()
     {
+        //out 연출 시작을 안했다면 in연출도 안함
         if (_outTransition != null && _inTransition != null)
         {
             _loadingImage.DeActiveLoad(_imageFadeTime);

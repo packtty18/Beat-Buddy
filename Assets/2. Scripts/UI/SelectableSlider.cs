@@ -10,7 +10,6 @@ public class SelectableSlider : MonoBehaviour, IUIValueChangeable
     private void Start()
     {
         _slider = GetComponent<Slider>();
-        _currentValue = 0.5f;
         _slider.value = _currentValue;
     }
 

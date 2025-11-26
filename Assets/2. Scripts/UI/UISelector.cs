@@ -3,6 +3,7 @@ using UnityEngine;
 
 public class UISelector : MonoBehaviour
 {
+    private const float PADDING_OFFSET = 10;
     [Header("UI Elements")]
     [SerializeField] private List<RectTransform> _targets = new List<RectTransform>();
 
@@ -117,21 +118,12 @@ public class UISelector : MonoBehaviour
     {
         if (InputManager.Instance.GetKeyDown(EGameKeyType.Up))
         {
-            _currentIndex--;
-            if (_currentIndex < 0)
-            {
-                _currentIndex = _targets.Count - 1;
-            }
-
+            _currentIndex = (_currentIndex - 1 + _targets.Count) % _targets.Count;
             UpdateHighlight();
         }
         else if (InputManager.Instance.GetKeyDown(EGameKeyType.Down))
         {
-            _currentIndex++;
-            if (_currentIndex >= _targets.Count)
-            {
-                _currentIndex = 0;
-            }
+            _currentIndex = (_currentIndex + 1) % _targets.Count;
             UpdateHighlight();
         }
     }
@@ -157,6 +149,7 @@ public class UISelector : MonoBehaviour
         }
     }
 
+    
     //하이라이트 조절
     private void UpdateHighlight()
     {
@@ -168,8 +161,8 @@ public class UISelector : MonoBehaviour
         RectTransform targetRect = _currentTarget;
 
         _highlightUI.gameObject.SetActive(true);
-        _highlightUI.SetParent(targetRect, false);
-        _highlightUI.localPosition = Vector3.zero;
-        _highlightUI.sizeDelta = new Vector3(targetRect.sizeDelta.x + 10, targetRect.sizeDelta.y + 10) ;
+        Vector3 worldPos = _currentTarget.position;
+        _highlightUI.position = worldPos;
+        _highlightUI.sizeDelta = new Vector3(targetRect.sizeDelta.x + PADDING_OFFSET, targetRect.sizeDelta.y + PADDING_OFFSET);
     }
 }

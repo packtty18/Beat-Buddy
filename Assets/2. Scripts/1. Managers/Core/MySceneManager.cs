@@ -79,12 +79,18 @@ public class MySceneManager : CoreSingleton<MySceneManager>
 
     private IEnumerator SceneCoroutineWrapper(SceneLoadPipeline pipeline)
     {
-        yield return pipeline.Execute();
-        _loadingCoroutine = null; // 완료 후 null 처리
-
-        if(InputManager.IsManagerExist())
+        try
         {
-            InputManager.Instance.SetInputActive(true);
+            yield return pipeline.Execute();
+        }
+        finally
+        {
+            _loadingCoroutine = null; // 완료 후 null 처리
+
+            if (InputManager.IsManagerExist())
+            {
+                InputManager.Instance.SetInputActive(true);
+            }
         }
     }
 
