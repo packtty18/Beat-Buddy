@@ -5,7 +5,7 @@ using System.Collections;
 public class WaterPatternSpawner : MonoBehaviour
 {
     [Header("쿨타임")]
-    private float _spawnCoolTime = 15f;  // 시작 시간과 쿨타임 시간이 14초로 같음
+    private float _spawnCoolTime = 13f;  // 기본 13f
 
 
     private void Start()
@@ -22,7 +22,7 @@ public class WaterPatternSpawner : MonoBehaviour
         }
     }
 
-    private void SpawnWaterPattern()
+    public void SpawnWaterPattern()
     {
         WaterBossPattern startAttack = GetComponent<WaterBossPattern>();
         startAttack.Attack();

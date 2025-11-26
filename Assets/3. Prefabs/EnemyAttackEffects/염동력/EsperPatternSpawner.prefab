@@ -12,7 +12,7 @@ GameObject:
   - component: {fileID: 3319190068039967438}
   - component: {fileID: 5802642225017966919}
   m_Layer: 0
-  m_Name: EsperAttackSpawner
+  m_Name: EsperPatternSpawner
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
