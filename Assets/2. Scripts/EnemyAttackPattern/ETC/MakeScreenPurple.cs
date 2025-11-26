@@ -16,6 +16,9 @@ public class MakeScreenPurple : MonoBehaviour
     private float _purpleSpeed = 1.6f;
     private float _purpleTime = 8f;
 
+    [Header("효과 진행상태")]
+    private bool _isRunning = false;
+
 
     private void Awake()
     {
@@ -32,6 +35,8 @@ public class MakeScreenPurple : MonoBehaviour
     }
     private void StartPurpleCoroutine()
     {
+        if(_isRunning) return;
+        _isRunning = true;
         StartCoroutine(PurpleCoroutine());
     }
 
@@ -39,8 +44,7 @@ public class MakeScreenPurple : MonoBehaviour
     {
         StartCoroutine(StartPurple());
         yield return new WaitForSeconds(_purpleTime);
-        StartCoroutine(FinishPurple());
-        yield return (FinishPurple());
+        yield return StartCoroutine(FinishPurple());
     }
 
     private IEnumerator StartPurple()
@@ -49,8 +53,9 @@ public class MakeScreenPurple : MonoBehaviour
         while (timer < _purpleTime)
         {
             timer += Time.deltaTime;
-            _purpleImage.color = Color.Lerp(_purpleImage.color, _purpleColour, _purpleSpeed * Time.deltaTime);
-            _vignetteSpriteRenderer.color = Color.Lerp(_vignetteSpriteRenderer.color, _vignetteColour, _purpleSpeed * Time.deltaTime);
+            float t = timer / _purpleTime;
+            _purpleImage.color = Color.Lerp(_purpleImage.color, _purpleColour, t);
+            _vignetteSpriteRenderer.color = Color.Lerp(_vignetteSpriteRenderer.color, _vignetteColour, t);
             yield return null;
         }
     }
@@ -61,8 +66,9 @@ public class MakeScreenPurple : MonoBehaviour
         while (timer < _purpleSpeed)
         {
             timer += Time.deltaTime;
-            _purpleImage.color = Color.Lerp(_purpleImage.color, Color.clear, _purpleSpeed * Time.deltaTime);
-            _vignetteSpriteRenderer.color = Color.Lerp(_vignetteSpriteRenderer.color, Color.clear, _purpleSpeed * Time.deltaTime);
+            float t = timer / _purpleTime;
+            _purpleImage.color = Color.Lerp(_purpleImage.color, Color.clear, t);
+            _vignetteSpriteRenderer.color = Color.Lerp(_vignetteSpriteRenderer.color, Color.clear, t);
             yield return null;
         }
         _purpleImage.color = Color.clear;

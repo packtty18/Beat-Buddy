@@ -35,6 +35,8 @@ public class FadeOutRaindropVFX : MonoBehaviour, IPatternEffect
             time += Time.deltaTime;
             yield return null;
         }
+        yield return new WaitForSeconds(_stopRainDuration);
+        onComplete?.Invoke();
     }
 }
 

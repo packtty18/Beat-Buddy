@@ -418,7 +418,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 4005070882157374660, guid: 2b1ba6e11a75cd542abdf98598f5d017, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 8388031389710896807, guid: 2b1ba6e11a75cd542abdf98598f5d017, type: 3}
       propertyPath: m_LocalPosition.x
@@ -601,7 +601,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1754702874244579693, guid: 001772e147d9abe4b8172da910861cff, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4666127927673037884, guid: 001772e147d9abe4b8172da910861cff, type: 3}
       propertyPath: _raindropsVFX
@@ -661,5 +661,5 @@ SceneRoots:
   - {fileID: 1581963708}
   - {fileID: 1759434994}
   - {fileID: 1026291196}
-  - {fileID: 756019642}
   - {fileID: 298928152}
+  - {fileID: 756019642}

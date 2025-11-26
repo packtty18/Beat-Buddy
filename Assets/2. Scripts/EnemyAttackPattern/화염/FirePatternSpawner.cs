@@ -1,7 +1,8 @@
-﻿using UnityEngine;
-using System.Collections;
+﻿using System.Collections;
+using UnityEngine;
+using static FinalBossPatternSpawner;
 
-public class FirePatternSpawner : MonoBehaviour
+public class FirePatternSpawner : MonoBehaviour, IPatternSpawner
 {
     [Header("스포너 위치")]
     [SerializeField] private GameObject _firePatternSpawner;
@@ -10,12 +11,15 @@ public class FirePatternSpawner : MonoBehaviour
 
     [Header("쿨타임")]
     private float _startAttackTime = 11f;  // 기본 11f
-    private float _spawnCoolTime = 6f;     // 쿨타임 기본 17f (11 + 6)
+    private float _spawnCoolTime = 6f;     // 기본 쿨타임 17f (11 + 6)
 
 
     [Header("좌우 랜덤 스폰")]
     private float _maxRate = 1f;
     private float _minRate = 0f;
+
+    [Header("파이널보스 참조용")]
+    public float PatternDuration => 7f;
 
 
     private void StartAttack()
@@ -47,5 +51,10 @@ public class FirePatternSpawner : MonoBehaviour
         }
         FireBossPattern startAttack = GetComponent<FireBossPattern>();
         startAttack.Attack();
+    }
+
+    public void SpawnPattern()
+    {
+        SpawnFirePattern();
     }
 }

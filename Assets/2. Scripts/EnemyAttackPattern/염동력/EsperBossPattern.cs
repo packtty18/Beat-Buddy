@@ -48,7 +48,9 @@ public class EsperBossPattern : MonoBehaviour
         BuddyManager.Instance.StartBuddyPattern(true);
 
         SetValue();
-        EsperPatternEffect.MakeEsperEffect();
+
+        MakeScreenPurple.MakePurpleScreen();
+        EsperPatternEffect.MakeEsperEffect();  // 화면 이펙트 생성
         yield return new WaitForSeconds(_watingTrasnfer);  // 화면 색변환 대기
         SetNoteNumbers();
         StartCoroutine(MovingNotesCoroutine());

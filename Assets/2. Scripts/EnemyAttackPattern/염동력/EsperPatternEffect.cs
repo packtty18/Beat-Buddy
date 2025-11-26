@@ -24,7 +24,6 @@ public class EsperPatternEffect : MonoBehaviour
 
     private static IEnumerator EsperEffect()
     {
-        MakeScreenPurple.MakePurpleScreen();
         Instance.EsperWaveEffect();
         yield return null;
     }

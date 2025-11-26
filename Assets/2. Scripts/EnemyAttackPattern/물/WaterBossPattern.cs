@@ -29,6 +29,7 @@ public class WaterBossPattern : MonoBehaviour
         yield return new WaitForSeconds(_raindropAnimationTime);
         StopRain();
         BuddyManager.Instance.StartBuddyPattern(false);
+
         _isWaterAttackActive = false;
     }
 
