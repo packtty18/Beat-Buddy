@@ -14,7 +14,7 @@ public class UISpriteAnimation : MonoBehaviour
     [SerializeField, Tooltip("Seconds per frame")] private float _speed = 0.1f;
 
     [Header("Fade")]
-    [SerializeField] private float _fadeDuration = 2f;
+    //[SerializeField] private float _fadeDuration = 2f;
 
     private int _indexSprite;
     private Coroutine _animCoroutine;
@@ -31,7 +31,7 @@ public class UISpriteAnimation : MonoBehaviour
         _isPlaying = false;
     }
 
-    public void PlayUIAnim()
+    public void PlayUIAnim(float fadeDuration)
     {
         if (_spriteArray == null || _spriteArray.Length == 0 || _image == null) 
             return;
@@ -48,13 +48,13 @@ public class UISpriteAnimation : MonoBehaviour
 
         if (_fadeCoroutine != null) 
             StopCoroutine(_fadeCoroutine);
-        _fadeCoroutine = StartCoroutine(PlayFadeRoutine(_image.color.a, 1f, null));
+        _fadeCoroutine = StartCoroutine(PlayFadeRoutine(_image.color.a, 1f, fadeDuration,  null));
 
         // 바로 활성화
         gameObject.SetActive(true);
     }
 
-    public void StopUIAnim()
+    public void StopUIAnim(float fadeDuration)
     {
         // Fade-Out 시작
         if (_fadeCoroutine != null)
@@ -64,7 +64,7 @@ public class UISpriteAnimation : MonoBehaviour
         }
 
         float currentAlpha = _image != null ? _image.color.a : 1f;
-        _fadeCoroutine = StartCoroutine(PlayFadeRoutine(currentAlpha, 0f, () =>
+        _fadeCoroutine = StartCoroutine(PlayFadeRoutine(currentAlpha, 0f, fadeDuration, () =>
         {
             //페이드 종료후 애니메이션 및 deacitve
             _isPlaying = false;
@@ -94,10 +94,10 @@ public class UISpriteAnimation : MonoBehaviour
         }
     }
 
-    private IEnumerator PlayFadeRoutine(float from, float to, Action onComplete)
+    private IEnumerator PlayFadeRoutine(float from, float to,float time, Action onComplete)
     {
         float elapsed = 0f;
-        float duration = Mathf.Max(0.0001f, _fadeDuration);
+        float duration = Mathf.Max(0.0001f, time);
 
         if (_image != null)
             _image.color = new Color(_image.color.r, _image.color.g, _image.color.b, from);

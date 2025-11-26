@@ -14,22 +14,22 @@ public class LoadingImageController : MonoBehaviour
     }
 
     [ContextMenu("시작")]
-    public void ActiveLoad()
+    public void ActiveLoad(float fadeDuration)
     {
         for(int i =0; i< targetStage; i++)
         {
             _loadingImages[i].SetActive(true);
-            _loadingImages[i].PlayUIAnim();
+            _loadingImages[i].PlayUIAnim(fadeDuration);
         }
     }
 
     [ContextMenu("종료")]
-    public void DeActiveLoad()
+    public void DeActiveLoad(float fadeDuration)
     {
         foreach (UISpriteAnimation image in _loadingImages)
         {
             if(image.gameObject.activeSelf)
-                image.StopUIAnim();
+                image.StopUIAnim(fadeDuration);
         }
     }
 }
