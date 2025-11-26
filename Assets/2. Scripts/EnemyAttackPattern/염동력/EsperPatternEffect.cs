@@ -25,11 +25,11 @@ public class EsperPatternEffect : MonoBehaviour
     private static IEnumerator EsperEffect()
     {
         MakeScreenPurple.MakePurpleScreen();
-        Instance.EsperWaveEffectOn();
+        Instance.EsperWaveEffect();
         yield return null;
     }
 
-    private void EsperWaveEffectOn()
+    private void EsperWaveEffect()
     {
         _currentEsperEffect = Instantiate(_esperWavePrefab);
         Destroy(_currentEsperEffect, _esperEffectTime);
