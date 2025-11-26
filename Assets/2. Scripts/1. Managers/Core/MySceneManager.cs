@@ -1,4 +1,6 @@
-﻿using UnityEngine;
+﻿using System.Collections;
+using Unity.VisualScripting;
+using UnityEngine;
 using UnityEngine.SceneManagement;
 
 
@@ -8,7 +10,7 @@ public class MySceneManager : CoreSingleton<MySceneManager>
     [SerializeField] private TransitionDatabaseSO _transitionDatabase;
     [SerializeField] private LoadingImageController _loadImage;
     private ESceneType _currentScene = ESceneType.None;
-
+    private Coroutine _loadingCoroutine = null;
 
     protected override void Awake()
     {
@@ -39,6 +41,11 @@ public class MySceneManager : CoreSingleton<MySceneManager>
 
     public void LoadScene(ESceneType type, ETransitionType outTransitionType = ETransitionType.None, ETransitionType inTransitionType = ETransitionType.None,bool blockSameScene = true)
     {
+        if(_loadingCoroutine != null)
+        {
+            Debug.LogWarning("[SceneManager] : Transition Already Executing");
+            return; 
+        }
         if (type == ESceneType.None)
         {
             Debug.LogWarning("[SceneManager] : None is not Loadable");
@@ -57,13 +64,36 @@ public class MySceneManager : CoreSingleton<MySceneManager>
             Debug.LogWarning($"[SceneManager] : The Scene '{type}' is not registed in scene database");
             return;
         }
-        _currentScene = type;
 
+        if (InputManager.IsManagerExist())
+        {
+            InputManager.Instance.SetInputActive(false);
+        }
+
+        _currentScene = type;
         TransitionBase outTransition = _transitionDatabase.GetData(outTransitionType);
         TransitionBase inTransition = _transitionDatabase.GetData(inTransitionType);
         var pipeline = new SceneLoadPipeline(sceneName, _loadImage, outTransition, inTransition);
-        StartCoroutine(pipeline.Execute());
+        _loadingCoroutine = StartCoroutine(SceneCoroutineWrapper(pipeline));
     }
+
+    private IEnumerator SceneCoroutineWrapper(SceneLoadPipeline pipeline)
+    {
+        try
+        {
+            yield return pipeline.Execute();
+        }
+        finally
+        {
+            _loadingCoroutine = null; // 완료 후 null 처리
+
+            if (InputManager.IsManagerExist())
+            {
+                InputManager.Instance.SetInputActive(true);
+            }
+        }
+    }
+
 }
 
 

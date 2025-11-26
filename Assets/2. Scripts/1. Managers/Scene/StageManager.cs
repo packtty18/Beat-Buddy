@@ -12,6 +12,8 @@ public class StageManager : SceneSingleton<StageManager>
 
     private Coroutine _stageFlowCoroutine;
 
+    private bool _isGameOver = false; // 게임 오버 플래그
+
     private void Start()
     {
         if (_resultUI != null)
@@ -67,6 +69,8 @@ public class StageManager : SceneSingleton<StageManager>
             _noteSpawner.ReloadBGMData();
             Debug.Log("[StageManager] NoteSpawner BGM 데이터 리로드 완료");
         }
+        // 플레이어 스폰
+        PlayerManager.Instance.SpawnPlayer();
 
         // 카운트다운
         Debug.Log("[StageManager] === 게임 준비 시작 (카운트다운) ===");
@@ -88,8 +92,10 @@ public class StageManager : SceneSingleton<StageManager>
         //{
         //    UIManager.Instance.ShowStartText();
         //}
+        // 버디 스폰
         BuddyManager.Instance.SpawnBuddy();
-
+        // 버디 스탯 설정 
+        StatManager.Instance.SetStat(SongManager.Instance.GetSelectedSongIndex());
         // 음악 재생 시작
         SongPlayManager.Instance.PlayBGM();
         Debug.Log("[StageManager] 음악 3초 대기 - 노트 생성 시간");
@@ -102,6 +108,8 @@ public class StageManager : SceneSingleton<StageManager>
         // 음악이 끝날 때까지 대기
         yield return new WaitUntil(() => !SongPlayManager.Instance.IsPlaying());
         Debug.Log("[StageManager] 음악 종료 감지");
+
+        IsBuddyDefeated();
 
         // 게임 종료 처리
         Debug.Log("[StageManager] === 게임 종료 ===");
@@ -124,64 +132,44 @@ public class StageManager : SceneSingleton<StageManager>
             Debug.LogError("[StageManager] ResultUI가 null입니다! 결과를 표시할 수 없습니다!");
         }
     }
-
-    private void Update()
+    public void GameOver()
     {
-        // 테스트용 치트키 (Stage 씬에서만 작동)
-        if (_noteController != null)
+        if (_isGameOver) return; 
+
+        _isGameOver = true;
+
+        StopAllCoroutines();
+
+        // 음악 정지
+        SongPlayManager.Instance.StopBGM();
+
+        // 노트 스폰 중지
+        _noteSpawner.StopSpawning();
+
+        // 플레이어 애니메이션
+        PlayerManager.Instance.DefeatAnimation();
+
+        // 버디 애니메이션
+        BuddyManager.Instance.RunAwayAnimation();
+
+        Debug.Log(SongPlayManager.Instance.IsPlaying());
+        _resultUI.gameObject.SetActive(true);
+        _resultUI.DisplayResult();
+    }
+    private void IsBuddyDefeated()
+    {
+        if (BuddyManager.Instance.IsBuddyDefeated())
         {
-            if (Input.GetKeyDown(KeyCode.Alpha1))
-            {
-                ActivateRedNotes();
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha2))
-            {
-                ActivateSlowMotion();
-            }
-
-            if (Input.GetKeyDown(KeyCode.Alpha3))
-            {
-                MakeMiddleNotesInvisible();
-            }
+            BuddyManager.Instance.DefeatAnimation();
+            Debug.Log("[StageManager] 버디가 패배했습니다!");
+        }
+        else
+        {
+            PlayerManager.Instance.DefeatAnimation();
+            BuddyManager.Instance.RunAwayAnimation();
+            Debug.Log("[StageManager] 버디가 아직 살아있습니다!");
         }
     }
-
-    #region 테스트용 치트키 (디버그 빌드에서만)
-
-    private void ActivateRedNotes()
-    {
-        var notes = _noteController.GetRandomNotes(3);
-        foreach (var note in notes)
-        {
-            note.SetColor(Color.red, 0.3f);
-            note.SetScale(1.3f, 0.3f);
-        }
-        Debug.Log("[StageManager] 치트키: 랜덤 3개 빨간색");
-    }
-
-    private void ActivateSlowMotion()
-    {
-        var notes = _noteController.GetClosestNotes(5);
-        foreach (var note in notes)
-        {
-            note.SetSpeed(0.5f);
-            note.SetColor(Color.cyan, 0.3f);
-        }
-        Debug.Log("[StageManager] 치트키: 가까운 5개 느리게");
-    }
-
-    private void MakeMiddleNotesInvisible()
-    {
-        var notes = _noteController.GetNotesByProgress(0.3f, 0.7f);
-        foreach (var note in notes)
-        {
-            note.SetAlpha(0.3f, 0.3f);
-        }
-        Debug.Log("[StageManager] 치트키: 중간 노트 투명");
-    }
-
-    #endregion
 
     // 씬 바꿀 때 호출
     private void CleanupStage()

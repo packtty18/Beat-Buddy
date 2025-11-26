@@ -26,6 +26,8 @@ public class JudgeManager : SceneSingleton<JudgeManager>
     [SerializeField] private Transform _judgePoint;
 
     private SoundManager _soundManager;
+    private PlayerManager _playerManager;
+    private PoolManager _poolManager;
 
     private int _score = 0;
     private int _combo = 0;
@@ -52,6 +54,8 @@ public class JudgeManager : SceneSingleton<JudgeManager>
     void Start()
     {
         if (_soundManager == null) _soundManager = SoundManager.Instance;
+        if (_playerManager == null) _playerManager = PlayerManager.Instance;
+        if (_poolManager == null) _poolManager = PoolManager.Instance;
         if (_noteSpawner == null)
         {
             Debug.LogError("[JudgeManager] NoteSpawner가 할당되지 않았습니다!");
@@ -59,6 +63,7 @@ public class JudgeManager : SceneSingleton<JudgeManager>
         }
     }
 
+        
     void Update()
     {
         if (InputManager.Instance.GetKeyDown(EGameKeyType.Left))
@@ -105,7 +110,7 @@ public class JudgeManager : SceneSingleton<JudgeManager>
             float signedDiff = currentTime - targetTime;
             float absDiff = Mathf.Abs(signedDiff);
 
-            if (absDiff <= _badWindow && absDiff < closestAbsDiff)
+            if (absDiff <= 0.2f && absDiff < closestAbsDiff)
             {
                 closestAbsDiff = absDiff;
                 closestSignedDiff = signedDiff;
@@ -117,16 +122,29 @@ public class JudgeManager : SceneSingleton<JudgeManager>
         {
             EHitType hitType = DetermineHitType(closestAbsDiff);
             ProcessHit(closestNote, hitType, closestSignedDiff, inputType);
+
+            // Early/Late 구분 디버그
+            string timing = closestSignedDiff < 0 ? "Early" : "Late";
+            Debug.Log($"[JudgeManager] {hitType} ({timing}) - Diff: {closestSignedDiff:F3}s");
         }
     }
     private EHitType DetermineHitType(float timeDifference)
     {
         if (timeDifference <= _perfectWindow)
+        {
+            SpawnEffect(ENoteEffectType.PerfectEffect);
             return EHitType.Perfect;
+        }
         else if (timeDifference <= _goodWindow)
+        {
+            SpawnEffect(ENoteEffectType.GoodEffect);
             return EHitType.Good;
+        }
         else if (timeDifference <= _badWindow)
+        {
+            SpawnEffect(ENoteEffectType.BadEffect);
             return EHitType.Bad;
+        }
         else
             return EHitType.Miss;
     }
@@ -135,6 +153,8 @@ public class JudgeManager : SceneSingleton<JudgeManager>
     {
         note.OnHit(hitType);
 
+        _playerManager.OnHit(hitType);
+        Debug.Log($"[JudgeManager] Note Hit: {noteType}, Judgment: {hitType}, Time Diff: {signedDiff:F3}s");
         int basePoints = GetBaseScore(hitType);
         bool maintainCombo = UpdateHitStatistics(hitType);
 
@@ -203,13 +223,20 @@ public class JudgeManager : SceneSingleton<JudgeManager>
     {
         _missCount++;
         _combo = 0;
-
+        _playerManager.OnHit(EHitType.Miss);
+        SpawnEffect(ENoteEffectType.MissEffect);
         //if (UIManager.Instance != null)
         //{
         //    UIManager.Instance.ShowJudgment(EHitType.Miss, 0f);
         //}
     }
 
+    private void SpawnEffect(ENoteEffectType effectType)
+    {
+        NoteEffect noteEffect = _poolManager.SpawnGetComponent<NoteEffectPool, ENoteEffectType, NoteEffect>(effectType);
+        noteEffect.SetEffectType(effectType);
+        noteEffect.transform.position = _judgePoint.position;
+    }
     public GameResult GetGameResult()
     {
         return new GameResult

@@ -804,6 +804,14 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 5130499602551144680, guid: c1aade50bac319841a927b0098edad71, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[2].m_Value
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5130499602551144680, guid: c1aade50bac319841a927b0098edad71, type: 3}
+      propertyPath: m_PropertySheet.m_Float.m_Array.Array.data[3].m_Value
+      value: 15
+      objectReference: {fileID: 0}
     - target: {fileID: 6978433744498728086, guid: c1aade50bac319841a927b0098edad71, type: 3}
       propertyPath: m_Name
       value: RaindropsVFX

@@ -8,42 +8,75 @@ public class SceneLoadPipeline
     private readonly TransitionBase _outTransition;
     private readonly TransitionBase _inTransition;
     private readonly LoadingImageController _loadingImage;
-    public SceneLoadPipeline(string sceneName, LoadingImageController loadingImage, TransitionBase outTransition = null, TransitionBase inTransition = null)
+
+    private readonly float _minLoadingTime;
+    private readonly float _imageFadeTime;
+
+    public SceneLoadPipeline(
+        string sceneName,
+        LoadingImageController loadingImage,
+        TransitionBase outTransition = null,
+        TransitionBase inTransition = null,
+        float minLoadingTime = 2f,
+        float imageFadeTime = 1f)
     {
         _sceneName = sceneName;
         _loadingImage = loadingImage;
         _outTransition = outTransition;
         _inTransition = inTransition;
+        _minLoadingTime = minLoadingTime;
+        _imageFadeTime = imageFadeTime;
     }
 
     public IEnumerator Execute()
     {
-        //1. 씬 아웃 연출.
-        if (_outTransition != null)
-        {
-            yield return TransitionManager.Instance.PlayOut(_outTransition);
-        }
+        yield return PlayOutPhase();
 
-        //2.씬 로드 및 로딩창(추후 구현).
         AsyncOperation op = SceneManager.LoadSceneAsync(_sceneName);
         op.allowSceneActivation = false;
 
-        _loadingImage.ActiveLoad();
-        yield return new WaitForSeconds(3f);
-        while (op.progress < 0.9f)
+        yield return WaitForSceneLoad(op, _minLoadingTime);
+
+        yield return PlayInPhase();
+    }
+
+    private IEnumerator PlayOutPhase()
+    {
+        if (_outTransition != null)
         {
-            yield return null;
+            yield return TransitionManager.Instance.PlayOut(_outTransition);
+            _loadingImage.ActiveLoad(_imageFadeTime);
         }
+        
+        yield return null;
+    }
 
-        op.allowSceneActivation = true;
-        //임시 대기. 이후 로딩창 구현시 제거
-        _loadingImage.DeActiveLoad();
-        yield return new WaitForSeconds(1f);
-
-        //3. 씬 인 연출.
-        if (_inTransition != null)
+    private IEnumerator PlayInPhase()
+    {
+        //out 연출 시작을 안했다면 in연출도 안함
+        if (_outTransition != null && _inTransition != null)
         {
+            _loadingImage.DeActiveLoad(_imageFadeTime);
+            yield return new WaitForSeconds(_imageFadeTime);
             yield return TransitionManager.Instance.PlayIn(_inTransition);
+        }
+    }
+
+    private IEnumerator WaitForSceneLoad(AsyncOperation op, float minTime)
+    {
+        float elapsed = 0f;
+
+        while (!op.isDone)
+        {
+            elapsed += Time.deltaTime;
+
+            // 씬 로드 완료 & 최소 시간 경과 시 씬 전환 허용
+            if (op.progress >= 0.9f && elapsed >= minTime)
+            {
+                op.allowSceneActivation = true;
+            }
+
+            yield return null;
         }
     }
 }

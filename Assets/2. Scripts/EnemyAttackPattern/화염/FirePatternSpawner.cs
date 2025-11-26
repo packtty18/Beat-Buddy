@@ -22,7 +22,7 @@ public class FirePatternSpawner : MonoBehaviour, IPatternSpawner
     public float PatternDuration => 7f;
 
 
-    private void StartAttack()
+    private void Start()
     {
         StartCoroutine(FirePatternSpawnCoroutine());
     }

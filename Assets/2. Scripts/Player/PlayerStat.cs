@@ -24,6 +24,10 @@ public class PlayerStat : MonoBehaviour
     [SerializeField] public bool IsFeverOn;
     [SerializeField] public bool IsAttakcOn;
 
+    public event Action StartAttack;
+    public event Action<bool> IsFever;
+    public event Action<float> OnHealthChanged;
+    public event Action<float> OnFeverChanged;
     public void SetStat(PlayerStatDataSO stat)
     {
         _maxHealth = stat.MaxHealth;
@@ -44,10 +48,19 @@ public class PlayerStat : MonoBehaviour
         _currentHeal = stat.Heal;
     }
 
+    public float GetMaxHealth()
+    {
+        return _maxHealth;
+    }
+    public float GetCurrentHealth()
+    {
+        return _currentHealth;
+    }
     //노트 미스마다 체력 감소
     public void DecreaseHealth(float value)
     {
         _currentHealth = Mathf.Max(0, _currentHealth - value);
+        OnHealthChanged?.Invoke(_currentHealth);
     }
 
     //노트 히트마다 체력 증가
@@ -65,6 +78,7 @@ public class PlayerStat : MonoBehaviour
         }
 
         _currentHealth = Mathf.Min(_maxHealth, _currentHealth + value);
+        OnHealthChanged?.Invoke(_currentHealth);
     }
 
     public float GetDamage()
@@ -72,7 +86,6 @@ public class PlayerStat : MonoBehaviour
         //피버라면 데미지 플러스 적용, 아니라면 일반 데미지
         return IsFeverOn ? _baseDamage + _FeverDamagePlus : _baseDamage;
     }
-
 
     public void ResetAttackGuage()
     {
@@ -88,14 +101,21 @@ public class PlayerStat : MonoBehaviour
         if(_currentAttackGuage == _maxAttackGuage)
         {
             IsAttakcOn = true;
+            StartAttack?.Invoke();
         }
     }
 
+    public float GetMaxFeverGauge()
+    {
+        return _maxFeverGuage;
+    }
     //피버 게이지를 리셋
     public void ResetFeverGuage()
     {
         _currentFeverGuage = 0;
         IsFeverOn = false;
+        IsFever?.Invoke(IsFeverOn);
+        OnFeverChanged?.Invoke(_currentFeverGuage);
     }
 
     //해당 수치만큼 피버게이지 증가
@@ -105,6 +125,8 @@ public class PlayerStat : MonoBehaviour
         if(_currentFeverGuage == _maxFeverGuage)
         {
             IsFeverOn = true;
+            IsFever?.Invoke(IsFeverOn);
+            OnFeverChanged?.Invoke(_currentFeverGuage);
         }
     }
 }

@@ -35,7 +35,12 @@ public class SoundObject : MonoBehaviour, IPoolable
         StopLifetimeRoutine();
     }
 
-    public void OnPlay(AudioClip clip, bool isBgm, float playTime = 0f)
+    public void SetVolume(float volume)
+    {
+        _audio.volume = volume;
+    }
+
+    public void OnPlay(AudioClip clip, bool isBgm,float volume, float playTime = 0f)
     {
         StopLifetimeRoutine();
 
@@ -47,6 +52,7 @@ public class SoundObject : MonoBehaviour, IPoolable
 
         _audio.clip = clip;
         _audio.loop = isBgm;
+        _audio.volume = volume;
         _audio.Play();
 
         float duration = GetPlayDuration(clip, isBgm, playTime);

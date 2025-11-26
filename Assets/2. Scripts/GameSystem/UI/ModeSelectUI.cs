@@ -3,29 +3,25 @@ using TMPro;
 
 public class ModeSelectUI : MonoBehaviour
 {
-    [SerializeField] private TextMeshProUGUI _modeText;
-
-    void Start()
+    public void ChooseFreeMode()
     {
-        _modeText.text = "Free Mode";
+        if (!GameManager.IsManagerExist())
+        {
+            return;
+        }
+
+        GameManager.Instance.SetGameMode(EGameMode.Free);
+        GameManager.Instance.ChangeScene(ESceneType.SongSelect, ETransitionType.ModeToSongOut, ETransitionType.ModeToSongIn);
     }
 
-    void Update()
+    public void ChooseArcadeMode()
     {
-        if (InputManager.Instance.GetKeyDown(EGameKeyType.Confirm))
-        {   
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.ChangeScene(ESceneType.SongSelect);
-            }
+        if (!GameManager.IsManagerExist())
+        {
+            return;
         }
 
-        if (InputManager.Instance.GetKeyDown(EGameKeyType.Setting))
-        {
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.ChangeScene(ESceneType.Lobby);
-            }
-        }
+        GameManager.Instance.SetGameMode(EGameMode.Arcade);
+        GameManager.Instance.StartStage();
     }
 }

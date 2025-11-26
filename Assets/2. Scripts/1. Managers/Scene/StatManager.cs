@@ -15,8 +15,9 @@ public class StatManager : SceneSingleton<StatManager>
     [Header("Debug")]
     [SerializeField] private int currentStage;
 
-
     private List<UpgradeOptionSO> _upgradeOptions => UpgradeManager.Instance.GetUpgradeOption();     //업그레이드 요소
+
+    public Action OnStatApplied;
 
     protected override void Awake()
     {
@@ -32,6 +33,15 @@ public class StatManager : SceneSingleton<StatManager>
         SetStat(currentStage);
     }
 
+    public void SetPlayerStat(PlayerStat playerStat)
+    {
+        _playerStat = playerStat;
+    }
+    public void SetBuddyStat(BuddyStat buddyStat)
+    {
+        _buddyStat = buddyStat;
+    }
+
     public void SetStat(int stage)
     {
         currentStage = stage;
@@ -39,7 +49,7 @@ public class StatManager : SceneSingleton<StatManager>
         BuddyStatDataSO _upgradedBuddyStat = ScriptableObject.CreateInstance<BuddyStatDataSO>();
 
         _upgradedPlayerStat.CopyStat(_defaultPlayerStat);
-        _upgradedBuddyStat.CopyStat(_stageDefaultBuddyStats[stage - 1]);
+        _upgradedBuddyStat.CopyStat(_stageDefaultBuddyStats[stage]);
 
         foreach (var upgrade in _upgradeOptions)
         {
@@ -50,6 +60,7 @@ public class StatManager : SceneSingleton<StatManager>
         _buddyStat.SetStat(_upgradedBuddyStat);
 
         Debug.Log($"[StatManager] Stage {stage} stats applied.");
+        OnStatApplied?.Invoke();
     }
 
     public void AddUpgradeOption(UpgradeOptionSO upgrade)
