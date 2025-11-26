@@ -51,11 +51,11 @@ public class InputManager : CoreSingleton<InputManager>
 
     private void Update()
     {
-        //인풋 비활성화시 로직 중단
-        if (!_isActive)
-        {
-            return;
-        }
+        ////인풋 비활성화시 로직 중단
+        //if (!_isActive)
+        //{
+        //    return;
+        //}
 
         // 이전 상태 저장
         foreach (EGameKeyType key in _gameKeyTypes)

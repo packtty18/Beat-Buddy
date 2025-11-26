@@ -44,4 +44,9 @@ public class SongItemUI : MonoBehaviour, IUIConfirmable
         GameManager.Instance.StartStage(); // StartStage() -> StartGame()
         SoundManager.Instance.PlaySFX(ESoundType.BGM_StageSelect);
     }
+
+    public AudioClip GetAudioClip()
+    {
+        return _data.AudioClip;
+    }
 }

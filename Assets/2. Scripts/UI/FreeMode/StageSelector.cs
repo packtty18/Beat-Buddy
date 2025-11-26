@@ -55,8 +55,10 @@ public class StageSelector : MonoBehaviour , IUIConfirmable, IUIValueChangeable
 
     private int LoopIndex(int value)
     {
-        if (value < 0) value = itemCount - 1;
-        else if (value >= itemCount) value = 0;
+        if (value < 0) 
+            value = itemCount - 1;
+        else if (value >= itemCount) 
+            value = 0;
         return value;
     }
 
@@ -130,10 +132,12 @@ public class StageSelector : MonoBehaviour , IUIConfirmable, IUIValueChangeable
     public void OnValueIncrease()
     {
         currentIndex = LoopIndex(currentIndex + 1);
+        SoundManager.Instance.PlayBGM(songItems[currentIndex].GetComponent<SongItemUI>().GetAudioClip());
     }
 
     public void OnValueDecrease()
     {
         currentIndex = LoopIndex(currentIndex - 1);
+        SoundManager.Instance.PlayBGM(songItems[currentIndex].GetComponent<SongItemUI>().GetAudioClip());
     }
 }

@@ -39,7 +39,7 @@ public class GameManager : CoreSingleton<GameManager>
     public void ChangeScene(ESceneType newScene , ETransitionType outTransition, ETransitionType inTransition)
     {
         _currentScene = newScene;
-
+        SoundManager.Instance.StopBGM();
         LoadScene(_currentScene, outTransition , inTransition);
     }
     private void LoadScene(ESceneType currentScene, ETransitionType outTransition, ETransitionType inTransition)
