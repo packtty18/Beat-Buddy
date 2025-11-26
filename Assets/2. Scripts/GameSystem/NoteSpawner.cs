@@ -19,7 +19,7 @@ public class NoteSpawner : MonoBehaviour
     void Start()
     {
         _poolManager = PoolManager.Instance;
-        LoadBGMDataFromConductor();
+        LoadBGMDataFromSongPlayManager();
     }
 
     void Update()
@@ -29,7 +29,7 @@ public class NoteSpawner : MonoBehaviour
         if (_currentBGMData == null || _nextNoteIndex >= _currentBGMData.Notes.Length) return;
 
         
-        float currentBeat = Conductor.Instance.BgmPositionInBeats;
+        float currentBeat = SongPlayManager.Instance.BgmPositionInBeats;
 
         while (_nextNoteIndex < _currentBGMData.Notes.Length)
         {
@@ -46,11 +46,11 @@ public class NoteSpawner : MonoBehaviour
         }
     }
 
-    void LoadBGMDataFromConductor()
+    void LoadBGMDataFromSongPlayManager()
     {
-        if (Conductor.Instance == null) return;
+        if (SongPlayManager.Instance == null) return;
 
-        _currentBGMData = Conductor.Instance.CurrentBGMData;
+        _currentBGMData = SongPlayManager.Instance.CurrentBGMData;
         if (_currentBGMData == null) return;
 
         _nextNoteIndex = 0;
@@ -125,5 +125,5 @@ public class NoteSpawner : MonoBehaviour
         _poolManager.Despawn<NotePool, ENoteType>(note.GetComponent<Note>().NoteType, note);
     }
 
-    public void ReloadBGMData() => LoadBGMDataFromConductor();
+    public void ReloadBGMData() => LoadBGMDataFromSongPlayManager();
 }

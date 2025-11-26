@@ -17,6 +17,7 @@ public class WaterBossPattern : MonoBehaviour
     public void Attack()
     {
         StartCoroutine(StartWaterAttackCoroutine());
+        Debug.Log("어택");
     }
 
     private IEnumerator StartWaterAttackCoroutine()
@@ -24,9 +25,10 @@ public class WaterBossPattern : MonoBehaviour
         _isWaterAttackActive = true;
 
         StartWaterAttack();
+        BuddyManager.Instance.StartBuddyPattern(true);
         yield return new WaitForSeconds(_raindropAnimationTime);
         FinishWaterAttack();
-
+        BuddyManager.Instance.StartBuddyPattern(false);
         _isWaterAttackActive = false;
     }
 

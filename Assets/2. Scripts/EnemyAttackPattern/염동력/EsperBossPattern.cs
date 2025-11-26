@@ -1,15 +1,14 @@
 ﻿using System.Collections;
+using System.Collections.Generic;
 using UnityEngine;
 
 public class EsperBossPattern : MonoBehaviour
 {
     [Header("염동력 공격 트리거")]
-    private bool _isEsperAttackActive = false;
     private bool _isMovingNotesGoing = false;
 
     [Header("리듬노트 프리팹")]
-    private GameObject[] _rhythmNotes;
-    private GameObject _rhythmNote;
+    private List<Note> _rhythmNotes;
 
     [Header("노트 위치")]
     private Vector2[] _noteOriginPositions;
@@ -21,7 +20,7 @@ public class EsperBossPattern : MonoBehaviour
     [Header("S자 이동 관련 옵션")]
     private float _noteAmplitude;  // 진폭
     private float _noteFrequency;  // 흔들리는 빈도
-    private float _noteMovingTime = 8f;  // 흔들리는 기간
+    private float _noteMovingTime = 2f;  // 흔들리는 기간
 
     [Header("진폭 랜덤값")]
     private float _minAmplitude = 0.8f;
@@ -31,7 +30,11 @@ public class EsperBossPattern : MonoBehaviour
     private float _minFrequency = 3f;
     private float _maxFrequency = 6f;
 
-
+    private NoteController _noteController;
+    private void Start()
+    {
+        _noteController = BuddyManager.Instance.GetNoteController();
+    }
     public void Attack()
     {
         StartCoroutine(StartEsperAttackCoroutine());
@@ -40,16 +43,16 @@ public class EsperBossPattern : MonoBehaviour
     //시작 코루틴
     private IEnumerator StartEsperAttackCoroutine()
     {
-        _isEsperAttackActive = true;
         _isMovingNotesGoing = true;
+        BuddyManager.Instance.StartBuddyPattern(true);
 
         SetValue();
         SetNoteNumbers();
         StartCoroutine(MovingNotesCoroutine());
         yield return new WaitForSeconds(_noteMovingTime);
         _isMovingNotesGoing = false;
+        BuddyManager.Instance.StartBuddyPattern(false);
 
-        _isEsperAttackActive = false;
     }
 
     // 초기화
@@ -62,11 +65,12 @@ public class EsperBossPattern : MonoBehaviour
     // 리듬노트 배열에 오브젝트 값을 입력해주는 메서드
     private void SetNoteNumbers()
     {
-        _rhythmNotes = GameObject.FindGameObjectsWithTag("Respawn");  // 임시로 Respawn 태그 사용
-        if (_rhythmNotes.Length == 0) return;
+        _rhythmNotes = _noteController.GetRandomNotesByProgress(0.4f, 1f, 5);
+        //_rhythmNotes = GameObject.FindGameObjectsWithTag("Respawn");  // 임시로 Respawn 태그 사용
+        if (_rhythmNotes.Count == 0) return;
 
-        _noteNumbers = _rhythmNotes.Length;
-        _noteOriginPositions = new Vector2[_rhythmNotes.Length];
+        _noteNumbers = _rhythmNotes.Count;
+        _noteOriginPositions = new Vector2[_rhythmNotes.Count];
         for (int i = 0; i < _noteNumbers; i++)
         {
             _noteOriginPositions[i] = _rhythmNotes[i].transform.position;

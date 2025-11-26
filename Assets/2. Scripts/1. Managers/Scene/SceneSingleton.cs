@@ -33,4 +33,11 @@ public class SceneSingleton<T> : MonoBehaviour where T : MonoBehaviour
 
         return _instance != null;
     }
+    private void OnDestroy()
+    {
+        if (_instance == this)
+        {
+            _instance = null;
+        }
+    }
 }

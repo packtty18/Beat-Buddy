@@ -3,11 +3,11 @@
 public enum ESongType
 {
     None = 0,
-    FlameTheme,
-    WaterTheme,
-    ThunderTheme,
-    EsperTheme,
-    FinalTheme,
+    FlameTheme = 1,
+    WaterTheme = 2,
+    ThunderTheme = 3,
+    EsperTheme = 4,
+    FinalTheme = 5,
     KonTheme,
 }
 
@@ -39,28 +39,6 @@ public class SongManager : CoreSingleton<SongManager>
         }
     }
 
-    // ESongType으로 곡 선택 (추천)
-    public void SelectSong(ESongType songType)
-    {
-        if (_songDatabase == null)
-        {
-            Debug.LogError("[SongManager] SongDatabase가 없습니다!");
-            return;
-        }
-
-        BGMDataSO song = _songDatabase.GetData(songType);
-        if (song != null)
-        {
-            _selectedSongType = songType;
-            _selectedSong = song;
-            Debug.Log($"[SongManager] 곡 선택: {_selectedSong.BgmName} ({songType})");
-        }
-        else
-        {
-            Debug.LogError($"[SongManager] 곡을 찾을 수 없습니다: {songType}");
-        }
-    }
-
     // 인덱스로 곡 선택 (UI 호환성 유지)
     public void SelectSongByIndex(int index)
     {
@@ -82,7 +60,8 @@ public class SongManager : CoreSingleton<SongManager>
             Debug.LogError($"[SongManager] 유효하지 않은 곡 인덱스: {index}");
         }
     }
-    // ESongType으로 곡 가져오기 (Conductor)
+
+    // ESongType으로 곡 가져오기 (SongPlayManager)
     public BGMDataSO GetSong(ESongType songType)
     {
         if (_songDatabase == null)
