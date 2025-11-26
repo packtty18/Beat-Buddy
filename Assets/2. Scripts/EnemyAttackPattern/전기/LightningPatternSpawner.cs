@@ -8,7 +8,7 @@ public class LightningPatternSpawner : MonoBehaviour
     private float _spawnCoolTime = 10f;    // 패턴 쿨타임 28초  (18 + 10)
 
 
-    private void Start()
+    private void StartAttack()
     {
         StartCoroutine(LightningPatternSpawnCoroutine());
     }

@@ -8,7 +8,7 @@ public class EsperPatternSpawner : MonoBehaviour
     private float _spawnCoolTime = 5f;     // 패턴 쿨타임 17초 (12 + 5)
 
 
-    private void Start()
+    private void StartAttack()
     {
         StartCoroutine(EsperPatternSpawnCoroutine());
     }

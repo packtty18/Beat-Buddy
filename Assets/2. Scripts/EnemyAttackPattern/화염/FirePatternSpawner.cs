@@ -18,7 +18,7 @@ public class FirePatternSpawner : MonoBehaviour
     private float _minRate = 0f;
 
 
-    private void Start()
+    private void StartAttack()
     {
         StartCoroutine(FirePatternSpawnCoroutine());
     }

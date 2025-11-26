@@ -8,7 +8,7 @@ public class WaterPatternSpawner : MonoBehaviour
     private float _spawnCoolTime = 3f;  // 시작 시간과 쿨타임 시간이 14초로 같음, 0부터 시작
 
 
-    private void Start()
+    private void StartAttack()
     {
         StartCoroutine(WaterPatternSpawnCoroutine());
     }
