@@ -33,7 +33,7 @@ public class EsperBossPattern : MonoBehaviour
     private NoteController _noteController;
     private void Start()
     {
-        _noteController = BuddyManager.Instance.GetNoteController();
+        //_noteController = BuddyManager.Instance.GetNoteController();
     }
     public void Attack()
     {
@@ -44,15 +44,15 @@ public class EsperBossPattern : MonoBehaviour
     private IEnumerator StartEsperAttackCoroutine()
     {
         _isMovingNotesGoing = true;
-        BuddyManager.Instance.StartBuddyPattern(true);
+        //BuddyManager.Instance.StartBuddyPattern(true);
 
         SetValue();
         EsperPatternEffect.MakeEsperEffect();
-        SetNoteNumbers();
-        StartCoroutine(MovingNotesCoroutine());
+        //SetNoteNumbers();
+        //StartCoroutine(MovingNotesCoroutine());
         yield return new WaitForSeconds(_noteMovingTime);
         _isMovingNotesGoing = false;
-        BuddyManager.Instance.StartBuddyPattern(false);
+        //BuddyManager.Instance.StartBuddyPattern(false);
 
     }
 
