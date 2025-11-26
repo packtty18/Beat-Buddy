@@ -4,11 +4,11 @@ using System.Collections;
 public class EsperPatternSpawner : MonoBehaviour
 {
     [Header("쿨타임")]
-    private float _startAttackTime = 4f;  // 패턴 시작 시간 12초
-    private float _spawnCoolTime = 5f;     // 패턴 쿨타임 17초 (12 + 5)
+    private float _startAttackTime = 12f;  // 기본 시작시간 12f
+    private float _spawnCoolTime = 5f;     // 기본 쿨타임 5f (12 + 5)
 
 
-    private void StartAttack()
+    private void Start()
     {
         StartCoroutine(EsperPatternSpawnCoroutine());
     }

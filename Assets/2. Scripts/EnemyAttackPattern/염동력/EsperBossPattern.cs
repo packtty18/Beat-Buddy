@@ -47,6 +47,7 @@ public class EsperBossPattern : MonoBehaviour
         BuddyManager.Instance.StartBuddyPattern(true);
 
         SetValue();
+        EsperPatternEffect.MakeEsperEffect();
         SetNoteNumbers();
         StartCoroutine(MovingNotesCoroutine());
         yield return new WaitForSeconds(_noteMovingTime);
@@ -66,7 +67,6 @@ public class EsperBossPattern : MonoBehaviour
     private void SetNoteNumbers()
     {
         _rhythmNotes = _noteController.GetRandomNotesByProgress(0.4f, 1f, 5);
-        //_rhythmNotes = GameObject.FindGameObjectsWithTag("Respawn");  임시로 Respawn 태그 사용
         if (_rhythmNotes.Count == 0) return;
 
         _noteNumbers = _rhythmNotes.Count;
