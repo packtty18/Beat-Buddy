@@ -9,7 +9,8 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: d3c55a9c2ab27f94f9a4a0dbb7c26429, type: 3}
-  m_Name: ScaleOut
+  m_Script: {fileID: 11500000, guid: 9fdd9c6630c7f15438354500ef69e357, type: 3}
+  m_Name: 6.. ModeToStageIn
   m_EditorClassIdentifier: 
-  duration: 1
+  _duration: 1
+  _direction: 0
