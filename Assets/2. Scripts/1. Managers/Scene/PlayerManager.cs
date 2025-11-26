@@ -18,6 +18,7 @@ public class PlayerManager : SceneSingleton<PlayerManager>
     protected override void Awake()
     {
         base.Awake();
+        
     }
 
     private void Start()
@@ -45,6 +46,7 @@ public class PlayerManager : SceneSingleton<PlayerManager>
         _playerStat = currentPlayerPrefab.GetComponent<PlayerStat>();
         _playerStat.StartAttack += OnAttack;
         _playerStat.IsFever += OnFever;
+        _playerStat.OnHealthChanged += CheckGameOver;
         StatManager.Instance.SetPlayerStat(_playerStat);
         _buddyManager = BuddyManager.Instance;
     }
@@ -97,5 +99,17 @@ public class PlayerManager : SceneSingleton<PlayerManager>
         _playerStat.DecreaseHealth(_buddyManager.GetBuddyDamage());
         _currentPlayerPrefab.GetComponent<PlayerAnimatorController>().OnHit();
         _playerStat.ResetFeverGuage();
+    }
+
+    public void DefeatAnimation()
+    {
+        _currentPlayerPrefab.GetComponent<PlayerAnimatorController>().SetFail(true);
+    }
+    private void CheckGameOver(float currentHealth)
+    {
+        if (currentHealth <= 0)
+        {
+            StageManager.Instance.GameOver();
+        }
     }
 }

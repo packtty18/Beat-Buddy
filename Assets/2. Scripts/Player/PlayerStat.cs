@@ -52,7 +52,10 @@ public class PlayerStat : MonoBehaviour
     {
         return _maxHealth;
     }
-
+    public float GetCurrentHealth()
+    {
+        return _currentHealth;
+    }
     //노트 미스마다 체력 감소
     public void DecreaseHealth(float value)
     {

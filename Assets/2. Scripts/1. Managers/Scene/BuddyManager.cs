@@ -93,4 +93,25 @@ public class BuddyManager : SceneSingleton<BuddyManager>
     {
         return _noteController;
     }
+
+    public bool IsBuddyDefeated()
+    {
+        if (_buddyStat != null)
+        {
+            return _buddyStat.isDefeated();
+        }
+        return false;
+    }
+
+    public void DefeatAnimation()
+    {
+        _currentBuddyPrefab.GetComponent<BuddyAnimatorController>().OnDefeated(true);
+    }
+
+    public void RunAwayAnimation()
+    {
+        _currentBuddyPrefab.transform.DORotate(new Vector3(0, 180, 0), 1f)
+            .OnComplete(() => _currentBuddyPrefab.transform.DOMoveX(_currentBuddyPrefab.transform.position.x + 10f, 3f));
+        _currentBuddyPrefab.GetComponent<BuddyAnimatorController>().OnAttack(true);
+    }
 }
