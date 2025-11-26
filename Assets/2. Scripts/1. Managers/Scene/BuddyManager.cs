@@ -6,6 +6,7 @@ public class BuddyManager : SceneSingleton<BuddyManager>
 {
     [Header("버디 리스트")]
     [SerializeField] private List<GameObject> _buddyList = new List<GameObject>();
+    [Header("현재 버디가 누구냐 (확인용)")]
     [SerializeField] private GameObject _currentBuddyPrefab;
     [Header("버디 스폰 위치")]
     [SerializeField] private Transform _buddySpawnPoint;
@@ -13,11 +14,17 @@ public class BuddyManager : SceneSingleton<BuddyManager>
     [SerializeField] private NoteController _noteController;
 
     private ESongType _currentBuddyType;
+    private float _buddyDamage;
+    private BuddyStat _buddyStat;
 
     protected override void Awake()
     {
         base.Awake();
         _currentBuddyType = 0;
+        if (StatManager.Instance != null)
+        {
+            StatManager.Instance.OnStatApplied += UpdateBuddyDamage;
+        }
     }
 
     public void SpawnBuddy()
@@ -42,8 +49,39 @@ public class BuddyManager : SceneSingleton<BuddyManager>
             GameObject buddyPrefab = _buddyList[buddyIndex];
             _currentBuddyPrefab = Instantiate(buddyPrefab, _buddySpawnPoint.position, Quaternion.identity, _buddySpawnPoint);
             _currentBuddyType = selectedSongType;
-            _currentBuddyPrefab.transform.DOMoveX(_currentBuddyPrefab.transform.position.x - 5f, 5f);
+            _currentBuddyPrefab.transform.DOMoveX(_currentBuddyPrefab.transform.position.x - 5f, 3f);
+            GetBuddyStat(_currentBuddyPrefab);
+            GetBuddyEvent();
         }
+    } 
+
+    private void GetBuddyEvent()
+    {
+        PlayerManager.Instance.OnAttackToBuddy += OnHitDamage;
+    }
+
+    private void OnHitDamage(float playerDamage)
+    {
+        _buddyStat.DecreaseHealth(playerDamage);
+        _currentBuddyPrefab.GetComponent<BuddyAnimatorController>().OnHit();
+    }
+
+    private void GetBuddyStat(GameObject currentBuddyPrefab)
+    {
+        _buddyStat = _currentBuddyPrefab.GetComponent<BuddyStat>();
+        StatManager.Instance.SetBuddyStat(_buddyStat);
+    }
+    private void UpdateBuddyDamage()
+    {
+        if (_buddyStat != null)
+        {
+            _buddyDamage = _buddyStat.GetDamage();
+            Debug.Log($"[BuddyManager] Buddy Damage Updated: {_buddyDamage}");
+        }
+    }
+    public float GetBuddyDamage()
+    {
+        return _buddyDamage;
     }
 
     public void StartBuddyPattern(bool attacking)

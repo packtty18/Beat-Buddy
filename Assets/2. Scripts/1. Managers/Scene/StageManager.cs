@@ -68,6 +68,8 @@ public class StageManager : SceneSingleton<StageManager>
             Debug.Log("[StageManager] NoteSpawner BGM 데이터 리로드 완료");
         }
 
+        PlayerManager.Instance.SpawnPlayer();
+
         // 카운트다운
         Debug.Log("[StageManager] === 게임 준비 시작 (카운트다운) ===");
         float startDelay = _startDelayTime;
@@ -88,7 +90,9 @@ public class StageManager : SceneSingleton<StageManager>
         //{
         //    UIManager.Instance.ShowStartText();
         //}
+
         BuddyManager.Instance.SpawnBuddy();
+        StatManager.Instance.SetStat(SongManager.Instance.GetSelectedSongIndex());
 
         // 음악 재생 시작
         SongPlayManager.Instance.PlayBGM();
