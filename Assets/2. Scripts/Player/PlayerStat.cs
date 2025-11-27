@@ -61,6 +61,7 @@ public class PlayerStat : MonoBehaviour
     {
         _currentHealth = Mathf.Max(0, _currentHealth - value);
         OnHealthChanged?.Invoke(_currentHealth);
+
     }
 
     //노트 히트마다 체력 증가
@@ -90,6 +91,7 @@ public class PlayerStat : MonoBehaviour
     public void ResetAttackGuage()
     {
         _currentAttackGuage = 0;
+        GaugeUI.Instance.ChangeAttack(_currentAttackGuage);
         IsAttakcOn = false;
     }
 
@@ -97,8 +99,9 @@ public class PlayerStat : MonoBehaviour
     {
         float value = IsFeverOn ? _currentAttackGuage + _baseAttackIncrease + _FeverAttackGuagePlus : _currentAttackGuage + _baseAttackIncrease;
         _currentAttackGuage = Mathf.Min(_maxAttackGuage, value);
+        GaugeUI.Instance.ChangeAttack(_currentAttackGuage);
 
-        if(_currentAttackGuage == _maxAttackGuage)
+        if (_currentAttackGuage == _maxAttackGuage)
         {
             IsAttakcOn = true;
             StartAttack?.Invoke();
@@ -116,13 +119,15 @@ public class PlayerStat : MonoBehaviour
         IsFeverOn = false;
         IsFever?.Invoke(IsFeverOn);
         OnFeverChanged?.Invoke(_currentFeverGuage);
+        GaugeUI.Instance.ChangeFever(_currentFeverGuage);
     }
 
     //해당 수치만큼 피버게이지 증가
     public void IncreaseFeverGuage()
     {
         _currentFeverGuage = Mathf.Min(_maxFeverGuage,  _currentFeverGuage + _baseFeverIncrease);
-        if(_currentFeverGuage == _maxFeverGuage)
+        GaugeUI.Instance.ChangeFever(_currentFeverGuage);
+        if (_currentFeverGuage == _maxFeverGuage)
         {
             IsFeverOn = true;
             IsFever?.Invoke(IsFeverOn);

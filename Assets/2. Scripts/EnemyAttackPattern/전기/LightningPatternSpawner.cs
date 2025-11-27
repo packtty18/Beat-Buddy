@@ -48,4 +48,8 @@ public class LightningPatternSpawner : MonoBehaviour, IPatternSpawner
     {
         SpawnLightningPattern();
     }
+    private void OnDestroy()
+    {
+        StageManager.Instance.OnPlaySong -= StartAttack;
+    }
 }

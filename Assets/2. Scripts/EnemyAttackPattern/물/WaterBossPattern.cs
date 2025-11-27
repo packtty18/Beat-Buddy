@@ -25,10 +25,10 @@ public class WaterBossPattern : MonoBehaviour
         _isWaterAttackActive = true;
 
         _raindrops = Instantiate(_raindropsPrefab);
-        BuddyManager.Instance.StartBuddyPattern(true);
+        BuddyManager.Instance.StartBuddyAttackAnimation(true);
         yield return new WaitForSeconds(_raindropAnimationTime);
         StopRain();
-        BuddyManager.Instance.StartBuddyPattern(false);
+        BuddyManager.Instance.StartBuddyAttackAnimation(false);
 
         _isWaterAttackActive = false;
     }

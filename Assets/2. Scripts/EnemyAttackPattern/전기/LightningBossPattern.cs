@@ -60,7 +60,7 @@ public class LightningBossPattern : MonoBehaviour
     private IEnumerator StartLightningAttackCoroutine()
     {
         _isLightningAttackActive = true;
-        BuddyManager.Instance.StartBuddyPattern(true);
+        BuddyManager.Instance.StartBuddyAttackAnimation(true);
 
         // 초기화
         SetValue();
@@ -78,7 +78,7 @@ public class LightningBossPattern : MonoBehaviour
         SpawnLightning(_lightningPosition3);
 
         _isLightningAttackActive = false;
-        BuddyManager.Instance.StartBuddyPattern(false);
+        BuddyManager.Instance.StartBuddyAttackAnimation(false);
     }
 
     private void SetValue()
