@@ -15,6 +15,7 @@ public class Note : MonoBehaviour, IPoolable
     public ENoteType NoteType { get; private set; }
     public float TargetBeat { get; private set; }
 
+    private string _noteHitText;
     private Transform _judgePoint;
     private Vector3 _spawnPosition;
     private float _beatsToTravel;
@@ -115,15 +116,10 @@ public class Note : MonoBehaviour, IPoolable
 
         Vector3 targetPosition = transform.position + Vector3.up * _hitMoveDistance;
 
+        HitTypeManager.Instance.SetText(hitType);
+
         _hitSequence = DOTween.Sequence();
-        _hitSequence.Append(transform.DOMove(targetPosition, duration).SetEase(moveEase));
-        _hitSequence.Join(_spriteRenderer.DOFade(0f, duration).SetEase(Ease.InQuad));
-
-        if (hitType == EHitType.Perfect)
-        {
-            _hitSequence.Join(transform.DOScale(Vector3.one * 1.3f, duration).SetEase(Ease.OutQuad));
-        }
-
+        _hitSequence.Append(_spriteRenderer.DOFade(0f, duration).SetEase(Ease.InQuad));
         _hitSequence.OnComplete(() =>
         {
             if (_noteSpawner != null)
@@ -144,7 +140,7 @@ public class Note : MonoBehaviour, IPoolable
         {
             _judgeManager.OnNoteMiss();
         }
-
+        HitTypeManager.Instance.SetText(EHitType.Miss);
         if (_noteSpawner != null)
         {
             _noteSpawner.ReturnNoteToPool(gameObject);
