@@ -14,6 +14,7 @@ public enum EGameKeyType
     Setting
 }
 
+//역할 : 특정 입력에 대한 여부 확인
 public class InputManager : CoreSingleton<InputManager>
 {
     // 각 게임 키에 대응하는 KeyCode 배열

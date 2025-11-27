@@ -30,7 +30,7 @@ public class StageSelector : MonoBehaviour , IUIConfirmable, IUIValueChangeable
     private void Start()
     {
         _songDatas = SongManager.Instance.GetAllSongs();
-        currentIndex = SongManager.Instance.GetSelectedSongIndex();
+        currentIndex = 0;
         
         InstantSongItem();
         itemCount = songItems.Count;

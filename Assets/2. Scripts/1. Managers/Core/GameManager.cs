@@ -7,17 +7,23 @@ public enum EGameMode
     Arcade,
     Free
 }
+
+
+//역할 : 게임의 전체적인 진행 관리
 public class GameManager : CoreSingleton<GameManager>
 {
-    private bool _blockLoadSameScene = true;
+
+
 
     private ESceneType _currentScene = ESceneType.Lobby;
-    public ESceneType CurrentScene => _currentScene;
-
     private EGameMode _currentGameMode = EGameMode.None;
-    public EGameMode CurrentGameMode => _currentGameMode;
-
+    //현재 스테이지모드에서 진행할 스테이지 레벨 -> 0~4
     private int _currentStageIndex = 0;
+
+
+    //프로퍼티
+    public ESceneType CurrentScene => _currentScene;
+    public EGameMode CurrentGameMode => _currentGameMode;
     public int CurrentStageIndex => _currentStageIndex;
 
     protected override void Awake()
@@ -31,41 +37,35 @@ public class GameManager : CoreSingleton<GameManager>
         _currentGameMode = mode;
     }
 
-    public void SetStageCount(int setValue)
-    {
-        _currentStageIndex = setValue;
-    }
-
     public void ChangeScene(ESceneType newScene , ETransitionType outTransition, ETransitionType inTransition)
     {
         _currentScene = newScene;
         SoundManager.Instance.StopBGM();
-        LoadScene(_currentScene, outTransition , inTransition);
+        Debug.Log($"[GameManager] Scene 로드 시작: {_currentScene}");
+        MySceneManager.Instance.LoadScene(_currentScene, outTransition, inTransition);
     }
-    private void LoadScene(ESceneType currentScene, ETransitionType outTransition, ETransitionType inTransition)
-    {
-        Debug.Log($"[GameManager] Scene 로드 시작: {currentScene}");
-        MySceneManager.Instance.LoadScene(currentScene, outTransition, inTransition, _blockLoadSameScene);
-    }
-
     public void OnSceneLoadComplete()
     {
         Debug.Log($"[GameManager] OnSceneLoadComplete: {_currentScene}");
     }
 
-    //안쓸듯
-    public void ReturnToSongSelect()
+
+    //스테이지 인덱스 변경
+    public void SetStageIndex(int setValue)
     {
-        ChangeScene(ESceneType.SongSelect, ETransitionType.ModeToSongOut, ETransitionType.ModeToSongIn);
+        _currentStageIndex = setValue;
     }
 
-    //곡선택 씬에서 사용
-    public void ReturnToMode()
+    public void ResetStageIndex()
     {
-        ChangeScene(ESceneType.Lobby, ETransitionType.SongToModeOut, ETransitionType.SongToModeIn);
+        SetStageIndex(0);
     }
 
-    //곡선택 혹은 모드선택 씬에서 사용
+    public void IncreaseStageIndex()
+    {
+        _currentStageIndex++;
+    }
+
     public void StartStage()
     {
         if(!SongManager.IsManagerExist())
@@ -82,7 +82,6 @@ public class GameManager : CoreSingleton<GameManager>
         }
 
         //프리모드라면 이미 곡 선택 완료됨
-      
         ChangeScene(ESceneType.Stage, ETransitionType.ModeToSongOut, ETransitionType.ModeToSongIn);
         Debug.Log($"[GameManager] 게임 시작 요청: {SongManager.Instance.GetSelectedSongName()}");
     }

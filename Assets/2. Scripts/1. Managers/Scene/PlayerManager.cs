@@ -1,6 +1,7 @@
 ﻿using DG.Tweening;
 using System;
 using UnityEngine;
+using UnityEngine.Rendering;
 using UnityEngine.UI;
 
 public class PlayerManager : SceneSingleton<PlayerManager>
@@ -112,13 +113,14 @@ public class PlayerManager : SceneSingleton<PlayerManager>
     {
         _currentPlayerPrefab.GetComponent<PlayerAnimatorController>().SetFail(true);
     }
+
     private void CheckGameOver(float currentHealth)
     {
         GaugeUI.Instance.ChangeHealth(currentHealth);
 
         if (currentHealth <= 0)
         {
-            StageManager.Instance.GameOver();
+            StartCoroutine(StageManager.Instance.GameEndLogic());
         }
     }
 }

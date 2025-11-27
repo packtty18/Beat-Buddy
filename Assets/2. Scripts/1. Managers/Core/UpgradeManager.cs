@@ -1,6 +1,8 @@
 ﻿using System.Collections.Generic;
 using UnityEngine;
 
+
+//스테이지 모드의 증강에 대한 요소 관리
 public class UpgradeManager : CoreSingleton<UpgradeManager>
 {
     [SerializeField] private UpgradeDatabaseSO _upgradeDatabase;
@@ -8,10 +10,7 @@ public class UpgradeManager : CoreSingleton<UpgradeManager>
     [Header("Upgrade Options")]
     [SerializeField] private List<UpgradeOptionSO> _upgradeOptions;     //업그레이드 요소
 
-
-
-    [Header("Debug")]
-    private int stage = 1;
+    private int stageIndex => GameManager.Instance.CurrentStageIndex;
 
     protected override void Awake()
     {
@@ -32,12 +31,12 @@ public class UpgradeManager : CoreSingleton<UpgradeManager>
             return new List<UpgradeOptionSO>();
         }
 
-        int index = Mathf.Clamp(stage - 1, 0, choiceGroups.Count - 1);
+        int index = Mathf.Clamp(stageIndex, 0, choiceGroups.Count - 1);
 
         var options = choiceGroups[index].OptionsList;
         if (options == null || options.Count == 0)
         {
-            Debug.LogWarning($"Stage {stage}에 업그레이드 옵션이 없습니다.");
+            Debug.LogWarning($"Stage {stageIndex}에 업그레이드 옵션이 없습니다.");
             return new List<UpgradeOptionSO>();
         }
 

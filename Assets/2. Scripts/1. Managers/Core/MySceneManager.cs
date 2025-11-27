@@ -3,13 +3,13 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
+//씬에 대한 전환 및 전환연출 실행 담당
 public class MySceneManager : CoreSingleton<MySceneManager>
 {
     [SerializeField] private SceneDatabaseSO _sceneDatabase;
     [SerializeField] private TransitionDatabaseSO _transitionDatabase;
     [SerializeField] private LoadingImageController _loadImage;
-    private ESceneType _currentScene = ESceneType.None;
+
     private Coroutine _loadingCoroutine = null;
 
     protected override void Awake()
@@ -39,7 +39,7 @@ public class MySceneManager : CoreSingleton<MySceneManager>
         }
     }
 
-    public void LoadScene(ESceneType type, ETransitionType outTransitionType = ETransitionType.None, ETransitionType inTransitionType = ETransitionType.None,bool blockSameScene = true)
+    public void LoadScene(ESceneType type, ETransitionType outTransitionType = ETransitionType.None, ETransitionType inTransitionType = ETransitionType.None)
     {
         if(_loadingCoroutine != null)
         {
@@ -49,12 +49,6 @@ public class MySceneManager : CoreSingleton<MySceneManager>
         if (type == ESceneType.None)
         {
             Debug.LogWarning("[SceneManager] : None is not Loadable");
-            return;
-        }
-
-        if ((_currentScene == type) && blockSameScene)
-        {
-            Debug.LogWarning("[SceneManager] : you are already in that scene.");
             return;
         }
 
@@ -70,7 +64,6 @@ public class MySceneManager : CoreSingleton<MySceneManager>
             InputManager.Instance.SetInputActive(false);
         }
 
-        _currentScene = type;
         TransitionBase outTransition = _transitionDatabase.GetData(outTransitionType);
         TransitionBase inTransition = _transitionDatabase.GetData(inTransitionType);
         var pipeline = new SceneLoadPipeline(sceneName, _loadImage, outTransition, inTransition);

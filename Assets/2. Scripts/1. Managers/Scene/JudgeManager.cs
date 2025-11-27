@@ -249,7 +249,7 @@ public class JudgeManager : SceneSingleton<JudgeManager>
         };
     }
 
-    public void ResetStats()
+    public void ResetScoreStats()
     {
         _score = 0;
         _combo = 0;

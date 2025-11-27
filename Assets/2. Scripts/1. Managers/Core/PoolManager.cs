@@ -2,6 +2,8 @@
 using System.Collections.Generic;
 using UnityEngine;
 
+//풀 객체들의 관리 및 해당 풀에서 객체나 스크립트 전달 혹은 반환
+//반드시 풀링객체는 해당 매니저를 통해 스폰
 public class PoolManager : CoreSingleton<PoolManager>
 {
     [Header("Pools")]

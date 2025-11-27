@@ -14,9 +14,9 @@ public class UISelector : MonoBehaviour
     [SerializeField] private bool _isActive = false;
 
     [Header("Debug")]
-    [SerializeField] private int _currentIndex = 0;
+    [SerializeField] private int _currentIndex = -1;
 
-    private RectTransform _currentTarget => _targets[_currentIndex];
+    private RectTransform _currentTarget;
     private UISelector _prevSelector;
     private RectTransform _highlightUI;
 
@@ -30,9 +30,8 @@ public class UISelector : MonoBehaviour
 
     public void Init()
     {
-        _currentIndex = 0;
+        _currentIndex = -1;
         InitHighlight();
-        UpdateHighlight();
     }
 
     private void InitHighlight()
@@ -42,7 +41,7 @@ public class UISelector : MonoBehaviour
             return;
         }
 
-        GameObject obj = Instantiate(_selectionPrefab, transform);
+        GameObject obj = Instantiate(_selectionPrefab, _targets[0]);
         _highlightUI = obj.GetComponent<RectTransform>();
         _highlightUI.gameObject.SetActive(false);
     }
@@ -119,11 +118,13 @@ public class UISelector : MonoBehaviour
         if (InputManager.Instance.GetKeyDown(EGameKeyType.Up))
         {
             _currentIndex = (_currentIndex - 1 + _targets.Count) % _targets.Count;
+            _currentTarget = _targets[_currentIndex];
             UpdateHighlight();
         }
         else if (InputManager.Instance.GetKeyDown(EGameKeyType.Down))
         {
             _currentIndex = (_currentIndex + 1) % _targets.Count;
+            _currentTarget = _targets[_currentIndex];
             UpdateHighlight();
         }
     }
@@ -131,6 +132,11 @@ public class UISelector : MonoBehaviour
     //엔터 혹은 좌우 키로 해당 UI 조절
     private void HandleControlInput()
     {
+        if(_currentTarget == null)
+        {
+            return;
+        }
+
         // 확인
         if (InputManager.Instance.GetKeyDown(EGameKeyType.Confirm) &&
             _currentTarget.TryGetComponent(out IUIConfirmable confirmable))

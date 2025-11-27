@@ -9,6 +9,6 @@ public class SongSelectScene : MonoBehaviour
             return;
         }
 
-        GameManager.Instance.ReturnToMode();
+        GameManager.Instance.ChangeScene(ESceneType.Lobby, ETransitionType.SongToModeOut, ETransitionType.SongToModeIn);
     }
 }

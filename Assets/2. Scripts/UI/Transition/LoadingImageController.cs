@@ -3,7 +3,7 @@
 public class LoadingImageController : MonoBehaviour
 {
     [SerializeField] private UISpriteAnimation[] _loadingImages;
-    [SerializeField] private int targetStage = 1;
+
     private void Start()
     {
         foreach (UISpriteAnimation image in _loadingImages)
@@ -16,7 +16,7 @@ public class LoadingImageController : MonoBehaviour
     [ContextMenu("시작")]
     public void ActiveLoad(float fadeDuration)
     {
-        for(int i =0; i< targetStage; i++)
+        for(int i =0; i< GameManager.Instance.CurrentStageIndex+1; i++)
         {
             _loadingImages[i].SetActive(true);
             _loadingImages[i].PlayUIAnim(fadeDuration);

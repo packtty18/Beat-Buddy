@@ -28,6 +28,8 @@ public enum ESoundType
     SFX_StageFail=22,
     SFX_StageVictory=23,
 }
+
+//오디오 재생 혹은 음량 관리
 public class SoundManager : CoreSingleton<SoundManager>
 {
     [Header("사운드 라이브러리 추가")]

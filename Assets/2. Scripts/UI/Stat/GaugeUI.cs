@@ -11,10 +11,10 @@ public class GaugeUI : SceneSingleton<GaugeUI>
     [SerializeField] private Slider _buddyHealthSlider;
 
     [Header("Max Values")]
-    [SerializeField] private float _maxHealth = 100f;
-    [SerializeField] private float _maxFever = 50f;
-    [SerializeField] private float _maxAttack = 20f;
-    [SerializeField] private float _maxBuddyHealth = 100f;
+    private float _maxHealth = 100f;
+    private float _maxFever = 50f;
+    private float _maxAttack = 20f;
+    private float _maxBuddyHealth = 100f;
 
     [Header("Animation Settings")]
     [SerializeField] private float _gaugeDuration = 0.2f;
