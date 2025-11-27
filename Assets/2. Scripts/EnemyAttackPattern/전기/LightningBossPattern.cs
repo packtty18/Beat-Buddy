@@ -1,5 +1,4 @@
 ﻿using System.Collections;
-using System.Collections.Generic;
 using UnityEngine;
 
 public enum ELightningPatternType
@@ -46,12 +45,6 @@ public class LightningBossPattern : MonoBehaviour
     private float _thunderAnimationTime = 0.34f;
     private float _lightningAnimationTime = 0.3f;
 
-    private NoteSpawner _noteSpawner;
-
-    private void Start()
-    {
-        _noteSpawner = FindObjectOfType<NoteSpawner>();
-    }
     public void Attack()
     {
         StartCoroutine(StartLightningAttackCoroutine());
@@ -68,7 +61,6 @@ public class LightningBossPattern : MonoBehaviour
         // 플래시 효과 발동
         FlashScreen.Flash();
         StartLightningAttack();
-        _noteSpawner.ChangeSpawnerPosition();
 
         yield return new WaitForSeconds(_startLightning);
         SpawnLightning(_lightningPosition1);
@@ -86,9 +78,6 @@ public class LightningBossPattern : MonoBehaviour
         // 초기화
         _thunderSpawned = false;
         _thunderRepeat = false;
-
-        //_leftNote = Resources.Load<GameObject>("LNote");
-        //_rightNote = Resources.Load<GameObject>("RNote");
     }
 
     // 공격 시작 메서드
