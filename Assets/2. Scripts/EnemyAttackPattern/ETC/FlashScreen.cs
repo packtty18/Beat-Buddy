@@ -7,7 +7,7 @@ public class FlashScreen : MonoBehaviour
 
     [Header("플래시 이미지")]
     [SerializeField] private Image _flashImage;
-    [SerializeField] private float _flashSpeed = 0.4f;
+    [SerializeField] private float _flashSpeed = 0.22f;
     [SerializeField] private Color _flashColour = new Color(0.8f, 0.9f, 1f, 0.8f);
 
     [Header("플래시 트리거")]
