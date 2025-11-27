@@ -68,6 +68,8 @@ public class FinalBossPatternSpawner : MonoBehaviour
     }
     private void SpawnAttackPattern()
     {
+        SoundManager.Instance.PlaySFX(ESoundType.SFX_FinalStart);
+
         int randomIndex = Random.Range(0, _patternSpawnerPrefab.Length); // 추첨
 
         while (randomIndex == _lastIndex && _patternSpawnerPrefab.Length > 1) // 중복 시 재추첨

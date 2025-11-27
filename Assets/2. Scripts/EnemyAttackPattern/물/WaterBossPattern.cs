@@ -25,10 +25,11 @@ public class WaterBossPattern : MonoBehaviour
     private IEnumerator StartWaterAttackCoroutine()
     {
         _isWaterAttackActive = true;
-
+        SoundManager.Instance.PlaySFX(ESoundType.SFX_WaterStart);
         _raindrops = Instantiate(_raindropsPrefab);
         _raindropsStage = Instantiate(_raindropsStagePrefab);
         BuddyManager.Instance.StartBuddyAttackAnimation(true);
+        SoundManager.Instance.PlaySFX(ESoundType.SFX_WaterRainDrop);
         yield return new WaitForSeconds(_raindropAnimationTime);
         StopRain(_raindrops);
         StopRain(_raindropsStage);
