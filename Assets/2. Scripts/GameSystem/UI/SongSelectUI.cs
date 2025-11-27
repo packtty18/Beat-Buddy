@@ -6,6 +6,11 @@ public class SongSelectUI : MonoBehaviour
 {
     [SerializeField] private StageSelector _songSelector;
 
+
+    private void Start()
+    {
+        SoundManager.Instance.PlayBGM(ESoundType.BGM_StageSelect);
+    }
     // ESC: 뒤로 가기
     public void ReturnToMove()
     {

@@ -3,6 +3,12 @@ using TMPro;
 
 public class ModeSelectUI : MonoBehaviour
 {
+
+    private void Start()
+    {
+        SoundManager.Instance.PlayBGM(ESoundType.BGM_ModeSelect);
+    }
+
     public void ChooseFreeMode()
     {
         if (!GameManager.IsManagerExist())

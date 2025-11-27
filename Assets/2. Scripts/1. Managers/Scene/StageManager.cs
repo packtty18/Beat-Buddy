@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Collections;
 using System.Runtime.Versioning;
+using TMPro;
 using UnityEngine;
 
 public class StageManager : SceneSingleton<StageManager>
@@ -14,11 +15,11 @@ public class StageManager : SceneSingleton<StageManager>
     [SerializeField] private NoteController _noteController;
 
     [Header("UI")]
+    [SerializeField] private TextMeshProUGUI _countDownText;
     [SerializeField] private GaugeUI _gaugeUI;
     [SerializeField] private UpgradeUI _upgradeUI;
     [SerializeField] private ResultUI _resultUI;
-    
-    
+
     private Coroutine _stageFlowCoroutine;
 
     private bool _isGameOver = false; // 패배 플래그
@@ -27,12 +28,6 @@ public class StageManager : SceneSingleton<StageManager>
 
     private void Start()
     {
-        if (_resultUI != null)
-        {
-            _resultUI.gameObject.SetActive(false);
-        }
-
-
         //임시 나중에 게임 매니저에서 관리
         StartGameFlow();
     }
@@ -40,22 +35,50 @@ public class StageManager : SceneSingleton<StageManager>
     private void StartGameFlow()
     {
         // Stage 게임 흐름 시작
-        _stageFlowCoroutine = StartCoroutine(StageGameFlow());
-    }
-
-
-    private IEnumerator StageGameFlow()
-    {
         Debug.Log("[StageManager] === Stage 게임 흐름 시작 ===");
+        //스테이지 초기화 및 데이터 적용
 
-        if (!SettingManager())
-            yield break;
+        if (!SettingManager() || !CheckUI())
+            return;
 
-        //초기화 로직
         InitializeNoteSpawner();
         LoadSongData();
         LoadNoteSpawnerBGM();
+        
+        _stageFlowCoroutine = StartCoroutine(StageGameFlow());
+    }
 
+    private bool CheckUI()
+    {
+        //UI에 대한 체크
+        if(_gaugeUI == null)
+        {
+            return false;
+        }
+
+        if (_upgradeUI == null) 
+        {
+            _upgradeUI.gameObject.SetActive(false);
+            return false;
+        } 
+
+        if(_resultUI == null)
+        {
+            _resultUI.gameObject.SetActive(false);
+            return false; 
+        }
+
+        if(_countDownText == null)
+        {
+            _countDownText.gameObject.SetActive(false);
+            return false;
+        }
+
+        return true;
+    }
+
+    private IEnumerator StageGameFlow()
+    {
         //스폰 로직
         SpawnPlayer();
         yield return StartCoroutine(PlayCountdown());
@@ -74,7 +97,6 @@ public class StageManager : SceneSingleton<StageManager>
         //게임 오버 판단
         yield return StartCoroutine(GameEndLogic());
 
-        
     }
 
     private bool SettingManager()
@@ -186,14 +208,15 @@ public class StageManager : SceneSingleton<StageManager>
         Debug.Log("[StageManager] === 카운트다운 시작 ===");
 
         int time = Mathf.CeilToInt(_startDelayTime);
-
+        _countDownText.gameObject.SetActive(true);
         while (time > 0)
         {
             Debug.Log($"[StageManager] 카운트다운: {time}");
-
+            _countDownText.text = time.ToString();
             yield return new WaitForSeconds(1f);
             time--;
         }
+        _countDownText.gameObject.SetActive(false);
     }
 
     
@@ -211,7 +234,12 @@ public class StageManager : SceneSingleton<StageManager>
 
         OnPlaySong?.Invoke();
 
-        yield return new WaitUntil(() => !SongPlayManager.Instance.IsPlaying());
+        while(SongPlayManager.Instance.IsPlaying())
+        {
+            
+            yield return null;
+        }
+
         Debug.Log("[StageManager] 음악 종료 감지");
     }
 
