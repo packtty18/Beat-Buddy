@@ -120,6 +120,7 @@ public class PlayerManager : SceneSingleton<PlayerManager>
 
         if (currentHealth <= 0)
         {
+            StopCoroutine(StageManager.Instance.StageFlowCoroutine);
             StartCoroutine(StageManager.Instance.GameEndLogic());
         }
     }
