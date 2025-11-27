@@ -62,11 +62,17 @@ public class SoundObject : MonoBehaviour, IPoolable
         {
             _audio.PlayScheduled(delayTime);
         }
-        
+
+        if (!isBgm)
+        {
+            _lifetimeRoutine = StartCoroutine(WaitForEnd(clip.length));
+        }
     }
-
-    
-
+    private IEnumerator WaitForEnd(float endTime)
+    {
+        yield return new WaitForSeconds(endTime);   
+        DespawnObject();
+    }
 
     public void StopPlay()
     {

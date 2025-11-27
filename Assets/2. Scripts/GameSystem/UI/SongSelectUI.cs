@@ -17,7 +17,6 @@ public class SongSelectUI : MonoBehaviour
         if (GameManager.Instance != null)
         {
             GameManager.Instance.ChangeScene(ESceneType.ModeSelect, ETransitionType.SongToModeOut, ETransitionType.SongToModeIn);
-            SoundManager.Instance.PlaySFX(ESoundType.SFX_ButtonSelect);
         }
     }
 }
