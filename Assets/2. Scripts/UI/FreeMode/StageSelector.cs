@@ -74,10 +74,10 @@ public class StageSelector : MonoBehaviour , IUIConfirmable, IUIValueChangeable
             bool shouldVisible = Mathf.Abs(rawOffset) <= sideVisibleCount;
             RectTransform item = songItems[i];
 
-            float angle = Mathf.Deg2Rad * (rawOffset * angleStep * -1f); // 반시계 방향
+            float angle = Mathf.Deg2Rad * (rawOffset * angleStep); // 반시계 방향
             Vector2 circlePos = new Vector2(
-                -Mathf.Cos(angle) * radius, // 왼쪽 원형
-                Mathf.Sin(angle) * radius
+                Mathf.Sin(angle) * radius, // 왼쪽 원형
+                Mathf.Cos(angle) * radius
             );
 
             Vector2 finalPos = centerPos + circlePos + (itemOffset * rawOffset);
