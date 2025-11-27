@@ -56,6 +56,11 @@ public class GameManager : CoreSingleton<GameManager>
         _currentStageIndex = setValue;
     }
 
+    public void ResetStageIndex()
+    {
+        SetStageIndex(0);
+    }
+
     public void IncreaseStageIndex()
     {
         _currentStageIndex++;

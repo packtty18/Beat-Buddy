@@ -1,5 +1,6 @@
 ﻿using System;
 using System.Collections;
+using System.Runtime.Versioning;
 using UnityEngine;
 
 public class StageManager : SceneSingleton<StageManager>
@@ -13,11 +14,14 @@ public class StageManager : SceneSingleton<StageManager>
     [SerializeField] private NoteController _noteController;
 
     [Header("UI")]
-    [SerializeField] private ResultUI _resultUI;
+    [SerializeField] private GaugeUI _gaugeUI;
     [SerializeField] private UpgradeUI _upgradeUI;
+    [SerializeField] private ResultUI _resultUI;
+    
+    
     private Coroutine _stageFlowCoroutine;
 
-    private bool _isGameOver = false; // 게임 오버 플래그
+    private bool _isGameOver = false; // 패배 플래그
 
     public Action OnPlaySong;
 
@@ -58,22 +62,19 @@ public class StageManager : SceneSingleton<StageManager>
         SpawnBuddy();
         SetStat();
 
+        _gaugeUI.InitializeGaugeUI();
+
         //게임 시작
         yield return StartCoroutine(StartSongAndSpawningNotes());
 
+       
         //노래 종료 및 스테이지 끝내기
-        HandleSongEnd();
+        StopNoteSpawn();
 
-        //종료 UI로직
-        if(GameManager.Instance.CurrentGameMode == EGameMode.Arcade && !_isGameOver)
-        {
-            //아케이드 모드에 게임에서 승리한다면 업그레이드를 띄움
-            yield return StartCoroutine(ShowUpgradeUI());
-            GameManager.Instance.IncreaseStageIndex();
-        }
+        //게임 오버 판단
+        yield return StartCoroutine(GameEndLogic());
 
-        //그 외에는 결과창만 띄우기
-        ShowResultUI();
+        
     }
 
     private bool SettingManager()
@@ -214,14 +215,10 @@ public class StageManager : SceneSingleton<StageManager>
         Debug.Log("[StageManager] 음악 종료 감지");
     }
 
-    private void HandleSongEnd()
+    private void StopNoteSpawn()
     {
         _noteSpawner.StopSpawning();
         Debug.Log("[StageManager] 노트 스폰 중지");
-
-        // 버디 사망 여부 체크
-        CheckBuddyDefeated();
-        Debug.Log("[StageManager] 버디 상태 검사");
     }
 
     private void ShowResultUI()
@@ -256,12 +253,9 @@ public class StageManager : SceneSingleton<StageManager>
     }
 
     //스테이지 패배시 로직
-    public void StageDefeat()
+    public IEnumerator GameEndLogic()
     {
-        if (_isGameOver) 
-            return; 
-
-        _isGameOver = true;
+        SetGameOver();
 
         //모든 코루틴 중지
         StopAllCoroutines();
@@ -271,10 +265,24 @@ public class StageManager : SceneSingleton<StageManager>
         // 노트 스폰 중지
         _noteSpawner.StopSpawning();
         ControlAnimationForResult();
+        _gaugeUI.DestroyGaugeUI();
 
-        //Debug.Log(SongPlayManager.Instance.IsPlaying());
-        //_resultUI.gameObject.SetActive(true);
-        //_resultUI.DisplayResult();
+        yield return new WaitForSeconds(_endDelayTime);
+
+        // 스테이지 승리
+        if (GameManager.Instance.CurrentGameMode == EGameMode.Arcade && !_isGameOver)
+        {
+            //아케이드 모드에 게임에서 승리한다면 업그레이드를 띄움
+            yield return StartCoroutine(ShowUpgradeUI());
+            GameManager.Instance.IncreaseStageIndex();
+        }
+        else
+        {
+            GameManager.Instance.ResetStageIndex();
+        }
+
+        
+        //그 외에는 결과창만 띄우기
         ShowResultUI();
     }
 
@@ -282,21 +290,16 @@ public class StageManager : SceneSingleton<StageManager>
     {
         return _isGameOver;
     }
-    private bool CheckBuddyDefeated()
+
+    //버디가 졌는가? -> 게임에서 이겼는가?
+    private void SetGameOver()
     {
-        if (BuddyManager.Instance.IsBuddyDefeated())
-        {
-            return true;
-        }
-        else
-        {
-            return false;
-        }
+        _isGameOver = !BuddyManager.Instance.IsBuddyDefeated();
     }
 
     private void ControlAnimationForResult()
     {
-        if (BuddyManager.Instance.IsBuddyDefeated())
+        if (!_isGameOver)
         {
             BuddyManager.Instance.DefeatAnimation();
             PlayerManager.Instance.VictoryAnimation();
