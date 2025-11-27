@@ -28,6 +28,16 @@ public enum ESoundType
     SFX_Upgrade=21,
     SFX_StageFail=22,
     SFX_StageVictory=23,
+    SFX_FireStart = 24,
+    SFX_FireBreathe = 25,
+    SFX_WaterStart = 26,
+    SFX_WaterRainDrop = 27,
+    SFX_ThunderStart = 28,
+    SFX_ThunderDrop = 29,
+    SFX_ThunderTinkle = 30,
+    SFX_EsperStart = 31,
+    SFX_EsperPattern = 32,
+    SFX_FinalStart = 33,
 }
 
 //오디오 재생 혹은 음량 관리

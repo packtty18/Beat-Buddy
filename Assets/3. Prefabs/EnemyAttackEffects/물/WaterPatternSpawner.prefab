@@ -47,6 +47,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   _isWaterAttackActive: 0
   _raindropsPrefab: {fileID: 6978433744498728086, guid: 656078ca21fd097489f38e1f09559c7c, type: 3}
+  _raindropsStagePrefab: {fileID: 6978433744498728086, guid: afb22393594efb14685ddca2164b446c, type: 3}
 --- !u!114 &937096951410682010
 MonoBehaviour:
   m_ObjectHideFlags: 0

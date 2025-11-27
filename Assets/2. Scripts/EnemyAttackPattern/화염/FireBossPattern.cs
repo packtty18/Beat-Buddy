@@ -50,6 +50,7 @@ public class FireBossPattern : MonoBehaviour
         _isFireAttackActive = true;
         BuddyManager.Instance.StartBuddyAttackAnimation(true);
 
+        SoundManager.Instance.PlaySFX(ESoundType.SFX_FireBreathe);
         yield return StartCoroutine(FireStartAnimation());
         ShowBreathEffect();
 
@@ -107,6 +108,7 @@ public class FireBossPattern : MonoBehaviour
     // 브레스 이펙트 시작하는 메서드
     private void ShowBreathEffect()
     {
+        SoundManager.Instance.PlaySFX(ESoundType.SFX_FireStart);
         if (_firePatternPrefab != null && transform.position.x >= 0)
         {
             _currentFireEffect = Instantiate(_firePatternPrefab[(int)EFirePatternType.Breath], transform);

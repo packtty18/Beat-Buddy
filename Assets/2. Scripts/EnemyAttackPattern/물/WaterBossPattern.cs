@@ -8,7 +8,9 @@ public class WaterBossPattern : MonoBehaviour
 
     [Header("물 효과 프리팹")]
     [SerializeField] private GameObject _raindropsPrefab;
+    [SerializeField] private GameObject _raindropsStagePrefab;
     private GameObject _raindrops;
+    private GameObject _raindropsStage;
 
     [Header("패턴 지속시간")]
     private float _raindropAnimationTime = 8f;
@@ -23,22 +25,25 @@ public class WaterBossPattern : MonoBehaviour
     private IEnumerator StartWaterAttackCoroutine()
     {
         _isWaterAttackActive = true;
-
+        SoundManager.Instance.PlaySFX(ESoundType.SFX_WaterStart);
         _raindrops = Instantiate(_raindropsPrefab);
+        _raindropsStage = Instantiate(_raindropsStagePrefab);
         BuddyManager.Instance.StartBuddyAttackAnimation(true);
+        SoundManager.Instance.PlaySFX(ESoundType.SFX_WaterRainDrop);
         yield return new WaitForSeconds(_raindropAnimationTime);
-        StopRain();
+        StopRain(_raindrops);
+        StopRain(_raindropsStage);
         BuddyManager.Instance.StartBuddyAttackAnimation(false);
 
         _isWaterAttackActive = false;
     }
 
     // 스킬 멈출 때 비 천천히 사라지는 효과 메서드
-    private void StopRain()
+    private void StopRain(GameObject rain)
     {
-        if (_raindrops != null)
+        if (rain != null)
         {
-            var effect = _raindrops.GetComponent<IPatternEffect>();
+            var effect = rain.GetComponent<IPatternEffect>();
             if (effect != null)
             {
                 effect.StopRainEffect();
