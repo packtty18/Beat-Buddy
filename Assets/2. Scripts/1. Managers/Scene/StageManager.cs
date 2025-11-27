@@ -285,8 +285,8 @@ public class StageManager : SceneSingleton<StageManager>
     {
         SetGameOver();
 
-        //모든 코루틴 중지
-        StopAllCoroutines();
+        //노래와 스폰에 관한 코루틴 제거
+        StopCoroutine(StartSongAndSpawningNotes());
 
         // 음악 정지
         SongPlayManager.Instance.StopBGM();
