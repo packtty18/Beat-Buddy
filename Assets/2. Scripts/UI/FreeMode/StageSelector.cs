@@ -132,12 +132,17 @@ public class StageSelector : MonoBehaviour , IUIConfirmable, IUIValueChangeable
     public void OnValueIncrease()
     {
         currentIndex = LoopIndex(currentIndex + 1);
-        SoundManager.Instance.PlayBGM(songItems[currentIndex].GetComponent<SongItemUI>().GetAudioClip());
+        SoundManager.Instance.PlayBGM(GetCurrentClip());
+    }
+
+    public AudioClip GetCurrentClip()
+    {
+        return songItems[currentIndex].GetComponent<SongItemUI>().GetAudioClip();
     }
 
     public void OnValueDecrease()
     {
         currentIndex = LoopIndex(currentIndex - 1);
-        SoundManager.Instance.PlayBGM(songItems[currentIndex].GetComponent<SongItemUI>().GetAudioClip());
+        SoundManager.Instance.PlayBGM(GetCurrentClip());
     }
 }
