@@ -19,6 +19,7 @@ public class BuddyManager : SceneSingleton<BuddyManager>
     private float _buddyMaxHealth;
     private BuddyStat _buddyStat;
 
+    private Sequence _knockbackSequence;
     protected override void Awake()
     {
         base.Awake();
@@ -66,6 +67,7 @@ public class BuddyManager : SceneSingleton<BuddyManager>
     {
         _buddyStat.DecreaseHealth(playerDamage);
         _currentBuddyPrefab.GetComponent<BuddyAnimatorController>().OnHit();
+        KnockBackBuddy();
     }
 
     private void GetBuddyStat(GameObject currentBuddyPrefab)
@@ -119,5 +121,14 @@ public class BuddyManager : SceneSingleton<BuddyManager>
         _currentBuddyPrefab.transform.DORotate(new Vector3(0, 180, 0), 1f)
             .OnComplete(() => _currentBuddyPrefab.transform.DOMoveX(_currentBuddyPrefab.transform.position.x + 10f, 3f));
         _currentBuddyPrefab.GetComponent<BuddyAnimatorController>().OnAttack(true);
+    }
+    public void KnockBackBuddy()
+    {
+        if (_knockbackSequence != null && _knockbackSequence.IsActive())
+            return;
+
+        _knockbackSequence?.Kill();
+        _knockbackSequence = Knockback.PlayKnockback(_currentBuddyPrefab.transform, -_currentBuddyPrefab.transform.right);
+        _knockbackSequence.OnComplete(() => _knockbackSequence = null);
     }
 }

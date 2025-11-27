@@ -341,8 +341,6 @@ public class StageManager : SceneSingleton<StageManager>
         }
     }
 
-
-
     // 씬 바꿀 때 호출
     private void CleanupStage()
     {

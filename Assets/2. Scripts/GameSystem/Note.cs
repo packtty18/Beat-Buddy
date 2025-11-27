@@ -15,7 +15,6 @@ public class Note : MonoBehaviour, IPoolable
     public ENoteType NoteType { get; private set; }
     public float TargetBeat { get; private set; }
 
-    private string _noteHitText;
     private Transform _judgePoint;
     private Vector3 _spawnPosition;
     private float _beatsToTravel;
@@ -96,16 +95,19 @@ public class Note : MonoBehaviour, IPoolable
             case EHitType.Perfect:
                 duration = _perfectAnimDuration;
                 moveEase = Ease.OutBack;
+                ComboManager.Instance.IncreaseCombo();
                 break;
 
             case EHitType.Good:
                 duration = _goodAnimDuration;
                 moveEase = Ease.OutQuad;
+                ComboManager.Instance.IncreaseCombo();
                 break;
 
             case EHitType.Bad:
                 duration = 0.4f;
                 moveEase = Ease.Linear;
+                ComboManager.Instance.ResetCombo();
                 break;
 
             default:
@@ -141,6 +143,7 @@ public class Note : MonoBehaviour, IPoolable
             _judgeManager.OnNoteMiss();
         }
         HitTypeManager.Instance.SetText(EHitType.Miss);
+        ComboManager.Instance.ResetCombo();
         if (_noteSpawner != null)
         {
             _noteSpawner.ReturnNoteToPool(gameObject);
