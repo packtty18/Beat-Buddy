@@ -122,10 +122,6 @@ public class JudgeManager : SceneSingleton<JudgeManager>
         {
             EHitType hitType = DetermineHitType(closestAbsDiff);
             ProcessHit(closestNote, hitType, closestSignedDiff, inputType);
-
-            // Early/Late 구분 디버그
-            string timing = closestSignedDiff < 0 ? "Early" : "Late";
-            Debug.Log($"[JudgeManager] {hitType} ({timing}) - Diff: {closestSignedDiff:F3}s");
         }
     }
     private EHitType DetermineHitType(float timeDifference)
