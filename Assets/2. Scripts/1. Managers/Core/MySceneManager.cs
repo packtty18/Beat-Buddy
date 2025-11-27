@@ -12,6 +12,8 @@ public class MySceneManager : CoreSingleton<MySceneManager>
 
     private Coroutine _loadingCoroutine = null;
 
+    public bool IsSceneChanging => _loadingCoroutine != null;
+
     protected override void Awake()
     {
         base.Awake();

@@ -52,12 +52,6 @@ public class InputManager : CoreSingleton<InputManager>
 
     private void Update()
     {
-        //인풋 비활성화시 로직 중단
-        //if (!_isActive)
-        //{
-        //    return;
-        //}
-
         // 이전 상태 저장
         foreach (EGameKeyType key in _gameKeyTypes)
         {
@@ -99,6 +93,11 @@ public class InputManager : CoreSingleton<InputManager>
 
     public bool GetKeyDown(EGameKeyType key)
     {
+        if (MySceneManager.Instance.IsSceneChanging)
+        {
+            return false;
+        }
+
         //키가 현재 눌렸지만 이전 프레임에 눌리지 않았을 경우.
         //눌렀을때 한프레임만 true를 반환
         return _currentDownStates[key] && !_previousDownStates[key];

@@ -115,17 +115,20 @@ public class UISelector : MonoBehaviour
     //상하로 다음 UI로 이동
     private void HandleMoveInput()
     {
+        
         if (InputManager.Instance.GetKeyDown(EGameKeyType.Up))
         {
             _currentIndex = (_currentIndex - 1 + _targets.Count) % _targets.Count;
             _currentTarget = _targets[_currentIndex];
             UpdateHighlight();
+            SoundManager.Instance.PlaySFX(ESoundType.SFX_ButtonSelect);
         }
         else if (InputManager.Instance.GetKeyDown(EGameKeyType.Down))
         {
             _currentIndex = (_currentIndex + 1) % _targets.Count;
             _currentTarget = _targets[_currentIndex];
             UpdateHighlight();
+            SoundManager.Instance.PlaySFX(ESoundType.SFX_ButtonSelect);
         }
     }
 

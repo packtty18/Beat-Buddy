@@ -6,6 +6,7 @@ public class LobbyUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _titleText;
     [SerializeField] private TextMeshProUGUI _pressEnterText;
 
+    private bool _pressed = false;
     private void Start()
     {
         SoundManager.Instance.PlayBGM(ESoundType.BGM_Start);
@@ -13,12 +14,11 @@ public class LobbyUI : MonoBehaviour
 
     void Update()
     {
-        if (InputManager.Instance.GetAnyKey())
+        if (InputManager.Instance.GetAnyKey() && !_pressed)
         {
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.ChangeScene(ESceneType.ModeSelect, ETransitionType.LobbyToModeOut, ETransitionType.LobbyToModeIn);
-            }
+            GameManager.Instance.ChangeScene(ESceneType.ModeSelect, ETransitionType.LobbyToModeOut, ETransitionType.LobbyToModeIn);
+            SoundManager.Instance.PlaySFX(ESoundType.SFX_PressAnyButton);
+            _pressed = true;
         }
     }
 }

@@ -16,7 +16,7 @@ MonoBehaviour:
   BaseDamage: 10
   AttackGuage: 20
   BaseAttackIncrease: 1
-  FeverGuage: 50
+  FeverGuage: 20
   BaseFeverIncrease: 1
   FeverAttackGuagePlus: 0.5
   FeverDamagePlus: 2

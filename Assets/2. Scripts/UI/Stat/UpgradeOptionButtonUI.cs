@@ -18,6 +18,7 @@ public class UpgradeOptionButtonUI : MonoBehaviour, IUIConfirmable
     {
         Debug.Log($"[OptionButtonUI] Player clicked option : {_optionData.name}");
         _onSelected?.Invoke(_optionData);
+        SoundManager.Instance.PlaySFX(ESoundType.SFX_Upgrade);
     }
 
     public void SetOption(UpgradeOptionSO optionData, Action<UpgradeOptionSO> onSelected)

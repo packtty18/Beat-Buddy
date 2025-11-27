@@ -74,10 +74,10 @@ public class StageSelector : MonoBehaviour , IUIConfirmable, IUIValueChangeable
             bool shouldVisible = Mathf.Abs(rawOffset) <= sideVisibleCount;
             RectTransform item = songItems[i];
 
-            float angle = Mathf.Deg2Rad * (rawOffset * angleStep * -1f); // 반시계 방향
+            float angle = Mathf.Deg2Rad * (rawOffset * angleStep); // 반시계 방향
             Vector2 circlePos = new Vector2(
-                -Mathf.Cos(angle) * radius, // 왼쪽 원형
-                Mathf.Sin(angle) * radius
+                Mathf.Sin(angle) * radius, // 왼쪽 원형
+                Mathf.Cos(angle) * radius
             );
 
             Vector2 finalPos = centerPos + circlePos + (itemOffset * rawOffset);
@@ -132,12 +132,17 @@ public class StageSelector : MonoBehaviour , IUIConfirmable, IUIValueChangeable
     public void OnValueIncrease()
     {
         currentIndex = LoopIndex(currentIndex + 1);
-        SoundManager.Instance.PlayBGM(songItems[currentIndex].GetComponent<SongItemUI>().GetAudioClip());
+        SoundManager.Instance.PlayBGM(GetCurrentClip());
+    }
+
+    public AudioClip GetCurrentClip()
+    {
+        return songItems[currentIndex].GetComponent<SongItemUI>().GetAudioClip();
     }
 
     public void OnValueDecrease()
     {
         currentIndex = LoopIndex(currentIndex - 1);
-        SoundManager.Instance.PlayBGM(songItems[currentIndex].GetComponent<SongItemUI>().GetAudioClip());
+        SoundManager.Instance.PlayBGM(GetCurrentClip());
     }
 }
