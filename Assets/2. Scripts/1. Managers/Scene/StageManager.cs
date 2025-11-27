@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using System;
+using System.Collections;
 using UnityEngine;
 
 public class StageManager : SceneSingleton<StageManager>
@@ -14,6 +15,7 @@ public class StageManager : SceneSingleton<StageManager>
 
     private bool _isGameOver = false; // 게임 오버 플래그
 
+    public Action OnPlaySong;
     private void Start()
     {
         if (_resultUI != null)
@@ -105,6 +107,7 @@ public class StageManager : SceneSingleton<StageManager>
         yield return new WaitUntil(() => SongPlayManager.Instance.IsSpawnNow);
         Debug.Log("[StageManager] 음악 시작");
 
+        OnPlaySong?.Invoke();
         // 음악이 끝날 때까지 대기
         yield return new WaitUntil(() => !SongPlayManager.Instance.IsPlaying());
         Debug.Log("[StageManager] 음악 종료 감지");
@@ -161,6 +164,7 @@ public class StageManager : SceneSingleton<StageManager>
         if (BuddyManager.Instance.IsBuddyDefeated())
         {
             BuddyManager.Instance.DefeatAnimation();
+            PlayerManager.Instance.VictoryAnimation();
             Debug.Log("[StageManager] 버디가 패배했습니다!");
         }
         else

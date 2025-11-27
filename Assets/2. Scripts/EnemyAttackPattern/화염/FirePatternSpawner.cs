@@ -22,7 +22,12 @@ public class FirePatternSpawner : MonoBehaviour, IPatternSpawner
     public float PatternDuration => 7f;
 
 
-    private void Start()
+    private void Awake()
+    {
+        StageManager.Instance.OnPlaySong += StartAttack;
+    }
+
+    private void StartAttack()
     {
         StartCoroutine(FirePatternSpawnCoroutine());
     }

@@ -14,6 +14,10 @@ public class LightningPatternSpawner : MonoBehaviour, IPatternSpawner
     [Header("파이널보스 참조용")]
     public float PatternDuration => 6f;
 
+    private void Awake()
+    {
+        StageManager.Instance.OnPlaySong += StartAttack;
+    }
 
     private void StartAttack()
     {

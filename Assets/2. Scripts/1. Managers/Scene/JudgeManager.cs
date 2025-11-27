@@ -154,7 +154,6 @@ public class JudgeManager : SceneSingleton<JudgeManager>
         note.OnHit(hitType);
 
         _playerManager.OnHit(hitType);
-        Debug.Log($"[JudgeManager] Note Hit: {noteType}, Judgment: {hitType}, Time Diff: {signedDiff:F3}s");
         int basePoints = GetBaseScore(hitType);
         bool maintainCombo = UpdateHitStatistics(hitType);
 
