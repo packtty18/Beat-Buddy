@@ -100,7 +100,10 @@ public class PlayerManager : SceneSingleton<PlayerManager>
         _currentPlayerPrefab.GetComponent<PlayerAnimatorController>().OnHit();
         _playerStat.ResetFeverGuage();
     }
-
+    public void VictoryAnimation()
+    {
+        _currentPlayerPrefab.GetComponent<PlayerAnimatorController>().SetVictory(true);
+    }
     public void DefeatAnimation()
     {
         _currentPlayerPrefab.GetComponent<PlayerAnimatorController>().SetFail(true);

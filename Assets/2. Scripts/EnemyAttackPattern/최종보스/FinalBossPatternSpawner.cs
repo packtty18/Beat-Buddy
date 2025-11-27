@@ -33,7 +33,11 @@ public class FinalBossPatternSpawner : MonoBehaviour
         void SpawnPattern();
         float PatternDuration { get; }
     }
-
+    private void Awake()
+    {
+        StageManager.Instance.OnPlaySong -= StartAttack; // 중복 방지
+        StageManager.Instance.OnPlaySong += StartAttack;
+    }
 
     private void StartAttack()
     {
