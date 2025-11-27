@@ -11,6 +11,7 @@ public enum ESongType
     KonTheme,
 }
 
+//곡 선택 및 선택된 곡 반환
 public class SongManager : CoreSingleton<SongManager>
 {
     [Header("곡 데이터베이스")]

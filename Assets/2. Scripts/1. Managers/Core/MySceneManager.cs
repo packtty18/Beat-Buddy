@@ -3,7 +3,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.SceneManagement;
 
-
+//씬에 대한 전환 및 전환연출 실행 담당
 public class MySceneManager : CoreSingleton<MySceneManager>
 {
     [SerializeField] private SceneDatabaseSO _sceneDatabase;

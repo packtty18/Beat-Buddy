@@ -1,6 +1,8 @@
 ﻿using System.Collections;
 using UnityEngine;
 
+
+//전환의 과정을 담당
 public class TransitionManager : CoreSingleton<TransitionManager>
 {
     [SerializeField]private OverlayController _controller;
