@@ -272,6 +272,10 @@ PrefabInstance:
       propertyPath: m_IsActive
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 3611895814057802924, guid: 6432d7ba4c4ecd04c8c4f83e0fb8021b, type: 3}
+      propertyPath: _flashSpeed
+      value: 0.2
+      objectReference: {fileID: 0}
     - target: {fileID: 4276119931534484172, guid: 6432d7ba4c4ecd04c8c4f83e0fb8021b, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -601,7 +605,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 1754702874244579693, guid: 001772e147d9abe4b8172da910861cff, type: 3}
       propertyPath: m_IsActive
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 4666127927673037884, guid: 001772e147d9abe4b8172da910861cff, type: 3}
       propertyPath: _raindropsVFX
@@ -609,6 +613,10 @@ PrefabInstance:
       objectReference: {fileID: 5130499602551144680, guid: 656078ca21fd097489f38e1f09559c7c, type: 3}
     - target: {fileID: 4666127927673037884, guid: 001772e147d9abe4b8172da910861cff, type: 3}
       propertyPath: _raindropsPrefab
+      value: 
+      objectReference: {fileID: 6978433744498728086, guid: 656078ca21fd097489f38e1f09559c7c, type: 3}
+    - target: {fileID: 4666127927673037884, guid: 001772e147d9abe4b8172da910861cff, type: 3}
+      propertyPath: _raindropsStagePrefab
       value: 
       objectReference: {fileID: 6978433744498728086, guid: afb22393594efb14685ddca2164b446c, type: 3}
     - target: {fileID: 6657035033136122614, guid: 001772e147d9abe4b8172da910861cff, type: 3}
