@@ -7,8 +7,6 @@ public class ResultUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _goodText;
     [SerializeField] private TextMeshProUGUI _badText;
     [SerializeField] private TextMeshProUGUI _missText;
-    [SerializeField] private TextMeshProUGUI _instructionText;
-
     public void DisplayResult()
     {
         if (GameManager.Instance != null)
@@ -19,25 +17,24 @@ public class ResultUI : MonoBehaviour
             _badText.text = $"Bad: {result.badCount}";
             _missText.text = $"Miss: {result.missCount}";
         }
-        _instructionText.text = "Enter: 곡 선택 | ESC: 로비";
     }
 
-    private void Update()
+    public void GotoNext()
     {
-        if (InputManager.Instance.GetKeyDown(EGameKeyType.Confirm))
+        if(GameManager.Instance.CurrentGameMode == EGameMode.Arcade || !StageManager.Instance.IsGameOver())
         {
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.ReturnToSongSelect();
-            }
+            //승리했고 아케이드 모드라면 다음 스테이지로
+            GameManager.Instance.StartStage();
         }
-
-        if (InputManager.Instance.GetKeyDown(EGameKeyType.Setting))
+        else if(GameManager.Instance.CurrentGameMode == EGameMode.Free)
         {
-            if (GameManager.Instance != null)
-            {
-                GameManager.Instance.ReturnToMode();
-            }
+            //프리모드라면 노래 선택으로
+            GameManager.Instance.ChangeScene(ESceneType.SongSelect, ETransitionType.ModeToSongOut, ETransitionType.ModeToSongIn);
+        }
+        else
+        {
+            //그 외라면 모드씬으로
+            GameManager.Instance.ChangeScene(ESceneType.Stage, ETransitionType.StageToModeOut, ETransitionType.StageToModeIn);
         }
     }
 }

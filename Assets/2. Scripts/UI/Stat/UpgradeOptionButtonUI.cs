@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpgradeOptionButtonUI : MonoBehaviour
+public class UpgradeOptionButtonUI : MonoBehaviour, IUIConfirmable
 {
     [SerializeField] private Image _iconImage;
     [SerializeField] private TextMeshProUGUI _titleText;
@@ -13,6 +13,12 @@ public class UpgradeOptionButtonUI : MonoBehaviour
 
     private UpgradeOptionSO _optionData;
     private Action<UpgradeOptionSO> _onSelected;
+
+    public void OnConfirm()
+    {
+        Debug.Log($"[OptionButtonUI] Player clicked option : {_optionData.name}");
+        _onSelected?.Invoke(_optionData);
+    }
 
     public void SetOption(UpgradeOptionSO optionData, Action<UpgradeOptionSO> onSelected)
     {
@@ -25,12 +31,7 @@ public class UpgradeOptionButtonUI : MonoBehaviour
         Debug.Log($"[OptionButtonUI] Assigned Option : {_optionData.name}");
 
         _button.onClick.RemoveAllListeners();
-        _button.onClick.AddListener(OnClicked);
+        _button.onClick.AddListener(OnConfirm);
     }
 
-    private void OnClicked()
-    {
-        Debug.Log($"[OptionButtonUI] Player clicked option : {_optionData.name}");
-        _onSelected?.Invoke(_optionData);
-    }
 }
