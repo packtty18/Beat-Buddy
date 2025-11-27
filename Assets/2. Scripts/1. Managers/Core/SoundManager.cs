@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using System.Collections;
 using UnityEngine;
 public enum ESoundType
@@ -102,17 +103,17 @@ public class SoundManager : CoreSingleton<SoundManager>
         }
     }
 
-    public void PlayBGM(AudioClip clip, float playTime = 0)
+    public void PlayBGM(AudioClip clip)
     {
         if (_bgmSource == null || _soundDatabase == null)
         {
             return;
         }
 
-        _bgmSource.OnPlay(clip, true, bgmVolume, playTime);
+        _bgmSource.OnPlay(clip, true, bgmVolume);
     }
 
-    public void PlayBGM(ESoundType bgmType, float playTime = 0)
+    public void PlayBGM(ESoundType bgmType)
     {
         if (_bgmSource == null || _soundDatabase == null)
         {
@@ -133,8 +134,20 @@ public class SoundManager : CoreSingleton<SoundManager>
 
         Debug.Log($"[SoundManager] PlayBGM requested: {bgmType}");
 
-        _bgmSource.OnPlay(clip, true,bgmVolume, playTime);
+        _bgmSource.OnPlay(clip, true,bgmVolume);
     }
+
+    //스테이지에서 사용
+    internal void PlayBGMScheduled(AudioClip clip , double dspBGMTime)
+    {
+        if (_bgmSource == null || _soundDatabase == null)
+        {
+            return;
+        }
+
+        _bgmSource.OnPlay(clip, true, bgmVolume, dspBGMTime);
+    }
+
 
     public void StopBGM()
     {
@@ -180,4 +193,6 @@ public class SoundManager : CoreSingleton<SoundManager>
 
         soundObject.OnPlay(clip, false, SfxVolume, playTime);
     }
+
+    
 }

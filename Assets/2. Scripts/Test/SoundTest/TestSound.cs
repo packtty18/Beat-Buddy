@@ -7,8 +7,6 @@ public class TestSound : TestBase
     private ESoundType _debugSelectedType = ESoundType.None;
     [SerializeField]
     private bool _debugIsBGM = false;
-    [SerializeField]
-    private float _debugPlayTime = 0;
 
 
     [ContextMenu("Play Debug Sound")]
@@ -21,11 +19,11 @@ public class TestSound : TestBase
         SoundManager sound = SoundManager.Instance;
         if(_debugIsBGM)
         {
-            sound.PlayBGM(_debugSelectedType, _debugPlayTime);
+            sound.PlayBGM(_debugSelectedType);
         }
         else
         {
-            sound.PlaySFX(_debugSelectedType, _debugPlayTime);
+            sound.PlaySFX(_debugSelectedType);
         }
     }
 }
