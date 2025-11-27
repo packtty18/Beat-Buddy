@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -15,6 +16,7 @@ public class BuddyManager : SceneSingleton<BuddyManager>
 
     private ESongType _currentBuddyType;
     private float _buddyDamage;
+    private float _buddyMaxHealth;
     private BuddyStat _buddyStat;
 
     protected override void Awake()
@@ -23,7 +25,7 @@ public class BuddyManager : SceneSingleton<BuddyManager>
         _currentBuddyType = 0;
         if (StatManager.Instance != null)
         {
-            StatManager.Instance.OnStatApplied += UpdateBuddyDamage;
+            StatManager.Instance.OnStatApplied += UpdateBuddyStat;
         }
     }
 
@@ -71,11 +73,12 @@ public class BuddyManager : SceneSingleton<BuddyManager>
         _buddyStat = _currentBuddyPrefab.GetComponent<BuddyStat>();
         StatManager.Instance.SetBuddyStat(_buddyStat);
     }
-    private void UpdateBuddyDamage()
+    private void UpdateBuddyStat()
     {
         if (_buddyStat != null)
         {
             _buddyDamage = _buddyStat.GetDamage();
+            _buddyMaxHealth = _buddyStat.GetMaxHealth();
             Debug.Log($"[BuddyManager] Buddy Damage Updated: {_buddyDamage}");
         }
     }
@@ -83,8 +86,11 @@ public class BuddyManager : SceneSingleton<BuddyManager>
     {
         return _buddyDamage;
     }
-
-    public void StartBuddyPattern(bool attacking)
+    public float GetMaxHealth()
+    {
+        return _buddyMaxHealth;
+    }
+    public void StartBuddyAttackAnimation(bool attacking)
     {
         _currentBuddyPrefab.GetComponent<BuddyAnimatorController>().OnAttack(attacking);
     }

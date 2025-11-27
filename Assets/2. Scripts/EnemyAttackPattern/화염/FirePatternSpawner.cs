@@ -62,4 +62,8 @@ public class FirePatternSpawner : MonoBehaviour, IPatternSpawner
     {
         SpawnFirePattern();
     }
+    private void OnDestroy()
+    {
+        StageManager.Instance.OnPlaySong -= StartAttack;
+    }
 }

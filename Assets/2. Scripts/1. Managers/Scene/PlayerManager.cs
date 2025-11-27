@@ -51,6 +51,10 @@ public class PlayerManager : SceneSingleton<PlayerManager>
         _buddyManager = BuddyManager.Instance;
     }
 
+    public float GetMaxHealth()
+    {
+        return _playerStat.GetMaxHealth();
+    }
     private void OnFever(bool isFever)
     {
         _currentPlayerPrefab.GetComponent<PlayerAnimatorController>().SetFever(isFever);
@@ -110,6 +114,8 @@ public class PlayerManager : SceneSingleton<PlayerManager>
     }
     private void CheckGameOver(float currentHealth)
     {
+        GaugeUI.Instance.ChangeHealth(currentHealth);
+
         if (currentHealth <= 0)
         {
             StageManager.Instance.StageDefeat();

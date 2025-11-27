@@ -40,4 +40,8 @@ public class EsperPatternSpawner : MonoBehaviour, IPatternSpawner
     {
         SpawnEsperPattern();
     }
+    private void OnDestroy()
+    {
+        StageManager.Instance.OnPlaySong -= StartAttack;
+    }
 }
