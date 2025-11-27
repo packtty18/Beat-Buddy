@@ -1,12 +1,11 @@
 ﻿using UnityEngine;
 
-[RequireComponent(typeof(AudioSource))]
+//스테이지 내의 BGM을 관리 -> 재생은 SoundManager가 담당
 public class SongPlayManager : SceneSingleton<SongPlayManager>
 {
     [Header("BGM 설정")]
     [SerializeField] private float _readyTime = 3f;
 
-    private AudioSource _musicSource;
     private BGMDataSO _currentBGMData;
     private double _dspBGMTime;
     private double _songEndTime; // 음악 종료 시간 추적
@@ -20,24 +19,11 @@ public class SongPlayManager : SceneSingleton<SongPlayManager>
     public float CurrentBpm => _currentBGMData?.Bpm ?? 0f;
     public bool IsSpawnNow => _isSpawnNow;
 
-    protected override void Awake()
-    {
-        base.Awake();
-        _musicSource = GetComponent<AudioSource>();
-        _musicSource.playOnAwake = false;
-    }
-
-    private void Start()
-    {
-        if (SoundManager.Instance != null)
-        {
-            SoundManager.Instance.StopBGM();
-        }
-    }
 
     private void Update()
     {
-        if (!_isPlaying || _musicSource == null) return;
+        if (!_isPlaying) 
+            return;
 
         double currentDspTime = AudioSettings.dspTime;
 
@@ -68,9 +54,10 @@ public class SongPlayManager : SceneSingleton<SongPlayManager>
         }
     }
 
+    //
     public void LoadSelectedSong()
     {
-        if (SongManager.Instance == null)
+        if (!SongManager.IsManagerExist())
         {
             Debug.LogError("[SongPlayManager] SongManager가 없습니다!");
             return;
@@ -126,9 +113,9 @@ public class SongPlayManager : SceneSingleton<SongPlayManager>
 
     public void PlayBGM()
     {
-        if (_currentBGMData == null || _musicSource == null)
+        if (_currentBGMData == null)
         {
-            Debug.LogError("[SongPlayManager] BGM 데이터 또는 AudioSource가 없습니다!");
+            Debug.LogError("[SongPlayManager] BGM 데이터가 없습니다!");
             return;
         }
 
@@ -138,29 +125,26 @@ public class SongPlayManager : SceneSingleton<SongPlayManager>
             return;
         }
 
-        _musicSource.clip = _currentBGMData.AudioClip;
+        AudioClip clip = _currentBGMData.AudioClip;
         SecPerBeat = 60f / _currentBGMData.Bpm;
 
         // 재생 시작 시간과 종료 시간 계산
         _dspBGMTime = AudioSettings.dspTime + _readyTime;
-        _songEndTime = _dspBGMTime + _musicSource.clip.length;
+        _songEndTime = _dspBGMTime + clip.length;
 
-        _musicSource.PlayScheduled(_dspBGMTime);
+        SoundManager.Instance.PlayBGMScheduled(clip, _dspBGMTime);
         _isSpawnNow = true;
         _isPlaying = true;
 
-        Debug.Log($"[SongPlayManager] BGM 재생 예약 - 곡 길이: {_musicSource.clip.length:F2}초");
+        Debug.Log($"[SongPlayManager] BGM 재생 예약 - 곡 길이: {clip.length:F2}초");
     }
 
     public void StopBGM()
     {
-        if (_musicSource != null)
-        {
-            _musicSource.Stop();
-            _isPlaying = false;
-            _isSpawnNow = false;
-            Debug.Log("[SongPlayManager] BGM 정지");
-        }
+        SoundManager.Instance.StopBGM();
+        _isPlaying = false;
+        _isSpawnNow = false;
+        Debug.Log("[SongPlayManager] BGM 정지");
     }
 
     // 음악이 재생 중인지 확인

@@ -42,8 +42,10 @@ public class MakeScreenPurple : MonoBehaviour
 
     private IEnumerator PurpleCoroutine()
     {
+        SoundManager.Instance.PlaySFX(ESoundType.SFX_EsperStart);
         StartCoroutine(StartPurple());
         yield return new WaitForSeconds(_purpleTime);
+        SoundManager.Instance.PlaySFX(ESoundType.SFX_EsperPattern);
         yield return StartCoroutine(FinishPurple());
     }
 

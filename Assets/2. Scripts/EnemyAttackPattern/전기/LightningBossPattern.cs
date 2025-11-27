@@ -54,14 +54,14 @@ public class LightningBossPattern : MonoBehaviour
     {
         _isLightningAttackActive = true;
         BuddyManager.Instance.StartBuddyAttackAnimation(true);
-
-        // 초기화
-        SetValue();
+        SoundManager.Instance.PlaySFX(ESoundType.SFX_ThunderStart);
 
         // 플래시 효과 발동
         FlashScreen.Flash();
         StartLightningAttack();
+        SoundManager.Instance.PlaySFX(ESoundType.SFX_ThunderDrop);
 
+        SoundManager.Instance.PlaySFX(ESoundType.SFX_ThunderTinkle);
         yield return new WaitForSeconds(_startLightning);
         SpawnLightning(_lightningPosition1);
         yield return new WaitForSeconds(_lightningAnimationTime);
