@@ -112,7 +112,7 @@ public class PlayerManager : SceneSingleton<PlayerManager>
     {
         if (currentHealth <= 0)
         {
-            StageManager.Instance.GameOver();
+            StageManager.Instance.StageDefeat();
         }
     }
 }

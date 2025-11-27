@@ -7,159 +7,294 @@ public class StageManager : SceneSingleton<StageManager>
     [Header("시작, 끝 딜레이")]
     [SerializeField] private float _startDelayTime = 3f;
     [SerializeField] private float _endDelayTime = 3f;
-    [SerializeField] private ResultUI _resultUI;
+
+    [Header("노트")]
     [SerializeField] private NoteSpawner _noteSpawner;
     [SerializeField] private NoteController _noteController;
 
+    [Header("UI")]
+    [SerializeField] private ResultUI _resultUI;
+    [SerializeField] private UpgradeUI _upgradeUI;
     private Coroutine _stageFlowCoroutine;
 
     private bool _isGameOver = false; // 게임 오버 플래그
 
     public Action OnPlaySong;
+
     private void Start()
     {
         if (_resultUI != null)
         {
             _resultUI.gameObject.SetActive(false);
         }
-        // 풀 초기화
-        if (PoolManager.Instance != null)
-        {
-            PoolManager.Instance.SetPoolMap();
-        }
 
+
+        //임시 나중에 게임 매니저에서 관리
+        StartGameFlow();
+    }
+
+    private void StartGameFlow()
+    {
         // Stage 게임 흐름 시작
         _stageFlowCoroutine = StartCoroutine(StageGameFlow());
     }
+
+
     private IEnumerator StageGameFlow()
     {
         Debug.Log("[StageManager] === Stage 게임 흐름 시작 ===");
 
-        if (SongPlayManager.Instance == null)
+        if (!SettingManager())
+            yield break;
+
+        //초기화 로직
+        InitializeNoteSpawner();
+        LoadSongData();
+        LoadNoteSpawnerBGM();
+
+        //스폰 로직
+        SpawnPlayer();
+        yield return StartCoroutine(PlayCountdown());
+        SpawnBuddy();
+        SetStat();
+
+        //게임 시작
+        yield return StartCoroutine(StartSongAndSpawningNotes());
+
+        //노래 종료 및 스테이지 끝내기
+        HandleSongEnd();
+
+        //종료 UI로직
+        if(GameManager.Instance.CurrentGameMode == EGameMode.Arcade && !_isGameOver)
+        {
+            //아케이드 모드에 게임에서 승리한다면 업그레이드를 띄움
+            yield return StartCoroutine(ShowUpgradeUI());
+            GameManager.Instance.IncreaseStageIndex();
+        }
+
+        //그 외에는 결과창만 띄우기
+        ShowResultUI();
+    }
+
+    private bool SettingManager()
+    {
+        //코어 매니저 세팅
+        if (!GameManager.IsManagerExist())
+        {
+            Debug.LogError("[StageManager] GameManager가 없습니다!");
+            return false;
+        }
+
+        if (!PoolManager.IsManagerExist())
+        {
+            Debug.LogError("[StageManager] PoolManager가 없습니다!");
+            return false;
+        }
+        PoolManager.Instance.SetPoolMap();
+
+        if (!SongManager.IsManagerExist())
+        {
+            Debug.LogError("[StageManager] SongManager가 없습니다!");
+            return false;
+        }
+
+        // 씬 매니저 세팅
+        if (!SongPlayManager.IsManagerExist())
         {
             Debug.LogError("[StageManager] SongPlayManager가 없습니다!");
-            yield break;
+            return false;
         }
 
-        // SongManager에서 선택된 곡 가져오기 (변경)
-        if (SongManager.Instance == null)
+        if (!JudgeManager.IsManagerExist())
         {
-            Debug.LogError("[StageManager] SongManager 또는 선택된 곡이 없습니다!");
-            yield break;
+            Debug.LogError("[StageManager] JudgeManager가 없습니다!");
+            return false;
         }
+        JudgeManager.Instance.ResetScoreStats();
+        Debug.Log("[StageManager] JudgeManager 통계 초기화");
 
-        // JudgeManager 통계 초기화
-        if (JudgeManager.Instance != null)
+        if (!PlayerManager.IsManagerExist())
         {
-            JudgeManager.Instance.ResetStats();
-            Debug.Log("[StageManager] JudgeManager 통계 초기화");
+            Debug.LogError("[StageManager] PlayerManager가 없습니다!");
+            return false;
         }
 
-        // NoteSpawner 초기화
-        if (_noteSpawner != null)
+        if (!BuddyManager.IsManagerExist())
         {
-            _noteSpawner.StopSpawning(); // 스폰 중지
-            _noteSpawner.ClearAllNotes();
-            Debug.Log("[StageManager] NoteSpawner 정리 완료");
+            Debug.LogError("[StageManager] BuddyManager가 없습니다!");
+            return false;
         }
 
-        SongPlayManager.Instance.LoadSelectedSong();
+        
+        return true;
+    }
 
-        // NoteSpawner BGM 데이터 리로드
-        if (_noteSpawner != null)
+    private void InitializeNoteSpawner()
+    {
+        if (_noteSpawner == null)
         {
-            _noteSpawner.ReloadBGMData();
-            Debug.Log("[StageManager] NoteSpawner BGM 데이터 리로드 완료");
+            Debug.Log("[StageManager] NoteSpawner 가 없습니다.");
+            return;
         }
-        // 플레이어 스폰
-        PlayerManager.Instance.SpawnPlayer();
-
-        // 카운트다운
-        Debug.Log("[StageManager] === 게임 준비 시작 (카운트다운) ===");
-        float startDelay = _startDelayTime;
-        while (startDelay > 0)
-        {
-            int countInt = Mathf.CeilToInt(startDelay);
-            Debug.Log($"[StageManager] 카운트다운: {countInt}");
-
-            //if (UIManager.Instance != null)
-            //{
-            //    UIManager.Instance.UpdateCountdown(countInt);
-            //}
-
-            yield return new WaitForSeconds(1f);
-            startDelay -= 1f;
-        }
-        //if (UIManager.Instance != null)
-        //{
-        //    UIManager.Instance.ShowStartText();
-        //}
-        // 버디 스폰
-        BuddyManager.Instance.SpawnBuddy();
-        // 버디 스탯 설정 
-        StatManager.Instance.SetStat(SongManager.Instance.GetSelectedSongIndex());
-        // 음악 재생 시작
-        SongPlayManager.Instance.PlayBGM();
-        Debug.Log("[StageManager] 음악 3초 대기 - 노트 생성 시간");
-
-        // 음악이 준비될 때까지 대기  
-        _noteSpawner.StartSpawning();
-        yield return new WaitUntil(() => SongPlayManager.Instance.IsSpawnNow);
-        Debug.Log("[StageManager] 음악 시작");
-
-        OnPlaySong?.Invoke();
-        // 음악이 끝날 때까지 대기
-        yield return new WaitUntil(() => !SongPlayManager.Instance.IsPlaying());
-        Debug.Log("[StageManager] 음악 종료 감지");
-
-        IsBuddyDefeated();
-
-        // 게임 종료 처리
-        Debug.Log("[StageManager] === 게임 종료 ===");
 
         _noteSpawner.StopSpawning();
+        _noteSpawner.ClearAllNotes();
+        Debug.Log("[StageManager] NoteSpawner 정리 완료");
+    }
 
-        // 종료 후 딜레이
-        Debug.Log($"[StageManager] {_endDelayTime}초 대기 중...");
-        yield return new WaitForSeconds(_endDelayTime);
+    private void LoadSongData()
+    {
+        SongPlayManager.Instance.LoadSelectedSong();
+        Debug.Log("[StageManager] 선택된 곡 로딩 완료");
+    }
 
-        // 결과 UI 표시
+    private void LoadNoteSpawnerBGM()
+    {
+        if (_noteSpawner == null)
+        {
+            return;
+        }
+        _noteSpawner.ReloadBGMData();
+        Debug.Log("[StageManager] NoteSpawner BGM 데이터 리로드 완료");
+    }
+
+
+    //플레이어와 버디의 스폰 및 스텟 설정
+    private void SpawnPlayer()
+    {
+        PlayerManager.Instance.SpawnPlayer();
+        Debug.Log("[StageManager] 플레이어 스폰 완료");
+    }
+    private void SpawnBuddy()
+    {
+        BuddyManager.Instance.SpawnBuddy();
+        Debug.Log("[StageManager] 버디 스폰 완료");
+    }
+    private void SetStat()
+    {
+        int index = GameManager.Instance.CurrentStageIndex;
+        StatManager.Instance.SetStat(index);
+
+        Debug.Log("[StageManager] 스탯 설정 완료");
+    }
+
+
+    //스테이지 시작 혹은 세팅창을 끌 경우
+    private IEnumerator PlayCountdown()
+    {
+        Debug.Log("[StageManager] === 카운트다운 시작 ===");
+
+        int time = Mathf.CeilToInt(_startDelayTime);
+
+        while (time > 0)
+        {
+            Debug.Log($"[StageManager] 카운트다운: {time}");
+
+            yield return new WaitForSeconds(1f);
+            time--;
+        }
+    }
+
+    
+    //실제 게임 로직
+    private IEnumerator StartSongAndSpawningNotes()
+    {
+        SongPlayManager.Instance.PlayBGM();
+        Debug.Log("[StageManager] BGM 재생 시작");
+
+        _noteSpawner.StartSpawning();
+        Debug.Log("[StageManager] 노트 스폰 시작 요청됨");
+
+        yield return new WaitUntil(() => SongPlayManager.Instance.IsSpawnNow);
+        Debug.Log("[StageManager] 음악 본격 시작");
+
+        OnPlaySong?.Invoke();
+
+        yield return new WaitUntil(() => !SongPlayManager.Instance.IsPlaying());
+        Debug.Log("[StageManager] 음악 종료 감지");
+    }
+
+    private void HandleSongEnd()
+    {
+        _noteSpawner.StopSpawning();
+        Debug.Log("[StageManager] 노트 스폰 중지");
+
+        // 버디 사망 여부 체크
+        CheckBuddyDefeated();
+        Debug.Log("[StageManager] 버디 상태 검사");
+    }
+
+    private void ShowResultUI()
+    {
+        //Debug.Log($"[StageManager] {_endDelayTime}초 대기 후 결과 출력");
+
+        //yield return new WaitForSeconds(_endDelayTime);
+
         if (_resultUI != null)
         {
             _resultUI.gameObject.SetActive(true);
             _resultUI.DisplayResult();
-            Debug.Log("[StageManager] 결과 화면 활성화 완료!");
+            Debug.Log("[StageManager] 결과 UI 활성화 완료");
         }
         else
         {
-            Debug.LogError("[StageManager] ResultUI가 null입니다! 결과를 표시할 수 없습니다!");
+            Debug.LogError("[StageManager] ResultUI가 없습니다!");
         }
     }
-    public void GameOver()
+
+    private IEnumerator ShowUpgradeUI()
     {
-        if (_isGameOver) return; 
+        // 업그레이드 UI 띄우기
+        _upgradeUI.ShowUpgradeChoices();
+
+        Debug.Log("[Stage] 업그레이드 선택 대기중...");
+
+        // 플레이어가 선택할 때까지 대기
+        yield return new WaitUntil(() => _upgradeUI.IsSelected);
+
+        Debug.Log("[Stage] 업그레이드 선택 완료");
+    }
+
+    //스테이지 패배시 로직
+    public void StageDefeat()
+    {
+        if (_isGameOver) 
+            return; 
 
         _isGameOver = true;
 
+        //모든 코루틴 중지
         StopAllCoroutines();
 
         // 음악 정지
         SongPlayManager.Instance.StopBGM();
-
         // 노트 스폰 중지
         _noteSpawner.StopSpawning();
+        ControlAnimationForResult();
 
-        // 플레이어 애니메이션
-        PlayerManager.Instance.DefeatAnimation();
-
-        // 버디 애니메이션
-        BuddyManager.Instance.RunAwayAnimation();
-
-        Debug.Log(SongPlayManager.Instance.IsPlaying());
-        _resultUI.gameObject.SetActive(true);
-        _resultUI.DisplayResult();
+        //Debug.Log(SongPlayManager.Instance.IsPlaying());
+        //_resultUI.gameObject.SetActive(true);
+        //_resultUI.DisplayResult();
+        ShowResultUI();
     }
-    private void IsBuddyDefeated()
+
+    public bool IsGameOver()
+    {
+        return _isGameOver;
+    }
+    private bool CheckBuddyDefeated()
+    {
+        if (BuddyManager.Instance.IsBuddyDefeated())
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+
+    private void ControlAnimationForResult()
     {
         if (BuddyManager.Instance.IsBuddyDefeated())
         {
@@ -175,14 +310,14 @@ public class StageManager : SceneSingleton<StageManager>
         }
     }
 
+
+
     // 씬 바꿀 때 호출
     private void CleanupStage()
     {
         // SongPlayManager 정지
-        if (SongPlayManager.Instance != null)
-        {
-            SongPlayManager.Instance.StopBGM();
-        }
+        SongPlayManager.Instance.StopBGM();
+        
         // NoteSpawner 정리
         if (_noteSpawner != null)
         {

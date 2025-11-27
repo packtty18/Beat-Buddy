@@ -37,8 +37,6 @@ public class GameManager : CoreSingleton<GameManager>
         _currentGameMode = mode;
     }
 
-    
-
     public void ChangeScene(ESceneType newScene , ETransitionType outTransition, ETransitionType inTransition)
     {
         _currentScene = newScene;
