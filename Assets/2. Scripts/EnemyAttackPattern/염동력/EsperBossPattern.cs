@@ -45,7 +45,7 @@ public class EsperBossPattern : MonoBehaviour
     private IEnumerator StartEsperAttackCoroutine()
     {
         _isMovingNotesGoing = true;
-        BuddyManager.Instance.StartBuddyPattern(true);
+        BuddyManager.Instance.StartBuddyAttackAnimation(true);
 
         SetValue();
 
@@ -56,7 +56,7 @@ public class EsperBossPattern : MonoBehaviour
         StartCoroutine(MovingNotesCoroutine());
         yield return new WaitForSeconds(_noteMovingTime);
         _isMovingNotesGoing = false;
-        BuddyManager.Instance.StartBuddyPattern(false);
+        BuddyManager.Instance.StartBuddyAttackAnimation(false);
 
     }
 

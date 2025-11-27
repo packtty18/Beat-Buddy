@@ -16,11 +16,16 @@ public class BuddyStat : MonoBehaviour
     public void DecreaseHealth(float value)
     {
         _currentHealth = Mathf.Max(0, _currentHealth - value);
+        GaugeUI.Instance.ChangeBuddyHealth(_currentHealth);
     }
 
     public bool isDefeated()
     {
         return _currentHealth <= _maxHealth * 0.5f;
+    }
+    public float GetMaxHealth()
+    {
+        return _maxHealth;
     }
     public float GetDamage()
     {

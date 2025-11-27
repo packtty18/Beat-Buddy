@@ -39,4 +39,8 @@ public class WaterPatternSpawner : MonoBehaviour, IPatternSpawner
     {
         SpawnWaterPattern();
     }
+    private void OnDestroy()
+    {
+        StageManager.Instance.OnPlaySong -= StartAttack;
+    }
 }
