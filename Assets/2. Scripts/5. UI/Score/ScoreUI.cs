@@ -1,4 +1,5 @@
-﻿using System.Collections;
+﻿using DG.Tweening;
+using System.Collections;
 using TMPro;
 using UnityEngine;
 
@@ -11,6 +12,10 @@ public class ScoreUI : MonoBehaviour
 
     private float _currentDisplayScore;
     private Coroutine _countCoroutine;
+    private float _targetYValue = 230f;
+    private float _duration = 4f;
+
+    private Sequence _moveSequence;
 
     private void Start()
     {
@@ -18,6 +23,7 @@ public class ScoreUI : MonoBehaviour
 
         ScoreManager.Instance.OnScoreChanged += OnScoreChanged;
         SetScoreInstant(ScoreManager.Instance.Score);
+        MoveScoreUI();
     }
 
     private void OnDestroy()
@@ -66,5 +72,13 @@ public class ScoreUI : MonoBehaviour
     {
         _currentDisplayScore = score;
         _text.text = Mathf.FloorToInt(_currentDisplayScore).ToString("N0");
+    }
+
+    private void MoveScoreUI()
+    {
+        _moveSequence = DOTween.Sequence();
+        _moveSequence.Append(transform.DOLocalMoveY(transform.localPosition.y - _targetYValue, _duration).SetEase(Ease.Linear));
+        _moveSequence.Append(transform.DOShakePosition(0.5f, new Vector3(2f, 5f, 0), 20, 90, false, true).SetEase(Ease.OutCubic));
+        ;
     }
 }
