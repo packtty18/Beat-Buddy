@@ -53,7 +53,7 @@ public class BuddyManager : SceneSingleton<BuddyManager>
         {
             BuddyInstantiate(_buddyList[buddyIndex], buddyIndex);
             _currentBuddyType = selectedSongType;
-            _currentBuddyPrefab.transform.DOMoveX(_currentBuddyPrefab.transform.position.x - 5f, 3f);
+            _currentBuddyPrefab.transform.DOMoveX(_currentBuddyPrefab.transform.position.x - 5.6f, 3f);
             GetBuddyStat(_currentBuddyPrefab);
             GetBuddyEvent();
         }
