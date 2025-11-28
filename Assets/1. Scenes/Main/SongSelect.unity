@@ -263,6 +263,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: dd9a4c88b99315f408fdfa7f80796a02, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  _confirmSFX: 0
 --- !u!114 &225819952
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -365,6 +366,14 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 760742047}
     m_Modifications:
+    - target: {fileID: 954546263493411819, guid: d163fca7c598ac9468786e5ef54752b4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5.9000015
+      objectReference: {fileID: 0}
+    - target: {fileID: 1226135667903672565, guid: d163fca7c598ac9468786e5ef54752b4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.5
+      objectReference: {fileID: 0}
     - target: {fileID: 2444679202010089323, guid: d163fca7c598ac9468786e5ef54752b4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
@@ -372,6 +381,10 @@ PrefabInstance:
     - target: {fileID: 2444679202010089323, guid: d163fca7c598ac9468786e5ef54752b4, type: 3}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
       value: GoToNextSelector
+      objectReference: {fileID: 0}
+    - target: {fileID: 3314809245573244587, guid: d163fca7c598ac9468786e5ef54752b4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 5.9000015
       objectReference: {fileID: 0}
     - target: {fileID: 5574938796669261861, guid: d163fca7c598ac9468786e5ef54752b4, type: 3}
       propertyPath: m_IsActive
@@ -384,6 +397,10 @@ PrefabInstance:
     - target: {fileID: 8220149803013053516, guid: d163fca7c598ac9468786e5ef54752b4, type: 3}
       propertyPath: m_AnchorMax.y
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 8836366219243930423, guid: d163fca7c598ac9468786e5ef54752b4, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: 2.5
       objectReference: {fileID: 0}
     - target: {fileID: 8920783527951021270, guid: d163fca7c598ac9468786e5ef54752b4, type: 3}
       propertyPath: m_Pivot.x
@@ -856,7 +873,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a59d3dedb2f6dd842ac8d14fa16f1b4a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  _itemPrefab: {fileID: 2342468667648764045, guid: d427dff0554473b43b1e3470205c31b5, type: 3}
+  _itemPrefab: {fileID: 2585301514265257396, guid: d427dff0554473b43b1e3470205c31b5, type: 3}
   _instantRoot: {fileID: 91449575}
   _songDatas: []
   songItems: []
