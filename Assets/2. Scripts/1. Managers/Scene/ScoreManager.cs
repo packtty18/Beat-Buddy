@@ -6,7 +6,6 @@ public class ScoreManager : SceneSingleton<ScoreManager>
     [SerializeField] private float _score;
     [SerializeField] private FloatingScoreTextUI _floatingScorePrefab;
     [SerializeField] private Transform _floatingParent;
-
     public float Score => _score;
     public event Action<float> OnScoreChanged;
 

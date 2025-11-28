@@ -1,8 +1,6 @@
 ﻿using DG.Tweening;
 using System;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
 
 public class PlayerManager : SceneSingleton<PlayerManager>
 {
@@ -13,6 +11,7 @@ public class PlayerManager : SceneSingleton<PlayerManager>
     private BuddyManager _buddyManager;
     private ScoreManager _scoreManager;
     private float _scoreIncrease;
+    private Sequence _knockBackSequence;
 
     public Action<float> OnAttackToBuddy;
 
@@ -104,6 +103,7 @@ public class PlayerManager : SceneSingleton<PlayerManager>
         _playerStat.DecreaseHealth(_buddyManager.GetBuddyDamage());
         _currentPlayerPrefab.GetComponent<PlayerAnimatorController>().OnHit();
         _playerStat.ResetFeverGuage();
+        KnockBackPlayer();
     }
     public void VictoryAnimation()
     {
@@ -123,5 +123,15 @@ public class PlayerManager : SceneSingleton<PlayerManager>
             StopCoroutine(StageManager.Instance.StageFlowCoroutine);
             StartCoroutine(StageManager.Instance.GameEndLogic());
         }
+    }
+
+    public void KnockBackPlayer()
+    {
+        if (_knockBackSequence != null && _knockBackSequence.IsActive())
+            return;
+
+        _knockBackSequence?.Kill();
+        _knockBackSequence = Knockback.PlayKnockback(_currentPlayerPrefab.transform, -_currentPlayerPrefab.transform.right);
+        _knockBackSequence.OnComplete(() => _knockBackSequence = null);
     }
 }
