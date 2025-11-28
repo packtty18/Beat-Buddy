@@ -120,8 +120,10 @@ public class StageSelector : MonoBehaviour , IUIConfirmable, IUIValueChangeable
                 item.anchoredPosition = finalPos;
             }
 
-            // 중앙 아이템 최상단
-            item.SetSiblingIndex((sideVisibleCount * 2 + 1) - Mathf.Abs(rawOffset));
+            // 수정
+            int siblingIndex = sideVisibleCount - Mathf.Abs(rawOffset) + (rawOffset == 0 ? sideVisibleCount : 0);
+            siblingIndex = Mathf.Clamp(siblingIndex, 0, sideVisibleCount * 2);
+            item.SetSiblingIndex(siblingIndex);
         }
     }
     public void OnConfirm()
