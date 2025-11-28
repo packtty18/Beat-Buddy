@@ -16,7 +16,7 @@ public class LoadingImageController : MonoBehaviour
     [ContextMenu("시작")]
     public void ActiveLoad(float fadeDuration)
     {
-        for(int i =0; i< GameManager.Instance.CurrentStageIndex+1; i++)
+        for(int i =0; i< Mathf.Min(5,GameManager.Instance.CurrentStageIndex+1); i++)
         {
             _loadingImages[i].SetActive(true);
             _loadingImages[i].PlayUIAnim(fadeDuration);

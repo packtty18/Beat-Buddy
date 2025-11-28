@@ -129,9 +129,9 @@ TextureImporter:
       name: FireIcon_0
       rect:
         serializedVersion: 2
-        x: 277
-        y: 142
-        width: 454
+        x: 275
+        y: 143
+        width: 456
         height: 705
       alignment: 0
       pivot: {x: 0.5, y: 0.5}

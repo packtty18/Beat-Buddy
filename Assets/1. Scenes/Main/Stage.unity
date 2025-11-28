@@ -1329,6 +1329,10 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 1082093630}
     m_Modifications:
+    - target: {fileID: 954652092197756574, guid: f4b51906425f6ea40a2f33f1cb426bc0, type: 3}
+      propertyPath: m_Material
+      value: 
+      objectReference: {fileID: 2100000, guid: 27db7ab701bfe89449c5277502c76153, type: 2}
     - target: {fileID: 1530813510472540252, guid: f4b51906425f6ea40a2f33f1cb426bc0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1369,6 +1373,14 @@ PrefabInstance:
       propertyPath: '_buddyHealthFillImages.Array.data[1]'
       value: 
       objectReference: {fileID: 2831186660323490502, guid: b40fed7b6f276cf4e9386a3f72e63fc4, type: 3}
+    - target: {fileID: 2773564776203679495, guid: f4b51906425f6ea40a2f33f1cb426bc0, type: 3}
+      propertyPath: m_AnchoredPosition.x
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 2773564776203679495, guid: f4b51906425f6ea40a2f33f1cb426bc0, type: 3}
+      propertyPath: m_AnchoredPosition.y
+      value: -387.5
+      objectReference: {fileID: 0}
     - target: {fileID: 4053501503436896151, guid: f4b51906425f6ea40a2f33f1cb426bc0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0

@@ -32,6 +32,8 @@ public class StageSelector : SelectableButton, IUIValueChangeable
         _songDatas = SongManager.Instance.GetAllSongs();
         currentIndex = 0;
         
+        //아이템수 *2
+        InstantSongItem();
         InstantSongItem();
         itemCount = songItems.Count;
         UpdateItemPositions(true); // 초기 위치 강제 적용
