@@ -379,8 +379,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 53463fbd4dc187e4bbb564333ab794de, type: 2}
-  m_sharedMaterial: {fileID: 8612556229251602152, guid: 53463fbd4dc187e4bbb564333ab794de, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 519086b8b89dc8241963c3e6a7ee5e77, type: 2}
+  m_sharedMaterial: {fileID: 8350035478571675973, guid: 519086b8b89dc8241963c3e6a7ee5e77, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -404,12 +404,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 200
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMin: 30
+  m_fontSizeMax: 200
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -2837,6 +2837,26 @@ PrefabInstance:
     - target: {fileID: 4288030401428947037, guid: 780ae01cd59cc2846b06c9ed4011e585, type: 3}
       propertyPath: m_Name
       value: ComboUI
+      objectReference: {fileID: 0}
+    - target: {fileID: 4288030401428947037, guid: 780ae01cd59cc2846b06c9ed4011e585, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5174675797262581372, guid: 780ae01cd59cc2846b06c9ed4011e585, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5174675797262581372, guid: 780ae01cd59cc2846b06c9ed4011e585, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 519086b8b89dc8241963c3e6a7ee5e77, type: 2}
+    - target: {fileID: 5174675797262581372, guid: 780ae01cd59cc2846b06c9ed4011e585, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8350035478571675973, guid: 519086b8b89dc8241963c3e6a7ee5e77, type: 2}
+    - target: {fileID: 5174675797262581372, guid: 780ae01cd59cc2846b06c9ed4011e585, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []

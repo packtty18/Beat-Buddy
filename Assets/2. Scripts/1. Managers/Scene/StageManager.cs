@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DG.Tweening;
+using System;
 using System.Collections;
 using System.Runtime.Versioning;
 using TMPro;
@@ -68,16 +69,14 @@ public class StageManager : SceneSingleton<StageManager>
         {
             return false; 
         }
-        else
-        {
-            _resultUI.gameObject.SetActive(false);
-        }
 
         if (_countDownText == null)
         {
-            _countDownText.gameObject.SetActive(false);
             return false;
         }
+
+        _resultUI.gameObject.SetActive(false);
+        _countDownText.gameObject.SetActive(false);
 
         return true;
     }
@@ -214,17 +213,36 @@ public class StageManager : SceneSingleton<StageManager>
 
         int time = Mathf.CeilToInt(_startDelayTime);
         _countDownText.gameObject.SetActive(true);
+
         while (time > 0)
         {
             Debug.Log($"[StageManager] 카운트다운: {time}");
+
+            // 현재 숫자를 왼쪽으로 슬라이드 아웃
+            RectTransform currentRect = _countDownText.rectTransform;
             _countDownText.text = time.ToString();
-            yield return new WaitForSeconds(1f);
+
+            // 오른쪽에서 시작
+            currentRect.anchoredPosition = new Vector2(Screen.width, 0);
+
+            // 중앙으로 이동
+            currentRect.DOAnchorPos(Vector2.zero, 0.3f).SetEase(Ease.OutCubic);
+
+            yield return new WaitForSeconds(0.7f);
+
+            // 왼쪽으로 슬라이드 아웃
+            currentRect.DOAnchorPos(new Vector2(-Screen.width, 0), 0.3f).SetEase(Ease.InCubic);
+
+            yield return new WaitForSeconds(0.3f);
+
             time--;
         }
+
         _countDownText.gameObject.SetActive(false);
     }
 
-    
+
+
     //실제 게임 로직
     private IEnumerator StartSongAndSpawningNotes()
     {
