@@ -8,7 +8,6 @@ public enum ESongType
     ThunderTheme = 3,
     EsperTheme = 4,
     FinalTheme = 5,
-    KonTheme,
 }
 
 //곡 선택 및 선택된 곡 반환

@@ -34,6 +34,7 @@ public class BuddyManager : SceneSingleton<BuddyManager>
     {
         // 현재 선택된 곡의 버디 타입 가져오기
         ESongType selectedSongType = SongManager.Instance.SelectedSongType;
+        BackgroundManager.Instance.SetBackground(selectedSongType);
         // 이미 스폰된 버디가 있는지 확인
         if (_currentBuddyType == selectedSongType)
         {

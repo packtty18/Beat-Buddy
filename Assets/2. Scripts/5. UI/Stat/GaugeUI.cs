@@ -36,16 +36,24 @@ public class GaugeUI : SceneSingleton<GaugeUI>
     protected override void Awake()
     {
         base.Awake();
-        transform.localScale = Vector3.zero;
+        _healthSlider.transform.localScale = Vector3.zero;
+        _feverSlider.transform.localScale = Vector3.zero;
+        _attackSlider.transform.localScale = Vector3.zero;
+        _buddyHealthSlider.transform.localScale = Vector3.zero;
     }
     public void DestroyGaugeUI()
     {
-        transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.OutBack)
-            .OnComplete(() => Destroy(gameObject));
+        _healthSlider.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        _feverSlider.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        _attackSlider.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        _buddyHealthSlider.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack).OnComplete(() => Destroy(gameObject));
     }
     public void InitializeGaugeUI()
     {
-        transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        _healthSlider.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        _feverSlider.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        _attackSlider.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        _buddyHealthSlider.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
 
         InitializePlayerStat();
         InitializeBuddyStat();
