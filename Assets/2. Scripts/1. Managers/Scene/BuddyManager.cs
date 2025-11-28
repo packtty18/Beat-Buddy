@@ -11,6 +11,8 @@ public class BuddyManager : SceneSingleton<BuddyManager>
     [SerializeField] private GameObject _currentBuddyPrefab;
     [Header("버디 스폰 위치")]
     [SerializeField] private Transform _buddySpawnPoint;
+    private Vector3 _fireBuddySpawnVector = new Vector3(0, -0.5f, 0);
+    private Vector3 _waterBuddySpawnVector = new Vector3(0, -0.75f, 0);
     [Header("노트 컨트롤용")]
     [SerializeField] private NoteController _noteController;
 
@@ -19,6 +21,7 @@ public class BuddyManager : SceneSingleton<BuddyManager>
     private float _buddyMaxHealth;
     private BuddyStat _buddyStat;
 
+    private Sequence _knockbackSequence;
     protected override void Awake()
     {
         base.Awake();
@@ -48,14 +51,29 @@ public class BuddyManager : SceneSingleton<BuddyManager>
         int buddyIndex = (int)selectedSongType - 1; // ESongType이 1부터 시작한다고 가정
         if (buddyIndex >= 0 && buddyIndex < _buddyList.Count)
         {
-            GameObject buddyPrefab = _buddyList[buddyIndex];
-            _currentBuddyPrefab = Instantiate(buddyPrefab, _buddySpawnPoint.position, Quaternion.identity, _buddySpawnPoint);
+            BuddyInstantiate(_buddyList[buddyIndex], buddyIndex);
             _currentBuddyType = selectedSongType;
             _currentBuddyPrefab.transform.DOMoveX(_currentBuddyPrefab.transform.position.x - 5f, 3f);
             GetBuddyStat(_currentBuddyPrefab);
             GetBuddyEvent();
         }
     } 
+
+    private void BuddyInstantiate(GameObject buddyPrefab, int buddyIndex)
+    {
+        switch(buddyIndex)
+        {
+            case 0:
+                _currentBuddyPrefab = Instantiate(buddyPrefab, _buddySpawnPoint.position + _fireBuddySpawnVector, Quaternion.identity, _buddySpawnPoint);
+                break;
+            case 1:
+                _currentBuddyPrefab = Instantiate(buddyPrefab, _buddySpawnPoint.position + _waterBuddySpawnVector, Quaternion.identity, _buddySpawnPoint);
+                break;
+            default:
+                _currentBuddyPrefab = Instantiate(buddyPrefab, _buddySpawnPoint.position, Quaternion.identity, _buddySpawnPoint);
+                break;
+        }
+    }
 
     private void GetBuddyEvent()
     {
@@ -66,6 +84,7 @@ public class BuddyManager : SceneSingleton<BuddyManager>
     {
         _buddyStat.DecreaseHealth(playerDamage);
         _currentBuddyPrefab.GetComponent<BuddyAnimatorController>().OnHit();
+        KnockBackBuddy();
     }
 
     private void GetBuddyStat(GameObject currentBuddyPrefab)
@@ -119,5 +138,14 @@ public class BuddyManager : SceneSingleton<BuddyManager>
         _currentBuddyPrefab.transform.DORotate(new Vector3(0, 180, 0), 1f)
             .OnComplete(() => _currentBuddyPrefab.transform.DOMoveX(_currentBuddyPrefab.transform.position.x + 10f, 3f));
         _currentBuddyPrefab.GetComponent<BuddyAnimatorController>().OnAttack(true);
+    }
+    public void KnockBackBuddy()
+    {
+        if (_knockbackSequence != null && _knockbackSequence.IsActive())
+            return;
+
+        _knockbackSequence?.Kill();
+        _knockbackSequence = Knockback.PlayKnockback(_currentBuddyPrefab.transform, -_currentBuddyPrefab.transform.right);
+        _knockbackSequence.OnComplete(() => _knockbackSequence = null);
     }
 }
