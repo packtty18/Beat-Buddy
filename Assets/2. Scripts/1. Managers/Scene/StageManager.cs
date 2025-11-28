@@ -22,6 +22,8 @@ public class StageManager : SceneSingleton<StageManager>
 
     private Coroutine _stageFlowCoroutine;
 
+    public Coroutine StageFlowCoroutine => _stageFlowCoroutine;
+
     private bool _isGameOver = false; // 패배 플래그
 
     public Action OnPlaySong;
@@ -79,6 +81,7 @@ public class StageManager : SceneSingleton<StageManager>
 
     private IEnumerator StageGameFlow()
     {
+        yield return new WaitUntil(() => !MySceneManager.Instance.IsSceneChanging);
         //스폰 로직
         SpawnPlayer();
         yield return StartCoroutine(PlayCountdown());
@@ -287,6 +290,7 @@ public class StageManager : SceneSingleton<StageManager>
 
         //노래와 스폰에 관한 코루틴 제거
         StopCoroutine(StartSongAndSpawningNotes());
+        
 
         // 음악 정지
         SongPlayManager.Instance.StopBGM();
@@ -306,6 +310,7 @@ public class StageManager : SceneSingleton<StageManager>
         }
         else
         {
+            UpgradeManager.Instance.ResetUpgradeOption();
             GameManager.Instance.ResetStageIndex();
         }
 
@@ -331,12 +336,14 @@ public class StageManager : SceneSingleton<StageManager>
         {
             BuddyManager.Instance.DefeatAnimation();
             PlayerManager.Instance.VictoryAnimation();
+            SoundManager.Instance.PlaySFX(ESoundType.SFX_StageVictory);
             Debug.Log("[StageManager] 버디가 패배했습니다!");
         }
         else
         {
             PlayerManager.Instance.DefeatAnimation();
             BuddyManager.Instance.RunAwayAnimation();
+            SoundManager.Instance.PlaySFX(ESoundType.SFX_StageFail);
             Debug.Log("[StageManager] 버디가 아직 살아있습니다!");
         }
     }

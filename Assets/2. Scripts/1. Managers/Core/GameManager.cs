@@ -18,7 +18,7 @@ public class GameManager : CoreSingleton<GameManager>
     private ESceneType _currentScene = ESceneType.Lobby;
     private EGameMode _currentGameMode = EGameMode.None;
     //현재 스테이지모드에서 진행할 스테이지 레벨 -> 0~4
-    private int _currentStageIndex = 0;
+    [SerializeField] private int _currentStageIndex = 0;
 
 
     //프로퍼티

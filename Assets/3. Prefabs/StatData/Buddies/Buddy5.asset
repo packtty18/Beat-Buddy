@@ -12,7 +12,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1c2d3dc0bb10edc42800507e6f848d29, type: 3}
   m_Name: Buddy5
   m_EditorClassIdentifier: 
-  MaxHealth: 350
+  MaxHealth: 110
   Damage: 15
   HealthRate: 100
   DamageRate: 100

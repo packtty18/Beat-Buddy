@@ -66,6 +66,11 @@ public class JudgeManager : SceneSingleton<JudgeManager>
         
     void Update()
     {
+        if (StageManager.Instance.StageFlowCoroutine == null)
+        {
+            return;
+        }
+
         if (InputManager.Instance.GetKeyDown(EGameKeyType.Left))
         {
             _soundManager.PlaySFX(ESoundType.SFX_HitDrum, 0);
