@@ -46,7 +46,7 @@ public class StageManager : SceneSingleton<StageManager>
         InitializeNoteSpawner();
         LoadSongData();
         LoadNoteSpawnerBGM();
-        
+        BackgroundManager.Instance.SetBackground(SongManager.Instance.SelectedSongType);
         _stageFlowCoroutine = StartCoroutine(StageGameFlow());
     }
 
@@ -99,7 +99,6 @@ public class StageManager : SceneSingleton<StageManager>
 
         //게임 오버 판단
         yield return StartCoroutine(GameEndLogic());
-
     }
 
     private bool SettingManager()
@@ -347,8 +346,6 @@ public class StageManager : SceneSingleton<StageManager>
             Debug.Log("[StageManager] 버디가 아직 살아있습니다!");
         }
     }
-
-
 
     // 씬 바꿀 때 호출
     private void CleanupStage()

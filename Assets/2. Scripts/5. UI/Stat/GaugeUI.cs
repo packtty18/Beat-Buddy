@@ -9,6 +9,7 @@ public class GaugeUI : SceneSingleton<GaugeUI>
     [SerializeField] private Slider _feverSlider;
     [SerializeField] private Slider _attackSlider;
     [SerializeField] private Slider _buddyHealthSlider;
+    [SerializeField] private Image _buddyHealthFill;
 
     [Header("Max Values")]
     private float _maxHealth = 100f;
@@ -28,20 +29,31 @@ public class GaugeUI : SceneSingleton<GaugeUI>
     private Tween _feverTween;
     private Tween _attackTween;
     private Tween _buddyHealthTween;
+    private Tween _colorTween;
 
+    private Color _normalColor = new Color(0.372f, 1f, 0.321f);
+    private Color _cautionColor = new Color(1, 0.321f, 0.812f);
     protected override void Awake()
     {
         base.Awake();
-        transform.localScale = Vector3.zero;
+        _healthSlider.transform.localScale = Vector3.zero;
+        _feverSlider.transform.localScale = Vector3.zero;
+        _attackSlider.transform.localScale = Vector3.zero;
+        _buddyHealthSlider.transform.localScale = Vector3.zero;
     }
     public void DestroyGaugeUI()
     {
-        transform.DOScale(Vector3.zero, 0.5f).SetEase(Ease.OutBack)
-            .OnComplete(() => Destroy(gameObject));
+        _healthSlider.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        _feverSlider.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        _attackSlider.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        _buddyHealthSlider.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack).OnComplete(() => Destroy(gameObject));
     }
     public void InitializeGaugeUI()
     {
-        transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        _healthSlider.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        _feverSlider.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        _attackSlider.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
+        _buddyHealthSlider.transform.DOScale(Vector3.one, 0.5f).SetEase(Ease.OutBack);
 
         InitializePlayerStat();
         InitializeBuddyStat();
@@ -68,7 +80,13 @@ public class GaugeUI : SceneSingleton<GaugeUI>
         SetupSlider(_healthSlider, _maxHealth);
         SetupSlider(_feverSlider, _maxFever);
         SetupSlider(_attackSlider, _maxAttack);
-        SetupSlider(_buddyHealthSlider, _maxBuddyHealth);
+        if (_buddyHealthSlider != null)
+        {
+            float halfHealth = _maxBuddyHealth * 0.5f;
+            _buddyHealthSlider.minValue = 0f;
+            _buddyHealthSlider.maxValue = halfHealth;  // 50을 max로 설정
+            _buddyHealthSlider.interactable = false;
+        }
     }
 
     private void SetupSlider(Slider slider, float maxValue)
@@ -122,10 +140,39 @@ public class GaugeUI : SceneSingleton<GaugeUI>
     {
         _currentBuddyHealth = Mathf.Clamp(currentBuddyHealth, 0f, _maxBuddyHealth);
 
+        float halfHealth = _maxBuddyHealth * 0.5f; // 50
+
         if (_buddyHealthSlider != null)
         {
             _buddyHealthTween?.Kill();
-            _buddyHealthTween = _buddyHealthSlider.DOValue(_currentBuddyHealth, _gaugeDuration).SetEase(Ease.OutQuad);
+
+            // 체력 비율에 따라 Slider 값 계산
+            float sliderValue;
+            Color targetColor;
+
+            if (_currentBuddyHealth >= halfHealth)
+            {
+                // 100→50: sliderValue는 50→0
+                sliderValue = _currentBuddyHealth - halfHealth;  // 50~0
+                targetColor = _normalColor;
+            }
+            else
+            {
+                // 50→0: sliderValue는 0→50 (거꾸로 채워지는 효과)
+                sliderValue = halfHealth - _currentBuddyHealth;  // 0~50
+                targetColor = _cautionColor;
+            }
+
+            // 이제 sliderValue는 0~50 범위이므로 그대로 사용
+            _buddyHealthTween = _buddyHealthSlider.DOValue(sliderValue, _gaugeDuration)
+                .SetEase(Ease.OutQuad);
+
+            // Fill 색상 변경 애니메이션
+            if (_buddyHealthFill != null)
+            {
+                _colorTween?.Kill();
+                _colorTween = _buddyHealthFill.DOColor(targetColor, _gaugeDuration);
+            }
         }
     }
 
