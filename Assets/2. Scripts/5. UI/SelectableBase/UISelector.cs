@@ -112,16 +112,16 @@ public class UISelector : MonoBehaviour
         HandleControlInput();
     }
 
-    private ISelectable lastSelect;
+    private ISelectable _lastSelect;
 
     //상하로 다음 UI로 이동
     private void HandleMoveInput()
     {
         if (InputManager.Instance.GetKeyDown(EGameKeyType.Up))
         {
-            if (lastSelect != null)
+            if (_lastSelect != null)
             {
-                lastSelect.OnDeselected();
+                _lastSelect.OnDeselected();
             }
 
             _currentIndex = (_currentIndex - 1 + _targets.Count) % _targets.Count;
@@ -130,13 +130,14 @@ public class UISelector : MonoBehaviour
             if (_currentTarget.TryGetComponent(out ISelectable selectable))
             {
                 selectable.OnSelected();
+                _lastSelect = selectable;
             }
         }
         else if (InputManager.Instance.GetKeyDown(EGameKeyType.Down))
         {
-            if (lastSelect != null)
+            if (_lastSelect != null)
             {
-                lastSelect.OnDeselected();
+                _lastSelect.OnDeselected();
             }
 
             _currentIndex = (_currentIndex + 1) % _targets.Count;
@@ -145,6 +146,7 @@ public class UISelector : MonoBehaviour
             if (_currentTarget.TryGetComponent(out ISelectable selectable))
             {
                 selectable.OnSelected();
+                _lastSelect = selectable;
             }
         }
     }
