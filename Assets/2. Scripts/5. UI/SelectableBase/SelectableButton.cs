@@ -10,7 +10,7 @@ public class SelectableButton : MonoBehaviour,IUIConfirmable
         _button = GetComponent<Button>();
         _button.onClick.AddListener(OnClickFeedback);
     }
-    public void OnConfirm()
+    public virtual void OnConfirm()
     {
         _button.onClick.Invoke();
     }
@@ -25,4 +25,14 @@ public class SelectableButton : MonoBehaviour,IUIConfirmable
         }
     }
 
+    public virtual void OnSelected()
+    {
+        Debug.Log($"{gameObject.name} : OnSelected");
+        SoundManager.Instance.PlaySFX(ESoundType.SFX_ButtonSelect);
+    }
+
+    public virtual void OnDeselected()
+    {
+        Debug.Log($"{gameObject.name} : OnDeselected");
+    }
 }

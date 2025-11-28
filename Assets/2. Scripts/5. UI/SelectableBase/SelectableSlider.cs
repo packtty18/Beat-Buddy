@@ -4,8 +4,8 @@ using UnityEngine.UI;
 public class SelectableSlider : MonoBehaviour, IUIValueChangeable
 {
     private Slider _slider;
-    [SerializeField] private float _currentValue = 0.5f;
-    [SerializeField] private float _changeAmount = 0.1f;
+    [SerializeField] protected float _currentValue = 0.5f;
+    [SerializeField] protected float _changeAmount = 0.1f;
 
     [SerializeField] private ESoundType _increaseSFX =ESoundType.None;
     [SerializeField] private ESoundType _decreaseSFX = ESoundType.None;
@@ -16,7 +16,7 @@ public class SelectableSlider : MonoBehaviour, IUIValueChangeable
         _slider.value = _currentValue;
     }
 
-    public void OnValueDecrease()
+    public virtual void OnValueDecrease()
     {
         _currentValue = Mathf.Max(0, _currentValue - _changeAmount);
         _slider.value = _currentValue;
@@ -27,7 +27,7 @@ public class SelectableSlider : MonoBehaviour, IUIValueChangeable
         }
     }
 
-    public void OnValueIncrease()
+    public virtual void OnValueIncrease()
     {
         _currentValue = Mathf.Min(1, _currentValue + _changeAmount);
         _slider.value = _currentValue;
@@ -36,5 +36,15 @@ public class SelectableSlider : MonoBehaviour, IUIValueChangeable
         {
             SoundManager.Instance.PlaySFX(_increaseSFX);
         }
+    }
+
+    public virtual void OnSelected()
+    {
+        Debug.Log($"{gameObject.name} : OnSelected");
+    }
+
+    public virtual void OnDeselected()
+    {
+        Debug.Log($"{gameObject.name} : OnDeselected");
     }
 }

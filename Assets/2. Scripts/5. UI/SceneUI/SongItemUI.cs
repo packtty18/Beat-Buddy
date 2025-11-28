@@ -2,7 +2,7 @@
 using UnityEngine;
 using UnityEngine.UI;
 
-public class SongItemUI : MonoBehaviour, IUIConfirmable
+public class SongItemUI : SelectableButton
 {
     [Header("UI References")]
     [SerializeField] private Image _iconImage;           // 곡 대표 이미지 (추후 추가)
@@ -32,7 +32,7 @@ public class SongItemUI : MonoBehaviour, IUIConfirmable
     /// <summary>
     /// 곡 선택 시 호출
     /// </summary>
-    public void OnConfirm()
+    public override void OnConfirm()
     {
         if (_data == null)
         {
@@ -42,7 +42,6 @@ public class SongItemUI : MonoBehaviour, IUIConfirmable
 
         SongManager.Instance.SelectSongByIndex((int)_data.SongType -1 );
         GameManager.Instance.StartStage(); // StartStage() -> StartGame()
-        SoundManager.Instance.PlaySFX(ESoundType.SFX_SongSelected);
     }
 
     public AudioClip GetAudioClip()

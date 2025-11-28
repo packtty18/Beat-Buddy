@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections.Generic;
 
-public class StageSelector : MonoBehaviour , IUIConfirmable, IUIValueChangeable
+public class StageSelector : SelectableButton, IUIValueChangeable
 {
     [Header("Song Items")]
     [SerializeField] private GameObject _itemPrefab;
@@ -126,7 +126,7 @@ public class StageSelector : MonoBehaviour , IUIConfirmable, IUIValueChangeable
             item.SetSiblingIndex(siblingIndex);
         }
     }
-    public void OnConfirm()
+    public override void OnConfirm()
     {
         songItems[currentIndex].GetComponent<SongItemUI>().OnConfirm();
     }
@@ -134,17 +134,27 @@ public class StageSelector : MonoBehaviour , IUIConfirmable, IUIValueChangeable
     public void OnValueIncrease()
     {
         currentIndex = LoopIndex(currentIndex + 1);
+    }
+
+    
+
+    public void OnValueDecrease()
+    {
+        currentIndex = LoopIndex(currentIndex - 1);
+    }
+
+    public override void OnSelected()
+    {
+        base.OnSelected();
         SoundManager.Instance.PlayBGM(GetCurrentClip());
+    }
+
+    public void OnDeselected()
+    {
     }
 
     public AudioClip GetCurrentClip()
     {
         return songItems[currentIndex].GetComponent<SongItemUI>().GetAudioClip();
-    }
-
-    public void OnValueDecrease()
-    {
-        currentIndex = LoopIndex(currentIndex - 1);
-        SoundManager.Instance.PlayBGM(GetCurrentClip());
     }
 }

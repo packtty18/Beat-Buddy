@@ -4,7 +4,7 @@ using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.UI;
 
-public class UpgradeOptionButtonUI : MonoBehaviour, IUIConfirmable
+public class UpgradeOptionButtonUI : SelectableButton
 {
     [SerializeField] private Image _iconImage;
     [SerializeField] private TextMeshProUGUI _titleText;
@@ -12,19 +12,18 @@ public class UpgradeOptionButtonUI : MonoBehaviour, IUIConfirmable
     [SerializeField] private Button _button;
 
     private UpgradeOptionSO _optionData;
-    private Action<UpgradeOptionSO> _onSelected;
+    private Action<UpgradeOptionSO> _onConfirmUpgrade;
 
-    public void OnConfirm()
+    public override void OnConfirm()
     {
         Debug.Log($"[OptionButtonUI] Player clicked option : {_optionData.name}");
-        _onSelected?.Invoke(_optionData);
-        SoundManager.Instance.PlaySFX(ESoundType.SFX_Upgrade);
+        _onConfirmUpgrade?.Invoke(_optionData);
     }
 
     public void SetOption(UpgradeOptionSO optionData, Action<UpgradeOptionSO> onSelected)
     {
         _optionData = optionData;
-        _onSelected = onSelected;
+        _onConfirmUpgrade = onSelected;
         _iconImage.sprite = optionData.Icon;
         _titleText.text = optionData.Name;
         _descriptionText.text = optionData.GetDescription();
