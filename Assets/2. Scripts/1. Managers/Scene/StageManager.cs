@@ -322,7 +322,7 @@ public class StageManager : SceneSingleton<StageManager>
         yield return new WaitForSeconds(_endDelayTime);
 
         // 스테이지 승리
-        if (GameManager.Instance.CurrentGameMode == EGameMode.Arcade && !_isGameOver)
+        if (GameManager.Instance.CurrentGameMode == EGameMode.Arcade && !_isGameOver && GameManager.Instance.CurrentStageIndex < 4)
         {
             //아케이드 모드에 게임에서 승리한다면 업그레이드를 띄움
             yield return StartCoroutine(ShowUpgradeUI());
@@ -331,7 +331,7 @@ public class StageManager : SceneSingleton<StageManager>
         else
         {
             UpgradeManager.Instance.ResetUpgradeOption();
-            GameManager.Instance.ResetStageIndex();
+            
         }
 
         
