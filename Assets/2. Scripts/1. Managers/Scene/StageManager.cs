@@ -46,7 +46,7 @@ public class StageManager : SceneSingleton<StageManager>
         InitializeNoteSpawner();
         LoadSongData();
         LoadNoteSpawnerBGM();
-        
+        BackgroundManager.Instance.SetBackground(SongManager.Instance.SelectedSongType);
         _stageFlowCoroutine = StartCoroutine(StageGameFlow());
     }
 
@@ -99,7 +99,6 @@ public class StageManager : SceneSingleton<StageManager>
 
         //게임 오버 판단
         yield return StartCoroutine(GameEndLogic());
-
     }
 
     private bool SettingManager()

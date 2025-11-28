@@ -11,6 +11,8 @@ public class BuddyManager : SceneSingleton<BuddyManager>
     [SerializeField] private GameObject _currentBuddyPrefab;
     [Header("버디 스폰 위치")]
     [SerializeField] private Transform _buddySpawnPoint;
+    private Vector3 _fireBuddySpawnVector = new Vector3(0, -0.5f, 0);
+    private Vector3 _waterBuddySpawnVector = new Vector3(0, -0.75f, 0);
     [Header("노트 컨트롤용")]
     [SerializeField] private NoteController _noteController;
 
@@ -34,7 +36,6 @@ public class BuddyManager : SceneSingleton<BuddyManager>
     {
         // 현재 선택된 곡의 버디 타입 가져오기
         ESongType selectedSongType = SongManager.Instance.SelectedSongType;
-        BackgroundManager.Instance.SetBackground(selectedSongType);
         // 이미 스폰된 버디가 있는지 확인
         if (_currentBuddyType == selectedSongType)
         {
@@ -50,14 +51,29 @@ public class BuddyManager : SceneSingleton<BuddyManager>
         int buddyIndex = (int)selectedSongType - 1; // ESongType이 1부터 시작한다고 가정
         if (buddyIndex >= 0 && buddyIndex < _buddyList.Count)
         {
-            GameObject buddyPrefab = _buddyList[buddyIndex];
-            _currentBuddyPrefab = Instantiate(buddyPrefab, _buddySpawnPoint.position, Quaternion.identity, _buddySpawnPoint);
+            BuddyInstantiate(_buddyList[buddyIndex], buddyIndex);
             _currentBuddyType = selectedSongType;
             _currentBuddyPrefab.transform.DOMoveX(_currentBuddyPrefab.transform.position.x - 5f, 3f);
             GetBuddyStat(_currentBuddyPrefab);
             GetBuddyEvent();
         }
     } 
+
+    private void BuddyInstantiate(GameObject buddyPrefab, int buddyIndex)
+    {
+        switch(buddyIndex)
+        {
+            case 0:
+                _currentBuddyPrefab = Instantiate(buddyPrefab, _buddySpawnPoint.position + _fireBuddySpawnVector, Quaternion.identity, _buddySpawnPoint);
+                break;
+            case 1:
+                _currentBuddyPrefab = Instantiate(buddyPrefab, _buddySpawnPoint.position + _waterBuddySpawnVector, Quaternion.identity, _buddySpawnPoint);
+                break;
+            default:
+                _currentBuddyPrefab = Instantiate(buddyPrefab, _buddySpawnPoint.position, Quaternion.identity, _buddySpawnPoint);
+                break;
+        }
+    }
 
     private void GetBuddyEvent()
     {

@@ -1,9 +1,6 @@
 ﻿using DG.Tweening;
 using System;
 using UnityEngine;
-using UnityEngine.Rendering;
-using UnityEngine.UI;
-using static UnityEngine.EventSystems.EventTrigger;
 
 public class PlayerManager : SceneSingleton<PlayerManager>
 {

@@ -4,7 +4,6 @@ using UnityEngine;
 public class HitTypeManager : SceneSingleton<HitTypeManager>
 {
     [SerializeField] private string _text;
-    [SerializeField] private FloatingHitTypeTextUI _floatinghHitTypePrefab;
     [SerializeField] private Transform _floatingParent;
     public string Text => _text;
 

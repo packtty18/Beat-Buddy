@@ -1242,7 +1242,7 @@ Transform:
   m_GameObject: {fileID: 356078960}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: -1.25, z: 0}
+  m_LocalPosition: {x: 5, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -1292,7 +1292,7 @@ SpriteRenderer:
   m_SortingLayerID: 1406333105
   m_SortingLayer: -1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7170942278524871683, guid: 0d0085b9776167d429d9edd255bdd305, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -1300,7 +1300,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &400423756
@@ -1336,7 +1336,7 @@ Transform:
   - {fileID: 1915140695}
   - {fileID: 1388212994}
   - {fileID: 356078961}
-  m_Father: {fileID: 0}
+  m_Father: {fileID: 674010753}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!114 &400423758
 MonoBehaviour:
@@ -1351,12 +1351,12 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _backgroundSprites:
-  - {fileID: -2322620748023585875, guid: 9741e81103e65f0449ac8ca3bc8c4c1c, type: 3}
-  - {fileID: 7171744846858164736, guid: 6430490270c81554b8a38bf90de9ba68, type: 3}
-  - {fileID: -2322620748023585875, guid: 9741e81103e65f0449ac8ca3bc8c4c1c, type: 3}
-  - {fileID: -2322620748023585875, guid: 9741e81103e65f0449ac8ca3bc8c4c1c, type: 3}
-  - {fileID: -2322620748023585875, guid: 9741e81103e65f0449ac8ca3bc8c4c1c, type: 3}
-  - {fileID: -2322620748023585875, guid: 9741e81103e65f0449ac8ca3bc8c4c1c, type: 3}
+  - {fileID: -7377295934022830490, guid: 9741e81103e65f0449ac8ca3bc8c4c1c, type: 3}
+  - {fileID: 1336809692955082325, guid: 6430490270c81554b8a38bf90de9ba68, type: 3}
+  - {fileID: 3398196857506778724, guid: 3ef858495444fe248b2e8fe262cafb14, type: 3}
+  - {fileID: 3398196857506778724, guid: 3ef858495444fe248b2e8fe262cafb14, type: 3}
+  - {fileID: 3398196857506778724, guid: 3ef858495444fe248b2e8fe262cafb14, type: 3}
+  - {fileID: 3398196857506778724, guid: 3ef858495444fe248b2e8fe262cafb14, type: 3}
   _groundSprites:
   - {fileID: 7170942278524871683, guid: 0d0085b9776167d429d9edd255bdd305, type: 3}
   - {fileID: 7170942278524871683, guid: 0d0085b9776167d429d9edd255bdd305, type: 3}
@@ -1653,7 +1653,6 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   _text: 
-  _floatinghHitTypePrefab: {fileID: -3939732225841596142, guid: 4dfcf6b352cd16a47b5df442eed22251, type: 3}
   _floatingParent: {fileID: 1190546764}
 --- !u!114 &622882458
 MonoBehaviour:
@@ -1713,6 +1712,7 @@ Transform:
   - {fileID: 1916725193}
   - {fileID: 1066786434}
   - {fileID: 2131590473}
+  - {fileID: 400423757}
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
 --- !u!1 &694129558
@@ -2729,7 +2729,7 @@ Transform:
   m_GameObject: {fileID: 1388212993}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: -1.25, z: 0}
+  m_LocalPosition: {x: -5, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2779,7 +2779,7 @@ SpriteRenderer:
   m_SortingLayerID: 1406333105
   m_SortingLayer: -1
   m_SortingOrder: 1
-  m_Sprite: {fileID: 7170942278524871683, guid: 0d0085b9776167d429d9edd255bdd305, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -2787,7 +2787,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1569101677
@@ -3435,7 +3435,7 @@ SpriteRenderer:
   m_SortingLayerID: 1406333105
   m_SortingLayer: -1
   m_SortingOrder: 0
-  m_Sprite: {fileID: 7171744846858164736, guid: 6430490270c81554b8a38bf90de9ba68, type: 3}
+  m_Sprite: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
   m_FlipX: 0
   m_FlipY: 0
@@ -3443,7 +3443,7 @@ SpriteRenderer:
   m_Size: {x: 1, y: 1}
   m_AdaptiveModeThreshold: 0.5
   m_SpriteTileMode: 0
-  m_WasSpriteAssigned: 1
+  m_WasSpriteAssigned: 0
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
 --- !u!1 &1916725192
@@ -4114,7 +4114,6 @@ SceneRoots:
   m_Roots:
   - {fileID: 1298730522}
   - {fileID: 674010753}
-  - {fileID: 400423757}
   - {fileID: 1933333660}
   - {fileID: 1082093630}
   - {fileID: 694129561}
