@@ -26,7 +26,7 @@ public class ResultUI : MonoBehaviour
     {
         if(GameManager.Instance.CurrentGameMode == EGameMode.Arcade 
             && !StageManager.Instance.IsGameOver() 
-            && GameManager.Instance.CurrentStageIndex <  5)
+            && GameManager.Instance.CurrentStageIndex <  4)
         {
             //승리했고 아케이드 모드라면 다음 스테이지가 존재한다면 다음 스테이지로
             GameManager.Instance.StartStage();
@@ -39,6 +39,7 @@ public class ResultUI : MonoBehaviour
         else
         {
             //그 외라면 모드씬으로
+            GameManager.Instance.ResetStageIndex();
             GameManager.Instance.ChangeScene(ESceneType.ModeSelect, ETransitionType.StageToModeOut, ETransitionType.StageToModeIn);
         }
     }
