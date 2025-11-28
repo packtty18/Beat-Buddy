@@ -6,9 +6,6 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/1. Scenes/Main.unity
-    guid: 8c9cfa26abfee488c85f1582747f6a02
-  - enabled: 1
     path: Assets/1. Scenes/Main/Lobby.unity
     guid: 5fa4c38643f14ab41bab9d117ae5c803
   - enabled: 1
@@ -16,7 +13,7 @@ EditorBuildSettings:
     guid: 1d093e7088694f94b826e3fa8af11b19
   - enabled: 1
     path: Assets/1. Scenes/Main/SongSelect.unity
-    guid: 61964994fc440524497aaaa6f1a83068
+    guid: 73330a8e6f7b9d041886823a1bf2b1c3
   - enabled: 1
     path: Assets/1. Scenes/Main/Stage.unity
     guid: de450f4185dd27a4d9e3ff04076401cd

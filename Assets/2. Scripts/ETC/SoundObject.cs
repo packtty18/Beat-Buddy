@@ -35,7 +35,12 @@ public class SoundObject : MonoBehaviour, IPoolable
         StopLifetimeRoutine();
     }
 
-    public void OnPlay(AudioClip clip, bool isBgm, float playTime = 0f)
+    public void SetVolume(float volume)
+    {
+        _audio.volume = volume;
+    }
+
+    public void OnPlay(AudioClip clip, bool isBgm, float volume, double delayTime = -1)
     {
         StopLifetimeRoutine();
 
@@ -47,32 +52,27 @@ public class SoundObject : MonoBehaviour, IPoolable
 
         _audio.clip = clip;
         _audio.loop = isBgm;
-        _audio.Play();
+        _audio.volume = volume;
 
-        float duration = GetPlayDuration(clip, isBgm, playTime);
-
-        if (duration > 0f)
+        if(delayTime < 0)
         {
-            _lifetimeRoutine = StartCoroutine(Wait(duration, isBgm ? StopPlay : DespawnObject));
+            _audio.Play();
         }
-    }
-
-    private float GetPlayDuration(AudioClip clip, bool isBgm, float playTime)
-    {
-        if (playTime > 0f)
+        else
         {
-            return isBgm ? playTime : Mathf.Min(playTime, clip.length);
+            _audio.PlayScheduled(delayTime);
         }
 
-        return isBgm ? 0f : clip.length; 
+        if (!isBgm)
+        {
+            _lifetimeRoutine = StartCoroutine(WaitForEnd(clip.length));
+        }
     }
-
-    private IEnumerator Wait(float duration, Action callback)
+    private IEnumerator WaitForEnd(float endTime)
     {
-        yield return new WaitForSeconds(duration);
-        callback?.Invoke();
+        yield return new WaitForSeconds(endTime);   
+        DespawnObject();
     }
-
 
     public void StopPlay()
     {

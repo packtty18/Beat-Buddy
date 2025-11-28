@@ -1,0 +1,493 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f950f9babf1d6e548988362fa5b63401, type: 3}
+  m_Name: BGM_EsperTheme
+  m_EditorClassIdentifier: 
+  _songType: 4
+  _bgmIcon: {fileID: 3110789236329512668, guid: ee53a139d02d64046ad5a12668a303eb, type: 3}
+  _bgmName: EsperTheme
+  _bpm: 116
+  _audioClip: {fileID: 8300000, guid: 2131728b0649ad74d94dad5324595c75, type: 3}
+  _notes:
+  - beat: 0.06186667
+    type: 1
+  - beat: 1.0614
+    type: 0
+  - beat: 1.5602001
+    type: 0
+  - beat: 2.0609334
+    type: 1
+  - beat: 3.0604668
+    type: 1
+  - beat: 4.06
+    type: 0
+  - beat: 5.0614667
+    type: 0
+  - beat: 5.560267
+    type: 0
+  - beat: 6.0610003
+    type: 1
+  - beat: 8.060067
+    type: 1
+  - beat: 8.560801
+    type: 0
+  - beat: 8.810201
+    type: 0
+  - beat: 9.061534
+    type: 0
+  - beat: 9.560333
+    type: 0
+  - beat: 10.061067
+    type: 1
+  - beat: 10.5618
+    type: 1
+  - beat: 11.0606
+    type: 0
+  - beat: 12.060134
+    type: 1
+  - beat: 12.311467
+    type: 1
+  - beat: 12.560867
+    type: 1
+  - beat: 13.061601
+    type: 0
+  - beat: 13.560401
+    type: 0
+  - beat: 14.061134
+    type: 1
+  - beat: 15.060667
+    type: 0
+  - beat: 16.0602
+    type: 1
+  - beat: 16.560934
+    type: 0
+  - beat: 16.810333
+    type: 0
+  - beat: 17.061666
+    type: 0
+  - beat: 17.560467
+    type: 1
+  - beat: 18.061201
+    type: 0
+  - beat: 18.560001
+    type: 0
+  - beat: 19.060734
+    type: 1
+  - beat: 20.060268
+    type: 0
+  - beat: 20.311602
+    type: 0
+  - beat: 20.561
+    type: 0
+  - beat: 21.061733
+    type: 1
+  - beat: 21.560534
+    type: 1
+  - beat: 22.061268
+    type: 0
+  - beat: 23.0608
+    type: 1
+  - beat: 24.060335
+    type: 0
+  - beat: 24.561068
+    type: 1
+  - beat: 24.810467
+    type: 1
+  - beat: 25.061802
+    type: 1
+  - beat: 25.5606
+    type: 0
+  - beat: 26.061335
+    type: 1
+  - beat: 26.562067
+    type: 0
+  - beat: 27.060867
+    type: 0
+  - beat: 28.060402
+    type: 1
+  - beat: 28.311735
+    type: 1
+  - beat: 28.561134
+    type: 1
+  - beat: 29.061869
+    type: 0
+  - beat: 29.560667
+    type: 1
+  - beat: 30.061401
+    type: 1
+  - beat: 30.562134
+    type: 0
+  - beat: 30.811535
+    type: 0
+  - beat: 31.060934
+    type: 0
+  - beat: 32.060467
+    type: 0
+  - beat: 32.561203
+    type: 1
+  - beat: 32.8106
+    type: 1
+  - beat: 33.061935
+    type: 1
+  - beat: 33.560734
+    type: 0
+  - beat: 34.061466
+    type: 1
+  - beat: 34.56027
+    type: 0
+  - beat: 35.061
+    type: 0
+  - beat: 36.060535
+    type: 1
+  - beat: 36.311867
+    type: 1
+  - beat: 36.561268
+    type: 1
+  - beat: 37.062
+    type: 0
+  - beat: 37.560802
+    type: 0
+  - beat: 38.061535
+    type: 1
+  - beat: 38.560333
+    type: 0
+  - beat: 38.81167
+    type: 0
+  - beat: 39.06107
+    type: 0
+  - beat: 40.0606
+    type: 1
+  - beat: 40.561337
+    type: 0
+  - beat: 40.810734
+    type: 0
+  - beat: 41.060135
+    type: 0
+  - beat: 41.560867
+    type: 0
+  - beat: 42.061604
+    type: 1
+  - beat: 42.560402
+    type: 0
+  - beat: 43.061134
+    type: 0
+  - beat: 43.561867
+    type: 1
+  - beat: 44.06067
+    type: 0
+  - beat: 44.31007
+    type: 0
+  - beat: 44.5614
+    type: 0
+  - beat: 45.060204
+    type: 1
+  - beat: 45.560936
+    type: 0
+  - beat: 46.06167
+    type: 1
+  - beat: 46.31107
+    type: 1
+  - beat: 46.560467
+    type: 1
+  - beat: 47.061203
+    type: 0
+  - beat: 48.060734
+    type: 1
+  - beat: 48.56147
+    type: 0
+  - beat: 48.810867
+    type: 0
+  - beat: 49.06027
+    type: 0
+  - beat: 49.561
+    type: 0
+  - beat: 50.061737
+    type: 1
+  - beat: 50.560535
+    type: 0
+  - beat: 51.061268
+    type: 0
+  - beat: 51.56007
+    type: 1
+  - beat: 52.060802
+    type: 0
+  - beat: 52.310204
+    type: 0
+  - beat: 52.561535
+    type: 0
+  - beat: 53.060337
+    type: 1
+  - beat: 53.31167
+    type: 1
+  - beat: 53.56107
+    type: 1
+  - beat: 54.061802
+    type: 0
+  - beat: 55.061337
+    type: 0
+  - beat: 56.060867
+    type: 0
+  - beat: 56.561604
+    type: 1
+  - beat: 56.811
+    type: 1
+  - beat: 57.060402
+    type: 1
+  - beat: 57.561134
+    type: 0
+  - beat: 58.06187
+    type: 1
+  - beat: 58.56067
+    type: 0
+  - beat: 59.0614
+    type: 0
+  - beat: 59.562138
+    type: 1
+  - beat: 60.060936
+    type: 0
+  - beat: 60.310337
+    type: 0
+  - beat: 60.56167
+    type: 0
+  - beat: 61.06047
+    type: 1
+  - beat: 61.561203
+    type: 0
+  - beat: 62.061935
+    type: 1
+  - beat: 62.311337
+    type: 1
+  - beat: 62.560738
+    type: 1
+  - beat: 63.06147
+    type: 0
+  - beat: 64.061005
+    type: 1
+  - beat: 64.56174
+    type: 1
+  - beat: 65.06054
+    type: 1
+  - beat: 65.56127
+    type: 0
+  - beat: 65.81067
+    type: 0
+  - beat: 66.062004
+    type: 0
+  - beat: 66.56081
+    type: 0
+  - beat: 67.06154
+    type: 1
+  - beat: 67.310936
+    type: 1
+  - beat: 67.56033
+    type: 1
+  - beat: 68.061066
+    type: 0
+  - beat: 69.0606
+    type: 1
+  - beat: 69.56133
+    type: 0
+  - beat: 69.81074
+    type: 0
+  - beat: 70.06207
+    type: 0
+  - beat: 70.56087
+    type: 1
+  - beat: 71.0616
+    type: 0
+  - beat: 72.061134
+    type: 1
+  - beat: 72.56187
+    type: 0
+  - beat: 72.81127
+    type: 0
+  - beat: 73.06067
+    type: 0
+  - beat: 73.5614
+    type: 1
+  - beat: 74.06213
+    type: 1
+  - beat: 74.56287
+    type: 0
+  - beat: 75.06167
+    type: 1
+  - beat: 76.0612
+    type: 0
+  - beat: 76.31254
+    type: 0
+  - beat: 76.561935
+    type: 0
+  - beat: 77.06267
+    type: 1
+  - beat: 77.56147
+    type: 0
+  - beat: 78.06027
+    type: 0
+  - beat: 79.06174
+    type: 1
+  - beat: 80.06127
+    type: 0
+  - beat: 80.562004
+    type: 1
+  - beat: 80.8114
+    type: 1
+  - beat: 81.06274
+    type: 1
+  - beat: 81.56154
+    type: 0
+  - beat: 82.06227
+    type: 1
+  - beat: 82.56107
+    type: 1
+  - beat: 83.061806
+    type: 0
+  - beat: 84.06134
+    type: 0
+  - beat: 84.31267
+    type: 0
+  - beat: 84.56207
+    type: 0
+  - beat: 85.062805
+    type: 1
+  - beat: 85.5616
+    type: 0
+  - beat: 86.06234
+    type: 1
+  - beat: 87.06187
+    type: 0
+  - beat: 88.0614
+    type: 0
+  - beat: 88.56213
+    type: 1
+  - beat: 88.81154
+    type: 1
+  - beat: 89.062874
+    type: 1
+  - beat: 89.56167
+    type: 0
+  - beat: 90.0624
+    type: 1
+  - beat: 90.56313
+    type: 1
+  - beat: 91.061935
+    type: 0
+  - beat: 92.06147
+    type: 1
+  - beat: 92.312805
+    type: 1
+  - beat: 92.5622
+    type: 1
+  - beat: 93.062935
+    type: 0
+  - beat: 93.56174
+    type: 1
+  - beat: 94.06247
+    type: 1
+  - beat: 94.5632
+    type: 0
+  - beat: 94.81261
+    type: 0
+  - beat: 95.062004
+    type: 0
+  - beat: 96.06154
+    type: 0
+  - beat: 96.56227
+    type: 1
+  - beat: 96.81167
+    type: 1
+  - beat: 97.063
+    type: 1
+  - beat: 97.561806
+    type: 0
+  - beat: 98.06254
+    type: 1
+  - beat: 98.56134
+    type: 1
+  - beat: 99.06207
+    type: 0
+  - beat: 100.06161
+    type: 0
+  - beat: 100.312935
+    type: 0
+  - beat: 100.56234
+    type: 0
+  - beat: 101.06307
+    type: 1
+  - beat: 101.561874
+    type: 0
+  - beat: 102.06261
+    type: 0
+  - beat: 102.5614
+    type: 1
+  - beat: 102.81274
+    type: 1
+  - beat: 103.06213
+    type: 1
+  - beat: 104.06167
+    type: 0
+  - beat: 105.0612
+    type: 1
+  - beat: 105.560005
+    type: 0
+  - beat: 106.06074
+    type: 1
+  - beat: 106.56147
+    type: 1
+  - beat: 107.06027
+    type: 0
+  - beat: 107.30967
+    type: 0
+  - beat: 107.559074
+    type: 0
+  - beat: 108.06174
+    type: 1
+  - beat: 109.06127
+    type: 0
+  - beat: 109.560074
+    type: 1
+  - beat: 110.06081
+    type: 0
+  - beat: 110.56154
+    type: 0
+  - beat: 111.06034
+    type: 1
+  - beat: 112.061806
+    type: 0
+  - beat: 113.06134
+    type: 0
+  - beat: 113.560135
+    type: 1
+  - beat: 114.060875
+    type: 0
+  - beat: 114.56161
+    type: 0
+  - beat: 115.0604
+    type: 1
+  - beat: 115.30981
+    type: 1
+  - beat: 115.559204
+    type: 1
+  - beat: 116.061874
+    type: 0
+  - beat: 117.0614
+    type: 1
+  - beat: 117.5602
+    type: 1
+  - beat: 118.060936
+    type: 0
+  - beat: 118.56167
+    type: 0
+  - beat: 119.06047
+    type: 1
+  - beat: 119.55927
+    type: 0
+  _difficulty: 3

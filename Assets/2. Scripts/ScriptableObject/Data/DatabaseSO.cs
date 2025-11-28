@@ -1,4 +1,4 @@
-using System;
+﻿using System;
 using System.Collections.Generic;
 using UnityEngine;
 
@@ -38,6 +38,30 @@ public abstract class DatabaseSO<TKey, TValue> : ScriptableObject
         }
         map.TryGetValue(key, out TValue value);
         return value;
+    }
+
+    public List<TValue> GetAllData()
+    {
+        List<TValue> values = new List<TValue>();
+        foreach (var entry in entries)
+        {
+            if (entry.Value != null)
+            {
+                values.Add(entry.Value);
+            }
+        }
+        return values;
+    }
+
+    public int Count => entries?.Count ?? 0;
+
+    public bool ContainsKey(TKey key)
+    {
+        if (map == null)
+        {
+            InitMap();
+        }
+        return map.ContainsKey(key);
     }
 }
 

@@ -1,0 +1,23 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 33cb57573f5f1e84d9cff5716b08d1b4, type: 3}
+  m_Name: PlayerDefaultStat
+  m_EditorClassIdentifier: 
+  MaxHealth: 100
+  BaseDamage: 10
+  AttackGuage: 20
+  BaseAttackIncrease: 1
+  FeverGuage: 20
+  BaseFeverIncrease: 1
+  FeverAttackGuagePlus: 0.5
+  FeverDamagePlus: 2
+  Heal: 0.5
