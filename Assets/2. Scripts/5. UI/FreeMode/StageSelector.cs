@@ -134,6 +134,7 @@ public class StageSelector : SelectableButton, IUIValueChangeable
     public void OnValueIncrease()
     {
         currentIndex = LoopIndex(currentIndex + 1);
+        SoundManager.Instance.PlayBGM(GetCurrentClip());
     }
 
     
@@ -141,6 +142,7 @@ public class StageSelector : SelectableButton, IUIValueChangeable
     public void OnValueDecrease()
     {
         currentIndex = LoopIndex(currentIndex - 1);
+        SoundManager.Instance.PlayBGM(GetCurrentClip());
     }
 
     public override void OnSelected()
@@ -149,9 +151,6 @@ public class StageSelector : SelectableButton, IUIValueChangeable
         SoundManager.Instance.PlayBGM(GetCurrentClip());
     }
 
-    public void OnDeselected()
-    {
-    }
 
     public AudioClip GetCurrentClip()
     {

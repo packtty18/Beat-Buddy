@@ -168,7 +168,10 @@ public class UISelector : MonoBehaviour
         if (_currentTarget.TryGetComponent(out IUIValueChangeable valueChange))
         {
             if (InputManager.Instance.GetKeyDown(EGameKeyType.Right))
+            {
                 valueChange.OnValueIncrease();
+            }
+                
 
             if (InputManager.Instance.GetKeyDown(EGameKeyType.Left))
                 valueChange.OnValueDecrease();
