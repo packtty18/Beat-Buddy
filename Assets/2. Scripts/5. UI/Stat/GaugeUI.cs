@@ -1,4 +1,5 @@
 ﻿using DG.Tweening;
+using System.Collections.Generic;
 using UnityEngine;
 using UnityEngine.UI;
 
@@ -10,10 +11,11 @@ public class GaugeUI : SceneSingleton<GaugeUI>
     [SerializeField] private Slider _attackSlider;
     [SerializeField] private Slider _buddyHealthSlider;
     [SerializeField] private Image _buddyHealthFill;
+    [SerializeField] private List<Sprite> _buddyHealthFillImages;
 
     [Header("Max Values")]
     private float _maxHealth = 100f;
-    private float _maxFever = 50f;
+    private float _maxFever = 20f;
     private float _maxAttack = 20f;
     private float _maxBuddyHealth = 100f;
 
@@ -29,10 +31,7 @@ public class GaugeUI : SceneSingleton<GaugeUI>
     private Tween _feverTween;
     private Tween _attackTween;
     private Tween _buddyHealthTween;
-    private Tween _colorTween;
 
-    private Color _normalColor = new Color(0.372f, 1f, 0.321f);
-    private Color _cautionColor = new Color(1, 0.321f, 0.812f);
     protected override void Awake()
     {
         base.Awake();
@@ -40,6 +39,7 @@ public class GaugeUI : SceneSingleton<GaugeUI>
         _feverSlider.transform.localScale = Vector3.zero;
         _attackSlider.transform.localScale = Vector3.zero;
         _buddyHealthSlider.transform.localScale = Vector3.zero;
+        _buddyHealthFill.sprite = _buddyHealthFillImages[0];
     }
     public void DestroyGaugeUI()
     {
@@ -154,25 +154,18 @@ public class GaugeUI : SceneSingleton<GaugeUI>
             {
                 // 100→50: sliderValue는 50→0
                 sliderValue = _currentBuddyHealth - halfHealth;  // 50~0
-                targetColor = _normalColor;
+                _buddyHealthFill.sprite = _buddyHealthFillImages[0];
             }
             else
             {
                 // 50→0: sliderValue는 0→50 (거꾸로 채워지는 효과)
                 sliderValue = halfHealth - _currentBuddyHealth;  // 0~50
-                targetColor = _cautionColor;
+                _buddyHealthFill.sprite = _buddyHealthFillImages[1];
             }
 
             // 이제 sliderValue는 0~50 범위이므로 그대로 사용
             _buddyHealthTween = _buddyHealthSlider.DOValue(sliderValue, _gaugeDuration)
                 .SetEase(Ease.OutQuad);
-
-            // Fill 색상 변경 애니메이션
-            if (_buddyHealthFill != null)
-            {
-                _colorTween?.Kill();
-                _colorTween = _buddyHealthFill.DOColor(targetColor, _gaugeDuration);
-            }
         }
     }
 

@@ -2,12 +2,11 @@
 using UnityEngine.UI;
 
 [RequireComponent(typeof(Slider))]
-public class SoundSlider : MonoBehaviour, IUIValueChangeable
+public class SoundSlider : SelectableSlider
 {
     private enum SoundType { BGM, SFX }
     [SerializeField] private SoundType curType = SoundType.BGM;
 
-    private float changeAmount = 0.1f;
     private Slider _slider;
 
     private void Start()
@@ -24,14 +23,16 @@ public class SoundSlider : MonoBehaviour, IUIValueChangeable
         _slider.value = initialValue;
     }
 
-    public void OnValueDecrease()
+    public override void OnValueDecrease()
     {
-        UpdateValue(-changeAmount);
+        base.OnValueDecrease();
+        UpdateValue(-_changeAmount);
     }
 
-    public void OnValueIncrease()
+    public override void OnValueIncrease()
     {
-        UpdateValue(changeAmount);
+        base.OnValueIncrease();
+        UpdateValue(_changeAmount);
     }
 
     private void UpdateValue(float delta)
@@ -50,4 +51,5 @@ public class SoundSlider : MonoBehaviour, IUIValueChangeable
 
         Debug.Log($"[{curType}] Slider updated to {newValue}");
     }
+
 }

@@ -112,23 +112,40 @@ public class UISelector : MonoBehaviour
         HandleControlInput();
     }
 
+    private ISelectable lastSelect;
+
     //상하로 다음 UI로 이동
     private void HandleMoveInput()
     {
-        
         if (InputManager.Instance.GetKeyDown(EGameKeyType.Up))
         {
+            if (lastSelect != null)
+            {
+                lastSelect.OnDeselected();
+            }
+
             _currentIndex = (_currentIndex - 1 + _targets.Count) % _targets.Count;
             _currentTarget = _targets[_currentIndex];
             UpdateHighlight();
-            SoundManager.Instance.PlaySFX(ESoundType.SFX_ButtonSelect);
+            if (_currentTarget.TryGetComponent(out ISelectable selectable))
+            {
+                selectable.OnSelected();
+            }
         }
         else if (InputManager.Instance.GetKeyDown(EGameKeyType.Down))
         {
+            if (lastSelect != null)
+            {
+                lastSelect.OnDeselected();
+            }
+
             _currentIndex = (_currentIndex + 1) % _targets.Count;
             _currentTarget = _targets[_currentIndex];
             UpdateHighlight();
-            SoundManager.Instance.PlaySFX(ESoundType.SFX_ButtonSelect);
+            if (_currentTarget.TryGetComponent(out ISelectable selectable))
+            {
+                selectable.OnSelected();
+            }
         }
     }
 
@@ -151,7 +168,10 @@ public class UISelector : MonoBehaviour
         if (_currentTarget.TryGetComponent(out IUIValueChangeable valueChange))
         {
             if (InputManager.Instance.GetKeyDown(EGameKeyType.Right))
+            {
                 valueChange.OnValueIncrease();
+            }
+                
 
             if (InputManager.Instance.GetKeyDown(EGameKeyType.Left))
                 valueChange.OnValueDecrease();
@@ -170,6 +190,7 @@ public class UISelector : MonoBehaviour
         RectTransform targetRect = _currentTarget;
 
         _highlightUI.gameObject.SetActive(true);
+        _highlightUI.SetParent(targetRect);
         Vector3 worldPos = _currentTarget.position;
         _highlightUI.position = worldPos;
         _highlightUI.sizeDelta = new Vector3(targetRect.sizeDelta.x + PADDING_OFFSET, targetRect.sizeDelta.y + PADDING_OFFSET);
