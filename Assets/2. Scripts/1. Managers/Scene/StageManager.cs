@@ -66,11 +66,14 @@ public class StageManager : SceneSingleton<StageManager>
 
         if(_resultUI == null)
         {
-            _resultUI.gameObject.SetActive(false);
             return false; 
         }
+        else
+        {
+            _resultUI.gameObject.SetActive(false);
+        }
 
-        if(_countDownText == null)
+        if (_countDownText == null)
         {
             _countDownText.gameObject.SetActive(false);
             return false;

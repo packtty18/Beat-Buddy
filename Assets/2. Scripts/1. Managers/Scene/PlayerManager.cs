@@ -32,7 +32,7 @@ public class PlayerManager : SceneSingleton<PlayerManager>
         if (_playerPrefab != null)
         {
             _currentPlayerPrefab = Instantiate(_playerPrefab, _playerSpawnPoint.position, Quaternion.identity, _playerSpawnPoint);
-            _currentPlayerPrefab.transform.DOMoveX(_currentPlayerPrefab.transform.position.x + 5f, 3f);
+            _currentPlayerPrefab.transform.DOMoveX(_currentPlayerPrefab.transform.position.x + 5.4f, 3f);
             GetPlayerStat(_currentPlayerPrefab);
         }
         else
