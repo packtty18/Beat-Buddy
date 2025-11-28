@@ -379,8 +379,8 @@ MonoBehaviour:
       m_Calls: []
   m_text: 3
   m_isRightToLeft: 0
-  m_fontAsset: {fileID: 11400000, guid: 53463fbd4dc187e4bbb564333ab794de, type: 2}
-  m_sharedMaterial: {fileID: 8612556229251602152, guid: 53463fbd4dc187e4bbb564333ab794de, type: 2}
+  m_fontAsset: {fileID: 11400000, guid: 519086b8b89dc8241963c3e6a7ee5e77, type: 2}
+  m_sharedMaterial: {fileID: 8350035478571675973, guid: 519086b8b89dc8241963c3e6a7ee5e77, type: 2}
   m_fontSharedMaterials: []
   m_fontMaterial: {fileID: 0}
   m_fontMaterials: []
@@ -404,12 +404,12 @@ MonoBehaviour:
   m_faceColor:
     serializedVersion: 2
     rgba: 4294967295
-  m_fontSize: 72
+  m_fontSize: 200
   m_fontSizeBase: 36
   m_fontWeight: 400
   m_enableAutoSizing: 1
-  m_fontSizeMin: 18
-  m_fontSizeMax: 72
+  m_fontSizeMin: 30
+  m_fontSizeMax: 200
   m_fontStyle: 0
   m_HorizontalAlignment: 2
   m_VerticalAlignment: 512
@@ -487,7 +487,7 @@ Transform:
   m_GameObject: {fileID: 356078960}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 5, y: -1.5, z: 0}
+  m_LocalPosition: {x: 4.5, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -599,16 +599,16 @@ MonoBehaviour:
   - {fileID: -7377295934022830490, guid: 9741e81103e65f0449ac8ca3bc8c4c1c, type: 3}
   - {fileID: 1336809692955082325, guid: 6430490270c81554b8a38bf90de9ba68, type: 3}
   - {fileID: 3398196857506778724, guid: 3ef858495444fe248b2e8fe262cafb14, type: 3}
-  - {fileID: 3398196857506778724, guid: 3ef858495444fe248b2e8fe262cafb14, type: 3}
-  - {fileID: 3398196857506778724, guid: 3ef858495444fe248b2e8fe262cafb14, type: 3}
-  - {fileID: 3398196857506778724, guid: 3ef858495444fe248b2e8fe262cafb14, type: 3}
+  - {fileID: 5291437818912269135, guid: a87b17828d92e0649bddbd5ca5126419, type: 3}
+  - {fileID: -5310472767335154687, guid: b3324c7ab06c1734489c1fb57e6285e7, type: 3}
+  - {fileID: -5310472767335154687, guid: b3324c7ab06c1734489c1fb57e6285e7, type: 3}
   _groundSprites:
-  - {fileID: 7170942278524871683, guid: 0d0085b9776167d429d9edd255bdd305, type: 3}
-  - {fileID: 7170942278524871683, guid: 0d0085b9776167d429d9edd255bdd305, type: 3}
-  - {fileID: 7170942278524871683, guid: 0d0085b9776167d429d9edd255bdd305, type: 3}
-  - {fileID: 4220347043133846663, guid: 0d0085b9776167d429d9edd255bdd305, type: 3}
-  - {fileID: 7170942278524871683, guid: 0d0085b9776167d429d9edd255bdd305, type: 3}
-  - {fileID: 7170942278524871683, guid: 0d0085b9776167d429d9edd255bdd305, type: 3}
+  - {fileID: 1258645602848368593, guid: 871c41a504950234faa1392e84e53ed6, type: 3}
+  - {fileID: 8627783971862470450, guid: 871c41a504950234faa1392e84e53ed6, type: 3}
+  - {fileID: 5357474440129519165, guid: 871c41a504950234faa1392e84e53ed6, type: 3}
+  - {fileID: -5315828571106901945, guid: 871c41a504950234faa1392e84e53ed6, type: 3}
+  - {fileID: -4685052074715191720, guid: 871c41a504950234faa1392e84e53ed6, type: 3}
+  - {fileID: -4685052074715191720, guid: 871c41a504950234faa1392e84e53ed6, type: 3}
   _background: {fileID: 1915140696}
   _playerGround: {fileID: 1388212995}
   _buddyGround: {fileID: 356078962}
@@ -1337,6 +1337,10 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 1552096635451172307, guid: f4b51906425f6ea40a2f33f1cb426bc0, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: -1772940936, guid: 43d187a550e35a840b10227223fe92ed, type: 3}
     - target: {fileID: 2038313661199261489, guid: f4b51906425f6ea40a2f33f1cb426bc0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1353,6 +1357,18 @@ PrefabInstance:
       propertyPath: m_AnchorMax.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 2659750654370191956, guid: f4b51906425f6ea40a2f33f1cb426bc0, type: 3}
+      propertyPath: _buddyHealthFillImages.Array.size
+      value: 2
+      objectReference: {fileID: 0}
+    - target: {fileID: 2659750654370191956, guid: f4b51906425f6ea40a2f33f1cb426bc0, type: 3}
+      propertyPath: '_buddyHealthFillImages.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2831186660323490502, guid: f292ca22555e1434fb3a352d2c9f164c, type: 3}
+    - target: {fileID: 2659750654370191956, guid: f4b51906425f6ea40a2f33f1cb426bc0, type: 3}
+      propertyPath: '_buddyHealthFillImages.Array.data[1]'
+      value: 
+      objectReference: {fileID: 2831186660323490502, guid: b40fed7b6f276cf4e9386a3f72e63fc4, type: 3}
     - target: {fileID: 4053501503436896151, guid: f4b51906425f6ea40a2f33f1cb426bc0, type: 3}
       propertyPath: m_AnchorMax.x
       value: 0
@@ -1691,7 +1707,7 @@ Transform:
   m_GameObject: {fileID: 1388212993}
   serializedVersion: 2
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -5, y: -1.5, z: 0}
+  m_LocalPosition: {x: -4.5, y: -1.5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_ConstrainProportionsScale: 0
   m_Children: []
@@ -2922,6 +2938,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: ComboUI
       objectReference: {fileID: 0}
+    - target: {fileID: 4288030401428947037, guid: 780ae01cd59cc2846b06c9ed4011e585, type: 3}
+      propertyPath: m_IsActive
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 5174675797262581372, guid: 780ae01cd59cc2846b06c9ed4011e585, type: 3}
+      propertyPath: m_text
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 5174675797262581372, guid: 780ae01cd59cc2846b06c9ed4011e585, type: 3}
+      propertyPath: m_fontAsset
+      value: 
+      objectReference: {fileID: 11400000, guid: 519086b8b89dc8241963c3e6a7ee5e77, type: 2}
+    - target: {fileID: 5174675797262581372, guid: 780ae01cd59cc2846b06c9ed4011e585, type: 3}
+      propertyPath: m_sharedMaterial
+      value: 
+      objectReference: {fileID: 8350035478571675973, guid: 519086b8b89dc8241963c3e6a7ee5e77, type: 2}
+    - target: {fileID: 5174675797262581372, guid: 780ae01cd59cc2846b06c9ed4011e585, type: 3}
+      propertyPath: m_hasFontAssetChanged
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
@@ -3017,7 +3053,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 90571645321969481, guid: 85c9a488501c2644086f422c9946aadf, type: 3}
       propertyPath: m_AnchoredPosition.y
-      value: -8.200012
+      value: 220
       objectReference: {fileID: 0}
     - target: {fileID: 90571645321969481, guid: 85c9a488501c2644086f422c9946aadf, type: 3}
       propertyPath: m_LocalEulerAnglesHint.x
