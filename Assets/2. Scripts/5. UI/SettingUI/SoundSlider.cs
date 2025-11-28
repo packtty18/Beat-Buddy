@@ -7,11 +7,9 @@ public class SoundSlider : SelectableSlider
     private enum SoundType { BGM, SFX }
     [SerializeField] private SoundType curType = SoundType.BGM;
 
-    private Slider _slider;
-
-    private void Start()
+    protected override void Start()
     {
-        _slider = GetComponent<Slider>();
+        base.Start();
         _slider.minValue = 0f;
         _slider.maxValue = 1f;
 
@@ -19,8 +17,9 @@ public class SoundSlider : SelectableSlider
         float initialValue = curType == SoundType.BGM
             ? SoundManager.Instance.bgmVolume
             : SoundManager.Instance.SfxVolume;
-
-        _slider.value = initialValue;
+        _currentValue = initialValue;
+        _slider.value = _currentValue;
+        
     }
 
     public override void OnValueDecrease()
@@ -37,19 +36,16 @@ public class SoundSlider : SelectableSlider
 
     private void UpdateValue(float delta)
     {
-        float newValue = Mathf.Clamp(_slider.value + delta, 0f, 1f);
-        _slider.value = newValue;
-
         if (curType == SoundType.BGM)
         {
-            SoundManager.Instance.SetBgmSound(newValue);
+            SoundManager.Instance.SetBgmSound(_currentValue);
         }
         else
         {
-            SoundManager.Instance.SetSFXSound(newValue);
+            SoundManager.Instance.SetSFXSound(_currentValue);
         }
 
-        Debug.Log($"[{curType}] Slider updated to {newValue}");
+        Debug.Log($"[{curType}] Slider updated to {_currentValue}");
     }
 
 }

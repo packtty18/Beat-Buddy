@@ -25,8 +25,8 @@ public class ComboManager : SceneSingleton<ComboManager>
         _comboText.text = _comboCount.ToString();
 
         _comboSequence = DOTween.Sequence();
-        _comboSequence.Append(_comboText.DOFade(0.5f, 0.5f));
-        _comboSequence.Join(_comboInfoText.DOFade(0.5f, 0.5f));
+        _comboSequence.Append(_comboText.DOFade(1f, 0.5f));
+        _comboSequence.Join(_comboInfoText.DOFade(1f, 0.5f));
         _comboSequence.Join(_comboText.transform.DOScale(1f, 0.5f).From(0.5f).SetEase(Ease.InOutBack));
         _comboSequence.Join(_comboInfoText.transform.DOScale(1f, 0.5f).From(0.5f).SetEase(Ease.InOutBack));
     }

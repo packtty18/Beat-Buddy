@@ -1,10 +1,13 @@
 ﻿using UnityEngine;
+using UnityEngine.Events;
 using UnityEngine.UI;
 
 public class SelectableButton : MonoBehaviour,IUIConfirmable
 {
     private Button _button;
     [SerializeField] private ESoundType _confirmSFX = ESoundType.None;
+    [SerializeField] private UnityEvent selectEvent;
+    [SerializeField] private UnityEvent _deselectEvent;
     private void Start()
     {
         _button = GetComponent<Button>();
@@ -29,10 +32,12 @@ public class SelectableButton : MonoBehaviour,IUIConfirmable
     {
         Debug.Log($"{gameObject.name} : OnSelected");
         SoundManager.Instance.PlaySFX(ESoundType.SFX_ButtonSelect);
+        selectEvent.Invoke();
     }
 
     public virtual void OnDeselected()
     {
         Debug.Log($"{gameObject.name} : OnDeselected");
+        _deselectEvent.Invoke();
     }
 }

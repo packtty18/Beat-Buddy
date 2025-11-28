@@ -8,9 +8,9 @@ public class WidthChanger : MonoBehaviour
     [SerializeField] private float _duration = 1f;
 
     private RectTransform _rect;
-    private float _targetWidth;   // 목표 width
+    [SerializeField] private float _targetWidth;   // 목표 width
     private float _currentWidth;  // 현재 width
-    private bool _isAnimating;    // 현재 애니메이션 중인지 플래그
+    [SerializeField] private bool _isAnimating;    // 현재 애니메이션 중인지 플래그
 
 
 

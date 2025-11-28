@@ -3,14 +3,14 @@ using UnityEngine.UI;
 
 public class SelectableSlider : MonoBehaviour, IUIValueChangeable
 {
-    private Slider _slider;
+    protected Slider _slider;
     [SerializeField] protected float _currentValue = 0.5f;
     [SerializeField] protected float _changeAmount = 0.1f;
 
     [SerializeField] private ESoundType _increaseSFX =ESoundType.None;
     [SerializeField] private ESoundType _decreaseSFX = ESoundType.None;
 
-    private void Start()
+    protected virtual void Start()
     {
         _slider = GetComponent<Slider>();
         _slider.value = _currentValue;
