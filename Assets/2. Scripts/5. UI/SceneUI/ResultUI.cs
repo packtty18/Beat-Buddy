@@ -7,6 +7,9 @@ public class ResultUI : MonoBehaviour
     [SerializeField] private TextMeshProUGUI _goodText;
     [SerializeField] private TextMeshProUGUI _badText;
     [SerializeField] private TextMeshProUGUI _missText;
+
+    [SerializeField] private Transform _rankRoot;
+    //랭크 : 적을 물리침, 끝까지 진행, 풀 콤보
     public void DisplayResult()
     {
         if (GameManager.Instance != null)

@@ -127,7 +127,7 @@ TextureImporter:
         width: 29
         height: 34
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -144,13 +144,13 @@ TextureImporter:
       name: 20250420manaTabB-Sheet_1
       rect:
         serializedVersion: 2
-        x: 30
-        y: 0
-        width: 64
-        height: 45
+        x: 62
+        y: 3
+        width: 31
+        height: 42
       alignment: 0
-      pivot: {x: 0, y: 0}
-      border: {x: 0, y: 0, z: 0, w: 0}
+      pivot: {x: 0.5, y: 0.5}
+      border: {x: 7, y: 11, z: 10, w: 17}
       customData: 
       outline: []
       physicsShape: []
@@ -171,7 +171,7 @@ TextureImporter:
         width: 30
         height: 31
       alignment: 0
-      pivot: {x: 0, y: 0}
+      pivot: {x: 0.5, y: 0.5}
       border: {x: 0, y: 0, z: 0, w: 0}
       customData: 
       outline: []
@@ -188,7 +188,7 @@ TextureImporter:
     customData: 
     physicsShape: []
     bones: []
-    spriteID: 
+    spriteID: 75a70662a687dc645b88a1f0b9345b34
     internalID: 0
     vertices: []
     indices: 
