@@ -5,7 +5,7 @@ public class HitTypeManager : SceneSingleton<HitTypeManager>
 {
     [SerializeField] private string _text;
     [SerializeField] private Transform _floatingParent;
-    public string Text => _text;
+    private int _hitTypeIndex;
 
     public void SetText(EHitType type)
     {
@@ -13,15 +13,19 @@ public class HitTypeManager : SceneSingleton<HitTypeManager>
         {
             case EHitType.Perfect:
                 _text = "Perfect";
+                _hitTypeIndex = 0;
                 break;
             case EHitType.Good:
                 _text = "Good";
+                _hitTypeIndex = 1;
                 break;
             case EHitType.Bad:
                 _text = "Bad";
+                _hitTypeIndex = 2;
                 break;
             case EHitType.Miss:
                 _text = "Miss";
+                _hitTypeIndex = 3;
                 break;
             default:
                 break;
@@ -37,6 +41,6 @@ public class HitTypeManager : SceneSingleton<HitTypeManager>
         }
 
         FloatingHitTypeTextUI floating = PoolManager.Instance.SpawnGetComponent<HitTypePool, EHitEffectText, FloatingHitTypeTextUI>(EHitEffectText.FloatingHitTypeText);
-        floating.Initialize(_text, _floatingParent);
+        floating.Initialize(_text, _floatingParent, _hitTypeIndex);
     }
 }
